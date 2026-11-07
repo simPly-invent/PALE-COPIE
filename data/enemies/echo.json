@@ -1,0 +1,68 @@
+{
+ "name": "Écho",
+ "sprite": "npc_ghost",
+ "scale": 1.8,
+ "hp": 30,
+ "atk": 5,
+ "def": 2,
+ "exp": 12,
+ "gold": 7,
+ "check": "* ÉCHO - ATT 5 DÉF 2\n* Il répète ce que tu dis. En retard.",
+ "flavor": [
+  "* Écho répète : « ...flavor... »",
+  "* « ...cho... cho... »",
+  "* Écho te regarde avec tes yeux."
+ ],
+ "spare_flavor": "* Écho se tait. C'est la première fois.",
+ "acts": [
+  {
+   "label": "Se taire",
+   "text": [
+    "* Tu ne dis rien.",
+    "* Écho ne dit rien.",
+    "* C'est reposant."
+   ],
+   "mercy": 50
+  },
+  {
+   "label": "Crier",
+   "text": [
+    "* HÉ !",
+    "* ...hé... hé... é...",
+    "* Il a l'air épuisé."
+   ],
+   "mercy": 10
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un perroquet",
+    "La voix de quelqu'un qui appelait au -2",
+    "Une radio"
+   ],
+   "answer": 1,
+   "name": "la voix de Paul, équipe 3",
+   "mercy": 60,
+   "text_right": [
+    "* C'est la voix de Paul, de l'équipe 3. Il appelait les autres dans le parking.",
+    "* « ...Paul. C'était moi. »"
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "...",
+  "...dis...",
+  "...tu...",
+  "...es là ?"
+ ],
+ "patterns": [
+  "ring",
+  "homing"
+ ],
+ "music": "battle"
+}

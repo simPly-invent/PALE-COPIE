@@ -1,0 +1,279 @@
+{
+ "id": "z4_corridor",
+ "zone": 4,
+ "name": "Couloir des chambres",
+ "fidelity": 76,
+ "size": [
+  22,
+  9
+ ],
+ "chain": {
+  "max_depth": 5,
+  "then": "z4_numbers",
+  "then_door": "south"
+ },
+ "back": {
+  "room": "z4_lobby",
+  "door": "north"
+ },
+ "no_mutations": [
+  "door_shift"
+ ],
+ "props": [
+  {
+   "id": "lamp1",
+   "sprite": "lamp",
+   "pos": [
+    5,
+    3
+   ],
+   "tags": [
+    "small",
+    "light",
+    "repeatable"
+   ],
+   "solid": false,
+   "light": {
+    "color": "#ffd8a0",
+    "energy": 0.6
+   }
+  },
+  {
+   "id": "lamp2",
+   "sprite": "lamp",
+   "pos": [
+    13,
+    3
+   ],
+   "tags": [
+    "small",
+    "light",
+    "repeatable"
+   ],
+   "solid": false,
+   "light": {
+    "color": "#ffd8a0",
+    "energy": 0.6
+   }
+  },
+  {
+   "id": "trolley",
+   "sprite": "stretcher",
+   "pos": [
+    17,
+    6
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Un chariot de ménage. Les serviettes sont pliées en forme de cygne. Toutes."
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "sophie",
+   "sprite": "npc_girl_purple",
+   "pos": [
+    9,
+    6
+   ],
+   "dialogue": "colleague_sophie",
+   "when": {
+    "depth": [
+     4,
+     4
+    ]
+   }
+  }
+ ],
+ "chests": [
+  {
+   "id": "z4_keyring",
+   "sprite": "chest_crate",
+   "pos": [
+    2,
+    7
+   ],
+   "contents": "keyring",
+   "when": {
+    "depth": [
+     1,
+     5
+    ]
+   }
+  },
+  {
+   "id": "z4_tape_t10",
+   "sprite": "chest_briefcase",
+   "pos": [
+    20,
+    7
+   ],
+   "contents": "tape:t10",
+   "when": {
+    "depth": [
+     0,
+     5
+    ]
+   }
+  },
+  {
+   "id": "z4_s_holiday",
+   "sprite": "chest_briefcase",
+   "pos": [
+    7,
+    7
+   ],
+   "contents": "souvenir:s_holiday",
+   "when": {
+    "depth": [
+     2,
+     5
+    ]
+   },
+   "text": "* Une valise oubliée. Il y a du sable dedans."
+  },
+  {
+   "id": "z4_tape_t11",
+   "sprite": "chest_box",
+   "pos": [
+    14,
+    7
+   ],
+   "contents": "tape:t11",
+   "when": {
+    "depth": [
+     3,
+     5
+    ]
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "room0",
+   "side": "top",
+   "pos": [
+    3,
+    2
+   ],
+   "to": "",
+   "label": "101",
+   "requires": "false",
+   "locked_text": [
+    "* Chambre 101. Fermée. On entend une télé, derrière."
+   ]
+  },
+  {
+   "id": "room1",
+   "side": "top",
+   "pos": [
+    7,
+    2
+   ],
+   "to": "",
+   "label": "102",
+   "requires": "false",
+   "locked_text": [
+    "* Chambre 102. Fermée. On entend une télé, derrière."
+   ]
+  },
+  {
+   "id": "room2",
+   "side": "top",
+   "pos": [
+    11,
+    2
+   ],
+   "to": "",
+   "label": "103",
+   "requires": "false",
+   "locked_text": [
+    "* Chambre 103. Fermée. On entend une télé, derrière."
+   ]
+  },
+  {
+   "id": "room3",
+   "side": "top",
+   "pos": [
+    15,
+    2
+   ],
+   "to": "",
+   "label": "104",
+   "requires": "false",
+   "locked_text": [
+    "* Chambre 104. Fermée. On entend une télé, derrière."
+   ]
+  },
+  {
+   "id": "room4",
+   "side": "top",
+   "pos": [
+    19,
+    2
+   ],
+   "to": "",
+   "label": "105",
+   "requires": "false",
+   "locked_text": [
+    "* Chambre 105. Fermée. On entend une télé, derrière."
+   ]
+  },
+  {
+   "id": "r0",
+   "side": "top",
+   "pos": [
+    9,
+    2
+   ],
+   "to": "z4_room0",
+   "to_door": "south",
+   "when": {
+    "depth": [
+     3,
+     3
+    ]
+   },
+   "sprite": "door_wood",
+   "label": ""
+  },
+  {
+   "id": "south",
+   "side": "left",
+   "pos": [
+    0,
+    6
+   ],
+   "to": "@prev",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    21,
+    6
+   ],
+   "to": "@next",
+   "to_door": "south"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   6
+  ]
+ },
+ "encounters": {
+  "enemies": [
+   "bellhop",
+   "key_404",
+   "suitcase"
+  ],
+  "rate": 1.0,
+  "max": 2
+ }
+}

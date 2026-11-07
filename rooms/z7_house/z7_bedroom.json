@@ -1,0 +1,64 @@
+{
+ "id": "z7_bedroom",
+ "zone": 7,
+ "name": "Ta chambre (copie)",
+ "fidelity": 50,
+ "size": [
+  12,
+  10
+ ],
+ "fidelity_from_souvenirs": true,
+ "no_mutations": [
+  "loop_door",
+  "door_shift",
+  "extra_wall",
+  "stretch_room",
+  "bigger_inside"
+ ],
+ "props": [
+  {
+   "id": "bed",
+   "sprite": "bed",
+   "pos": [
+    6,
+    4
+   ],
+   "scale": 1.4,
+   "dialogue": "bed_end"
+  },
+  {
+   "id": "lamp",
+   "sprite": "lamp",
+   "pos": [
+    9,
+    4
+   ],
+   "tags": [
+    "small",
+    "light"
+   ],
+   "light": {
+    "color": "#ffd890",
+    "energy": 0.6
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    6,
+    9
+   ],
+   "to": "z7_inside",
+   "to_door": "hall"
+  }
+ ],
+ "spawns": {
+  "default": [
+   6,
+   7
+  ]
+ }
+}

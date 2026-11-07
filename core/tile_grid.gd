@@ -43,14 +43,14 @@ func set_cell(x: int, y: int, c: String) -> void:
 
 ## Un mur est une « face » visible s'il y a du sol juste en dessous, ou deux cases en dessous.
 func _is_face(x: int, y: int) -> bool:
-	var b1 := get_cell(x, y + 1)
+	var b1 = get_cell(x, y + 1)
 	if b1 != "#" and b1 != "h" and b1 != " ":
 		return true
-	var b2 := get_cell(x, y + 2)
+	var b2 = get_cell(x, y + 2)
 	return (b1 == "#" or b1 == "h") and b2 != "#" and b2 != "h" and b2 != " " and y + 2 < rows.size() and get_cell(x, y - 1) != " " and _floor_below(x, y + 2)
 
 func _floor_below(x: int, y: int) -> bool:
-	var c := get_cell(x, y)
+	var c = get_cell(x, y)
 	return c == "." or c == "o" or c == "w" or "rygbx".contains(c)
 
 func is_wall(c: String) -> bool:

@@ -1,0 +1,21 @@
+{
+ "kind": "sequence",
+ "length": 7,
+ "missing_index": 4,
+ "title": "N° DE CHAMBRE",
+ "prompt": [
+  "* L'ascenseur. Un clavier à la place des boutons.",
+  "* « CHAMBRE DEMANDÉE ? »"
+ ],
+ "success": [
+  {
+   "say": [
+    "* Ding. Les portes de l'ascenseur s'ouvrent sur un couloir qui ne va nulle part."
+   ]
+  }
+ ],
+ "fail_text": [
+  "* « CHAMBRE INEXISTANTE ».",
+  "* (Les numéros suivent une logique...)"
+ ]
+}

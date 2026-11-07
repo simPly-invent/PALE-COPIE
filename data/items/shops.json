@@ -1,0 +1,110 @@
+{
+ "vend_z1": {
+  "id": "vend_z1",
+  "greeting": "* Le distributeur ronronne. « SERVICE 24 H/24 ».",
+  "items": [
+   {
+    "item": "cereal_bar",
+    "price": 8
+   },
+   {
+    "item": "milk_carton",
+    "price": 6
+   },
+   {
+    "item": "stapler",
+    "price": 30
+   }
+  ]
+ },
+ "vend_z2": {
+  "id": "vend_z2",
+  "greeting": "* Distributeur de boissons chaudes. Le gobelet tombe avant la pièce.",
+  "items": [
+   {
+    "item": "lukewarm_coffee",
+    "price": 12
+   },
+   {
+    "item": "fountain_water",
+    "price": 14
+   },
+   {
+    "item": "safety_vest",
+    "price": 40
+   }
+  ]
+ },
+ "vend_z3": {
+  "id": "vend_z3",
+  "greeting": "* Un distributeur de parking. Il vend aussi des piles, on ne sait pas pourquoi.",
+  "items": [
+   {
+    "item": "batteries",
+    "price": 15
+   },
+   {
+    "item": "cereal_bar",
+    "price": 9
+   },
+   {
+    "item": "umbrella",
+    "price": 55
+   }
+  ]
+ },
+ "vend_z4": {
+  "id": "vend_z4",
+  "greeting": "* Minibar de l'hôtel. Tout est facturé à la chambre 0.",
+  "items": [
+   {
+    "item": "candy",
+    "price": 4
+   },
+   {
+    "item": "sandwich",
+    "price": 22
+   },
+   {
+    "item": "cardigan",
+    "price": 70
+   }
+  ]
+ },
+ "vend_z5": {
+  "id": "vend_z5",
+  "greeting": "* Distributeur de la piscine. Ça sent le chlore et le chocolat.",
+  "items": [
+   {
+    "item": "fountain_water",
+    "price": 14
+   },
+   {
+    "item": "sandwich",
+    "price": 22
+   },
+   {
+    "item": "hard_hat",
+    "price": 90
+   }
+  ]
+ },
+ "vend_z6": {
+  "id": "vend_z6",
+  "greeting": "* Distributeur Halden. « RÉSERVÉ AU PERSONNEL ».",
+  "items": [
+   {
+    "item": "canteen_cake",
+    "price": 30
+   },
+   {
+    "item": "batteries",
+    "price": 15
+   },
+   {
+    "item": "round_scissors",
+    "price": 120
+   }
+  ]
+ }
+}

@@ -1,4 +1,265 @@
-{"placeholders": [
-  {"name": "drawing_child", "size": [30, 26], "color": "#f4f0e0", "shape": "rect", "description": "Dessin d'enfant au crayon (la maison, le soleil, maman). Ancre du prologue."},
-  {"name": "floor_arrow", "size": [24, 12], "color": "#e0d080", "shape": "poly", "description": "Flèche peinte au sol (indique une porte décalée)."}
-]}
+{
+ "note": "Assets manquants remplacés par un placeholder généré. Dessine-les et dépose-les dans assets/sprites/<name>.png (ou assets/<name>.png pour les noms avec /).",
+ "placeholders": [
+  {
+   "name": "drawing_child",
+   "size": [
+    30,
+    26
+   ],
+   "color": "#f4f0e0",
+   "shape": "rect",
+   "description": "Dessin d'enfant au crayon (la maison, le soleil, maman). Ancre du prologue."
+  },
+  {
+   "name": "floor_arrow",
+   "size": [
+    24,
+    12
+   ],
+   "color": "#e0d080",
+   "shape": "poly",
+   "description": "Flèche peinte au sol, pointant vers la droite (elle est tournée par le code)."
+  },
+  {
+   "name": "mr_pli",
+   "size": [
+    34,
+    48
+   ],
+   "color": "#e8e8d0",
+   "shape": "rect",
+   "description": "Monsieur Pli : un plan d'évacuation vivant, cadre vert, petit visage."
+  },
+  {
+   "name": "lumi",
+   "size": [
+    26,
+    20
+   ],
+   "color": "#d8ffd0",
+   "shape": "circle",
+   "description": "Lumi : un petit néon rond avec un visage inquiet."
+  },
+  {
+   "name": "delivery_man",
+   "size": [
+    32,
+    62
+   ],
+   "color": "#c04030",
+   "shape": "figure",
+   "description": "Le Livreur : casquette rouge, boîte à pizza."
+  },
+  {
+   "name": "headlight",
+   "size": [
+    40,
+    34
+   ],
+   "color": "#fff4b0",
+   "shape": "circle",
+   "description": "Ennemi Phare Allumé : un phare de voiture avec des yeux."
+  },
+  {
+   "name": "buoy",
+   "size": [
+    44,
+    44
+   ],
+   "color": "#ff9040",
+   "shape": "circle",
+   "description": "Ennemi Bouée : bouée canard orange et blanche."
+  },
+  {
+   "name": "lifeguard",
+   "size": [
+    34,
+    66
+   ],
+   "color": "#d03030",
+   "shape": "figure",
+   "description": "Ennemi Maître-Nageur : t-shirt rouge, sifflet."
+  },
+  {
+   "name": "fridge",
+   "size": [
+    36,
+    70
+   ],
+   "color": "#e8e8e8",
+   "shape": "rect",
+   "description": "Frigo blanc des années 80, aimants."
+  },
+  {
+   "name": "car",
+   "size": [
+    90,
+    50
+   ],
+   "color": "#7080a0",
+   "shape": "rect",
+   "description": "Voiture garée vue de haut-côté (parking)."
+  },
+  {
+   "name": "pillar",
+   "size": [
+    40,
+    80
+   ],
+   "color": "#909090",
+   "shape": "rect",
+   "description": "Pilier de béton du parking, numéro peint."
+  },
+  {
+   "name": "pool_ladder",
+   "size": [
+    30,
+    40
+   ],
+   "color": "#c0c8d0",
+   "shape": "rect",
+   "description": "Échelle de piscine chromée."
+  },
+  {
+   "name": "sleeping_man",
+   "size": [
+    44,
+    40
+   ],
+   "color": "#8890a0",
+   "shape": "rect",
+   "description": "Employé endormi, tête sur le bureau."
+  },
+  {
+   "name": "mom",
+   "size": [
+    34,
+    70
+   ],
+   "color": "#e08070",
+   "shape": "figure",
+   "description": "Maman (prologue) : pull rouge, cheveux attachés."
+  },
+  {
+   "name": "lea",
+   "size": [
+    28,
+    46
+   ],
+   "color": "#80b0ff",
+   "shape": "figure",
+   "description": "Léa : enfant au bord de l'eau, bonnet de bain."
+  },
+  {
+   "name": "dev_npc",
+   "size": [
+    32,
+    62
+   ],
+   "color": "#40ff40",
+   "shape": "figure",
+   "description": "Le « faux développeur » de la pièce de debug, t-shirt vert fluo."
+  },
+  {
+   "name": "vhs/office",
+   "size": [
+    107,
+    78
+   ],
+   "color": "#5a6a5a",
+   "shape": "rect",
+   "description": "Plan fixe VHS : bureaux vides."
+  },
+  {
+   "name": "vhs/parking",
+   "size": [
+    107,
+    78
+   ],
+   "color": "#303038",
+   "shape": "rect",
+   "description": "Plan fixe VHS : parking souterrain, une voiture rouge."
+  },
+  {
+   "name": "vhs/hotel",
+   "size": [
+    107,
+    78
+   ],
+   "color": "#6a5040",
+   "shape": "rect",
+   "description": "Plan fixe VHS : couloir d'hôtel."
+  },
+  {
+   "name": "vhs/pool",
+   "size": [
+    107,
+    78
+   ],
+   "color": "#40708a",
+   "shape": "rect",
+   "description": "Plan fixe VHS : piscine vide."
+  },
+  {
+   "name": "vhs/house",
+   "size": [
+    107,
+    78
+   ],
+   "color": "#8a6a4a",
+   "shape": "rect",
+   "description": "Plan fixe VHS : la maison du prologue, de l'extérieur."
+  },
+  {
+   "name": "vhs/children",
+   "size": [
+    107,
+    78
+   ],
+   "color": "#7a7a8a",
+   "shape": "rect",
+   "description": "Plan fixe VHS : deux enfants identiques, de dos."
+  },
+  {
+   "name": "vhs/bedroom",
+   "size": [
+    107,
+    78
+   ],
+   "color": "#5a4a3a",
+   "shape": "rect",
+   "description": "Plan fixe VHS : la chambre du prologue, la nuit, filmée depuis la porte."
+  },
+  {
+   "name": "vhs/lab",
+   "size": [
+    107,
+    78
+   ],
+   "color": "#505068",
+   "shape": "rect",
+   "description": "Plan fixe VHS : laboratoire Halden, moniteurs."
+  },
+  {
+   "name": "font: assets/fonts/main.ttf",
+   "size": [
+    1,
+    1
+   ],
+   "color": "#000000",
+   "shape": "rect",
+   "description": "Police pixel (type DTM Mono). Sans elle, Courier New sans anticrénelage est utilisée."
+  },
+  {
+   "name": "music: data/music/*.json",
+   "size": [
+    1,
+    1
+   ],
+   "color": "#000000",
+   "shape": "rect",
+   "description": "Les musiques et bruitages sont synthétisés par code en attendant de vrais fichiers audio."
+  }
+ ]
+}

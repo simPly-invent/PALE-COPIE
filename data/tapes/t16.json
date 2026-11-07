@@ -1,0 +1,24 @@
+{
+ "id": "t16",
+ "title": "Dr Vasseur",
+ "date": "JUL. 14 1997",
+ "time": "PM 09:58",
+ "frames": [
+  {
+   "image": "vhs/lab",
+   "text": "« Dr Vasseur, responsable de l'équipe 3. Dernier enregistrement officiel. »",
+   "duration": 4,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/lab",
+   "text": "« Nous fermons la Station. Les équipes restent. Elles ne savent plus qu'elles sont des équipes. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/lab",
+   "text": "« Je laisse le rapport 3-097 dans les archives. Quatre copies. Aucune n'est entière. »",
+   "duration": 5
+  }
+ ]
+}

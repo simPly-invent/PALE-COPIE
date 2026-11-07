@@ -1,0 +1,177 @@
+{
+ "id": "z2_reception",
+ "zone": 2,
+ "name": "L'accueil",
+ "fidelity": 62,
+ "size": [
+  16,
+  12
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "stretch_room",
+  "extra_wall",
+  "detail_vanish"
+ ],
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    4,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    11,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "plaque",
+   "sprite": "icon_note",
+   "pos": [
+    11,
+    5
+   ],
+   "text": [
+    "* Une plaque dorée sur le comptoir :",
+    "* « MME FERRAND - ACCUEIL - DEPUIS 1989 »"
+   ]
+  },
+  {
+   "id": "plant",
+   "sprite": "plant",
+   "pos": [
+    3,
+    4
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* La plante de l'accueil. Arrosée tous les matins. En plastique."
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "receptionist",
+   "sprite": "boss_receptionist",
+   "pos": [
+    8,
+    5
+   ],
+   "dialogue": "receptionist_pre",
+   "scale": 0.8,
+   "if": "!reception_done"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "boss",
+   "rect": [
+    5,
+    6,
+    6,
+    2
+   ],
+   "if": "!reception_done",
+   "once": false,
+   "actions": [
+    {
+     "say": [
+      "* « Bienvenue à l'Institut Halden ! Avez-vous rendez-vous ? »",
+      "* « Non ? Alors il faut remplir le formulaire. »",
+      "* « Encore. Et encore. »"
+     ]
+    },
+    {
+     "battle": "receptionist",
+     "on_won": [
+      {
+       "set": {
+        "reception_done": true
+       }
+      }
+     ],
+     "on_spared": [
+      {
+       "set": {
+        "reception_done": true
+       }
+      }
+     ]
+    },
+    {
+     "if": "reception_done",
+     "then": [
+      {
+       "rebuild": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    8,
+    11
+   ],
+   "to": "z2_archive_hall",
+   "to_door": "north"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z3_ramp",
+   "to_door": "west",
+   "requires": "reception_done",
+   "locked_text": [
+    "* « Vous n'avez pas rempli le formulaire ! »"
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   9
+  ]
+ }
+}

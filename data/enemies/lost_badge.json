@@ -1,0 +1,65 @@
+{
+ "name": "Badge Perdu",
+ "sprite": "item_badge",
+ "scale": 2.4,
+ "hp": 24,
+ "atk": 4,
+ "def": 0,
+ "exp": 9,
+ "gold": 6,
+ "check": "* BADGE PERDU - ATT 4 DÉF 0\n* Le nom dessus s'efface un peu plus à chaque copie.",
+ "flavor": [
+  "* Le Badge Perdu cherche son propriétaire.",
+  "* La photo du badge te fixe.",
+  "* Le cordon du badge s'emmêle."
+ ],
+ "spare_flavor": "* Le badge attend calmement qu'on le rende.",
+ "acts": [
+  {
+   "label": "Lire le nom",
+   "text": [
+    "* « J... L... TECHN... »",
+    "* Le badge rougit d'être illisible."
+   ],
+   "mercy": 30
+  },
+  {
+   "label": "Promettre de le rendre",
+   "text": [
+    "* Tu promets de le rendre à quelqu'un.",
+    "* Il te croit."
+   ],
+   "mercy": 40
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Le badge d'un visiteur",
+    "Le badge de Jules, le collègue de Dana",
+    "Une carte de bibliothèque"
+   ],
+   "answer": 1,
+   "name": "le badge de Jules",
+   "mercy": 60,
+   "text_right": [
+    "* Le badge de Jules, de l'équipe de Dana.",
+    "* « Jules ! C'est ça ! » Le nom réapparaît."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Qui suis-je ?",
+  "Accès refusé.",
+  "J... J..."
+ ],
+ "patterns": [
+  "sweep",
+  "ring"
+ ],
+ "music": "battle"
+}

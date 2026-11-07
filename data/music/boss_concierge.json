@@ -1,0 +1,7 @@
+{
+ "bpm": 100,
+ "melody": "D4:1 F4:1 A4:1 D5:1 C5:1 A4:1 F4:2 E4:1 G4:1 Bb4:1 E5:1 D5:1 Bb4:1 G4:2 D4:1 F4:1 A4:1 D5:1 E5:1 F5:1 E5:2 D5:4",
+ "bass": "D2:4 C2:4 Bb1:4 A1:4",
+ "melody_wave": "square",
+ "melody_amp": 0.12
+}

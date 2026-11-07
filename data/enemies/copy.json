@@ -1,0 +1,52 @@
+{
+ "name": "La Copie",
+ "sprite": "boss_copy_b",
+ "scale": 1.8,
+ "hp": 160,
+ "atk": 6,
+ "def": 4,
+ "exp": 100,
+ "gold": 0,
+ "boss": true,
+ "special": "copy",
+ "flee": false,
+ "intro": "* La Copie se tient devant toi.\n* Elle est plus nette que toi.",
+ "check": "* LA COPIE - ATT ? DÉF ?\n* Elle refait ce que tu fais, avec un tour de retard.\n* Si tu ne fais rien...",
+ "flavor": [
+  "* La Copie te regarde comme dans un miroir.",
+  "* La Copie respire en même temps que toi.",
+  "* Laquelle de vous deux est la copie ?"
+ ],
+ "spare_flavor": "* La Copie ne veut plus se battre. Toi non plus.",
+ "acts": [
+  {
+   "label": "Ne rien faire",
+   "wait": true,
+   "text": [
+    "* Tu ne fais rien."
+   ],
+   "mercy": 0
+  },
+  {
+   "label": "Lui parler",
+   "text": [
+    "* « Tu viens d'où ? » demandes-tu.",
+    "* « De la maison, » répond-elle. « Et toi ? »"
+   ],
+   "mercy": 10
+  }
+ ],
+ "dialogue": [
+  "...",
+  "Je suis toi.",
+  "Ou l'inverse."
+ ],
+ "patterns": [
+  "mirror",
+  "homing",
+  "mirror"
+ ],
+ "music": "boss_copy",
+ "box_w": 200,
+ "turn_time": 6.5
+}

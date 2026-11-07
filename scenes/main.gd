@@ -109,7 +109,7 @@ func show_credits(ending_id: String) -> void:
 ## Arguments après « -- » : --room=id --depth=n --fidelity=f --battle=id --tape=id
 ## --screenshot=chemin.png --frames=n --seed=n --pos=x,y
 func _dev_args() -> Dictionary:
-	var out := {}
+	var out = {}
 	for a in OS.get_cmdline_user_args():
 		if a.begins_with("--") and a.contains("="):
 			var kv = a.substr(2).split("=", true, 1)
@@ -122,9 +122,9 @@ func _dev_start(args: Dictionary) -> void:
 		GameState.game_seed = int(args["seed"])
 	for it in str(args.get("give", "")).split(",", false):
 		GameState.give(it)
-	var depth := int(args.get("depth", 0))
+	var depth = int(args.get("depth", 0))
 	if args.has("fidelity"):
-		var f := int(args["fidelity"])
+		var f = int(args["fidelity"])
 		DegradationManager.set_debug_offset(args["room"], depth, f - DegradationManager.raw_fidelity(args["room"], depth))
 	World.in_game = true
 	World._load_room(args["room"], depth, args.get("door", ""), "default")
@@ -144,7 +144,7 @@ func _dev_start(args: Dictionary) -> void:
 	if args.has("menu"):
 		World.open_camcorder()
 	if args.has("screenshot"):
-		var frames := int(args.get("frames", 30))
+		var frames = int(args.get("frames", 30))
 		for i in frames:
 			await get_tree().process_frame
 		await RenderingServer.frame_post_draw

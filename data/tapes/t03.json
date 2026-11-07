@@ -1,0 +1,24 @@
+{
+ "id": "t03",
+ "title": "Compter",
+ "date": "JUL. 03 1997",
+ "time": "PM 04:02",
+ "frames": [
+  {
+   "image": "vhs/hallway",
+   "text": "« Méthode : on compte ce qui se répète dans chaque copie. »",
+   "duration": 4,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/hallway",
+   "text": "« Un néon. Deux. Quatre. Les nombres font une combinaison, si on les met dans l'ordre des copies. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« Ne comptez pas l'original. Il n'y en a qu'un. »",
+   "duration": 4
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "id": "t20",
+ "title": "Le grenier",
+ "date": "JUL. 14 1997",
+ "time": "PM 10:24",
+ "frames": [
+  {
+   "image": "vhs/house",
+   "text": "« Une maison. Une fenêtre au grenier. La lumière est allumée. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/bedroom",
+   "text": "« Quelqu'un filme la chambre depuis la porte. Un enfant dort. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/bedroom",
+   "text": "« Le lit est vide. »",
+   "duration": 4
+  },
+  {
+   "image": "vhs/static",
+   "text": "« La cassette s'arrête là. Elle a été rembobinée de nombreuses fois. »",
+   "duration": 4,
+   "sound": "static"
+  }
+ ]
+}

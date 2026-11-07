@@ -1,0 +1,35 @@
+{
+ "name": "Retour",
+ "date": "JUL. 15 1997",
+ "time": "AM 07:00",
+ "frames": [
+  {
+   "image": "vhs/bedroom",
+   "text": "Le matin. Le soleil sur le parquet.",
+   "duration": 4,
+   "sound": "music:lullaby",
+   "fidelity": 100
+  },
+  {
+   "image": "vhs/bedroom",
+   "text": "{name} se réveille dans son lit. Maman appelle depuis la cuisine.",
+   "duration": 5
+  },
+  {
+   "image": "vhs/house",
+   "text": "La maison est entière. Tout est à sa place. La porte est bleue.",
+   "duration": 5
+  },
+  {
+   "image": "vhs/bedroom",
+   "text": "Sur le mur, ton dessin. La maison, le soleil, maman qui fait coucou.",
+   "duration": 5
+  },
+  {
+   "image": "vhs/children",
+   "text": "Dans le dessin, il y a deux enfants.",
+   "duration": 5,
+   "sound": "silence"
+  }
+ ]
+}

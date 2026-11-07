@@ -1,0 +1,24 @@
+{
+ "id": "t02",
+ "title": "La salle de classe",
+ "date": "JUL. 03 1997",
+ "time": "AM 10:40",
+ "frames": [
+  {
+   "image": "vhs/office",
+   "text": "« Copie n°4 d'une salle de classe de CM1. Le sujet l'a apportée avec lui. »",
+   "duration": 4,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/office",
+   "text": "« Le néon du plafond fait tic-tic. Le sujet dit : c'est pendant les dictées. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« À la copie n°6, il y a trois néons. Personne ne les a installés. »",
+   "duration": 4
+  }
+ ]
+}

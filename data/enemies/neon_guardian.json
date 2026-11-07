@@ -1,0 +1,73 @@
+{
+ "name": "Gardien des Néons",
+ "sprite": "npc_guard",
+ "scale": 2.6,
+ "hp": 90,
+ "atk": 4,
+ "def": 2,
+ "exp": 40,
+ "gold": 30,
+ "boss": true,
+ "special": "lights_out",
+ "intro": "* Le Gardien des Néons barre le chemin.\n* Il coupe la lumière une fois sur deux.",
+ "check": "* GARDIEN DES NÉONS - ATT 4 DÉF 2\n* Il garde l'interrupteur. Il ne sait plus pourquoi.",
+ "flavor": [
+  "* Le Gardien vérifie ses ampoules.",
+  "* Clac. Lumière. Clac. Noir.",
+  "* Le Gardien compte les néons : « un, un, un... »"
+ ],
+ "spare_flavor": "* Le Gardien laisse la lumière allumée.",
+ "acts": [
+  {
+   "label": "Compter les néons",
+   "text": [
+    "* Tu comptes les néons avec lui.",
+    "* Il a l'air rassuré que quelqu'un sache compter."
+   ],
+   "mercy": 30
+  },
+  {
+   "label": "Demander l'interrupteur",
+   "text": [
+    "* « L'interrupteur ? C'est moi qui le garde. »",
+    "* « ...Pour qui, déjà ? »"
+   ],
+   "mercy": 20
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qui était-il ? (Une cassette en parle...)",
+   "choices": [
+    "Un vigile de supermarché",
+    "Le gardien de nuit de l'Institut Halden",
+    "Un électricien"
+   ],
+   "answer": 1,
+   "name": "Marcel, gardien de nuit Halden",
+   "mercy": 60,
+   "text_right": [
+    "* Marcel. Gardien de nuit à l'Institut Halden. Ronde de 22 h.",
+    "* « Ma ronde... il faut que je finisse ma ronde. »"
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Lumière.",
+  "Noir.",
+  "Personne ne passe après 22 heures.",
+  "Tu as ton badge ?",
+  "J'ai oublié pourquoi je garde."
+ ],
+ "patterns": [
+  "flicker",
+  "rain",
+  "sweep"
+ ],
+ "music": "boss_neon",
+ "box_w": 200,
+ "turn_time": 7.0
+}

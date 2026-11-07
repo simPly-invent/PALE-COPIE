@@ -1,0 +1,34 @@
+{
+ "id": "t08",
+ "title": "Les phares",
+ "date": "JUL. 12 1997",
+ "time": "PM 10:31",
+ "frames": [
+  {
+   "image": "vhs/parking",
+   "text": "« Protocole d'éclairage des places. Dans l'ordre : TROIS. »",
+   "duration": 3,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/parking",
+   "text": "« ...UN. »",
+   "duration": 2
+  },
+  {
+   "image": "vhs/parking",
+   "text": "« ...CINQ. »",
+   "duration": 2
+  },
+  {
+   "image": "vhs/parking",
+   "text": "« ...DEUX. Et pas une de plus. »",
+   "duration": 3
+  },
+  {
+   "image": "vhs/static",
+   "text": "« Si on se trompe, tout s'éteint. On recommence au début. »",
+   "duration": 4
+  }
+ ]
+}

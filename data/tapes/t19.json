@@ -1,0 +1,24 @@
+{
+ "id": "t19",
+ "title": "L'équipe de Dana",
+ "date": "JUL. 10 1997",
+ "time": "PM 01:00",
+ "frames": [
+  {
+   "image": "vhs/office",
+   "text": "« Photo de groupe, équipe 3. Dana, Jules, Inès, Karim, Sophie, Malik. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/office",
+   "text": "« Tout le monde sourit. Dana compte : un, deux, trois, quatre, cinq, six. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/office",
+   "text": "« Elle a l'air soulagée. Tout le monde est là. »",
+   "duration": 4
+  }
+ ]
+}

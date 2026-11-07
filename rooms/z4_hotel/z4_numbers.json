@@ -1,0 +1,183 @@
+{
+ "id": "z4_numbers",
+ "zone": 4,
+ "name": "Le palier des numéros",
+ "fidelity": 50,
+ "size": [
+  17,
+  12
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "text_corrupt",
+  "stretch_room",
+  "extra_wall"
+ ],
+ "back": {
+  "room": "z4_corridor",
+  "depth": 5,
+  "door": "east"
+ },
+ "props": [
+  {
+   "id": "plaque",
+   "sprite": "icon_note",
+   "pos": [
+    8,
+    9
+   ],
+   "text": [
+    "* Les numéros des chambres se suivent. Il en manque un.",
+    "* Là où il devrait être, il y a l'ascenseur."
+   ]
+  }
+ ],
+ "puzzles": [
+  {
+   "type": "keypad",
+   "id": "elevator_pad",
+   "puzzle": "z4_numbers",
+   "pos": [
+    11,
+    3
+   ],
+   "sprite": "phone"
+  }
+ ],
+ "doors": [
+  {
+   "id": "n0",
+   "side": "top",
+   "pos": [
+    2,
+    2
+   ],
+   "to": "",
+   "label_seq": {
+    "puzzle": "z4_numbers",
+    "index": 0
+   },
+   "requires": "false",
+   "locked_text": [
+    "* Fermée."
+   ]
+  },
+  {
+   "id": "n1",
+   "side": "top",
+   "pos": [
+    4,
+    2
+   ],
+   "to": "",
+   "label_seq": {
+    "puzzle": "z4_numbers",
+    "index": 1
+   },
+   "requires": "false",
+   "locked_text": [
+    "* Fermée."
+   ]
+  },
+  {
+   "id": "n2",
+   "side": "top",
+   "pos": [
+    6,
+    2
+   ],
+   "to": "",
+   "label_seq": {
+    "puzzle": "z4_numbers",
+    "index": 2
+   },
+   "requires": "false",
+   "locked_text": [
+    "* Fermée."
+   ]
+  },
+  {
+   "id": "n3",
+   "side": "top",
+   "pos": [
+    8,
+    2
+   ],
+   "to": "",
+   "label_seq": {
+    "puzzle": "z4_numbers",
+    "index": 3
+   },
+   "requires": "false",
+   "locked_text": [
+    "* Fermée."
+   ]
+  },
+  {
+   "id": "n4",
+   "side": "top",
+   "pos": [
+    12,
+    2
+   ],
+   "to": "",
+   "label_seq": {
+    "puzzle": "z4_numbers",
+    "index": 5
+   },
+   "requires": "false",
+   "locked_text": [
+    "* Fermée."
+   ]
+  },
+  {
+   "id": "n5",
+   "side": "top",
+   "pos": [
+    14,
+    2
+   ],
+   "to": "",
+   "label_seq": {
+    "puzzle": "z4_numbers",
+    "index": 6
+   },
+   "requires": "false",
+   "locked_text": [
+    "* Fermée."
+   ]
+  },
+  {
+   "id": "elevator",
+   "side": "top",
+   "pos": [
+    10,
+    2
+   ],
+   "to": "z4_loop",
+   "to_door": "west",
+   "sprite": "door_elevator",
+   "requires": "puzzle.z4_numbers",
+   "locked_text": [
+    "* L'ascenseur ne vient pas. Il attend un numéro."
+   ]
+  },
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    8,
+    11
+   ],
+   "to": "@prev",
+   "to_door": "east"
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   9
+  ]
+ }
+}

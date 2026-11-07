@@ -1,0 +1,91 @@
+{
+ "id": "z6_copy",
+ "zone": 6,
+ "name": "La pièce du miroir",
+ "fidelity": 20,
+ "size": [
+  16,
+  12
+ ],
+ "no_mutations": [
+  "loop_door",
+  "door_shift",
+  "extra_wall",
+  "stretch_room",
+  "bigger_inside",
+  "erase"
+ ],
+ "props": [
+  {
+   "id": "mirror",
+   "sprite": "door_elevator",
+   "pos": [
+    8,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "modulate": "#c8d8ff",
+   "text": [
+    "* Un grand miroir. Ton reflet est en retard d'une seconde."
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "copy",
+   "sprite": "boss_copy_b",
+   "pos": [
+    8,
+    6
+   ],
+   "dialogue": "copy",
+   "if": "!copy_done"
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    13,
+    3
+   ],
+   "sprite": "phone",
+   "when": {
+    "if": "copy_done"
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "z6_monitors",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z7_front",
+   "to_door": "south",
+   "requires": "copy_done",
+   "locked_text": [
+    "* L'enfant se tient devant la porte. Il attend que tu lui parles."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ }
+}

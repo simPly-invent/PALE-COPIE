@@ -69,6 +69,9 @@ func raw_fidelity(source_id: String, depth: int) -> int:
 	if src == null:
 		return 100
 	var f = src.base_fidelity
+	if src.data.get("fidelity_from_souvenirs", false):
+		# la maison finale : dégradée selon les Souvenirs gardés
+		f = clampi(16 + GameState.souvenirs.size() * 8, 5, 100)
 	if source_id.begins_with("house_") and GameState.get_flag("prologue_wrong", false):
 		f = min(f, 84)
 	for k in range(1, depth + 1):

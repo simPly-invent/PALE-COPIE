@@ -1,0 +1,168 @@
+{
+ "id": "z5_entrance",
+ "zone": 5,
+ "name": "Vestiaires",
+ "fidelity": 70,
+ "size": [
+  16,
+  12
+ ],
+ "props": [
+  {
+   "id": "lockers",
+   "sprite": "chest_locker",
+   "pos": [
+    3,
+    4
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Un casier. Cadenas à code. Il est ouvert. Vide."
+   ]
+  },
+  {
+   "id": "lockers2",
+   "sprite": "chest_locker",
+   "pos": [
+    4,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "bench",
+   "sprite": "table",
+   "pos": [
+    8,
+    8
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "sign",
+   "sprite": "sign_sortie",
+   "pos": [
+    12,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "label": "BASSINS →",
+   "tags": [
+    "text"
+   ]
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    10,
+    3
+   ],
+   "sprite": "phone"
+  }
+ ],
+ "vendings": [
+  {
+   "id": "vend",
+   "pos": [
+    14,
+    4
+   ],
+   "shop": "vend_z5"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "lea",
+   "sprite": "lea",
+   "pos": [
+    6,
+    9
+   ],
+   "dialogue": "lea"
+  },
+  {
+   "id": "dana",
+   "sprite": "npc_scientist",
+   "pos": [
+    11,
+    6
+   ],
+   "dialogue": "dana"
+  },
+  {
+   "id": "old_swimmer",
+   "sprite": "npc_oldman",
+   "pos": [
+    2,
+    9
+   ],
+   "dialogue": "old_swimmer"
+  },
+  {
+   "id": "copy_glimpse",
+   "sprite": "boss_copy_b",
+   "pos": [
+    13,
+    9
+   ],
+   "dialogue": "copy_glimpse",
+   "scale": 0.85,
+   "if": "!quest.names"
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "z4_concierge",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z5_pool",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!z5_intro",
+   "then": [
+    {
+     "set": {
+      "z5_intro": true
+     }
+    },
+    {
+     "say": [
+      "* Ça sent le chlore. L'eau clapote quelque part.",
+      "* Les voix résonnent, mais il n'y a personne."
+     ]
+    }
+   ]
+  }
+ ]
+}

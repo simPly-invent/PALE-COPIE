@@ -1,0 +1,15 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Je viens tous les jeudis. Depuis 1981. Ou depuis jeudi. »",
+    "p5": "* « Je viens tous les jeu... depuis jeudi. »"
+   },
+   {
+    "text": "* « Quand j'étais petit, le premier carreau du grand bain était bleu. Je m'en souviens parce que je posais le pied dessus. »"
+   }
+  ]
+ },
+ "portrait": "scientist",
+ "voice": "low"
+}

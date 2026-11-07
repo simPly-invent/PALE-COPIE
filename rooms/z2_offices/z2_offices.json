@@ -1,0 +1,448 @@
+{
+ "id": "z2_offices",
+ "zone": 2,
+ "name": "Open space",
+ "fidelity": 86,
+ "size": [
+  20,
+  12
+ ],
+ "chain": {
+  "max_depth": 4,
+  "then": "z2_archive_hall",
+  "then_door": "south"
+ },
+ "back": {
+  "room": "z2_lobby",
+  "door": "north"
+ },
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    3,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    8,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n3",
+   "sprite": "neon_ceiling",
+   "pos": [
+    12,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n4",
+   "sprite": "neon_ceiling",
+   "pos": [
+    17,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "desk1",
+   "sprite": "desk",
+   "pos": [
+    4,
+    5
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "pc1",
+   "sprite": "computer",
+   "pos": [
+    4,
+    4.6
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ],
+   "solid": false,
+   "z": 1
+  },
+  {
+   "id": "desk2",
+   "sprite": "desk",
+   "pos": [
+    9,
+    5
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "chair2",
+   "sprite": "chair_grey",
+   "pos": [
+    9,
+    6
+   ],
+   "tags": [
+    "repeatable",
+    "decor"
+   ]
+  },
+  {
+   "id": "desk3",
+   "sprite": "desk",
+   "pos": [
+    14,
+    5
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "pc3",
+   "sprite": "computer",
+   "pos": [
+    14,
+    4.6
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ],
+   "solid": false,
+   "z": 1
+  },
+  {
+   "id": "desk4",
+   "sprite": "desk",
+   "pos": [
+    4,
+    8
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "chair4",
+   "sprite": "chair_blue",
+   "pos": [
+    4,
+    9
+   ],
+   "tags": [
+    "repeatable",
+    "decor"
+   ]
+  },
+  {
+   "id": "desk5",
+   "sprite": "desk",
+   "pos": [
+    14,
+    8
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Un post-it : « Horloges : elles avancent toutes du même nombre de minutes d'une copie à l'autre. — I. »"
+   ]
+  },
+  {
+   "id": "cab1",
+   "sprite": "filing_cabinet",
+   "pos": [
+    18,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "cab2",
+   "sprite": "filing_cabinet_tall",
+   "pos": [
+    1.5,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "fax",
+   "sprite": "copier",
+   "pos": [
+    18,
+    8
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Un fax. Il imprime une page blanche toutes les minutes."
+   ]
+  }
+ ],
+ "puzzles": [
+  {
+   "type": "clock",
+   "id": "clock1",
+   "puzzle": "z2_clocks",
+   "pos": [
+    5,
+    2
+   ],
+   "on_wall": true
+  },
+  {
+   "type": "clock",
+   "id": "clock2",
+   "puzzle": "z2_clocks",
+   "pos": [
+    15,
+    2
+   ],
+   "on_wall": true
+  }
+ ],
+ "npcs": [
+  {
+   "id": "ines",
+   "sprite": "npc_redhead",
+   "pos": [
+    11,
+    7
+   ],
+   "dialogue": "colleague_ines",
+   "when": {
+    "depth": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "pli",
+   "sprite": "mr_pli",
+   "pos": [
+    7,
+    9
+   ],
+   "dialogue": "pli",
+   "when": {
+    "depth": [
+     0,
+     0
+    ]
+   }
+  }
+ ],
+ "chests": [
+  {
+   "id": "z2_badge",
+   "sprite": "chest_locker",
+   "pos": [
+    16,
+    3
+   ],
+   "contents": "badge",
+   "when": {
+    "depth": [
+     0,
+     0
+    ]
+   },
+   "text": "* Le casier de Dana. Un badge est accroché à l'intérieur."
+  },
+  {
+   "id": "z2_stapler",
+   "sprite": "chest_crate",
+   "pos": [
+    11,
+    10
+   ],
+   "contents": "stapler",
+   "when": {
+    "depth": [
+     1,
+     4
+    ]
+   }
+  },
+  {
+   "id": "z2_tape_t04",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    10
+   ],
+   "contents": "tape:t04",
+   "when": {
+    "depth": [
+     1,
+     4
+    ]
+   }
+  },
+  {
+   "id": "z2_frag2",
+   "sprite": "chest_box",
+   "pos": [
+    17,
+    10
+   ],
+   "contents": "plan_fragment_2",
+   "when": {
+    "depth": [
+     2,
+     4
+    ]
+   }
+  },
+  {
+   "id": "z2_tape_t05",
+   "sprite": "chest_box",
+   "pos": [
+    7,
+    10
+   ],
+   "contents": "tape:t05",
+   "when": {
+    "depth": [
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "id": "z2_s_school",
+   "sprite": "chest_locker",
+   "pos": [
+    12,
+    3
+   ],
+   "contents": "souvenir:s_school",
+   "when": {
+    "depth": [
+     4,
+     4
+    ]
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    10,
+    11
+   ],
+   "to": "@prev",
+   "to_door": "north"
+  },
+  {
+   "id": "north",
+   "side": "top",
+   "pos": [
+    10,
+    2
+   ],
+   "to": "@next",
+   "to_door": "south"
+  }
+ ],
+ "spawns": {
+  "default": [
+   10,
+   9
+  ]
+ },
+ "encounters": {
+  "enemies": [
+   "fax_ghost",
+   "lost_badge",
+   "plastic_plant"
+  ],
+  "rate": 1.0,
+  "max": 2
+ },
+ "on_enter": [
+  {
+   "if": "depth==0 && !z2_off_seen",
+   "then": [
+    {
+     "set": {
+      "z2_off_seen": true
+     }
+    },
+    {
+     "say": [
+      "* Deux horloges. Le cadran de celle-ci est vide."
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,289 @@
+{
+ "id": "z6_archives",
+ "zone": 6,
+ "name": "Archives Halden",
+ "fidelity": 60,
+ "size": [
+  18,
+  12
+ ],
+ "chain": {
+  "max_depth": 4,
+  "then": "z6_monitors",
+  "then_door": "west"
+ },
+ "back": {
+  "room": "z5_swimmer",
+  "door": "east"
+ },
+ "no_mutations": [
+  "loop_door"
+ ],
+ "props": [
+  {
+   "id": "cab1",
+   "sprite": "filing_cabinet_tall",
+   "pos": [
+    2,
+    4
+   ],
+   "tags": [
+    "repeatable",
+    "small"
+   ]
+  },
+  {
+   "id": "cab2",
+   "sprite": "filing_cabinet_tall",
+   "pos": [
+    3,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "cab3",
+   "sprite": "filing_cabinet",
+   "pos": [
+    14,
+    4
+   ],
+   "tags": [
+    "repeatable",
+    "small"
+   ]
+  },
+  {
+   "id": "cab4",
+   "sprite": "filing_cabinet",
+   "pos": [
+    15,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "lamp",
+   "sprite": "hanging_lamp",
+   "pos": [
+    9,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "color": "#d8d8ff"
+   }
+  }
+ ],
+ "puzzles": [
+  {
+   "type": "terminal",
+   "id": "read",
+   "puzzle": "z6_archives",
+   "mode": "read",
+   "pos": [
+    6,
+    3
+   ],
+   "when": {
+    "depth": [
+     1,
+     4
+    ]
+   }
+  },
+  {
+   "type": "terminal",
+   "id": "input",
+   "puzzle": "z6_archives",
+   "mode": "input",
+   "pos": [
+    11,
+    3
+   ],
+   "sprite": "copier",
+   "when": {
+    "depth": [
+     4,
+     4
+    ]
+   }
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    12,
+    3
+   ],
+   "sprite": "phone",
+   "when": {
+    "depth": [
+     0,
+     0
+    ]
+   }
+  }
+ ],
+ "npcs": [
+  {
+   "id": "dana",
+   "sprite": "npc_scientist",
+   "pos": [
+    9,
+    7
+   ],
+   "dialogue": "dana",
+   "when": {
+    "depth": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "researcher",
+   "sprite": "npc_scientist_bald",
+   "pos": [
+    5,
+    8
+   ],
+   "dialogue": "researcher_kind",
+   "when": {
+    "depth": [
+     0,
+     1
+    ]
+   }
+  }
+ ],
+ "chests": [
+  {
+   "id": "z6_tape_t16",
+   "sprite": "chest_box",
+   "pos": [
+    16,
+    10
+   ],
+   "contents": "tape:t16",
+   "when": {
+    "depth": [
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "id": "z6_s_birthday",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    10
+   ],
+   "contents": "souvenir:s_birthday",
+   "when": {
+    "depth": [
+     1,
+     4
+    ]
+   }
+  },
+  {
+   "id": "z6_tape_t17",
+   "sprite": "chest_box",
+   "pos": [
+    8,
+    10
+   ],
+   "contents": "tape:t17",
+   "when": {
+    "depth": [
+     2,
+     4
+    ]
+   }
+  },
+  {
+   "id": "z6_coat",
+   "sprite": "chest_locker",
+   "pos": [
+    13,
+    10
+   ],
+   "contents": "halden_coat",
+   "when": {
+    "depth": [
+     3,
+     4
+    ]
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "@prev",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    17,
+    7
+   ],
+   "to": "@next",
+   "to_door": "west",
+   "requires": "depth<4 || puzzle.z6_archives",
+   "locked_text": [
+    "* « ACCÈS RESTREINT - MOT-CLÉ REQUIS ». "
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ },
+ "encounters": {
+  "enemies": [
+   "monitor",
+   "blurry_researcher",
+   "archive"
+  ],
+  "rate": 1.0,
+  "max": 2
+ },
+ "on_enter": [
+  {
+   "if": "!z6_intro",
+   "then": [
+    {
+     "set": {
+      "z6_intro": true
+     }
+    },
+    {
+     "say": [
+      "* La Station Halden. Des archives, des moniteurs, des cassettes.",
+      "* Ici, quelqu'un a essayé de comprendre."
+     ]
+    }
+   ]
+  }
+ ]
+}

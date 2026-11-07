@@ -1,9 +1,148 @@
 {
-  "id": "house_hallway", "zone": 0, "name": "Le couloir", "fidelity": 100,
-  "size": [18, 9],
-  "props": [{"id": "plant", "sprite": "plant", "pos": [3, 3], "tags": ["small"]}],
-  "doors": [
-    {"id": "bedroom", "side": "top", "pos": [4, 2], "to": "house_bedroom", "to_door": "south"}
-  ],
-  "spawns": {"default": [8, 5]}
+ "id": "house_hallway",
+ "zone": 0,
+ "name": "Le couloir",
+ "fidelity": 100,
+ "size": [
+  18,
+  9
+ ],
+ "layout": [
+  "##################",
+  "##################",
+  "##################",
+  "#................#",
+  "#................#",
+  "#................#",
+  "#................#",
+  "#................#",
+  "##################"
+ ],
+ "props": [
+  {
+   "id": "plant",
+   "sprite": "plant",
+   "pos": [
+    2,
+    3
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "note",
+   "sprite": "icon_note",
+   "pos": [
+    6,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "text": [
+    "* Un mot de maman sur le mur :",
+    "* « Le téléphone sonne parfois pour rien. Décroche quand même, ça lui fait plaisir. »"
+   ]
+  },
+  {
+   "id": "frame",
+   "sprite": "item_photo",
+   "pos": [
+    10,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Une photo de famille. Tout le monde regarde l'objectif.",
+    "* Sauf toi. Tu regardes quelque chose à côté du photographe."
+   ]
+  },
+  {
+   "id": "stairs_note",
+   "sprite": "hazard",
+   "pos": [
+    15,
+    7
+   ],
+   "solid": false,
+   "floor": true,
+   "z": -3,
+   "text": [
+    "* L'escalier du rez-de-chaussée. La septième marche grince.",
+    "* Tu l'enjambes, comme toujours. (Pas besoin de descendre.)"
+   ]
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    8,
+    3
+   ],
+   "sprite": "phone",
+   "dialogue": "save_phone_house"
+  }
+ ],
+ "doors": [
+  {
+   "id": "bedroom",
+   "side": "top",
+   "pos": [
+    4,
+    2
+   ],
+   "to": "house_bedroom",
+   "to_door": "south"
+  },
+  {
+   "id": "attic",
+   "side": "top",
+   "pos": [
+    13,
+    2
+   ],
+   "to": "house_attic",
+   "to_door": "ladder",
+   "sprite": "opening"
+  },
+  {
+   "id": "living",
+   "side": "right",
+   "pos": [
+    17,
+    5
+   ],
+   "to": "house_living",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   5
+  ]
+ },
+ "triggers": [
+  {
+   "id": "phone_hint",
+   "rect": [
+    6,
+    3,
+    4,
+    3
+   ],
+   "actions": [
+    {
+     "say": [
+      "* (Le téléphone de la maison. Les téléphones permettent de sauvegarder.)"
+     ]
+    }
+   ]
+  }
+ ]
 }

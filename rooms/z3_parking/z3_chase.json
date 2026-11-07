@@ -1,0 +1,152 @@
+{
+ "id": "z3_chase",
+ "zone": 3,
+ "name": "La fuite",
+ "fidelity": 55,
+ "size": [
+  24,
+  9
+ ],
+ "dark": false,
+ "ambient": "#3a3a44",
+ "music": "chase",
+ "no_entity": true,
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "bigger_inside"
+ ],
+ "chain": {
+  "max_depth": 5,
+  "then": "z3_exit",
+  "then_door": "west"
+ },
+ "props": [
+  {
+   "id": "l1",
+   "sprite": "hanging_lamp",
+   "pos": [
+    5,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": true
+   }
+  },
+  {
+   "id": "l2",
+   "sprite": "hanging_lamp",
+   "pos": [
+    12,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": true
+   }
+  },
+  {
+   "id": "l3",
+   "sprite": "hanging_lamp",
+   "pos": [
+    19,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": true
+   }
+  },
+  {
+   "id": "pillar",
+   "sprite": "pillar",
+   "pos": [
+    9,
+    6
+   ],
+   "tags": [
+    "decor"
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    5
+   ],
+   "to": "z3_chase",
+   "requires": "false",
+   "locked_text": [
+    "* La porte s'est refermée derrière toi.",
+    "* (Ne t'arrête pas.)"
+   ]
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    23,
+    5
+   ],
+   "to": "@next",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   5
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "depth==0 && !z3_chase_seen",
+   "then": [
+    {
+     "set": {
+      "z3_chase_seen": true
+     }
+    },
+    {
+     "sfx": "entity"
+    },
+    {
+     "say": [
+      "* Ce son.",
+      "* Toujours le même.",
+      "* COURS."
+     ]
+    }
+   ]
+  },
+  {
+   "entity": "chase",
+   "from_door": "west",
+   "delay": 1.8,
+   "speed": 105
+  }
+ ]
+}

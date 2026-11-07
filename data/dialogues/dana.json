@@ -1,0 +1,127 @@
+{
+ "nodes": {
+  "first": [
+   {
+    "text": "* « Oh ! Un enfant ? Ici ? »"
+   },
+   {
+    "text": "* « Je m'appelle Dana. Technicienne à l'Institut Halden. Enfin... je crois. »"
+   },
+   {
+    "text": "* « J'ai perdu mon équipe. Cinq personnes. Je les compte, je les recompte. Un, deux... »"
+   },
+   {
+    "text": "* « Si tu les croises dans les copies, dis-leur que Dana les attend. »",
+    "set": {
+     "met.dana": true,
+     "quest.dana": true
+    }
+   },
+   {
+    "text": "* « Ah, et... ne t'inquiète pas si les salles changent. C'est normal. Rien n'est normal, ici, mais ça, c'est normal. »"
+   }
+  ],
+  "games": [
+   {
+    "text": "* « Attends. Je t'ai déjà vu arriver. {games} fois, peut-être ? »"
+   },
+   {
+    "text": "* « Non, c'est idiot. Ici, tout le monde a l'impression d'avoir déjà vu tout le monde. »",
+    "set": {
+     "dana.games_told": true
+    }
+   }
+  ],
+  "status": [
+   {
+    "text": "* « Tu les as trouvés ? Combien ? »",
+    "p4": "* « Tu les as trou... combien ? »",
+    "p6": "* « Combien ? »"
+   }
+  ],
+  "count0": [
+   {
+    "text": "* « Aucun... Bon. Je recompte. Un, deux, trois... »",
+    "p5": "* « Aucun. Je re...compte. Un. Un. Un. »"
+   }
+  ],
+  "count_some": [
+   {
+    "text": "* « Certains, déjà ! Merci. Il en manque encore. Je le sens. »",
+    "p5": "* « Merci. Il en man... il en manque. »"
+   }
+  ],
+  "reward": [
+   {
+    "text": "* « Tous les cinq ! Tu les as tous trouvés ! »"
+   },
+   {
+    "text": "* « Je ne sais pas si je vais pouvoir les rejoindre. Mais je sais où ils sont. C'est déjà beaucoup. »"
+   },
+   {
+    "text": "* « Tiens. C'était dans ma poche depuis le premier jour. »",
+    "give": "s_photo"
+   },
+   {
+    "text": "* « Et ça. La photo de groupe. Sur cassette. »",
+    "give": "t19",
+    "set": {
+     "quest.dana.done": true
+    }
+   }
+  ],
+  "done": [
+   {
+    "text": "* « Un, deux, trois, quatre, cinq. Six avec moi. »",
+    "p5": "* « Un, deux, trois, quat... six avec moi. »",
+    "p6": "* « Six. »"
+   },
+   {
+    "text": "* « Je ne recompte plus. »"
+   }
+  ],
+  "farewell": [
+   {
+    "text": "* « Tu pars plus loin ? Les Bureaux sont par là. »",
+    "p4": "* « Tu pars ? Les Bur... par là. »"
+   },
+   {
+    "text": "* « Fais attention au badge. Le mien s'efface déjà. »",
+    "set": {
+     "dana.left_z1": true
+    }
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "!met.dana",
+   "goto": "first"
+  },
+  {
+   "if": "quest.dana.done",
+   "goto": "done"
+  },
+  {
+   "if": "dana.count>=5",
+   "goto": "reward"
+  },
+  {
+   "if": "games>=2 && !dana.games_told",
+   "goto": "games"
+  },
+  {
+   "if": "zone==1 && guardian_done && !dana.left_z1",
+   "goto": "farewell"
+  },
+  {
+   "if": "dana.count>=1",
+   "goto": "count_some"
+  },
+  {
+   "goto": "count0"
+  }
+ ],
+ "portrait": "scientist",
+ "voice": "soft"
+}

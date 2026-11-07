@@ -1,0 +1,81 @@
+{
+ "id": "debug_room",
+ "zone": 9,
+ "name": "DEBUG_ROOM_01",
+ "fidelity": 100,
+ "size": [
+  14,
+  10
+ ],
+ "floor": "floor_concrete",
+ "wall": "wall_grey",
+ "ambient": "#c0ffc0",
+ "music": "none",
+ "props": [
+  {
+   "id": "sign",
+   "sprite": "sign_sortie",
+   "pos": [
+    7,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "label": "NE PAS LIVRER",
+   "tags": [
+    "text"
+   ]
+  },
+  {
+   "id": "crate",
+   "sprite": "chest_crate",
+   "pos": [
+    3,
+    4
+   ],
+   "text": [
+    "* « ASSETS_FINAUX_v2_VRAI_FINAL ». Vide."
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "dev",
+   "sprite": "dev_npc",
+   "pos": [
+    7,
+    6
+   ],
+   "dialogue": "dev"
+  }
+ ],
+ "chests": [
+  {
+   "id": "debug_cake",
+   "sprite": "chest_box",
+   "pos": [
+    11,
+    7
+   ],
+   "contents": "canteen_cake"
+  }
+ ],
+ "doors": [
+  {
+   "id": "out",
+   "side": "bottom",
+   "pos": [
+    7,
+    9
+   ],
+   "to": "z1_arrival",
+   "to_door": "east"
+  }
+ ],
+ "spawns": {
+  "default": [
+   7,
+   7
+  ]
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "name": "Maître-Nageur",
+ "sprite": "lifeguard",
+ "scale": 2.0,
+ "hp": 44,
+ "atk": 7,
+ "def": 2,
+ "exp": 16,
+ "gold": 12,
+ "check": "* MAÎTRE-NAGEUR - ATT 7 DÉF 2\n* Il siffle. Il n'y a personne dans l'eau depuis longtemps.",
+ "flavor": [
+  "* Le Maître-Nageur siffle.",
+  "* « On ne court pas au bord du bassin ! »",
+  "* Il compte les nageurs : zéro. Zéro. Zéro."
+ ],
+ "spare_flavor": "* Le Maître-Nageur range son sifflet.",
+ "acts": [
+  {
+   "label": "Marcher lentement",
+   "text": [
+    "* Tu marches très lentement.",
+    "* Il est fier de toi."
+   ],
+   "mercy": 45
+  },
+  {
+   "label": "Mettre un bonnet",
+   "text": [
+    "* Tu fais semblant de mettre un bonnet de bain.",
+    "* « Réglementaire. » Il sourit."
+   ],
+   "mercy": 30
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un sauveteur de plage",
+    "Le maître-nageur de la piscine Jean-Bouin",
+    "Un prof de sport"
+   ],
+   "answer": 1,
+   "name": "Didier, de la piscine Jean-Bouin",
+   "mercy": 60,
+   "text_right": [
+    "* Didier, de la piscine Jean-Bouin. Il t'avait appris à faire la planche.",
+    "* « La planche ! Tête en arrière ! »"
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "PRRRT",
+  "On ne court pas.",
+  "Douche obligatoire."
+ ],
+ "patterns": [
+  "drip",
+  "sweep"
+ ],
+ "music": "battle"
+}

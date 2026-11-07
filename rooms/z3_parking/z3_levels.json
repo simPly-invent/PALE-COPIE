@@ -1,0 +1,267 @@
+{
+ "id": "z3_levels",
+ "zone": 3,
+ "name": "Niveau -2",
+ "fidelity": 76,
+ "size": [
+  22,
+  13
+ ],
+ "layout": [
+  "######################",
+  "######################",
+  "######################",
+  "#....................#",
+  "#....................#",
+  "#....#.....#.....#...#",
+  "#....................#",
+  "#....................#",
+  "#....................#",
+  "#....#.....#.....#...#",
+  "#....................#",
+  "#....................#",
+  "######################"
+ ],
+ "dark": true,
+ "chain": {
+  "max_depth": 3,
+  "then": "z3_spots",
+  "then_door": "west"
+ },
+ "back": {
+  "room": "z3_ramp",
+  "door": "east"
+ },
+ "props": [
+  {
+   "id": "l1",
+   "sprite": "hanging_lamp",
+   "pos": [
+    3,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": false
+   }
+  },
+  {
+   "id": "l2",
+   "sprite": "hanging_lamp",
+   "pos": [
+    14,
+    7
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": true
+   }
+  },
+  {
+   "id": "l3",
+   "sprite": "hanging_lamp",
+   "pos": [
+    20,
+    10
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": false
+   }
+  },
+  {
+   "id": "car1",
+   "sprite": "car",
+   "pos": [
+    8,
+    4
+   ],
+   "tags": [
+    "repeatable"
+   ],
+   "text": [
+    "* Une voiture grise. Les vitres sont embuées de l'intérieur."
+   ]
+  },
+  {
+   "id": "car2",
+   "sprite": "car",
+   "pos": [
+    14,
+    11
+   ],
+   "tags": [
+    "repeatable"
+   ],
+   "modulate": "#d05050",
+   "text": [
+    "* Une R5 rouge. Le phare gauche est de travers.",
+    "* Place 14."
+   ]
+  },
+  {
+   "id": "ticket_machine",
+   "sprite": "vending_machine",
+   "pos": [
+    19,
+    4
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Une caisse automatique. « TICKET NON VALIDÉ ». "
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "karim",
+   "sprite": "npc_guard",
+   "pos": [
+    9,
+    7
+   ],
+   "dialogue": "colleague_karim",
+   "when": {
+    "depth": [
+     2,
+     2
+    ]
+   }
+  }
+ ],
+ "chests": [
+  {
+   "id": "z3_tape_t07",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    11
+   ],
+   "contents": "tape:t07",
+   "when": {
+    "depth": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "id": "z3_frag3",
+   "sprite": "chest_crate",
+   "pos": [
+    20,
+    6
+   ],
+   "contents": "plan_fragment_3",
+   "when": {
+    "depth": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "id": "z3_batteries2",
+   "sprite": "chest_box",
+   "pos": [
+    7,
+    11
+   ],
+   "contents": "batteries",
+   "when": {
+    "depth": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "id": "z3_tape_t08",
+   "sprite": "chest_box",
+   "pos": [
+    13,
+    4
+   ],
+   "contents": "tape:t08",
+   "when": {
+    "depth": [
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "z3_s_dad_car",
+   "sprite": "chest_briefcase",
+   "pos": [
+    16,
+    11
+   ],
+   "contents": "souvenir:s_dad_car",
+   "when": {
+    "depth": [
+     3,
+     3
+    ]
+   },
+   "text": "* Dans le coffre de la R5. Une odeur de vieux skaï."
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "@prev",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    21,
+    7
+   ],
+   "to": "@next",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ },
+ "encounters": {
+  "enemies": [
+   "headlight",
+   "parking_ticket",
+   "echo"
+  ],
+  "rate": 1.0,
+  "max": 2
+ }
+}

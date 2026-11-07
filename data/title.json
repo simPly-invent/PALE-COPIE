@@ -1,1 +1,30 @@
-{"password": "NOCLIP", "subtitles": ["Un jeu de 1997."], "boot": {}, "names": {}}
+{
+ "password": "NOCLIP",
+ "footer": "© 1997 1996 HALDEN INTERACTIVE",
+ "subtitles": [
+  "Un jeu de 1997.",
+  "Tu es revenu.",
+  "Bon retour, encore.",
+  "La maison t'attend toujours.",
+  "Tu as déjà joué. Tu as déjà joué. Tu as déjà joué.",
+  "Merci de ne pas éteindre la console pendant que quelqu'un dort."
+ ],
+ "boot": {
+  "publisher": "HALDEN INTERACTIVE",
+  "presents": "présente",
+  "memory_title": "CARTE MÉMOIRE",
+  "memory_check": "Vérification de la carte mémoire (fente 1)...",
+  "memory_found": "1 bloc utilisé : PÂLE COPIE",
+  "memory_empty": "Aucune donnée. (Il y en avait pourtant.)",
+  "memory_new": "Aucune donnée.",
+  "copyright": "© 1997 1996 HALDEN INTERACTIVE",
+  "copyright2": "TOUS DROITS RÉSERVÉS. LICENCE ACCORDÉE PAR PERSONNE."
+ },
+ "names": {
+  "HALDEN": "!Ce nom est déjà utilisé.",
+  "DANA": "Tu cherches quelqu'un ?",
+  "COPIE": "Lequel des deux ?",
+  "MAMAN": "!Ce n'est pas ton nom. C'est le sien.",
+  "VASSEUR": "!Le docteur n'est pas disponible."
+ }
+}

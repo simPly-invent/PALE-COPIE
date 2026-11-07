@@ -1,0 +1,45 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Un téléphone fixe sonne dans le vide. Tu décroches.",
+    "p4": "* Le téléphone sonne. Tu décroches. Il sonne encore.",
+    "p6": "* Le téléphone sonne. Quelqu'un dit ton nom, puis raccroche."
+   },
+   {
+    "text": "* Personne au bout du fil. Juste un souffle, très loin.",
+    "p4": "* Un souffle. Peut-être le tien.",
+    "p6": "* ..."
+   },
+   {
+    "text": "* Ça te rassure.",
+    "p6": "* Ça te rassure quand même."
+   },
+   {
+    "text": "* Sauvegarder ?",
+    "choices": [
+     {
+      "text": "Oui",
+      "actions": [
+       {
+        "save": true
+       },
+       {
+        "heal": true
+       },
+       {
+        "say": [
+         "* (La partie est sauvegardée. Tu te sens reposé.)"
+        ]
+       }
+      ]
+     },
+     {
+      "text": "Non",
+      "end": true
+     }
+    ]
+   }
+  ]
+ }
+}

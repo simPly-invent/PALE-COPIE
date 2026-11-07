@@ -95,6 +95,8 @@ func build(src: RoomSource, d: int, f: int) -> void:
 			var tr = RoomTrigger.new()
 			tr.setup(t, self)
 			triggers.add_child(tr)
+	if src.data.has("maze"):
+		_place_maze_doors(src.data["maze"])
 	var sp: Dictionary = src.data.get("spawns", {})
 	for k in sp:
 		var m = Marker2D.new()
@@ -120,6 +122,22 @@ func visible_now(d: Dictionary) -> bool:
 	if w.has("if") and not GameState.check(w["if"]):
 		return false
 	return true
+
+## Énigme « Suivre l'ancre » : à chaque copie, les portes changent de place (l'ancre, jamais).
+func _place_maze_doors(maze: Dictionary) -> void:
+	var slots: Array = maze.get("slots", []).duplicate()
+	var rng = JsonUtil.make_rng([GameState.game_seed, source.id, "maze", depth])
+	for i in range(slots.size() - 1, 0, -1):
+		var j = rng.randi_range(0, i)
+		var t = slots[i]
+		slots[i] = slots[j]
+		slots[j] = t
+	var k = 0
+	for d in doors.get_children():
+		if d is Door and d.def.get("to", "") == "@maze" and k < slots.size():
+			d.cell = Vector2i(int(slots[k][0]), int(slots[k][1]))
+			d.side = slots[k][2]
+			k += 1
 
 static func default_layout(size: Vector2i, top: int) -> PackedStringArray:
 	var out = PackedStringArray()

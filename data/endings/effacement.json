@@ -1,0 +1,34 @@
+{
+ "name": "Effacement",
+ "date": "--- -- ----",
+ "time": "-- --:--",
+ "frames": [
+  {
+   "image": "",
+   "text": "",
+   "duration": 3,
+   "sound": "silence"
+  },
+  {
+   "image": "tiles/carpet_yellow",
+   "text": "Une moquette jaune, à l'infini.",
+   "duration": 5
+  },
+  {
+   "image": "tiles/carpet_yellow",
+   "text": "Tu ne te souviens plus de la maison.",
+   "duration": 5
+  },
+  {
+   "image": "tiles/carpet_yellow",
+   "text": "Tu ne te souviens plus de ton nom.",
+   "duration": 5
+  },
+  {
+   "image": "",
+   "text": "...",
+   "duration": 3,
+   "sound": "static"
+  }
+ ]
+}

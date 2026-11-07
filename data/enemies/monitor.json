@@ -1,0 +1,65 @@
+{
+ "name": "Moniteur",
+ "sprite": "enemy_monitor",
+ "scale": 1.6,
+ "hp": 44,
+ "atk": 7,
+ "def": 3,
+ "exp": 16,
+ "gold": 12,
+ "check": "* MONITEUR - ATT 7 DÉF 3\n* Il diffuse la même salle vide en boucle.",
+ "flavor": [
+  "* Le Moniteur affiche : AUCUN SIGNAL.",
+  "* Neige.",
+  "* Sur l'écran, une salle vide. Puis toi, dans la salle vide."
+ ],
+ "spare_flavor": "* Le Moniteur se met en veille.",
+ "acts": [
+  {
+   "label": "Régler l'antenne",
+   "text": [
+    "* Tu tournes l'antenne.",
+    "* L'image devient nette. Il est content."
+   ],
+   "mercy": 45
+  },
+  {
+   "label": "Regarder l'écran",
+   "text": [
+    "* Sur l'écran : une maison. La tienne ?",
+    "* L'image saute."
+   ],
+   "mercy": 20
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Une télé de salon",
+    "L'écran de la salle de surveillance Halden",
+    "Un ordinateur"
+   ],
+   "answer": 1,
+   "name": "l'écran n°3 de la surveillance",
+   "mercy": 60,
+   "text_right": [
+    "* L'écran n°3 de la surveillance Halden. Il montrait le couloir des archives.",
+    "* Il s'en souvient. Il affiche l'heure : 22:24."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "AUCUN SIGNAL",
+  "kssshhh",
+  "je te vois"
+ ],
+ "patterns": [
+  "homing",
+  "flicker"
+ ],
+ "music": "battle"
+}

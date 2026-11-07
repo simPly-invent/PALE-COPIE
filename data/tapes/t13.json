@@ -1,0 +1,24 @@
+{
+ "id": "t13",
+ "title": "Piscine Jean-Bouin",
+ "date": "JUN. 21 1997",
+ "time": "PM 03:00",
+ "frames": [
+  {
+   "image": "vhs/pool",
+   "text": "« La piscine municipale, recopiée. Didier, le maître-nageur, siffle encore. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/pool",
+   "text": "« Le premier carreau du grand bain était bleu. Tout le monde s'en souvient. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/pool",
+   "text": "« Sous l'eau, il faut suivre les carreaux qui n'ont pas changé : rouge, jaune, vert, bleu. »",
+   "duration": 5
+  }
+ ]
+}

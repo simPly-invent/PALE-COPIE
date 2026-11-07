@@ -1,0 +1,18 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Bertrand, sécurité. Je surveille le hall. »",
+    "p4": "* « Bertrand, sécu... je surveille. »"
+   },
+   {
+    "text": "* « Il y a un mur qui n'est pas un mur, dans ce hall. Je ne dirai pas lequel. »"
+   },
+   {
+    "text": "* « ...Celui derrière la poubelle. Oups. »"
+   }
+  ]
+ },
+ "portrait": "guard",
+ "voice": "low"
+}

@@ -1,0 +1,21 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Bouh. »",
+    "voice": "ghost"
+   },
+   {
+    "text": "* « Pardon. Réflexe. »"
+   },
+   {
+    "text": "* « Je suis là depuis la fermeture. On ne m'a pas dit de partir, alors je reste. »"
+   },
+   {
+    "text": "* « Il y a une cassette ici que personne ne voit. La pièce l'a oubliée. Toi, tu pourrais lui rappeler. »"
+   }
+  ]
+ },
+ "portrait": "ghost",
+ "voice": "ghost"
+}

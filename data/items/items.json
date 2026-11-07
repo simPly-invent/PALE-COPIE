@@ -1,6 +1,357 @@
-{"items": [
-  {"id": "stick_ruler", "name": "Règle en plastique", "type": "weapon", "atk": 0, "desc": "Trente centimètres. Un peu tordue."},
-  {"id": "pyjama", "name": "Pyjama", "type": "armor", "def": 0, "desc": "À rayures. Il sent la lessive."},
-  {"id": "camcorder", "name": "Caméscope", "type": "key", "desc": "Trouvé au grenier. Il enregistre encore."},
-  {"id": "cereal_bar", "name": "Barre de céréales", "type": "heal", "hp": 12, "degraded": ["Barre", "ar e"], "desc": "Au miel. Rend 12 PV."}
-]}
+{
+ "items": [
+  {
+   "id": "cereal_bar",
+   "name": "Barre de céréales",
+   "type": "heal",
+   "desc": "Au miel. Rend 12 PV.",
+   "hp": 12,
+   "degraded": [
+    "Barre",
+    "ar e"
+   ]
+  },
+  {
+   "id": "milk_carton",
+   "name": "Brique de lait",
+   "type": "heal",
+   "desc": "Date limite : 1997. Rend 10 PV.",
+   "hp": 10,
+   "degraded": [
+    "Brique",
+    "  ique"
+   ]
+  },
+  {
+   "id": "apple",
+   "name": "Pomme",
+   "type": "heal",
+   "desc": "Un peu cabossée. Rend 8 PV.",
+   "hp": 8,
+   "degraded": [
+    "Pom",
+    "o m"
+   ]
+  },
+  {
+   "id": "cold_pizza",
+   "name": "Part de pizza froide",
+   "type": "heal",
+   "desc": "Reine. Livrée en 1996. Rend 20 PV.",
+   "hp": 20,
+   "degraded": [
+    "Part de pizza",
+    "P  t"
+   ]
+  },
+  {
+   "id": "candy",
+   "name": "Bonbon à la fraise",
+   "type": "heal",
+   "desc": "Rose et collant. Rend 5 PV.",
+   "hp": 5,
+   "degraded": [
+    "Bonbon",
+    "B n on"
+   ]
+  },
+  {
+   "id": "lukewarm_coffee",
+   "name": "Café tiède",
+   "type": "heal",
+   "desc": "Gobelet de distributeur. Rend 15 PV.",
+   "hp": 15,
+   "degraded": [
+    "Café",
+    "  fé"
+   ]
+  },
+  {
+   "id": "sandwich",
+   "name": "Sandwich sous plastique",
+   "type": "heal",
+   "desc": "Jambon-beurre triangulaire. Rend 25 PV.",
+   "hp": 25,
+   "degraded": [
+    "Sandwich",
+    "S  dw  h"
+   ]
+  },
+  {
+   "id": "fountain_water",
+   "name": "Gobelet d'eau",
+   "type": "heal",
+   "desc": "De la fontaine à eau. Rend 18 PV.",
+   "hp": 18,
+   "degraded": [
+    "Gobelet",
+    "Go   t"
+   ]
+  },
+  {
+   "id": "canteen_cake",
+   "name": "Gâteau de cantine",
+   "type": "heal",
+   "desc": "Au yaourt. Exactement comme avant. Rend 35 PV.",
+   "hp": 35,
+   "degraded": [
+    "Gâteau",
+    "Gâ e u"
+   ]
+  },
+  {
+   "id": "batteries",
+   "name": "Piles neuves",
+   "type": "battery",
+   "desc": "Pour la lampe à piles. Recharge la lampe."
+  },
+  {
+   "id": "stick_ruler",
+   "name": "Règle en plastique",
+   "type": "weapon",
+   "desc": "Trente centimètres. Un peu tordue. ATT 0.",
+   "atk": 0
+  },
+  {
+   "id": "stapler",
+   "name": "Agrafeuse",
+   "type": "weapon",
+   "desc": "Clac. ATT 2.",
+   "atk": 2
+  },
+  {
+   "id": "umbrella",
+   "name": "Parapluie",
+   "type": "weapon",
+   "desc": "Il ne s'ouvre qu'à moitié. ATT 4.",
+   "atk": 4
+  },
+  {
+   "id": "keyring",
+   "name": "Trousseau de clés",
+   "type": "weapon",
+   "desc": "Aucune clé n'ouvre rien ici. ATT 6.",
+   "atk": 6
+  },
+  {
+   "id": "heavy_torch",
+   "name": "Lampe torche lourde",
+   "type": "weapon",
+   "desc": "Éteinte, mais lourde. ATT 8.",
+   "atk": 8
+  },
+  {
+   "id": "round_scissors",
+   "name": "Ciseaux à bouts ronds",
+   "type": "weapon",
+   "desc": "Pour enfants. Rassurants. ATT 10.",
+   "atk": 10
+  },
+  {
+   "id": "pyjama",
+   "name": "Pyjama",
+   "type": "armor",
+   "desc": "À rayures. Il sent la lessive. DÉF 0.",
+   "def": 0
+  },
+  {
+   "id": "safety_vest",
+   "name": "Gilet de sécurité",
+   "type": "armor",
+   "desc": "Orange fluo. On te voit de loin. DÉF 2.",
+   "def": 2
+  },
+  {
+   "id": "visitor_badge",
+   "name": "Badge visiteur",
+   "type": "armor",
+   "desc": "« VISITEUR - ACCOMPAGNÉ ». DÉF 3.",
+   "def": 3
+  },
+  {
+   "id": "cardigan",
+   "name": "Gilet de mamie",
+   "type": "armor",
+   "desc": "Trop grand, trop chaud, parfait. DÉF 5.",
+   "def": 5
+  },
+  {
+   "id": "hard_hat",
+   "name": "Casque de chantier",
+   "type": "armor",
+   "desc": "Il tombe sur les yeux. DÉF 7.",
+   "def": 7
+  },
+  {
+   "id": "halden_coat",
+   "name": "Blouse Halden",
+   "type": "armor",
+   "desc": "Un nom brodé, effacé. DÉF 9.",
+   "def": 9
+  },
+  {
+   "id": "camcorder",
+   "name": "Caméscope",
+   "type": "key",
+   "desc": "Trouvé au grenier. Il enregistre encore. (C : menu)"
+  },
+  {
+   "id": "flashlight",
+   "name": "Lampe à piles",
+   "type": "key",
+   "desc": "Elle éclaire dans le noir tant qu'il reste des piles."
+  },
+  {
+   "id": "badge",
+   "name": "Badge de Dana",
+   "type": "key",
+   "desc": "« DANA K. - TECHNICIENNE NIV.2 ». Le texte s'efface à chaque copie traversée."
+  },
+  {
+   "id": "archive_key",
+   "name": "Clé des archives",
+   "type": "key",
+   "desc": "Une petite clé dorée. Étiquette : « ARCH. »"
+  },
+  {
+   "id": "reliable_map",
+   "name": "Carte fiable",
+   "type": "key",
+   "desc": "Le vrai plan de l'Hôtel, recopié par Monsieur Pli. Ne ment pas."
+  },
+  {
+   "id": "plan_fragment",
+   "name": "Fragment de plan",
+   "type": "key",
+   "desc": "Un morceau de vrai plan d'évacuation."
+  },
+  {
+   "id": "plan_fragment_2",
+   "name": "Fragment de plan (2)",
+   "type": "key",
+   "desc": "Un autre morceau de vrai plan d'évacuation."
+  },
+  {
+   "id": "plan_fragment_3",
+   "name": "Fragment de plan (3)",
+   "type": "key",
+   "desc": "Le dernier morceau de vrai plan d'évacuation."
+  },
+  {
+   "id": "lumi_lamp",
+   "name": "Lampe infinie (Lumi)",
+   "type": "key",
+   "desc": "Lumi s'est fait tout petit dans ta poche. Il ne s'éteint plus."
+  },
+  {
+   "id": "swimsuit",
+   "name": "Maillot rayé",
+   "type": "key",
+   "desc": "Un maillot bleu et blanc. Taille 6 ans. Mouillé, depuis toujours."
+  },
+  {
+   "id": "pizza_box",
+   "name": "Pizza (1996)",
+   "type": "key",
+   "desc": "Elle est encore chaude. C'est impossible."
+  },
+  {
+   "id": "s_laundry",
+   "name": "L'odeur de la lessive",
+   "type": "souvenir",
+   "desc": "Une odeur de linge propre, de dimanche après-midi.",
+   "memory": "Le linge qui sèche sur le fil, dans le jardin. Les draps qui claquent."
+  },
+  {
+   "id": "s_photo",
+   "name": "Photo de la cuisine",
+   "type": "souvenir",
+   "desc": "Une photo un peu floue : la cuisine, la nappe à carreaux, quelqu'un qui rit hors du cadre.",
+   "memory": "Le rire, hors du cadre. Tu sais à qui il est."
+  },
+  {
+   "id": "s_mom_phrase",
+   "name": "« Je suis juste à côté »",
+   "type": "souvenir",
+   "desc": "Une phrase de maman, le soir, quand la porte reste entrouverte.",
+   "memory": "« Je suis juste à côté. » La lumière du couloir, par la porte entrouverte."
+  },
+  {
+   "id": "s_door",
+   "name": "La porte bleue",
+   "type": "souvenir",
+   "desc": "La porte d'entrée de la maison. Bleue, avec une marque de crayon à hauteur d'enfant.",
+   "memory": "La porte bleue. La marque de crayon que tu as faite à cinq ans."
+  },
+  {
+   "id": "s_song",
+   "name": "La berceuse",
+   "type": "souvenir",
+   "desc": "Trois notes, puis deux. Tu ne te souviens plus des paroles.",
+   "memory": "La berceuse revient en entier, pendant une seconde."
+  },
+  {
+   "id": "s_rain",
+   "name": "La pluie sur le Velux",
+   "type": "souvenir",
+   "desc": "Le bruit de la pluie sur la fenêtre du toit, au grenier.",
+   "memory": "Tap. Tap-tap. Tu étais en sécurité, au sec, sous la pluie."
+  },
+  {
+   "id": "s_dad_car",
+   "name": "La R5 rouge",
+   "type": "souvenir",
+   "desc": "La voiture de papa. Le phare gauche de travers.",
+   "memory": "Le siège arrière collant en été. La radio trop forte."
+  },
+  {
+   "id": "s_birthday",
+   "name": "Le gâteau d'anniversaire",
+   "type": "souvenir",
+   "desc": "Six bougies. Une ne voulait pas s'éteindre.",
+   "memory": "Tout le monde chante. Tu souffles. La sixième bougie se rallume."
+  },
+  {
+   "id": "s_school",
+   "name": "Le préau de l'école",
+   "type": "souvenir",
+   "desc": "Le préau, les jours de pluie. La marelle effacée.",
+   "memory": "Le bruit de la récré, sous le préau. Ton nom, appelé pour jouer."
+  },
+  {
+   "id": "s_holiday",
+   "name": "Biarritz, 1994",
+   "type": "souvenir",
+   "desc": "Une carte postale : la mer, un hôtel blanc.",
+   "memory": "Le sable dans les chaussures. La valise rouge. Le bonbon du groom."
+  },
+  {
+   "id": "s_stairs",
+   "name": "La septième marche",
+   "type": "souvenir",
+   "desc": "La marche de l'escalier qui grince. Il fallait l'enjamber.",
+   "memory": "Tu l'enjambes. Personne ne t'a entendu. Tu souris."
+  },
+  {
+   "id": "s_blanket",
+   "name": "La couverture qui gratte",
+   "type": "souvenir",
+   "desc": "La couverture de laine du canapé.",
+   "memory": "Le canapé, la couverture qui gratte, la télé allumée pour personne."
+  },
+  {
+   "id": "s_window",
+   "name": "Le soleil sur le parquet",
+   "type": "souvenir",
+   "desc": "Un carré de soleil qui bouge lentement sur le parquet.",
+   "memory": "Tu suivais le carré de soleil avec tes petites voitures."
+  },
+  {
+   "id": "s_name",
+   "name": "Ton prénom, depuis le jardin",
+   "type": "souvenir",
+   "desc": "Quelqu'un t'appelle pour le dîner.",
+   "memory": "« {name} ! À table ! » C'est ta voix à toi qu'on appelait."
+  }
+ ]
+}

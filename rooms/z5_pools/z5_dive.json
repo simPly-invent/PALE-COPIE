@@ -1,0 +1,87 @@
+{
+ "id": "z5_dive",
+ "zone": 5,
+ "name": "Sous l'eau",
+ "fidelity": 30,
+ "size": [
+  18,
+  12
+ ],
+ "layout": [
+  "##################",
+  "##################",
+  "##################",
+  "#..xxxxxxxxxxxx..#",
+  "#..xxxxxxxxxxxx..#",
+  "#..xxrygbrxxxxx..#",
+  "#..xgbxrrxxbryg..#",
+  "#..rygbxyxygxxx..#",
+  "#..xxxxxgbrygxx..#",
+  "#..xxxxxxxxxxxx..#",
+  "#..xxxxxxxxxxxx..#",
+  "##################"
+ ],
+ "ambient": "#8ab4e8",
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "stretch_room",
+  "bigger_inside",
+  "grid_align",
+  "erase"
+ ],
+ "puzzles": [
+  {
+   "type": "tile_path",
+   "id": "path",
+   "puzzle": "z5_dive",
+   "pos": [
+    0,
+    0
+   ]
+  }
+ ],
+ "props": [
+  {
+   "id": "note",
+   "sprite": "icon_note",
+   "pos": [
+    1.5,
+    4
+   ],
+   "text": [
+    "* Une plaque, sous l'eau, parfaitement lisible :",
+    "* « ROUGE, JAUNE, VERT, BLEU. LES CARREAUX QUI N'ONT PAS MUÉ. »"
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "z5_pool",
+   "to_door": "north"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    17,
+    6
+   ],
+   "to": "z5_swimmer",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   1,
+   7
+  ]
+ }
+}

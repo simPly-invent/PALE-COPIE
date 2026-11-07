@@ -1,0 +1,225 @@
+{
+ "id": "z1_maze",
+ "zone": 1,
+ "name": "Le labyrinthe des copies",
+ "fidelity": 74,
+ "size": [
+  16,
+  12
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "stretch_room"
+ ],
+ "maze": {
+  "steps": 4,
+  "then": "z1_neons",
+  "then_door": "west",
+  "fail_depth": 0,
+  "entry": "south",
+  "slots": [
+   [
+    3,
+    2,
+    "top"
+   ],
+   [
+    7,
+    2,
+    "top"
+   ],
+   [
+    12,
+    2,
+    "top"
+   ],
+   [
+    0,
+    5,
+    "left"
+   ],
+   [
+    0,
+    9,
+    "left"
+   ],
+   [
+    15,
+    5,
+    "right"
+   ],
+   [
+    15,
+    9,
+    "right"
+   ]
+  ]
+ },
+ "back": {
+  "room": "z1_diff",
+  "door": "b"
+ },
+ "anchor": {
+  "id": "clock_anchor",
+  "sprite": "clock",
+  "pos": [
+   11,
+   7
+  ],
+  "name": "Une horloge arrêtée sur un pied",
+  "solid": true,
+  "text": [
+   "* Une horloge, posée par terre. Arrêtée à 22 h 24.",
+   "* Elle ne bouge pas. Elle ne bougera jamais.",
+   "* (Toujours la porte la plus proche de l'ancre...)"
+  ]
+ },
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    5,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    10,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "chair",
+   "sprite": "chair_grey",
+   "pos": [
+    4,
+    8
+   ],
+   "tags": [
+    "repeatable",
+    "decor"
+   ]
+  },
+  {
+   "id": "trash",
+   "sprite": "trash_can",
+   "pos": [
+    13,
+    4
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "m1",
+   "side": "top",
+   "pos": [
+    3,
+    2
+   ],
+   "to": "@maze"
+  },
+  {
+   "id": "m2",
+   "side": "top",
+   "pos": [
+    7,
+    2
+   ],
+   "to": "@maze"
+  },
+  {
+   "id": "m3",
+   "side": "top",
+   "pos": [
+    12,
+    2
+   ],
+   "to": "@maze"
+  },
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    8,
+    11
+   ],
+   "to": "@prev",
+   "to_door": "south"
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   9
+  ]
+ },
+ "encounters": {
+  "enemies": [
+   "neon_flicker",
+   "empty_chair"
+  ],
+  "rate": 0.7,
+  "max": 1
+ },
+ "on_enter": [
+  {
+   "if": "depth==0 && !z1_maze_seen",
+   "then": [
+    {
+     "set": {
+      "z1_maze_seen": true
+     }
+    },
+    {
+     "say": [
+      "* Trois portes. Une horloge. Les portes ne sont jamais au même endroit."
+     ]
+    }
+   ]
+  },
+  {
+   "if": "depth==4",
+   "then": [
+    {
+     "say": [
+      "* (Encore une. La dernière, peut-être.)"
+     ]
+    }
+   ]
+  }
+ ]
+}

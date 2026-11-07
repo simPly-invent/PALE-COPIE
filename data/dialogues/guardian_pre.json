@@ -1,0 +1,14 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Ronde de 22 heures. Rien à signaler. »"
+   },
+   {
+    "text": "* « Rien à signaler depuis très longtemps. »"
+   }
+  ]
+ },
+ "portrait": "guard",
+ "voice": "low"
+}

@@ -1,0 +1,64 @@
+{
+ "name": "Ticket de Parking",
+ "sprite": "icon_note",
+ "scale": 2.4,
+ "hp": 28,
+ "atk": 5,
+ "def": 0,
+ "exp": 11,
+ "gold": 9,
+ "check": "* TICKET DE PARKING - ATT 5 DÉF 0\n* Entrée : 14/07/1997 22:10. Sortie : jamais.",
+ "flavor": [
+  "* Le Ticket calcule ce que tu lui dois.",
+  "* Le Ticket se froisse.",
+  "* « TICKET NON VALIDÉ »"
+ ],
+ "spare_flavor": "* Le Ticket est enfin validé.",
+ "acts": [
+  {
+   "label": "Valider",
+   "text": [
+    "* Tu le glisses dans une fente imaginaire.",
+    "* « Merci de votre visite. » Il est si heureux."
+   ],
+   "mercy": 50
+  },
+  {
+   "label": "Payer",
+   "text": [
+    "* Tu proposes un ticket de métro. Ce n'est pas pareil."
+   ],
+   "mercy": 10
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un ticket de cinéma",
+    "Le ticket du parking de l'Institut",
+    "Une contravention"
+   ],
+   "answer": 1,
+   "name": "le ticket du niveau -2",
+   "mercy": 60,
+   "text_right": [
+    "* Le ticket du parking de l'Institut, niveau -2, place 14.",
+    "* Il s'en souvient. Il se défroisse."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "14 h... 15 h... 9000 h",
+  "Validez-moi.",
+  "Sortie interdite."
+ ],
+ "patterns": [
+  "rain",
+  "numbers"
+ ],
+ "music": "battle"
+}

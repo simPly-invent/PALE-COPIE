@@ -1,0 +1,64 @@
+{
+ "nodes": {
+  "first": [
+   {
+    "text": "* « Ah, te voilà ! Le caméscope est au grenier, dans une mallette. »"
+   },
+   {
+    "text": "* « L'échelle est au bout du couloir. »"
+   },
+   {
+    "text": "* « Et ne marche pas sur la septième marche, elle réveille toute la maison. »",
+    "set": {
+     "met.mom": true
+    }
+   }
+  ],
+  "again": [
+   {
+    "text": "* « Le grenier, mon cœur. Au bout du couloir. »"
+   }
+  ],
+  "after": [
+   {
+    "text": "* « Tu l'as trouvé ? Bravo. »"
+   },
+   {
+    "text": "* « Allez, au lit. Demain c'est ton anniversaire. »"
+   },
+   {
+    "text": "* « Je suis juste à côté. »"
+   }
+  ],
+  "wrong": [
+   {
+    "text": "* « Ah, te voilà ! Le caméscope est au grenier, dans une... »"
+   },
+   {
+    "text": "* « ...Tu es déjà monté, non ? »"
+   },
+   {
+    "text": "* « Tu es déjà monté. Je m'en souviens. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "prologue_wrong && !has:camcorder",
+   "goto": "wrong"
+  },
+  {
+   "if": "has:camcorder",
+   "goto": "after"
+  },
+  {
+   "if": "met.mom",
+   "goto": "again"
+  },
+  {
+   "goto": "first"
+  }
+ ],
+ "portrait": "woman",
+ "voice": "mom"
+}

@@ -1,0 +1,75 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Un employé dort, la tête sur le bureau.",
+    "p5": "* Un employé dort. Ou il a oublié comment se réveiller."
+   },
+   {
+    "text": "* « Zzz... quelle heure... il est... vraiment ? »"
+   },
+   {
+    "text": "* « Toutes les horloges mentent... Celle de la salle d'origine... elle disait la vérité... »",
+    "choices": [
+     {
+      "text": "Lui donner l'heure",
+      "goto": "ask"
+     },
+     {
+      "text": "Le laisser dormir",
+      "end": true
+     }
+    ]
+   }
+  ],
+  "ask": [
+   {
+    "text": "* (Quelle heure était-il dans la salle d'origine ?)",
+    "actions": [
+     {
+      "ask_code": {
+       "puzzle": "z2_clocks",
+       "title": "HEURE (HHMM)",
+       "right": [
+        {
+         "say": [
+          "* L'employé ouvre les yeux d'un coup.",
+          "* « C'est ça. C'est exactement ça. Je peux rentrer chez moi. »",
+          "* « Tenez. La clé des archives. Je n'en aurai plus besoin. »"
+         ]
+        },
+        {
+         "give": "archive_key"
+        },
+        {
+         "set": {
+          "quest.sleeper.done": true
+         }
+        }
+       ],
+       "wrong": [
+        {
+         "say": [
+          "* « Zzz... non... ce n'est pas ça... »"
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "done": [
+   {
+    "text": "* La chaise est vide. Sur le bureau : « PARTI À L'HEURE. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "quest.sleeper.done",
+   "goto": "done"
+  }
+ ],
+ "voice": "low"
+}

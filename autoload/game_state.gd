@@ -164,6 +164,8 @@ func _value_of(key: String) -> float:
 		"fidelity": return World.current_fidelity()
 		"palier": return DegradationManager.palier_of(World.current_fidelity())
 		"depth": return int(room_key.get("depth", 0))
+		"zone": return World.current_room.source.zone if World.current_room else 0
+		"souvenirs_used": return souvenirs_used.size()
 	var v = flags.get(key, 0)
 	if v is bool:
 		return 1.0 if v else 0.0
@@ -201,6 +203,8 @@ func has_item(id: String) -> bool:
 ## Donne un objet ; retourne false si l'inventaire est plein.
 func give(id: String) -> bool:
 	var d = item_def(id)
+	if not items_db.has(item_base(id)) and FileAccess.file_exists("res://data/tapes/%s.json" % id):
+		d = {"type": "tape"}
 	match d.get("type", "junk"):
 		"key":
 			if not key_items.has(id):

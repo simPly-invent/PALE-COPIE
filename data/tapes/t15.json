@@ -1,0 +1,24 @@
+{
+ "id": "t15",
+ "title": "Le reflet",
+ "date": "JUN. 23 1997",
+ "time": "PM 05:05",
+ "frames": [
+  {
+   "image": "vhs/pool",
+   "text": "« Dans le reflet, la piscine est plus nette. Il y a une porte qui n'existe plus ici. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/pool",
+   "text": "« Si la salle se souvient assez d'elle-même, la porte revient. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« Les souvenirs servent à ça. Mais on n'en a pas beaucoup. »",
+   "duration": 4
+  }
+ ]
+}

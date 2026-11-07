@@ -1,0 +1,71 @@
+{
+ "name": "Néon Clignotant",
+ "sprite": "neon_ceiling",
+ "scale": 2.2,
+ "hp": 22,
+ "atk": 3,
+ "def": 0,
+ "exp": 7,
+ "gold": 4,
+ "check": "* NÉON CLIGNOTANT - ATT 3 DÉF 0\n* Il s'allume quand on ne le regarde pas.",
+ "flavor": [
+  "* Le Néon Clignotant grésille.",
+  "* Bzzzt.",
+  "* L'air sent la poussière chaude."
+ ],
+ "spare_flavor": "* Le Néon brille d'une lumière douce et régulière.",
+ "acts": [
+  {
+   "label": "Regarder ailleurs",
+   "text": [
+    "* Tu regardes ailleurs.",
+    "* Il se rallume, rassuré."
+   ],
+   "mercy": 40
+  },
+  {
+   "label": "Tapoter",
+   "text": [
+    "* Tu tapotes le tube.",
+    "* Il clignote plus fort. Il n'aime pas ça."
+   ],
+   "mercy": 0
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un réverbère",
+    "Le néon d'une salle de classe",
+    "Une lampe de poche"
+   ],
+   "answer": 1,
+   "name": "le néon de la classe de CM1",
+   "mercy": 60,
+   "text_right": [
+    "* Le néon de la salle de classe. Celui qui faisait tic-tic pendant les dictées.",
+    "* Il s'en souvient. Il ne clignote presque plus."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Bzz.",
+  "Tu me vois ?",
+  "Ne pars pas.",
+  "...tic. tic."
+ ],
+ "dialogue_low": [
+  "B  z.",
+  "tu  me ?",
+  "..."
+ ],
+ "patterns": [
+  "flicker",
+  "rain"
+ ],
+ "music": "battle"
+}

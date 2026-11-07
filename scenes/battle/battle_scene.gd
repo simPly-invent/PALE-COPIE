@@ -122,6 +122,7 @@ func _ready() -> void:
 		add_child(b)
 		buttons.append(b)
 	heart = UI.sprite_rect("soul_red", 0.55)
+	heart.visible = false
 	add_child(heart)
 	bubble = Panel.new()
 	bubble.add_theme_stylebox_override("panel", UI.frame_style(2, Color.WHITE, Color.BLACK))

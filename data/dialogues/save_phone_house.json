@@ -1,0 +1,38 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Le téléphone de la maison. Tu décroches.",
+    "p5": "* Le téléphone de la maison. Quelqu'un respire, à l'autre bout."
+   },
+   {
+    "text": "* La tonalité. Un son rassurant."
+   },
+   {
+    "text": "* Sauvegarder ?",
+    "choices": [
+     {
+      "text": "Oui",
+      "actions": [
+       {
+        "save": true
+       },
+       {
+        "heal": true
+       },
+       {
+        "say": [
+         "* (La partie est sauvegardée. Tu te sens reposé.)"
+        ]
+       }
+      ]
+     },
+     {
+      "text": "Non",
+      "end": true
+     }
+    ]
+   }
+  ]
+ }
+}

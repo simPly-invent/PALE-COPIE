@@ -1,0 +1,102 @@
+{
+ "nodes": {
+  "z1": [
+   {
+    "text": "* « Bonjour ! Monsieur Pli, plan d'évacuation. Vous êtes ICI. »"
+   },
+   {
+    "text": "* (Il montre un point au hasard sur lui-même.)"
+   },
+   {
+    "text": "* « Je vous donne des conseils, c'est mon métier. Écoutez bien : »"
+   },
+   {
+    "text": "* « Dans la salle aux quatre portes : les choses ne reviennent jamais en arrière. Si une chose est redevenue belle, c'est elle qui est différente. »"
+   },
+   {
+    "text": "* « Dans le labyrinthe : toujours la porte la plus proche de l'ancre. »"
+   },
+   {
+    "text": "* « Et si vous trouvez des morceaux de VRAI plan... rapportez-les-moi. J'ai oublié à quoi je ressemble. »",
+    "set": {
+     "quest.pli": true,
+     "met.pli": true
+    }
+   }
+  ],
+  "again": [
+   {
+    "text": "* « Rappel : quatre portes, une seule a menti. Labyrinthe : l'ancre. Néons : on compte ! »"
+   },
+   {
+    "text": "* « Vous avez des fragments de plan ? Gardez-les. Rendez-les-moi quand vous en aurez trois. »"
+   }
+  ],
+  "z4": [
+   {
+    "text": "* « Ah ! Le visiteur ! Je me suis perdu. Normal, je suis un plan. »",
+    "p5": "* « Ah ! Le vi...teur ! Je me suis per... normal, je suis un plan. »"
+   },
+   {
+    "text": "* « Vous avez mes fragments ? »",
+    "choices": [
+     {
+      "text": "Les donner",
+      "if": "has:plan_fragment && has:plan_fragment_2 && has:plan_fragment_3",
+      "goto": "give"
+     },
+     {
+      "text": "Pas encore",
+      "goto": "not_yet"
+     }
+    ]
+   }
+  ],
+  "give": [
+   {
+    "text": "* (Tu lui donnes les trois fragments.)",
+    "take": "plan_fragment"
+   },
+   {
+    "text": "* « Oh. Oh ! Je me souviens ! Il y a un escalier ICI, pas LÀ ! »",
+    "take": "plan_fragment_2"
+   },
+   {
+    "text": "* « Tenez. Je vous ai recopié le vrai plan de l'Hôtel. Il ne ment pas, lui. »",
+    "take": "plan_fragment_3",
+    "give": "reliable_map",
+    "set": {
+     "quest.pli.done": true
+    }
+   }
+  ],
+  "not_yet": [
+   {
+    "text": "* « Trois fragments. Un dans les Salles Jaunes, un dans les Bureaux, un dans le Parking. Je crois. Je suis un plan, pas un devin. »"
+   }
+  ],
+  "done": [
+   {
+    "text": "* « Vous êtes ICI ! Et cette fois, c'est vrai. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "quest.pli.done",
+   "goto": "done"
+  },
+  {
+   "if": "zone>=4",
+   "goto": "z4"
+  },
+  {
+   "if": "met.pli",
+   "goto": "again"
+  },
+  {
+   "goto": "z1"
+  }
+ ],
+ "voice": "robot"
+}

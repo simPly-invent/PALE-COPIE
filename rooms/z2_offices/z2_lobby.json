@@ -1,0 +1,256 @@
+{
+ "id": "z2_lobby",
+ "zone": 2,
+ "name": "Hall des Bureaux",
+ "fidelity": 90,
+ "size": [
+  16,
+  12
+ ],
+ "layout": [
+  "################",
+  "################",
+  "################",
+  "#..............#",
+  "#..............#",
+  "#..............#",
+  "#..............#",
+  "#..............#",
+  "h..............#",
+  "#..............#",
+  "#..............#",
+  "################"
+ ],
+ "anchor": {
+  "id": "desk_bell",
+  "sprite": "phone",
+  "pos": [
+   12,
+   7
+  ],
+  "name": "Une sonnette d'accueil",
+  "solid": true,
+  "text": [
+   "* Une sonnette d'accueil, posée par terre. Elle ne sonne pas.",
+   "* Elle ne changera jamais. C'est l'ancre de ces bureaux."
+  ]
+ },
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    4,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    11,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "desk",
+   "sprite": "desk",
+   "pos": [
+    4,
+    5
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Un bureau d'accueil vide. Un écriteau : « PATIENTEZ ».",
+    "* Il n'y a pas de chaise de l'autre côté."
+   ]
+  },
+  {
+   "id": "plant",
+   "sprite": "plant",
+   "pos": [
+    14,
+    4
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  },
+  {
+   "id": "crack",
+   "sprite": "trash_can",
+   "pos": [
+    1,
+    9
+   ],
+   "tags": [
+    "decor"
+   ],
+   "solid": false,
+   "text": [
+    "* Une poubelle. Le mur derrière a l'air... mince."
+   ]
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    7,
+    3
+   ],
+   "sprite": "phone"
+  }
+ ],
+ "vendings": [
+  {
+   "id": "vend",
+   "pos": [
+    2,
+    3
+   ],
+   "shop": "vend_z2"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "livreur",
+   "sprite": "delivery_man",
+   "pos": [
+    9,
+    9
+   ],
+   "dialogue": "livreur"
+  },
+  {
+   "id": "sleeper",
+   "sprite": "sleeping_man",
+   "pos": [
+    5,
+    6
+   ],
+   "dialogue": "sleeper",
+   "solid": true
+  },
+  {
+   "id": "dana",
+   "sprite": "npc_scientist",
+   "pos": [
+    11,
+    4
+   ],
+   "dialogue": "dana"
+  },
+  {
+   "id": "bertrand",
+   "sprite": "npc_guard",
+   "pos": [
+    14,
+    8
+   ],
+   "dialogue": "bertrand"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "secret_wall",
+   "rect": [
+    0,
+    8,
+    1,
+    1
+   ],
+   "once": false,
+   "actions": [
+    {
+     "set": {
+      "secret.wall_found": true
+     }
+    },
+    {
+     "goto": {
+      "room": "z2_secret",
+      "spawn": "default"
+     }
+    }
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    5
+   ],
+   "to": "z1_exit",
+   "to_door": "east"
+  },
+  {
+   "id": "north",
+   "side": "top",
+   "pos": [
+    8,
+    2
+   ],
+   "to": "z2_offices",
+   "to_door": "south"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   5
+  ],
+  "from_secret": [
+   1,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!z2_intro",
+   "then": [
+    {
+     "set": {
+      "z2_intro": true
+     }
+    },
+    {
+     "say": [
+      "* Des bureaux. De la moquette grise. Une plante en plastique.",
+      "* Les horloges ne sont pas d'accord entre elles."
+     ]
+    }
+   ]
+  }
+ ]
+}

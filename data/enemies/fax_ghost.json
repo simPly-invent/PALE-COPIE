@@ -1,0 +1,66 @@
+{
+ "name": "Fax Fantôme",
+ "sprite": "enemy_ghost",
+ "scale": 1.6,
+ "hp": 30,
+ "atk": 4,
+ "def": 1,
+ "exp": 10,
+ "gold": 6,
+ "check": "* FAX FANTÔME - ATT 4 DÉF 1\n* Il envoie toujours la même page, à un numéro qui n'existe plus.",
+ "flavor": [
+  "* Le Fax Fantôme sonne : pîîîî-krrr.",
+  "* Une page sort. Elle est blanche.",
+  "* Ça sent l'encre chaude."
+ ],
+ "spare_flavor": "* Le fax a fini d'envoyer.",
+ "acts": [
+  {
+   "label": "Accuser réception",
+   "text": [
+    "* Tu dis « bien reçu ».",
+    "* Le fax est ému. Personne ne répondait jamais."
+   ],
+   "mercy": 50
+  },
+  {
+   "label": "Lire la page",
+   "text": [
+    "* « URGENT - ÉQUIPE 3 NE RÉPOND PLUS - »",
+    "* Le reste est effacé."
+   ],
+   "mercy": 15
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un télécopieur de poste",
+    "Le fax du bureau 214 de Halden",
+    "Une imprimante"
+   ],
+   "answer": 1,
+   "name": "le fax du bureau 214",
+   "mercy": 60,
+   "text_right": [
+    "* Le fax du bureau 214. Il a envoyé le dernier message de l'équipe 3.",
+    "* Il s'en souvient. Il s'arrête de sonner."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "pîîîî",
+  "krrrrr",
+  "URGENT",
+  "personne ne répond"
+ ],
+ "patterns": [
+  "ring",
+  "rain"
+ ],
+ "music": "battle"
+}

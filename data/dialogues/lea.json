@@ -1,0 +1,62 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Mon papa fait la planche, là-bas. Il ne bouge plus depuis longtemps. »",
+    "p5": "* « Mon papa fait la pla... il ne bouge plus. »"
+   },
+   {
+    "text": "* « Et j'ai perdu mon maillot. Je l'ai vu dans l'eau, dans le reflet. Mais quand je regarde le vrai rebord, il n'y est pas. »",
+    "set": {
+     "quest.lea": true
+    }
+   },
+   {
+    "text": "* « Tu me le rapportes, si tu le trouves ? »"
+   }
+  ],
+  "has": [
+   {
+    "text": "* « Mon maillot ! Tu l'as trouvé dans le reflet ? »"
+   },
+   {
+    "text": "* « Merci ! Tiens... c'est à toi, je crois. C'était dans ma poche, mais ce n'est pas à moi. »",
+    "take": "swimsuit",
+    "give": "s_blanket",
+    "set": {
+     "quest.lea.done": true
+    }
+   }
+  ],
+  "done": [
+   {
+    "text": "* « Papa ne fait plus la planche ? »",
+    "if": "swimmer_done"
+   },
+   {
+    "text": "* « Merci. Je vais l'attendre encore un peu. Il arrive. »"
+   }
+  ],
+  "again": [
+   {
+    "text": "* « Mon maillot... il est dans le reflet. Le bassin a oublié qu'il était là. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "quest.lea.done",
+   "goto": "done"
+  },
+  {
+   "if": "has:swimsuit",
+   "goto": "has"
+  },
+  {
+   "if": "quest.lea",
+   "goto": "again"
+  }
+ ],
+ "portrait": "girl_b",
+ "voice": "child"
+}

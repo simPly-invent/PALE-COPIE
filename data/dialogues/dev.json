@@ -1,0 +1,24 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Oh ! Tu n'es pas censé être là. »",
+    "voice": "robot"
+   },
+   {
+    "text": "* « C'est la pièce de test. Je l'ai oubliée en 1997. On a tout oublié en 1997. »"
+   },
+   {
+    "text": "* « Le jeu n'est jamais sorti, tu sais. Personne n'y a joué. Sauf toi, apparemment. {games} fois. »"
+   },
+   {
+    "text": "* « Prends le gâteau, il est là depuis la démo. La porte te ramène au début des Salles Jaunes. »"
+   },
+   {
+    "text": "* « Et ne dis à personne que les néons sont tous le même sprite. »"
+   }
+  ]
+ },
+ "portrait": "monitor",
+ "voice": "robot"
+}

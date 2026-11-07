@@ -1,0 +1,208 @@
+{
+ "id": "z1_arrival",
+ "zone": 1,
+ "name": "Les Salles Jaunes",
+ "fidelity": 100,
+ "size": [
+  16,
+  12
+ ],
+ "anchor": {
+  "id": "red_chair",
+  "sprite": "chair_red",
+  "name": "Une chaise rouge",
+  "pos": [
+   5,
+   6
+  ]
+ },
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    4,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    8,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": false,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n3",
+   "sprite": "neon_ceiling",
+   "pos": [
+    12,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "sortie",
+   "sprite": "sign_sortie",
+   "pos": [
+    13.5,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "label": "SORTIE",
+   "tags": [
+    "text"
+   ],
+   "text": [
+    "* Un panneau SORTIE. La flèche pointe vers le panneau lui-même."
+   ]
+  },
+  {
+   "id": "plant",
+   "sprite": "plant",
+   "pos": [
+    14,
+    4
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  },
+  {
+   "id": "wet",
+   "sprite": "wet_floor_sign",
+   "pos": [
+    9,
+    9
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* « ATTENTION SOL GLISSANT ».",
+    "* Le sol est sec. Depuis longtemps."
+   ]
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    11,
+    3
+   ],
+   "sprite": "phone"
+  }
+ ],
+ "vendings": [
+  {
+   "id": "vend",
+   "pos": [
+    2,
+    3
+   ],
+   "shop": "vend_z1"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "dana",
+   "sprite": "npc_scientist",
+   "pos": [
+    9,
+    6
+   ],
+   "dialogue": "dana",
+   "if": "!dana.left_z1"
+  }
+ ],
+ "doors": [
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z1_halls",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   7,
+   8
+  ]
+ },
+ "still_npc": {
+  "id": "still_shadow",
+  "sprite": "npc_shadow",
+  "pos": [
+   2,
+   9
+  ],
+  "dialogue": "still_shadow",
+  "after": 120
+ },
+ "on_enter": [
+  {
+   "if": "!z1_intro",
+   "then": [
+    {
+     "set": {
+      "z1_intro": true
+     }
+    },
+    {
+     "wait": 0.6
+    },
+    {
+     "say": [
+      "* Tu es tombé longtemps.",
+      "* Ici, tout est jaune. La moquette est humide. Les néons bourdonnent.",
+      "* On dirait le couloir d'une école. Ou d'un bureau. Ou de chez toi.",
+      "* (Ça n'a aucun sens.)"
+     ]
+    }
+   ]
+  }
+ ]
+}

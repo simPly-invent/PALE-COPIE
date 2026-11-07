@@ -1,0 +1,27 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Tu es resté. »",
+    "voice": "deep"
+   },
+   {
+    "text": "* « Personne ne reste. Tout le monde court vers la sortie. »"
+   },
+   {
+    "text": "* « Toi, tu as attendu. Alors je te dis un secret. »"
+   },
+   {
+    "text": "* « Sur l'écran du début, tape ce que tu as fait pour arriver ici. »"
+   },
+   {
+    "text": "* « Le sol. Tu es passé à travers. Comme un bug. »",
+    "set": {
+     "secret.password_hint": true
+    }
+   }
+  ]
+ },
+ "portrait": "shadow",
+ "voice": "deep"
+}

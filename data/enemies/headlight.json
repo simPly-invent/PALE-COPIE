@@ -1,0 +1,65 @@
+{
+ "name": "Phare Allumé",
+ "sprite": "headlight",
+ "scale": 2.0,
+ "hp": 34,
+ "atk": 5,
+ "def": 1,
+ "exp": 12,
+ "gold": 7,
+ "check": "* PHARE ALLUMÉ - ATT 5 DÉF 1\n* La voiture est partie. Le phare est resté.",
+ "flavor": [
+  "* Le Phare t'éblouit.",
+  "* Le Phare cherche sa voiture.",
+  "* Plein phares."
+ ],
+ "spare_flavor": "* Le Phare passe en feux de croisement. Poli.",
+ "acts": [
+  {
+   "label": "Faire un appel de phares",
+   "text": [
+    "* Tu clignes des yeux deux fois.",
+    "* Le Phare répond. Il a l'impression d'être sur la route."
+   ],
+   "mercy": 45
+  },
+  {
+   "label": "Se cacher les yeux",
+   "text": [
+    "* Tu te caches les yeux.",
+    "* Le Phare baisse un peu, gêné."
+   ],
+   "mercy": 20
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Le phare d'un camion",
+    "Le phare gauche de la R5 de papa",
+    "Une lampe de chantier"
+   ],
+   "answer": 1,
+   "name": "le phare de la R5 de papa",
+   "mercy": 60,
+   "text_right": [
+    "* Le phare gauche de la R5 rouge. Celui qui était toujours un peu de travers.",
+    "* Il s'en souvient. Il clignote, content."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Où est la route ?",
+  "PLEIN PHARES",
+  "vroum ?"
+ ],
+ "patterns": [
+  "flicker",
+  "sweep"
+ ],
+ "music": "battle"
+}

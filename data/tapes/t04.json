@@ -1,0 +1,24 @@
+{
+ "id": "t04",
+ "title": "L'accueil",
+ "date": "JUL. 07 1997",
+ "time": "AM 08:30",
+ "frames": [
+  {
+   "image": "vhs/office",
+   "text": "« Mme Ferrand, accueil, depuis 1989. Elle dit bonjour à chaque personne qui entre. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/office",
+   "text": "« Elle a dit bonjour onze fois à la même personne ce matin. La personne n'est jamais entrée. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« Elle arrose la plante en plastique tous les jours. Laissez-la faire. »",
+   "duration": 4
+  }
+ ]
+}

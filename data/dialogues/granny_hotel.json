@@ -1,0 +1,18 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Bonsoir, mon petit. J'attends mon mari. Il est parti chercher le journal. »",
+    "p5": "* « Bonsoir, mon pe... j'attends. Il est parti. »"
+   },
+   {
+    "text": "* « En 1994. »"
+   },
+   {
+    "text": "* « Les numéros des chambres, tu sais, ils suivent une règle. Mon mari disait : l'écart double à chaque fois. »"
+   }
+  ]
+ },
+ "portrait": "woman",
+ "voice": "soft"
+}

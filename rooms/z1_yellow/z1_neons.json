@@ -1,0 +1,204 @@
+{
+ "id": "z1_neons",
+ "zone": 1,
+ "name": "La salle des néons",
+ "fidelity": 62,
+ "size": [
+  16,
+  12
+ ],
+ "forced_mutations": [
+  {
+   "depth": 1,
+   "id": "repeat_props"
+  }
+ ],
+ "mutation_params": {
+  "repeat_props": {
+   "tag": "neon",
+   "per_depth": true,
+   "all": 1
+  }
+ },
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "stretch_room"
+ ],
+ "chain": {
+  "max_depth": 3,
+  "then": "z1_neons",
+  "then_depth": 3,
+  "then_door": "west"
+ },
+ "back": {
+  "room": "z1_maze",
+  "depth": 4,
+  "door": "south"
+ },
+ "props": [
+  {
+   "id": "neon",
+   "sprite": "neon_ceiling",
+   "pos": [
+    7,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "neon",
+    "light"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "desk",
+   "sprite": "desk",
+   "pos": [
+    4,
+    6
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "chair",
+   "sprite": "chair_grey",
+   "pos": [
+    4,
+    7
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  },
+  {
+   "id": "copier",
+   "sprite": "copier",
+   "pos": [
+    12,
+    4
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Une photocopieuse. Elle a fait une copie de quelque chose. La feuille est blanche."
+   ]
+  }
+ ],
+ "puzzles": [
+  {
+   "type": "keypad",
+   "id": "keypad",
+   "puzzle": "z1_neons",
+   "pos": [
+    9,
+    3
+   ],
+   "sprite": "phone",
+   "when": {
+    "depth": [
+     3,
+     3
+    ]
+   }
+  }
+ ],
+ "chests": [
+  {
+   "id": "z1_tape_t03",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    9
+   ],
+   "contents": "tape:t03",
+   "when": {
+    "depth": [
+     0,
+     0
+    ]
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "@prev",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "@next",
+   "to_door": "west",
+   "when": {
+    "depth": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "id": "exit",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z1_guardian",
+   "to_door": "west",
+   "when": {
+    "depth": [
+     3,
+     3
+    ]
+   },
+   "requires": "puzzle.z1_neons",
+   "locked_text": [
+    "* La porte ne s'ouvre pas. Au-dessus, un néon rouge.",
+    "* (Il y a un boîtier à code sur le mur.)"
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   3,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "depth==0 && !z1_neons_seen",
+   "then": [
+    {
+     "set": {
+      "z1_neons_seen": true
+     }
+    },
+    {
+     "say": [
+      "* Un seul néon. Il a l'air seul."
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "name": "Moquette Humide",
+ "sprite": "enemy_blob",
+ "scale": 1.5,
+ "hp": 30,
+ "atk": 3,
+ "def": 2,
+ "exp": 9,
+ "gold": 5,
+ "check": "* MOQUETTE HUMIDE - ATT 3 DÉF 2\n* Elle a bu toute l'eau d'une fuite, il y a longtemps.",
+ "flavor": [
+  "* La Moquette Humide fait floc.",
+  "* Ça sent le vieux carton mouillé.",
+  "* Floc."
+ ],
+ "spare_flavor": "* La moquette sèche un peu.",
+ "acts": [
+  {
+   "label": "Essorer",
+   "text": [
+    "* Tu essores un coin. Beaucoup d'eau.",
+    "* Elle se sent plus légère."
+   ],
+   "mercy": 45
+  },
+  {
+   "label": "Marcher dessus",
+   "text": [
+    "* Floc. Floc. Tes chaussettes sont mouillées."
+   ],
+   "mercy": 15
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un tapis de salon",
+    "La moquette du couloir de l'école",
+    "Un paillasson"
+   ],
+   "answer": 0,
+   "name": "le tapis du salon",
+   "mercy": 60,
+   "text_right": [
+    "* Le tapis du salon. Celui où tu faisais des circuits de voitures.",
+    "* Elle se souvient des petites roues."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Floc.",
+  "j'ai soif",
+  "fffloc"
+ ],
+ "patterns": [
+  "drip",
+  "rain"
+ ],
+ "music": "battle"
+}

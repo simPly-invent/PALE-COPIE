@@ -25,6 +25,8 @@ func setup(d: Dictionary, r: Node) -> void:
 	add_child(overlay)
 
 func _process(_delta: float) -> void:
+	if overlay:
+		overlay.visible = is_visible_in_tree()
 	if overlay_sprite:
 		overlay_sprite.global_transform = get_global_transform()
 		# le joueur passe devant l'ancre : on la masque pendant le recouvrement

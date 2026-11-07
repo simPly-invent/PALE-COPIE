@@ -1,0 +1,24 @@
+{
+ "id": "t06",
+ "title": "Les horloges",
+ "date": "JUL. 09 1997",
+ "time": "AM 07:15",
+ "frames": [
+  {
+   "image": "vhs/office",
+   "text": "« Chaque copie avance les horloges du même nombre de minutes. Toujours le même. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/office",
+   "text": "« Pour connaître l'heure d'origine, il suffit de regarder deux copies, et de revenir en arrière. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« La salle d'origine, elle, n'a plus d'aiguilles. Elle a oublié. »",
+   "duration": 4
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "name": "Archive",
+ "sprite": "filing_cabinet_tall",
+ "scale": 2.0,
+ "hp": 50,
+ "atk": 7,
+ "def": 5,
+ "exp": 18,
+ "gold": 14,
+ "check": "* ARCHIVE - ATT 7 DÉF 5\n* Elle contient tout. Elle ne retrouve rien.",
+ "flavor": [
+  "* L'Archive ouvre un tiroir. Il est vide.",
+  "* Des feuilles volent.",
+  "* « CLASSÉ SANS SUITE »"
+ ],
+ "spare_flavor": "* L'Archive referme ses tiroirs, apaisée.",
+ "acts": [
+  {
+   "label": "Classer",
+   "text": [
+    "* Tu ranges une feuille dans le bon tiroir.",
+    "* Elle frissonne de bonheur."
+   ],
+   "mercy": 45
+  },
+  {
+   "label": "Lire un dossier",
+   "text": [
+    "* « DOSSIER : LA MAISON. Statut : copie n°... »",
+    "* La suite est arrachée."
+   ],
+   "mercy": 20
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Une bibliothèque",
+    "Le meuble à dossiers du bureau de Vasseur",
+    "Un coffre-fort"
+   ],
+   "answer": 1,
+   "name": "le meuble de Vasseur",
+   "mercy": 60,
+   "text_right": [
+    "* Le meuble à dossiers du bureau du Dr Vasseur. Tiroir du bas : ton dossier.",
+    "* Elle se souvient de ce qu'elle contient. Elle ne te le dit pas."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "CLASSÉ",
+  "Introuvable",
+  "Dossier : toi"
+ ],
+ "patterns": [
+  "sweep",
+  "homing"
+ ],
+ "music": "battle"
+}

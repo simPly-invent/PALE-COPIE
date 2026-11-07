@@ -1,0 +1,194 @@
+{
+ "id": "z1_guardian",
+ "zone": 1,
+ "name": "Le poste du gardien",
+ "fidelity": 58,
+ "size": [
+  16,
+  12
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "stretch_room",
+  "detail_vanish"
+ ],
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    3,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    7,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n3",
+   "sprite": "neon_ceiling",
+   "pos": [
+    11,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "desk",
+   "sprite": "desk",
+   "pos": [
+    12,
+    5
+   ],
+   "text": [
+    "* Le bureau du gardien. Un registre : « RONDE 22 H - RAS - RAS - RAS - RAS - RAS... »"
+   ]
+  },
+  {
+   "id": "chair",
+   "sprite": "chair_grey",
+   "pos": [
+    12,
+    6
+   ],
+   "tags": [
+    "small"
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "guardian",
+   "sprite": "npc_guard",
+   "pos": [
+    8,
+    6
+   ],
+   "dialogue": "guardian_pre",
+   "scale": 1.2,
+   "if": "!guardian_done"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "boss",
+   "rect": [
+    5,
+    6,
+    2,
+    5
+   ],
+   "if": "!guardian_done",
+   "once": false,
+   "actions": [
+    {
+     "say": [
+      "* « Halte. Personne ne passe après 22 heures. »",
+      "* « Il est toujours 22 heures. »"
+     ]
+    },
+    {
+     "battle": "neon_guardian",
+     "on_won": [
+      {
+       "set": {
+        "guardian_done": true,
+        "guardian_killed": true
+       }
+      }
+     ],
+     "on_spared": [
+      {
+       "set": {
+        "guardian_done": true
+       }
+      }
+     ]
+    },
+    {
+     "if": "guardian_done",
+     "then": [
+      {
+       "rebuild": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "z1_neons",
+   "to_door": "exit",
+   "depth": 3
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z1_exit",
+   "to_door": "west",
+   "requires": "guardian_done",
+   "locked_text": [
+    "* Le gardien te regarde. Tu n'oses pas passer."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ }
+}

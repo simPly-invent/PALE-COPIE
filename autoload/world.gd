@@ -63,6 +63,8 @@ func _load_room(source_id: String, depth: int, door_id: String, spawn_id: String
 		if follower and follower.get_parent() == current_room:
 			current_room.remove_child(follower)
 	var room = DegradationManager.make_copy(source_id, depth)
+	if room == null:
+		room = DegradationManager.make_copy("z1_arrival", 0)
 	current_room = room
 	world_root.add_child(room)
 	if player == null:
@@ -83,6 +85,7 @@ func _load_room(source_id: String, depth: int, door_id: String, spawn_id: String
 		follower.global_position = p + Vector2(0, -4)
 		follower.reset_trail()
 	GameState.room_key = {"source": source_id, "depth": depth}
+	GameState.still_time = 0.0
 	if depth > 0 and GameState.has_item("badge"):
 		GameState.badge_decay += 1
 	_update_camera(true)
@@ -136,15 +139,30 @@ func use_door(door: Door, body: Node) -> void:
 		await DialogueManager.say(d.get("locked_text", ["* C'est fermé à clé."]))
 		GameState.unlock("door")
 		return
-	var to: String = d.get("to", "")
-	var target = room_src.id
-	var tdepth = 0
-	var tdoor: String = d.get("to_door", "")
 	if d.has("backwards_to") and body.has_method("is_walking_backwards") and body.is_walking_backwards():
 		var b: Dictionary = d["backwards_to"]
 		await goto_room(b["room"], int(b.get("depth", 0)), b.get("door", ""))
 		return
+	var maze_ok = d.get("to", "") == "@maze" and door == nearest_door_to_anchor()
+	if d.get("to", "") == "@maze" and not maze_ok:
+		GameState.inc_flag("maze_fails")
+	var res = resolve_door(room_src, depth, d, maze_ok)
+	if res.is_empty():
+		return
+	var target: String = res[0]
+	var tdepth: int = res[1]
+	var tdoor: String = res[2]
+	await goto_room(target, tdepth, tdoor)
+
+## Résout la destination d'une porte : [salle, profondeur, porte d'arrivée], ou [] si aucune.
+func resolve_door(room_src: RoomSource, depth: int, d: Dictionary, maze_ok := false) -> Array:
+	var to: String = d.get("to", "")
+	var target = room_src.id
+	var tdepth = 0
+	var tdoor: String = d.get("to_door", "")
 	match to:
+		"":
+			return []
 		"@next":
 			tdepth = depth + 1
 			var chain: Dictionary = room_src.data.get("chain", {})
@@ -158,7 +176,7 @@ func use_door(door: Door, body: Node) -> void:
 			else:
 				var back: Dictionary = room_src.data.get("back", {})
 				if back.is_empty():
-					return
+					return []
 				target = back["room"]
 				tdepth = int(back.get("depth", 0))
 				tdoor = back.get("door", tdoor)
@@ -167,7 +185,7 @@ func use_door(door: Door, body: Node) -> void:
 			tdoor = d.get("to_door", d.get("id", ""))
 		"@maze":
 			var maze: Dictionary = room_src.data.get("maze", {})
-			if door == nearest_door_to_anchor():
+			if maze_ok:
 				tdepth = depth + 1
 				tdoor = maze.get("entry", tdoor)
 				if tdepth > int(maze.get("steps", 4)):
@@ -177,11 +195,10 @@ func use_door(door: Door, body: Node) -> void:
 			else:
 				tdepth = int(maze.get("fail_depth", 1))
 				tdoor = maze.get("entry", tdoor)
-				GameState.inc_flag("maze_fails")
 		_:
 			target = to
 			tdepth = int(d.get("depth", 0))
-	await goto_room(target, tdepth, tdoor)
+	return [target, tdepth, tdoor]
 
 func nearest_door_to_anchor() -> Door:
 	var a: RoomAnchor = current_room.anchor_node() if current_room else null
@@ -204,10 +221,27 @@ func _process(delta: float) -> void:
 	if _shake > 0:
 		_shake -= delta
 		camera.offset = Vector2(randf_range(-2, 2), randf_range(-2, 2)) if _shake > 0 else Vector2.ZERO
+	_check_still_secret()
 	if _entity_timer > 0 and not GameState.is_locked():
 		_entity_timer -= delta
 		if _entity_timer <= 0:
 			entity_event("pass", {})
+
+## Secret : un PNJ visible seulement si l'on reste 2 minutes immobile.
+func _check_still_secret() -> void:
+	if current_room == null or GameState.is_locked():
+		return
+	var sn: Dictionary = current_room.source.data.get("still_npc", {})
+	if sn.is_empty() or current_room.has_meta("still_spawned"):
+		return
+	if GameState.still_time >= float(sn.get("after", 120.0)):
+		current_room.set_meta("still_spawned", true)
+		var npc = Npc.new()
+		npc.setup(sn, current_room)
+		npc.modulate.a = 0.0
+		current_room.npcs.add_child(npc)
+		npc.create_tween().tween_property(npc, "modulate:a", 1.0, 3.0)
+		GameState.set_flag("secret.still_seen")
 
 func shake(t: float) -> void:
 	_shake = t

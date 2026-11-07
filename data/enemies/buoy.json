@@ -1,0 +1,65 @@
+{
+ "name": "Bouée",
+ "sprite": "buoy",
+ "scale": 2.0,
+ "hp": 36,
+ "atk": 6,
+ "def": 1,
+ "exp": 14,
+ "gold": 10,
+ "check": "* BOUÉE - ATT 6 DÉF 1\n* Elle flotte, même hors de l'eau.",
+ "flavor": [
+  "* La Bouée flotte au-dessus du carrelage.",
+  "* Pfffff... elle se dégonfle un peu.",
+  "* Ça sent le chlore."
+ ],
+ "spare_flavor": "* La Bouée s'est posée.",
+ "acts": [
+  {
+   "label": "Regonfler",
+   "text": [
+    "* Tu souffles dedans. Longtemps.",
+    "* Elle est ronde et fière."
+   ],
+   "mercy": 45
+  },
+  {
+   "label": "Monter dessus",
+   "text": [
+    "* Tu t'assieds dessus. Splotch.",
+    "* Elle adore."
+   ],
+   "mercy": 25
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Une bouée de sauvetage",
+    "La bouée canard de la piscine municipale",
+    "Un pneu"
+   ],
+   "answer": 1,
+   "name": "la bouée canard",
+   "mercy": 60,
+   "text_right": [
+    "* La bouée canard. Tu avais quatre ans. Elle avait un bec orange.",
+    "* « Coin. » Elle s'en souvient."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "plouf",
+  "pfffff",
+  "je flotte"
+ ],
+ "patterns": [
+  "drip",
+  "ring"
+ ],
+ "music": "battle"
+}

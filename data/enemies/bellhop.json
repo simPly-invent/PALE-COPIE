@@ -1,0 +1,65 @@
+{
+ "name": "Groom",
+ "sprite": "npc_worker",
+ "scale": 2.2,
+ "hp": 36,
+ "atk": 5,
+ "def": 2,
+ "exp": 13,
+ "gold": 10,
+ "check": "* GROOM - ATT 5 DÉF 2\n* Il porte des bagages qui ne sont à personne.",
+ "flavor": [
+  "* Le Groom te propose de porter ta valise. Tu n'as pas de valise.",
+  "* « Chambre ? Chambre ? »",
+  "* Le Groom attend un pourboire."
+ ],
+ "spare_flavor": "* Le Groom s'incline.",
+ "acts": [
+  {
+   "label": "Donner un pourboire",
+   "text": [
+    "* Tu lui donnes un bonbon.",
+    "* Il le range précieusement, avec les autres."
+   ],
+   "mercy": 45
+  },
+  {
+   "label": "Demander la chambre 0",
+   "text": [
+    "* « La chambre 0 ? Elle n'a pas de numéro, mademoiselle. Ou monsieur. »",
+    "* « C'est pour ça qu'on ne la trouve pas. »"
+   ],
+   "mercy": 25
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un portier d'immeuble",
+    "Le groom de l'hôtel des vacances de 1994",
+    "Un facteur"
+   ],
+   "answer": 1,
+   "name": "le groom de l'hôtel de Biarritz",
+   "mercy": 60,
+   "text_right": [
+    "* Le groom de l'hôtel des vacances de 1994, à Biarritz. Il t'avait donné un bonbon.",
+    "* « Biarritz ! Le bonbon ! »"
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Bagages ?",
+  "Chambre 1-0-...",
+  "Bonne nuit, bonne nuit."
+ ],
+ "patterns": [
+  "numbers",
+  "sweep"
+ ],
+ "music": "battle"
+}

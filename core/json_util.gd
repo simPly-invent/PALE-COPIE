@@ -54,7 +54,7 @@ static func normalize(v: Variant) -> Variant:
 			out.append(normalize(x))
 		return out
 	if v is Dictionary:
-		var d := {}
+		var d = {}
 		for k in v:
 			d[k] = normalize(v[k])
 		return d

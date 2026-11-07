@@ -1,0 +1,81 @@
+{
+ "name": "La Réceptionniste",
+ "sprite": "boss_receptionist",
+ "scale": 1.6,
+ "hp": 120,
+ "atk": 5,
+ "def": 3,
+ "exp": 60,
+ "gold": 45,
+ "boss": true,
+ "special": "receptionist",
+ "intro": "* « Bienvenue à l'Institut Halden ! »\n* « Avez-vous rendez-vous ? »",
+ "check": "* LA RÉCEPTIONNISTE - ATT 5 DÉF 3\n* Elle accueille tout le monde. En boucle. Son formulaire est son arme.",
+ "flavor": [
+  "* La Réceptionniste te tend un formulaire.",
+  "* « Merci de patienter. »",
+  "* La sonnette de l'accueil tinte toute seule.",
+  "* « Votre nom ? Votre nom ? Votre nom ? »"
+ ],
+ "spare_flavor": "* La Réceptionniste a tamponné ton formulaire.",
+ "acts": [
+  {
+   "label": "Remplir le formulaire",
+   "text": [
+    "* Tu remplis le formulaire.",
+    "* NOM : {name}. MOTIF DE LA VISITE : rentrer chez moi."
+   ],
+   "mercy": 30
+  },
+  {
+   "label": "Dire « J'ai rendez-vous »",
+   "text": [
+    "* « Ah ! Parfait ! Avec qui ? »",
+    "* « ...Avec personne, comme tout le monde. Asseyez-vous. »"
+   ],
+   "mercy": 20
+  },
+  {
+   "label": "Sonner la sonnette",
+   "text": [
+    "* Ding.",
+    "* Elle sursaute, puis sourit. « Bienvenue à l'Institut Halden ! »"
+   ],
+   "mercy": 5
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qui était-elle ? (La plaque de l'accueil le disait...)",
+   "choices": [
+    "Une hôtesse d'aéroport",
+    "Mme Ferrand, réceptionniste depuis 1989",
+    "La directrice de Halden"
+   ],
+   "answer": 1,
+   "name": "Mme Ferrand",
+   "mercy": 60,
+   "text_right": [
+    "* Mme Ferrand. Accueil de l'Institut Halden, de 1989 à la fermeture.",
+    "* « Ferrand... Oui. C'est mon nom. Je peux rentrer chez moi, alors ? »"
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Votre nom ?",
+  "Motif de la visite ?",
+  "Signez ici. Et ici. Et ici.",
+  "Le directeur est en réunion depuis 1997."
+ ],
+ "patterns": [
+  "form",
+  "ring",
+  "form"
+ ],
+ "music": "boss_reception",
+ "box_w": 220,
+ "turn_time": 7.0
+}

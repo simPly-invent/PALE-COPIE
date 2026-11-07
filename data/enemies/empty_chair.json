@@ -1,0 +1,63 @@
+{
+ "name": "Chaise de Bureau Vide",
+ "sprite": "enemy_chair",
+ "scale": 1.6,
+ "hp": 26,
+ "atk": 3,
+ "def": 1,
+ "exp": 8,
+ "gold": 5,
+ "check": "* CHAISE DE BUREAU VIDE - ATT 3 DÉF 1\n* Elle attend quelqu'un qui ne revient pas.",
+ "flavor": [
+  "* La chaise tourne lentement sur elle-même.",
+  "* Une roulette grince.",
+  "* La chaise est encore tiède."
+ ],
+ "spare_flavor": "* La chaise s'est arrêtée de tourner.",
+ "acts": [
+  {
+   "label": "S'asseoir",
+   "text": [
+    "* Tu t'assieds sur la chaise.",
+    "* Elle se sent utile."
+   ],
+   "mercy": 50
+  },
+  {
+   "label": "Pousser",
+   "text": [
+    "* Tu pousses la chaise. Elle roule, puis revient."
+   ],
+   "mercy": 10
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "La chaise d'un directeur",
+    "La chaise de Dana",
+    "Une chaise de salle d'attente"
+   ],
+   "answer": 1,
+   "name": "la chaise de Dana",
+   "mercy": 60,
+   "text_right": [
+    "* C'est la chaise de Dana. Elle a un coussin pour le dos.",
+    "* La chaise se souvient du poids de quelqu'un."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "...",
+  "(grince)",
+  "Il revient ?"
+ ],
+ "patterns": [
+  "sweep"
+ ],
+ "music": "battle"
+}

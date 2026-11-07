@@ -1,0 +1,60 @@
+{
+ "name": "Drap qui sèche",
+ "sprite": "enemy_ghost",
+ "scale": 1.6,
+ "hp": 12,
+ "atk": 2,
+ "def": 0,
+ "exp": 2,
+ "gold": 1,
+ "intro": "* Un drap s'est décroché du fil à linge.\n* Il s'approche en flottant. (Tutoriel)",
+ "check": "* DRAP QUI SÈCHE - ATT 2 DÉF 0\n* Il sent la lessive. Il veut juste être plié.",
+ "flavor": [
+  "* Le drap ondule doucement.",
+  "* Ça sent la lavande.",
+  "* Le drap essaie d'avoir l'air terrifiant."
+ ],
+ "spare_flavor": "* Le drap ne veut plus se battre. (Choisis MERCY.)",
+ "acts": [
+  {
+   "label": "Plier",
+   "text": [
+    "* Tu plies un coin du drap.",
+    "* Il a l'air soulagé."
+   ],
+   "mercy": 50
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un drap de lit",
+    "Un fantôme",
+    "Une nappe"
+   ],
+   "answer": 0,
+   "name": "le drap de lit de maman",
+   "mercy": 60,
+   "text_right": [
+    "* C'est le drap du lit de maman.",
+    "* Il s'en souvient. Il se plie tout seul."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Bouh ?",
+  "...bouh.",
+  "Je sèche."
+ ],
+ "patterns": [
+  "rain"
+ ],
+ "turn_time": 4.0,
+ "box_w": 200,
+ "flee": true,
+ "music": "battle"
+}

@@ -1,0 +1,112 @@
+{
+ "nodes": {
+  "z2": [
+   {
+    "text": "* « Bonsoir ! Pizza pour le... 14, rue des... »"
+   },
+   {
+    "text": "* « L'adresse s'est effacée du ticket. Depuis 1996. »"
+   },
+   {
+    "text": "* « Je me souviens du numéro, au moins. Quatorze. »"
+   },
+   {
+    "text": "* « Si tu trouves la rue, dis-le-moi. Elle va être froide. »",
+    "set": {
+     "quest.livreur": true,
+     "met.livreur": true
+    }
+   }
+  ],
+  "z2_again": [
+   {
+    "text": "* « Quatorze. C'est tout ce que j'ai. »"
+   }
+  ],
+  "z4": [
+   {
+    "text": "* « Toi ! J'ai un deuxième indice. »",
+    "p5": "* « Toi ! J'ai un deu... indice. »"
+   },
+   {
+    "text": "* « Une rue avec des arbres. Des tilleuls. Ou des platanes. Il y avait une fleur qui sent bon, en été. »",
+    "set": {
+     "livreur.clue2": true
+    }
+   },
+   {
+    "text": "* « Tu as une idée ? Non ? Je continue de chercher. Plus loin. Toujours plus loin. »"
+   }
+  ],
+  "z7": [
+   {
+    "text": "* « C'est ici. Je le sens. C'est cette maison-là. »"
+   },
+   {
+    "text": "* « Quelle est l'adresse exacte ? »",
+    "choices": [
+     {
+      "text": "14, rue des Platanes",
+      "goto": "wrong"
+     },
+     {
+      "text": "14, rue des Tilleuls",
+      "goto": "right"
+     },
+     {
+      "text": "41, rue des Tilleuls",
+      "goto": "wrong"
+     }
+    ]
+   }
+  ],
+  "wrong": [
+   {
+    "text": "* « ...Non. Non, ce n'est pas ça. Je reste ici encore un peu. »"
+   }
+  ],
+  "right": [
+   {
+    "text": "* « 14, rue des Tilleuls. Oui ! »"
+   },
+   {
+    "text": "* « C'est ta maison ? Alors la pizza est pour toi. Ça fait longtemps qu'elle t'attend. »",
+    "give": "pizza_box"
+   },
+   {
+    "text": "* « Et... tiens. Je l'ai entendu en arrivant. Quelqu'un criait ton nom depuis le jardin. »",
+    "give": "s_name",
+    "set": {
+     "quest.livreur.done": true
+    }
+   }
+  ],
+  "done": [
+   {
+    "text": "* « Livraison terminée. Je peux enfin rentrer à la pizzeria. Elle existe encore, tu crois ? »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "quest.livreur.done",
+   "goto": "done"
+  },
+  {
+   "if": "zone==7",
+   "goto": "z7"
+  },
+  {
+   "if": "zone>=4",
+   "goto": "z4"
+  },
+  {
+   "if": "met.livreur",
+   "goto": "z2_again"
+  },
+  {
+   "goto": "z2"
+  }
+ ],
+ "voice": "default"
+}

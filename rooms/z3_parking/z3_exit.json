@@ -1,0 +1,169 @@
+{
+ "id": "z3_exit",
+ "zone": 3,
+ "name": "Sortie du parking",
+ "fidelity": 40,
+ "size": [
+  16,
+  12
+ ],
+ "dark": false,
+ "ambient": "#6a6a78",
+ "no_entity": true,
+ "props": [
+  {
+   "id": "l1",
+   "sprite": "hanging_lamp",
+   "pos": [
+    5,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": false
+   }
+  },
+  {
+   "id": "l2",
+   "sprite": "hanging_lamp",
+   "pos": [
+    11,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": false
+   }
+  },
+  {
+   "id": "sign",
+   "sprite": "sign_sortie",
+   "pos": [
+    8,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "label": "SORTIE",
+   "tags": [
+    "text"
+   ]
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    13,
+    3
+   ],
+   "sprite": "phone"
+  }
+ ],
+ "chests": [
+  {
+   "id": "z3_s_mom_phrase",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    9
+   ],
+   "contents": "souvenir:s_mom_phrase",
+   "text": "* Un carton posé par terre. Une étiquette : « À NE PAS OUBLIER ». "
+  }
+ ],
+ "triggers": [
+  {
+   "id": "lumi_end",
+   "rect": [
+    3,
+    3,
+    4,
+    8
+   ],
+   "if": "quest.lumi.active",
+   "actions": [
+    {
+     "say": [
+      "* Lumi grésille, tout content.",
+      "* « On est arrivés ! Je ne me suis pas éteint ! Enfin, une ou deux fois. »",
+      "* « Je vais rester avec toi. Je peux me faire tout petit. »"
+     ]
+    },
+    {
+     "follower": "none"
+    },
+    {
+     "give": "lumi_lamp"
+    },
+    {
+     "set": {
+      "quest.lumi.active": false,
+      "quest.lumi.done": true
+     }
+    }
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "z3_chase",
+   "requires": "false",
+   "locked_text": [
+    "* Tu ne veux pas retourner là-bas."
+   ]
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z4_lobby",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!z3_exit_seen",
+   "then": [
+    {
+     "set": {
+      "z3_exit_seen": true
+     }
+    },
+    {
+     "say": [
+      "* Le son s'est arrêté.",
+      "* Tu peux respirer."
+     ]
+    }
+   ]
+  }
+ ]
+}

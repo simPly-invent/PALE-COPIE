@@ -78,6 +78,9 @@ func place() -> void:
 			_add_dark(Rect2(-16, -40, 16, 40))
 	shape.shape = rect
 	add_child(shape)
+	if def.has("label_seq"):
+		var seq = Puzzles.room_sequence(def["label_seq"]["puzzle"])
+		def["label"] = str(seq[int(def["label_seq"]["index"])])
 	if def.has("label") and str(def["label"]) != "":
 		label = UI.label(str(def["label"]), 16, Color(0.95, 0.9, 0.7))
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

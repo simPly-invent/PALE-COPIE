@@ -1,0 +1,65 @@
+{
+ "name": "Carrelage",
+ "sprite": "tiles/tile_green",
+ "scale": 2.6,
+ "hp": 40,
+ "atk": 6,
+ "def": 4,
+ "exp": 15,
+ "gold": 11,
+ "check": "* CARRELAGE - ATT 6 DÉF 4\n* Un carreau qui a changé de couleur. Il ne sait plus laquelle était la sienne.",
+ "flavor": [
+  "* Le Carrelage se décolle un peu.",
+  "* Les joints sont noirs.",
+  "* Le carreau change de couleur, puis revient."
+ ],
+ "spare_flavor": "* Le Carrelage a retrouvé sa couleur.",
+ "acts": [
+  {
+   "label": "Nettoyer les joints",
+   "text": [
+    "* Tu frottes les joints avec ton pouce.",
+    "* Il brille."
+   ],
+   "mercy": 40
+  },
+  {
+   "label": "Marcher à côté",
+   "text": [
+    "* Tu marches à côté, pas dessus.",
+    "* Il apprécie le respect."
+   ],
+   "mercy": 30
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Quelle couleur avait-il ? (Les carreaux qui n'ont pas mué...)",
+   "choices": [
+    "Un carreau rouge",
+    "Un carreau bleu",
+    "Un carreau jaune"
+   ],
+   "answer": 1,
+   "name": "le carreau bleu du bassin",
+   "mercy": 60,
+   "text_right": [
+    "* Il était bleu. Le premier de la ligne du grand bain.",
+    "* Il redevient bleu, pour une seconde."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "...",
+  "crac",
+  "quelle couleur ?"
+ ],
+ "patterns": [
+  "sweep",
+  "rain"
+ ],
+ "music": "battle"
+}

@@ -1,0 +1,19 @@
+{
+ "id": "t11",
+ "title": "Les numéros",
+ "date": "AUG. 04 1996",
+ "time": "AM 02:02",
+ "frames": [
+  {
+   "image": "vhs/hotel",
+   "text": "« Les numéros des chambres suivent une règle. L'écart double à chaque porte. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/hotel",
+   "text": "« Il en manque toujours une. C'est elle que l'ascenseur demande. »",
+   "duration": 5
+  }
+ ]
+}

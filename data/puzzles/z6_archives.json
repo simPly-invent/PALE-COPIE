@@ -1,0 +1,31 @@
+{
+ "kind": "word",
+ "answer": "MIROIR",
+ "title": "MOT-CLÉ",
+ "masks": {
+  "0": "______",
+  "1": "M_R___",
+  "2": "_I__I_",
+  "3": "___O__",
+  "4": "_____R"
+ },
+ "report": [
+  "* RAPPORT HALDEN n°3-097 (copie corrompue)",
+  "* « ...le sujet ne distingue plus l'original de sa copie. Mot-clé : %s ... »"
+ ],
+ "prompt": [
+  "* TERMINAL HALDEN. « MOT-CLÉ DU RAPPORT 3-097 ? »"
+ ],
+ "success": [
+  {
+   "say": [
+    "* ACCÈS AUTORISÉ.",
+    "* Une porte s'ouvre quelque part. Le néon au-dessus s'allume."
+   ]
+  }
+ ],
+ "fail_text": [
+  "* ACCÈS REFUSÉ.",
+  "* (Chaque copie du rapport a perdu des lettres différentes.)"
+ ]
+}

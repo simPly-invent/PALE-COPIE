@@ -1,0 +1,226 @@
+{
+ "id": "z1_diff",
+ "zone": 1,
+ "name": "La salle aux quatre portes",
+ "fidelity": 80,
+ "size": [
+  16,
+  12
+ ],
+ "no_mutations": [
+  "detail_generic",
+  "detail_vanish",
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall"
+ ],
+ "back": {
+  "room": "z1_halls",
+  "depth": 5,
+  "door": "east"
+ },
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    1.5,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": false,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    14.5,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "a_chair",
+   "sprite": "chair_grey",
+   "pos": [
+    2.2,
+    4
+   ],
+   "generic": true,
+   "text": [
+    "* Une chaise devenue un bloc gris.",
+    "* Dans le couloir, elle avait encore des accoudoirs. Ça arrive. C'est la règle."
+   ]
+  },
+  {
+   "id": "b_plant",
+   "sprite": "plant",
+   "pos": [
+    7.2,
+    4
+   ],
+   "modulate": "#9cff9c",
+   "tags": [
+    "keep"
+   ],
+   "text": [
+    "* La plante verte.",
+    "* Dans le couloir, elle était devenue un bloc. Ici, elle a de nouveau toutes ses feuilles. Plus vertes qu'avant.",
+    "* ...Les choses ne reviennent jamais en arrière."
+   ]
+  },
+  {
+   "id": "c_trash1",
+   "sprite": "trash_can",
+   "pos": [
+    8.6,
+    4
+   ],
+   "solid": false,
+   "text": [
+    "* Trois poubelles identiques, alignées. Avant, il n'y en avait qu'une. C'est la règle."
+   ]
+  },
+  {
+   "id": "c_trash2",
+   "sprite": "trash_can",
+   "pos": [
+    9.4,
+    4
+   ],
+   "solid": false
+  },
+  {
+   "id": "c_trash3",
+   "sprite": "trash_can",
+   "pos": [
+    10.2,
+    4
+   ],
+   "solid": false
+  },
+  {
+   "id": "d_shelf",
+   "sprite": "bookshelf",
+   "pos": [
+    13.2,
+    4
+   ],
+   "modulate": "#c8bc98",
+   "text": [
+    "* L'étagère a perdu ses couleurs. C'est la règle."
+   ]
+  },
+  {
+   "id": "plaque",
+   "sprite": "icon_note",
+   "pos": [
+    8,
+    8
+   ],
+   "text": [
+    "* Une plaque vissée au sol :",
+    "* « UNE SEULE CHOSE ICI N'A PAS RESPECTÉ LES RÈGLES. »",
+    "* « C'EST ELLE QUI MONTRE LA SORTIE. »"
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "a",
+   "side": "top",
+   "pos": [
+    3,
+    2
+   ],
+   "to": "z1_diff",
+   "to_door": "south"
+  },
+  {
+   "id": "b",
+   "side": "top",
+   "pos": [
+    6,
+    2
+   ],
+   "to": "z1_maze",
+   "to_door": "south"
+  },
+  {
+   "id": "c",
+   "side": "top",
+   "pos": [
+    10,
+    2
+   ],
+   "to": "z1_diff",
+   "to_door": "south"
+  },
+  {
+   "id": "d",
+   "side": "top",
+   "pos": [
+    12,
+    2
+   ],
+   "to": "z1_diff",
+   "to_door": "south"
+  },
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    8,
+    11
+   ],
+   "to": "@prev",
+   "to_door": "east"
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   9
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!z1_diff_seen",
+   "then": [
+    {
+     "set": {
+      "z1_diff_seen": true
+     }
+    },
+    {
+     "say": [
+      "* Quatre portes. Quatre objets. Une plaque au sol."
+     ]
+    }
+   ]
+  }
+ ]
+}

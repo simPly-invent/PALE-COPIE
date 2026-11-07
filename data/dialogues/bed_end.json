@@ -1,0 +1,27 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Ton lit. Il est fait.",
+    "p5": "* Un lit. Le tien, sûrement."
+   },
+   {
+    "text": "* Te coucher ? (C'est la fin du voyage.)",
+    "choices": [
+     {
+      "text": "Me coucher",
+      "actions": [
+       {
+        "ending": true
+       }
+      ]
+     },
+     {
+      "text": "Pas encore",
+      "end": true
+     }
+    ]
+   }
+  ]
+ }
+}

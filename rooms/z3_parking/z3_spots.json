@@ -1,0 +1,145 @@
+{
+ "id": "z3_spots",
+ "zone": 3,
+ "name": "Les places numérotées",
+ "fidelity": 62,
+ "size": [
+  18,
+  12
+ ],
+ "dark": true,
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "stretch_room",
+  "extra_wall",
+  "grid_align"
+ ],
+ "back": {
+  "room": "z3_levels",
+  "depth": 3,
+  "door": "east"
+ },
+ "props": [
+  {
+   "id": "l1",
+   "sprite": "hanging_lamp",
+   "pos": [
+    1.5,
+    9
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": false
+   }
+  },
+  {
+   "id": "note",
+   "sprite": "icon_note",
+   "pos": [
+    9,
+    10
+   ],
+   "text": [
+    "* Un panneau : « ÉCLAIRAGE DES PLACES : SUIVRE LE PROTOCOLE ». ",
+    "* (Le protocole était sur une cassette.)"
+   ]
+  }
+ ],
+ "puzzles": [
+  {
+   "type": "sequence",
+   "id": "spot1",
+   "puzzle": "z3_phares",
+   "index": 1,
+   "label": "P1",
+   "pos": [
+    3,
+    7
+   ]
+  },
+  {
+   "type": "sequence",
+   "id": "spot2",
+   "puzzle": "z3_phares",
+   "index": 2,
+   "label": "P2",
+   "pos": [
+    6,
+    7
+   ]
+  },
+  {
+   "type": "sequence",
+   "id": "spot3",
+   "puzzle": "z3_phares",
+   "index": 3,
+   "label": "P3",
+   "pos": [
+    9,
+    7
+   ]
+  },
+  {
+   "type": "sequence",
+   "id": "spot4",
+   "puzzle": "z3_phares",
+   "index": 4,
+   "label": "P4",
+   "pos": [
+    12,
+    7
+   ]
+  },
+  {
+   "type": "sequence",
+   "id": "spot5",
+   "puzzle": "z3_phares",
+   "index": 5,
+   "label": "P5",
+   "pos": [
+    15,
+    7
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    9
+   ],
+   "to": "@prev",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    17,
+    9
+   ],
+   "to": "z3_chase",
+   "to_door": "west",
+   "requires": "puzzle.z3_phares",
+   "locked_text": [
+    "* La porte est verrouillée. Une ampoule rouge au-dessus.",
+    "* (Il faut éclairer les places dans le bon ordre.)"
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   9
+  ]
+ }
+}

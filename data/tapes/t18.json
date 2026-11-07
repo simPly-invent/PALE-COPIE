@@ -1,0 +1,30 @@
+{
+ "id": "t18",
+ "title": "Sujet : enfant",
+ "date": "JUL. 14 1997",
+ "time": "PM 10:24",
+ "frames": [
+  {
+   "image": "vhs/children",
+   "text": "« Sujet : enfant, 7 ans. Arrivé par le sol de sa chambre. »",
+   "duration": 4,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/children",
+   "text": "« Le sujet a rencontré une copie de lui-même. Plus nette que lui. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/children",
+   "text": "« Nous ne savons pas lequel est arrivé en premier. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« Eux non plus. »",
+   "duration": 3,
+   "sound": "static"
+  }
+ ]
+}

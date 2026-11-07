@@ -1,0 +1,26 @@
+{
+ "name": "…",
+ "sprite": "boss_entity",
+ "scale": 1.6,
+ "hp": 9999,
+ "atk": 8,
+ "def": 99,
+ "exp": 0,
+ "gold": 0,
+ "special": "entity",
+ "flee": false,
+ "check": "* ...",
+ "flavor": [
+  "* ...",
+  "* Elle est trop grande.",
+  "* Ne regarde pas."
+ ],
+ "acts": [],
+ "dialogue": [],
+ "patterns": [
+  "homing",
+  "ring"
+ ],
+ "music": "none",
+ "turn_time": 4.0
+}

@@ -1,0 +1,133 @@
+{
+ "id": "house_living",
+ "zone": 0,
+ "name": "Le salon",
+ "fidelity": 100,
+ "size": [
+  16,
+  12
+ ],
+ "props": [
+  {
+   "id": "sofa",
+   "sprite": "sofa_red",
+   "pos": [
+    5,
+    5
+   ],
+   "text": [
+    "* Le canapé. La couverture de laine qui gratte est pliée dessus."
+   ]
+  },
+  {
+   "id": "tv",
+   "sprite": "tv",
+   "pos": [
+    9,
+    4
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* La télé est éteinte. Ton reflet dedans a l'air fatigué."
+   ]
+  },
+  {
+   "id": "table",
+   "sprite": "table",
+   "pos": [
+    11,
+    8
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "lamp",
+   "sprite": "lamp",
+   "pos": [
+    2,
+    4
+   ],
+   "tags": [
+    "small",
+    "light"
+   ],
+   "light": {
+    "color": "#ffd890"
+   }
+  },
+  {
+   "id": "shelf",
+   "sprite": "bookshelf",
+   "pos": [
+    13,
+    4
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Des livres de cuisine, et un album photo.",
+    "* Dans l'album, il manque une page."
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "mom",
+   "sprite": "mom",
+   "pos": [
+    7,
+    8
+   ],
+   "dialogue": "mom"
+  }
+ ],
+ "doors": [
+  {
+   "id": "front",
+   "side": "top",
+   "pos": [
+    8,
+    2
+   ],
+   "to": "house_living",
+   "sprite": "door_wood",
+   "tint": "#7a96e8",
+   "requires": "false",
+   "locked_text": [
+    "* La porte d'entrée. Bleue, avec ta marque de crayon à hauteur d'enfant.",
+    "* Il fait nuit dehors. On ne sort pas la nuit."
+   ]
+  },
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "house_hallway",
+   "to_door": "living"
+  },
+  {
+   "id": "kitchen",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "house_kitchen",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   7,
+   7
+  ]
+ }
+}

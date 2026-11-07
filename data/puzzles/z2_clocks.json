@@ -1,0 +1,20 @@
+{
+ "kind": "clock_source",
+ "step_min": 7,
+ "step_max": 23,
+ "title": "HEURE D'ORIGINE (HHMM)",
+ "prompt": [
+  "* « RÉGLAGE DE L'HORLOGE MÈRE ».",
+  "* « Entrez l'heure de la salle d'origine. »"
+ ],
+ "success": [
+  {
+   "say": [
+    "* Toutes les horloges du bâtiment font « clac » en même temps."
+   ]
+  }
+ ],
+ "fail_text": [
+  "* Les aiguilles tremblent, puis reviennent en place."
+ ]
+}

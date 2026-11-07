@@ -1,0 +1,30 @@
+{
+ "id": "t09",
+ "title": "Ne bouge pas",
+ "date": "JUL. 13 1997",
+ "time": "PM 11:47",
+ "frames": [
+  {
+   "image": "vhs/entity",
+   "text": "« ... »",
+   "duration": 3,
+   "sound": "entity"
+  },
+  {
+   "image": "vhs/entity",
+   "text": "« Elle n'apparaît qu'à faible fidélité. Elle s'annonce toujours par le même son. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/entity",
+   "text": "« Si on reste immobile, elle passe. Si on bouge, il faut courir. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« On ne la combat pas. Jamais. »",
+   "duration": 3,
+   "sound": "static"
+  }
+ ]
+}

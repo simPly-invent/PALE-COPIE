@@ -1,0 +1,18 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Bonjour ! Je suis le stagiaire. Je fais des photocopies. »",
+    "p4": "* « Bonjour ! Je suis le stag... je fais des copies. »"
+   },
+   {
+    "text": "* « On m'a dit de faire une copie de la salle. Alors j'en fais. Une, deux, trois... »"
+   },
+   {
+    "text": "* « Elles sortent un peu plus pâles à chaque fois. C'est le toner, je crois. »"
+   }
+  ]
+ },
+ "portrait": "girl",
+ "voice": "child"
+}

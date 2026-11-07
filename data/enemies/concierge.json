@@ -1,0 +1,74 @@
+{
+ "name": "Le Concierge",
+ "sprite": "boss_concierge",
+ "scale": 1.4,
+ "hp": 150,
+ "atk": 6,
+ "def": 4,
+ "exp": 80,
+ "gold": 60,
+ "boss": true,
+ "intro": "* « Votre chambre est la 1-0-1... non, la 1-0-3... »\n* Le Concierge attaque avec des numéros de chambres.",
+ "check": "* LE CONCIERGE - ATT 6 DÉF 4\n* Il connaît toutes les chambres. Il ne retrouve plus la sienne.",
+ "flavor": [
+  "* Le Concierge feuillette son registre.",
+  "* « Nous sommes complets. Depuis toujours. »",
+  "* Les numéros tournent autour de lui."
+ ],
+ "spare_flavor": "* Le Concierge te tend une clé sans numéro.",
+ "acts": [
+  {
+   "label": "Réciter la suite",
+   "text": [
+    "* Tu récites les numéros dans l'ordre.",
+    "* Il hoche la tête. « Vous connaissez la maison. »"
+   ],
+   "mercy": 35
+  },
+  {
+   "label": "Demander sa chambre",
+   "text": [
+    "* « Ma chambre ? J'en ai une ? »",
+    "* Il cherche dans son registre. Longtemps."
+   ],
+   "mercy": 25
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qui était-il ? (Le registre de l'accueil...)",
+   "choices": [
+    "Le directeur d'un palace",
+    "M. Arnaud, concierge de l'hôtel où Halden logeait ses équipes",
+    "Un liftier"
+   ],
+   "answer": 1,
+   "name": "M. Arnaud",
+   "mercy": 60,
+   "text_right": [
+    "* M. Arnaud. L'hôtel où l'Institut logeait ses équipes, en 1996.",
+    "* « Arnaud. Chambre 7. Ma chambre, c'était la 7. »"
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "101.",
+  "103.",
+  "107.",
+  "115.",
+  "Et ensuite ?",
+  "Nous sommes complets."
+ ],
+ "patterns": [
+  "numbers",
+  "ring",
+  "numbers",
+  "sweep"
+ ],
+ "music": "boss_concierge",
+ "box_w": 220,
+ "turn_time": 7.0
+}

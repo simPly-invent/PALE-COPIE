@@ -1,0 +1,36 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Un enfant. Il te ressemble. Il est plus net que toi.",
+    "voice": "none"
+   },
+   {
+    "text": "* « ... »",
+    "voice": "child"
+   },
+   {
+    "text": "* « Ceux que tu épargnes ont oublié leur nom. Rends-leur. »",
+    "voice": "child"
+   },
+   {
+    "text": "* « Six. Après, on pourra parler, toi et moi. Sans se battre. »",
+    "voice": "child",
+    "set": {
+     "quest.names": true
+    }
+   },
+   {
+    "text": "* (Quand tu relèves les yeux, il n'est plus là.)",
+    "voice": "none",
+    "actions": [
+     {
+      "rebuild": true
+     }
+    ]
+   }
+  ]
+ },
+ "portrait": "girl",
+ "voice": "child"
+}

@@ -1,0 +1,155 @@
+{
+ "id": "z4_concierge",
+ "zone": 4,
+ "name": "Le bureau du concierge",
+ "fidelity": 30,
+ "size": [
+  16,
+  12
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "stretch_room",
+  "erase",
+  "bigger_inside"
+ ],
+ "props": [
+  {
+   "id": "registry",
+   "sprite": "item_book",
+   "pos": [
+    4,
+    5
+   ],
+   "text": [
+    "* Le registre du concierge. Toutes les chambres sont notées « OCCUPÉE ».",
+    "* Sauf la 7. À côté : « ARNAUD ». "
+   ]
+  },
+  {
+   "id": "keys",
+   "sprite": "item_key",
+   "pos": [
+    12,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Un tableau de clés. Il manque la 0 et la 404."
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "concierge",
+   "sprite": "boss_concierge",
+   "pos": [
+    8,
+    6
+   ],
+   "dialogue": "concierge_pre",
+   "scale": 0.8,
+   "if": "!concierge_done"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "boss",
+   "rect": [
+    5,
+    6,
+    2,
+    5
+   ],
+   "if": "!concierge_done",
+   "once": false,
+   "actions": [
+    {
+     "say": [
+      "* « Votre chambre ? La 101. Non, la 103. Non... »",
+      "* « Nous sommes complets. Depuis toujours. »"
+     ]
+    },
+    {
+     "battle": "concierge",
+     "on_won": [
+      {
+       "set": {
+        "concierge_done": true
+       }
+      }
+     ],
+     "on_spared": [
+      {
+       "set": {
+        "concierge_done": true
+       }
+      }
+     ]
+    },
+    {
+     "if": "concierge_done",
+     "then": [
+      {
+       "rebuild": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    13,
+    3
+   ],
+   "sprite": "phone",
+   "when": {
+    "if": "concierge_done"
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "z4_loop",
+   "to_door": "west",
+   "requires": "false",
+   "locked_text": [
+    "* La porte donne sur la même pièce. Toujours."
+   ]
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z5_entrance",
+   "to_door": "west",
+   "requires": "concierge_done",
+   "locked_text": [
+    "* « Où allez-vous ? Vous n'avez pas rendu votre clé. »"
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Tu es rentré. »",
+    "voice": "mom"
+   },
+   {
+    "text": "* « Je suis juste à côté. »",
+    "voice": "mom"
+   },
+   {
+    "text": "* (Quand tu cligne des yeux, elle n'est plus là. Mais tu sais qu'elle est à côté.)",
+    "voice": "none"
+   }
+  ]
+ },
+ "portrait": "woman",
+ "voice": "mom"
+}

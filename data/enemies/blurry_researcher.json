@@ -1,0 +1,65 @@
+{
+ "name": "Chercheur Flou",
+ "sprite": "npc_scientist_bald",
+ "scale": 2.2,
+ "hp": 46,
+ "atk": 7,
+ "def": 3,
+ "exp": 17,
+ "gold": 13,
+ "check": "* CHERCHEUR FLOU - ATT 7 DÉF 3\n* Il a perdu ses lunettes. Ou son visage.",
+ "flavor": [
+  "* Le Chercheur Flou prend des notes illisibles.",
+  "* « Sujet... sujet... »",
+  "* Ses contours tremblent."
+ ],
+ "spare_flavor": "* Le Chercheur est un peu plus net.",
+ "acts": [
+  {
+   "label": "Prêter attention",
+   "text": [
+    "* Tu écoutes son exposé.",
+    "* Personne ne l'écoutait depuis 1997."
+   ],
+   "mercy": 45
+  },
+  {
+   "label": "Chercher ses lunettes",
+   "text": [
+    "* Tu ne trouves pas ses lunettes.",
+    "* Il apprécie l'intention."
+   ],
+   "mercy": 25
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un professeur",
+    "Le Dr Halden lui-même",
+    "Le Dr Vasseur, responsable de l'équipe 3"
+   ],
+   "answer": 2,
+   "name": "le Dr Vasseur",
+   "mercy": 60,
+   "text_right": [
+    "* Le Dr Vasseur. Responsable de l'équipe 3. C'est lui qui a signé la dernière cassette.",
+    "* Ses contours se resserrent. « Vasseur. Oui. »"
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Fascinant.",
+  "Sujet n°...",
+  "Notez : il est revenu."
+ ],
+ "patterns": [
+  "homing",
+  "ring"
+ ],
+ "music": "battle"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "path",
+ "order": [
+  "r",
+  "y",
+  "g",
+  "b"
+ ],
+ "start": [
+  1,
+  7
+ ],
+ "fail_text": [
+  "* Tu manques d'air. Tu remontes.",
+  "* (Rouge, jaune, vert, bleu. Seulement les carreaux qui n'ont pas mué.)"
+ ]
+}

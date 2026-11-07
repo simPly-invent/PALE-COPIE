@@ -1,0 +1,24 @@
+{
+ "id": "t10",
+ "title": "Hôtel Arnaud",
+ "date": "AUG. 03 1996",
+ "time": "PM 06:20",
+ "frames": [
+  {
+   "image": "vhs/hotel",
+   "text": "« 1996. L'Institut loge ses équipes à l'hôtel. Le concierge, M. Arnaud, connaît chaque chambre. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/hotel",
+   "text": "« Lui, il dort dans la chambre 7. Il l'a toujours dit. »",
+   "duration": 4
+  },
+  {
+   "image": "vhs/static",
+   "text": "« Ce couloir n'est pas dans l'hôtel. Ce couloir est une copie de l'hôtel. »",
+   "duration": 4
+  }
+ ]
+}

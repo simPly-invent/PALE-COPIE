@@ -1,0 +1,64 @@
+{
+ "name": "Valise Qui Suit",
+ "sprite": "chest_briefcase",
+ "scale": 2.2,
+ "hp": 40,
+ "atk": 6,
+ "def": 3,
+ "exp": 14,
+ "gold": 12,
+ "check": "* VALISE QUI SUIT - ATT 6 DÉF 3\n* Elle suit n'importe qui. Elle a peur d'être oubliée.",
+ "flavor": [
+  "* La Valise te suit, même assise.",
+  "* Ses roulettes font tac-tac.",
+  "* La Valise est très proche."
+ ],
+ "spare_flavor": "* La Valise a trouvé quelqu'un à suivre.",
+ "acts": [
+  {
+   "label": "La laisser suivre",
+   "text": [
+    "* Tu fais trois pas. Elle fait trois pas.",
+    "* Elle est ravie."
+   ],
+   "mercy": 50
+  },
+  {
+   "label": "Ouvrir",
+   "text": [
+    "* Dedans : un maillot de bain, une carte postale, du sable."
+   ],
+   "mercy": 15
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "La valise d'un voyageur",
+    "La valise rouge des vacances",
+    "Une mallette d'avocat"
+   ],
+   "answer": 1,
+   "name": "la valise rouge des vacances",
+   "mercy": 60,
+   "text_right": [
+    "* La valise rouge, celle des vacances. Elle sentait la crème solaire.",
+    "* Elle s'en souvient. Elle cesse de te suivre, gentiment."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Attends-moi.",
+  "tac tac tac",
+  "Ne m'oublie pas."
+ ],
+ "patterns": [
+  "homing",
+  "sweep"
+ ],
+ "music": "battle"
+}

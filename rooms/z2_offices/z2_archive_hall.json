@@ -1,0 +1,173 @@
+{
+ "id": "z2_archive_hall",
+ "zone": 2,
+ "name": "Couloir des archives",
+ "fidelity": 70,
+ "size": [
+  16,
+  12
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "stretch_room",
+  "extra_wall"
+ ],
+ "back": {
+  "room": "z2_offices",
+  "depth": 4,
+  "door": "north"
+ },
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    3,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    12,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "cab1",
+   "sprite": "filing_cabinet_tall",
+   "pos": [
+    2,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "cab2",
+   "sprite": "filing_cabinet_tall",
+   "pos": [
+    13,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "plaque",
+   "sprite": "icon_note",
+   "pos": [
+    8,
+    8
+   ],
+   "text": [
+    "* « SALLE D'ACCUEIL. Accès : badge du personnel ET réglage de l'horloge mère. »"
+   ]
+  }
+ ],
+ "puzzles": [
+  {
+   "type": "keypad",
+   "id": "clock_master",
+   "puzzle": "z2_clocks",
+   "pos": [
+    5,
+    3
+   ],
+   "sprite": "clock"
+  },
+  {
+   "type": "badge_reader",
+   "id": "reader",
+   "puzzle": "z2_badge",
+   "pos": [
+    10,
+    3
+   ]
+  }
+ ],
+ "chests": [
+  {
+   "id": "z2_tape_t06",
+   "sprite": "chest_box",
+   "pos": [
+    3,
+    9
+   ],
+   "contents": "tape:t06"
+  },
+  {
+   "id": "z2_s_stairs",
+   "sprite": "drawers",
+   "pos": [
+    13,
+    9
+   ],
+   "contents": "souvenir:s_stairs",
+   "when": {
+    "if": "has:archive_key"
+   },
+   "text": "* Le meuble des archives. La petite clé dorée tourne toute seule."
+  }
+ ],
+ "doors": [
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    8,
+    11
+   ],
+   "to": "@prev",
+   "to_door": "north"
+  },
+  {
+   "id": "north",
+   "side": "top",
+   "pos": [
+    8,
+    2
+   ],
+   "to": "z2_reception",
+   "to_door": "south",
+   "requires": "puzzle.z2_clocks && puzzle.z2_badge",
+   "locked_text": [
+    "* Fermé. Il faut le badge du personnel et l'heure de l'horloge mère."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   9
+  ]
+ }
+}

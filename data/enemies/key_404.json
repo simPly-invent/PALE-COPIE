@@ -1,0 +1,65 @@
+{
+ "name": "Clé 404",
+ "sprite": "item_key",
+ "scale": 2.6,
+ "hp": 32,
+ "atk": 6,
+ "def": 1,
+ "exp": 13,
+ "gold": 10,
+ "check": "* CLÉ 404 - ATT 6 DÉF 1\n* Elle ouvre la chambre 404. La chambre 404 est introuvable.",
+ "flavor": [
+  "* La Clé 404 tourne dans le vide.",
+  "* Cliquetis.",
+  "* « PORTE NON TROUVÉE »"
+ ],
+ "spare_flavor": "* La Clé se repose dans ta main.",
+ "acts": [
+  {
+   "label": "Chercher la serrure",
+   "text": [
+    "* Tu cherches une serrure dans l'air.",
+    "* La clé apprécie l'effort."
+   ],
+   "mercy": 40
+  },
+  {
+   "label": "La faire tinter",
+   "text": [
+    "* Ting.",
+    "* Elle aime bien ce son."
+   ],
+   "mercy": 20
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "La clé d'une voiture",
+    "La clé de la chambre de mamie",
+    "Le double de la clé de la maison"
+   ],
+   "answer": 2,
+   "name": "le double des clés de la maison",
+   "mercy": 60,
+   "text_right": [
+    "* Le double des clés de la maison, caché sous le pot de fleurs.",
+    "* Elle s'en souvient. Elle sait où elle va."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "404.",
+  "Introuvable.",
+  "cli-clic"
+ ],
+ "patterns": [
+  "numbers",
+  "homing"
+ ],
+ "music": "battle"
+}

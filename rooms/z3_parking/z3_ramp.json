@@ -1,0 +1,187 @@
+{
+ "id": "z3_ramp",
+ "zone": 3,
+ "name": "Rampe d'accès",
+ "fidelity": 80,
+ "size": [
+  16,
+  12
+ ],
+ "dark": false,
+ "ambient": "#5a5a68",
+ "props": [
+  {
+   "id": "l1",
+   "sprite": "hanging_lamp",
+   "pos": [
+    4,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": false
+   }
+  },
+  {
+   "id": "l2",
+   "sprite": "hanging_lamp",
+   "pos": [
+    11,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "scale": 3.0,
+    "energy": 1.1,
+    "color": "#fff0c8",
+    "flicker": true
+   }
+  },
+  {
+   "id": "pillar",
+   "sprite": "pillar",
+   "pos": [
+    8,
+    7
+   ],
+   "tags": [
+    "decor"
+   ]
+  },
+  {
+   "id": "sign",
+   "sprite": "sign_sortie",
+   "pos": [
+    2,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "label": "-2 ↓",
+   "tags": [
+    "text"
+   ]
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    13,
+    3
+   ],
+   "sprite": "phone"
+  }
+ ],
+ "vendings": [
+  {
+   "id": "vend",
+   "pos": [
+    2,
+    3
+   ],
+   "shop": "vend_z3"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "lumi",
+   "sprite": "lumi",
+   "pos": [
+    10,
+    8
+   ],
+   "dialogue": "lumi",
+   "if": "!quest.lumi.active && !quest.lumi.done"
+  },
+  {
+   "id": "dana",
+   "sprite": "npc_scientist",
+   "pos": [
+    5,
+    9
+   ],
+   "dialogue": "dana"
+  }
+ ],
+ "chests": [
+  {
+   "id": "z3_flashlight",
+   "sprite": "chest_box",
+   "pos": [
+    13,
+    9
+   ],
+   "contents": "flashlight",
+   "text": "* Une boîte de secours. « LAMPE DE SECOURS - PILES INCLUSES »"
+  },
+  {
+   "id": "z3_batteries1",
+   "sprite": "chest_crate",
+   "pos": [
+    2,
+    9
+   ],
+   "contents": "batteries"
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    6
+   ],
+   "to": "z2_reception",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z3_levels",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   6
+  ],
+  "lumi": [
+   8,
+   8
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!z3_intro",
+   "then": [
+    {
+     "set": {
+      "z3_intro": true
+     }
+    },
+    {
+     "say": [
+      "* Un parking souterrain. Plus loin, il fait complètement noir.",
+      "* (Une lampe à piles serait utile.)"
+     ]
+    }
+   ]
+  }
+ ]
+}

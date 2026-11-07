@@ -1,0 +1,19 @@
+{
+ "id": "t14",
+ "title": "Léa",
+ "date": "JUN. 22 1997",
+ "time": "PM 04:15",
+ "frames": [
+  {
+   "image": "vhs/pool",
+   "text": "« La petite Léa attend son papa au bord de l'eau. Il fait la planche, au milieu. Il ne bouge plus. »",
+   "duration": 6,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/pool",
+   "text": "« Il ne faut pas le combattre. Il faut attendre avec lui. Et répondre. »",
+   "duration": 5
+  }
+ ]
+}

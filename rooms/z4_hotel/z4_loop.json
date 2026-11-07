@@ -1,0 +1,107 @@
+{
+ "id": "z4_loop",
+ "zone": 4,
+ "name": "Le couloir qui revient",
+ "fidelity": 14,
+ "size": [
+  16,
+  12
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "bigger_inside",
+  "stretch_room",
+  "erase",
+  "detail_vanish"
+ ],
+ "props": [
+  {
+   "id": "sign",
+   "sprite": "sign_exit_arrow",
+   "pos": [
+    8,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "label": "← DERRIÈRE TOI",
+   "label_bg": "#e8e8e8",
+   "tags": [
+    "text"
+   ],
+   "text": [
+    "* « CE QUI EST DERRIÈRE TOI EST DEVANT TOI. »",
+    "* (Maintenir X ou Maj pour marcher sans se retourner.)"
+   ]
+  },
+  {
+   "id": "lamp",
+   "sprite": "lamp",
+   "pos": [
+    4,
+    4
+   ],
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "color": "#ffd8a0"
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "z4_loop",
+   "to_door": "west",
+   "requires": "false",
+   "locked_text": [
+    "* L'ascenseur est reparti."
+   ]
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "@self",
+   "to_door": "west",
+   "backwards_to": {
+    "room": "z4_concierge",
+    "door": "west"
+   },
+   "label": "↺"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "inc": "z4_loops"
+  },
+  {
+   "if": "z4_loops==3",
+   "then": [
+    {
+     "say": [
+      "* Encore cette pièce.",
+      "* (Peut-être qu'il faut entrer dans la porte... sans la regarder.)"
+     ]
+    }
+   ]
+  }
+ ]
+}

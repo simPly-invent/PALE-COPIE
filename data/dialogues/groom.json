@@ -1,0 +1,62 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Bonsoir ! Je suis le groom. Je porte les bagages. Vous n'avez pas de bagages ? »",
+    "p5": "* « Bonsoir ! Je suis le gr... je porte. Vous n'avez pas ? »"
+   },
+   {
+    "text": "* « J'ai un service à vous demander. Il y a une chambre, ici, qui n'a pas de numéro. »"
+   },
+   {
+    "text": "* « La chambre 0. On dit qu'elle se montre dans le couloir, parfois. Entre deux autres. »"
+   },
+   {
+    "text": "* « Si vous la trouvez, revenez me dire. Je n'ose pas y aller seul. »",
+    "set": {
+     "quest.groom": true
+    }
+   }
+  ],
+  "found": [
+   {
+    "text": "* « Vous l'avez trouvée ! La chambre 0 existe ! »"
+   },
+   {
+    "text": "* « Merci. Tenez, c'est pour vous. Un bonbon. Je donne toujours un bonbon. »",
+    "give": "candy",
+    "set": {
+     "quest.groom.done": true
+    }
+   },
+   {
+    "text": "* « On raconte qu'il y a une cassette sous le lit. Mais la chambre est trop floue pour qu'on la voie. Il faudrait qu'elle se souvienne. »"
+   }
+  ],
+  "again": [
+   {
+    "text": "* « La chambre 0 apparaît dans le couloir. Pas tout de suite. Il faut aller assez loin. »"
+   }
+  ],
+  "done": [
+   {
+    "text": "* « Merci encore. Bonne nuit. Bonne nuit. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "quest.groom.done",
+   "goto": "done"
+  },
+  {
+   "if": "quest.groom.found",
+   "goto": "found"
+  },
+  {
+   "if": "quest.groom",
+   "goto": "again"
+  }
+ ],
+ "voice": "default"
+}

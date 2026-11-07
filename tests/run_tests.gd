@@ -19,6 +19,7 @@ func _ready() -> void:
 	GameState.game_seed = 1997
 	DegradationManager.invalidate()
 	test_all_sources()
+	test_reachability()
 	test_souvenir_restore()
 	await test_save_roundtrip()
 	test_data_files()
@@ -155,6 +156,55 @@ func test_all_sources() -> void:
 				r.free()
 				n += 1
 	print("Salles sources : %d, copies construites : %d" % [DegradationManager.sources.size(), n])
+
+# ---------------------------------------------------------------- Parcours
+## Toutes les salles sources sont atteignables depuis la chambre, et la fin aussi.
+func test_reachability() -> void:
+	var seen = {}
+	var q: Array = [["house_bedroom", 0]]
+	while not q.is_empty():
+		var cur: Array = q.pop_front()
+		var k = "%s#%d" % [cur[0], cur[1]]
+		if seen.has(k) or not DegradationManager.sources.has(cur[0]):
+			continue
+		seen[k] = true
+		var src: RoomSource = DegradationManager.sources[cur[0]]
+		var depth: int = cur[1]
+		var nexts: Array = []
+		for d in src.doors:
+			var w: Dictionary = d.get("when", {})
+			if w.has("depth") and (depth < int(w["depth"][0]) or depth > int(w["depth"][1])):
+				continue
+			for ok in [true, false]:
+				var r = World.resolve_door(src, depth, d, ok)
+				if not r.is_empty():
+					nexts.append([r[0], r[1]])
+			if d.has("backwards_to"):
+				nexts.append([d["backwards_to"]["room"], int(d["backwards_to"].get("depth", 0))])
+		_collect_gotos(src.data, nexts)
+		for n in nexts:
+			q.append(n)
+	var reached = {}
+	for k in seen:
+		reached[k.split("#")[0]] = true
+	for sid in DegradationManager.sources:
+		if sid.begins_with("test_") or sid == "debug_room":
+			continue
+		check(reached.has(sid), "Parcours : salle %s inatteignable depuis la chambre" % sid)
+	check(reached.has("z7_bedroom"), "Parcours : la fin est inatteignable")
+	print("Parcours : %d salles sources atteintes, %d copies" % [reached.size(), seen.size()])
+
+func _collect_gotos(v: Variant, out: Array) -> void:
+	if v is Dictionary:
+		if v.has("goto") and v["goto"] is Dictionary and v["goto"].has("room"):
+			out.append([v["goto"]["room"], int(v["goto"].get("depth", 0))])
+		if v.has("cutscene") and v.has("to"):
+			out.append([v["to"]["room"], int(v["to"].get("depth", 0))])
+		for k in v:
+			_collect_gotos(v[k], out)
+	elif v is Array:
+		for x in v:
+			_collect_gotos(x, out)
 
 # ---------------------------------------------------------------- Souvenirs
 func test_souvenir_restore() -> void:

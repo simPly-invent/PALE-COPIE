@@ -1,0 +1,7 @@
+{
+ "bpm": 66,
+ "melody": "G4:2 E4:1 G4:3 R:2 G4:2 E4:1 A4:3 R:2 G4:2 E4:1 D4:2 C4:1 D4:4 R:2",
+ "bass": "C3:6 A2:6 F2:6 G2:6",
+ "melody_wave": "sine",
+ "melody_amp": 0.2
+}

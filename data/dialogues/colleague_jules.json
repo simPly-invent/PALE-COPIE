@@ -1,0 +1,38 @@
+{
+ "nodes": {
+  "first": [
+   {
+    "text": "* « Oh. Bonjour. Je m'appelle Jules. Je crois. Mon badge est parti tout seul. »"
+   },
+   {
+    "text": "* « Je cherche la sortie depuis... quel jour on est ? »"
+   },
+   {
+    "text": "* (Tu lui dis que Dana le cherche.)"
+   },
+   {
+    "text": "* « Dana ? Elle compte encore ? Dis-lui que Jules est là. Enfin, ici. »",
+    "inc": "dana.count",
+    "set": {
+     "dana.found.jules": true
+    }
+   }
+  ],
+  "again": [
+   {
+    "text": "* « Tu as vu Dana ? Dis-lui que Jules va bien. Je crois. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "dana.found.jules",
+   "goto": "again"
+  },
+  {
+   "goto": "first"
+  }
+ ],
+ "portrait": "scientist",
+ "voice": "soft"
+}

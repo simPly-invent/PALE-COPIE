@@ -1,0 +1,72 @@
+{
+ "nodes": {
+  "talk": [
+   {
+    "text": "* « Tu as rendu leurs noms. Six. Plus, peut-être. »"
+   },
+   {
+    "text": "* « Alors tu sais déjà. On n'a pas besoin de se battre pour savoir lequel est l'original. »"
+   },
+   {
+    "text": "* « Peut-être aucun de nous deux. Peut-être que ça n'a pas d'importance. »"
+   },
+   {
+    "text": "* « Rentre. Je garde la maison d'ici. »",
+    "set": {
+     "copy_talked": true,
+     "copy_done": true
+    },
+    "actions": [
+     {
+      "rebuild": true
+     }
+    ]
+   }
+  ],
+  "fight": [
+   {
+    "text": "* « Je suis toi. Tu es moi. »"
+   },
+   {
+    "text": "* « Un de nous deux est en trop. »"
+   },
+   {
+    "text": "* « Tu veux savoir lequel ? »",
+    "actions": [
+     {
+      "battle": "copy",
+      "on_spared": [
+       {
+        "set": {
+         "copy_done": true
+        }
+       }
+      ],
+      "on_won": [
+       {
+        "set": {
+         "copy_done": true,
+         "copy_killed": true
+        }
+       }
+      ]
+     },
+     {
+      "rebuild": true
+     }
+    ]
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "named>=6",
+   "goto": "talk"
+  },
+  {
+   "goto": "fight"
+  }
+ ],
+ "portrait": "girl",
+ "voice": "child"
+}

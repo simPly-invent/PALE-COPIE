@@ -8,8 +8,8 @@ const ROWS := 2
 const CELL := Vector2(256, 250)
 
 var source_ids: Array = []
-var idx := 0
-var first_depth := 0
+var idx = 0
+var first_depth = 0
 var labels: Array = []
 var layer: CanvasLayer
 
@@ -25,7 +25,7 @@ func _ready() -> void:
 			GameState.game_seed = int(a.substr(7))
 	get_window().content_scale_size = Vector2i(int(COLS * CELL.x), int(ROWS * CELL.y + 40))
 	get_window().size = get_window().content_scale_size
-	var cam := Camera2D.new()
+	var cam = Camera2D.new()
 	cam.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 	add_child(cam)
 	cam.make_current()
@@ -41,21 +41,21 @@ func _build() -> void:
 		l.queue_free()
 	labels.clear()
 	var sid: String = source_ids[idx]
-	var head := UI.label("%s  —  graine %d  —  ←/→ salle, ↑/↓ profondeur" % [sid, GameState.game_seed], 16, Color(0.7, 1, 0.7))
+	var head = UI.label("%s  —  graine %d  —  ←/→ salle, ↑/↓ profondeur" % [sid, GameState.game_seed], 16, Color(0.7, 1, 0.7))
 	head.position = Vector2(8, ROWS * CELL.y + 10)
 	layer.add_child(head)
 	labels.append(head)
 	for k in COLS * ROWS:
-		var depth := first_depth + k
+		var depth = first_depth + k
 		var room = DegradationManager.make_copy(sid, depth)
 		var size: Vector2 = room.pixel_size()
-		var s := minf((CELL.x - 8) / size.x, (CELL.y - 76) / size.y)
+		var s = minf((CELL.x - 8) / size.x, (CELL.y - 76) / size.y)
 		room.scale = Vector2(s, s)
 		room.position = Vector2((k % COLS) * CELL.x + 4, (k / COLS) * CELL.y + 4)
 		add_child(room)
-		var desc := DegradationManager.descriptor(sid, depth)
+		var desc = DegradationManager.descriptor(sid, depth)
 		var muts: Array = room.active_mutations.map(func(m): return m["id"])
-		var l := UI.label("#%d  F=%d  p%d\n%s" % [depth, desc["fidelity"], desc["palier"], "\n".join(muts)], 11)
+		var l = UI.label("#%d  F=%d  p%d\n%s" % [depth, desc["fidelity"], desc["palier"], "\n".join(muts)], 11)
 		l.position = Vector2((k % COLS) * CELL.x + 4, (k / COLS) * CELL.y + CELL.y - 70)
 		l.size = Vector2(CELL.x - 8, 66)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

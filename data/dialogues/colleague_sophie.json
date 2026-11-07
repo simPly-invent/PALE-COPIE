@@ -1,0 +1,38 @@
+{
+ "nodes": {
+  "first": [
+   {
+    "text": "* « Chambre 115. Ou 107. Je ne sais plus quelle est la mienne. »"
+   },
+   {
+    "text": "* « Sophie. Équipe 3. Enchantée. On s'est déjà vus ? »"
+   },
+   {
+    "text": "* (Tu lui dis que Dana le cherche.)"
+   },
+   {
+    "text": "* « Dana ? Elle compte encore ? Dis-lui que Sophie est là. Enfin, ici. »",
+    "inc": "dana.count",
+    "set": {
+     "dana.found.sophie": true
+    }
+   }
+  ],
+  "again": [
+   {
+    "text": "* « Tu as vu Dana ? Dis-lui que Sophie va bien. Je crois. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "dana.found.sophie",
+   "goto": "again"
+  },
+  {
+   "goto": "first"
+  }
+ ],
+ "portrait": "girl_b",
+ "voice": "soft"
+}

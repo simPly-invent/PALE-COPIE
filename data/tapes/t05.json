@@ -1,0 +1,24 @@
+{
+ "id": "t05",
+ "title": "Bureau 214",
+ "date": "JUL. 08 1997",
+ "time": "PM 11:58",
+ "frames": [
+  {
+   "image": "vhs/office",
+   "text": "« Le fax du bureau 214 envoie le dernier message de l'équipe 3. En boucle. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/office",
+   "text": "« URGENT. JULES, INÈS, KARIM, SOPHIE ET MALIK NE RÉPONDENT PLUS. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« Dana compte les absents. Elle recompte. Elle recompte. »",
+   "duration": 4
+  }
+ ]
+}

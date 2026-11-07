@@ -1,0 +1,38 @@
+{
+ "nodes": {
+  "first": [
+   {
+    "text": "* « Ne fais pas de bruit. Elle passe, parfois. »"
+   },
+   {
+    "text": "* « Moi c'est Karim. Paul est parti devant. Je l'entends encore appeler. »"
+   },
+   {
+    "text": "* (Tu lui dis que Dana le cherche.)"
+   },
+   {
+    "text": "* « Dana ? Elle compte encore ? Dis-lui que Karim est là. Enfin, ici. »",
+    "inc": "dana.count",
+    "set": {
+     "dana.found.karim": true
+    }
+   }
+  ],
+  "again": [
+   {
+    "text": "* « Tu as vu Dana ? Dis-lui que Karim va bien. Je crois. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "dana.found.karim",
+   "goto": "again"
+  },
+  {
+   "goto": "first"
+  }
+ ],
+ "portrait": "guard",
+ "voice": "soft"
+}

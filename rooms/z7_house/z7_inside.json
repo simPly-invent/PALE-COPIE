@@ -1,0 +1,158 @@
+{
+ "id": "z7_inside",
+ "zone": 7,
+ "name": "Le salon (copie)",
+ "fidelity": 50,
+ "size": [
+  16,
+  12
+ ],
+ "fidelity_from_souvenirs": true,
+ "no_mutations": [
+  "loop_door",
+  "door_shift",
+  "extra_wall",
+  "stretch_room",
+  "bigger_inside"
+ ],
+ "anchor": {
+  "id": "drawing",
+  "sprite": "drawing_child",
+  "pos": [
+   3,
+   2
+  ],
+  "name": "Le dessin",
+  "solid": false,
+  "on_wall": true,
+  "text": [
+   "* Ton dessin. La maison, le soleil, et maman qui fait coucou.",
+   "* Il n'a pas changé. C'est la seule chose qui n'a pas changé."
+  ]
+ },
+ "props": [
+  {
+   "id": "sofa",
+   "sprite": "sofa_red",
+   "pos": [
+    5,
+    5
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "tv",
+   "sprite": "tv",
+   "pos": [
+    9,
+    4
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* La télé est allumée. Elle montre ce salon. Avec toi dedans."
+   ]
+  },
+  {
+   "id": "table",
+   "sprite": "table",
+   "pos": [
+    11,
+    8
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "lamp",
+   "sprite": "lamp",
+   "pos": [
+    2,
+    4
+   ],
+   "tags": [
+    "small",
+    "light"
+   ],
+   "light": {
+    "color": "#ffd890"
+   }
+  }
+ ],
+ "npcs": [
+  {
+   "id": "mom_echo",
+   "sprite": "mom",
+   "pos": [
+    7,
+    8
+   ],
+   "dialogue": "mom_end",
+   "when": {
+    "if": "souvenirs>=10"
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    8,
+    11
+   ],
+   "to": "z7_front",
+   "to_door": "blue"
+  },
+  {
+   "id": "hall",
+   "side": "right",
+   "pos": [
+    15,
+    7
+   ],
+   "to": "z7_bedroom",
+   "to_door": "south"
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   9
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!z7_inside_seen",
+   "then": [
+    {
+     "set": {
+      "z7_inside_seen": true
+     }
+    },
+    {
+     "if": "souvenirs<=3",
+     "then": [
+      {
+       "say": [
+        "* Le salon. Enfin, quelque chose qui y ressemble.",
+        "* Tout est jaune. Tout est vide."
+       ]
+      }
+     ],
+     "else": [
+      {
+       "say": [
+        "* Le salon. Presque comme avant."
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

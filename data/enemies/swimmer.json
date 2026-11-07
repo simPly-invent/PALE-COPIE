@@ -1,0 +1,119 @@
+{
+ "name": "Le Nageur Immobile",
+ "sprite": "boss_swimmer",
+ "scale": 1.5,
+ "hp": 200,
+ "atk": 0,
+ "def": 99,
+ "exp": 0,
+ "gold": 0,
+ "boss": true,
+ "special": "wait_only",
+ "flee": false,
+ "intro": "* Le Nageur Immobile flotte, sans bouger.\n* Il n'attaque pas. Il attend.",
+ "check": "* LE NAGEUR IMMOBILE - ATT 0 DÉF ?\n* Il pose des questions. Il faut seulement attendre, et répondre.",
+ "fight_text": "* Tu lèves la main. Il ne bouge pas.\n* Tu n'oses pas.",
+ "flavor": [
+  "* Le Nageur fait la planche dans l'air.",
+  "* Des bulles montent, très lentement.",
+  "* Le silence est mouillé."
+ ],
+ "spare_flavor": "* Le Nageur Immobile sourit, enfin.",
+ "acts": [
+  {
+   "label": "Attendre",
+   "wait": true,
+   "text": [
+    "* Tu attends.",
+    "* Il attend aussi. C'est bien."
+   ],
+   "mercy": 20
+  },
+  {
+   "label": "Répondre",
+   "mercy": 30,
+   "question": [
+    {
+     "text": "* « Tu sais nager ? »",
+     "choices": [
+      "Oui",
+      "Un peu",
+      "Non"
+     ],
+     "any": true,
+     "reply_right": [
+      "* « C'est bien. Moi, j'ai oublié. »"
+     ]
+    },
+    {
+     "text": "* « De quelle couleur était le premier carreau ? »",
+     "choices": [
+      "Rouge",
+      "Bleu",
+      "Vert"
+     ],
+     "answer": 1,
+     "reply_right": [
+      "* « Bleu. Oui. Je m'en souviens maintenant. »"
+     ],
+     "reply_wrong": [
+      "* « ...Non. Je ne crois pas. »"
+     ]
+    },
+    {
+     "text": "* « Quelqu'un t'attend, dehors ? »",
+     "choices": [
+      "Oui",
+      "Je ne sais pas"
+     ],
+     "any": true,
+     "reply_right": [
+      "* « Alors ne reste pas trop longtemps sous l'eau. »"
+     ]
+    },
+    {
+     "text": "* « Tu reviendras me voir ? »",
+     "choices": [
+      "Oui",
+      "Non"
+     ],
+     "any": true,
+     "reply_right": [
+      "* « Merci. »"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qui était-il ? (Quelqu'un l'attend au bord de l'eau...)",
+   "choices": [
+    "Un champion olympique",
+    "Le père de l'enfant au bord de l'eau",
+    "Le maître-nageur"
+   ],
+   "answer": 1,
+   "name": "le papa de Léa",
+   "mercy": 60,
+   "text_right": [
+    "* C'est le papa de Léa. L'enfant au bord de l'eau, c'est sa fille.",
+    "* « Léa... Elle m'attend ? »"
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "...",
+  "Tu entends l'eau ?",
+  "Attends avec moi.",
+  "Encore un peu."
+ ],
+ "patterns": [
+  "questions"
+ ],
+ "music": "boss_swimmer",
+ "turn_time": 5.0
+}

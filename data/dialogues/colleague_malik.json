@@ -1,0 +1,38 @@
+{
+ "nodes": {
+  "first": [
+   {
+    "text": "* « J'ai regardé les écrans trop longtemps. Je ne vois plus que des salles vides. »"
+   },
+   {
+    "text": "* « Malik, technicien vidéo. C'est moi qui ai filmé toutes ces cassettes. »"
+   },
+   {
+    "text": "* (Tu lui dis que Dana le cherche.)"
+   },
+   {
+    "text": "* « Dana ? Elle compte encore ? Dis-lui que Malik est là. Enfin, ici. »",
+    "inc": "dana.count",
+    "set": {
+     "dana.found.malik": true
+    }
+   }
+  ],
+  "again": [
+   {
+    "text": "* « Tu as vu Dana ? Dis-lui que Malik va bien. Je crois. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "dana.found.malik",
+   "goto": "again"
+  },
+  {
+   "goto": "first"
+  }
+ ],
+ "portrait": "monitor",
+ "voice": "soft"
+}

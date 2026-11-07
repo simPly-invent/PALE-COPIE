@@ -87,6 +87,17 @@ static func run_one(a: Dictionary, source: Node) -> void:
 		await Cutscenes.play(a["cutscene"], a)
 	if a.has("ending"):
 		await Cutscenes.play("ending", a)
+	if a.has("ask_code"):
+		# {"ask_code": {"puzzle": "z2_clocks", "title": "...", "letters": false, "right": [...], "wrong": [...]}}
+		var q: Dictionary = a["ask_code"]
+		var ans = Puzzles.answer(q.get("puzzle", ""))
+		var code: String = await CodeInput.ask(q.get("title", "?"), ans.length(), q.get("letters", false))
+		if code == ans:
+			AudioManager.sfx("right")
+			await run(q.get("right", []), source)
+		else:
+			AudioManager.sfx("wrong")
+			await run(q.get("wrong", []), source)
 	if a.has("goto"):
 		var g: Dictionary = a["goto"]
 		await World.goto_room(g.get("room", ""), int(g.get("depth", 0)), g.get("door", ""), g.get("spawn", ""))

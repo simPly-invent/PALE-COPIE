@@ -18,6 +18,15 @@ func setup(d: Dictionary, r: Node) -> void:
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.size = Vector2(120, 24)
 		label.position = Vector2(-60, -sprite_height() - 24 + float(d.get("label_dy", 0)))
+		if tex_name == "sign_sortie" or d.has("label_bg"):
+			# le texte est peint sur le panneau lui-même
+			var bg = ColorRect.new()
+			bg.color = Color.from_string(d.get("label_bg", "#2e8a4c"), Color(0.2, 0.55, 0.3))
+			var sh = sprite_height()
+			bg.position = Vector2(-sprite.texture.get_width() / 2.0 + 4, -sh + 5)
+			bg.size = Vector2(sprite.texture.get_width() - 8, sh - 10)
+			add_child(bg)
+			label.position = Vector2(-60, -sh / 2.0 - 11)
 		add_child(label)
 		add_to_group("room_text")
 	if tags.has("light") or d.has("light"):
@@ -25,6 +34,10 @@ func setup(d: Dictionary, r: Node) -> void:
 	if not (d.has("text") or d.has("dialogue") or d.has("actions")):
 		monitorable = false
 	z_index = int(d.get("z", 0))
+	if d.get("generic", false):
+		make_generic()
+	if d.has("modulate") and sprite:
+		sprite.modulate = Color.from_string(d["modulate"], Color.WHITE)
 
 func default_solid() -> bool:
 	return not def.get("floor", false)

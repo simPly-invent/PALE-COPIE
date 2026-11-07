@@ -1,0 +1,47 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Ah ! Ne me laisse pas dans le noir ! »",
+    "voice": "high"
+   },
+   {
+    "text": "* « Je suis Lumi. Un néon. Un petit. J'ai peur du noir. C'est gênant, pour un néon. »"
+   },
+   {
+    "text": "* « Le parking est tout noir. Si je reste trop longtemps loin d'une lampe, je m'éteins. »"
+   },
+   {
+    "text": "* « Tu veux bien m'emmener jusqu'à la sortie ? Je t'éclairerai un peu. »",
+    "choices": [
+     {
+      "text": "Oui",
+      "actions": [
+       {
+        "say": [
+         "* « Merci ! Reste près des lampes du plafond, d'accord ? »"
+        ]
+       },
+       {
+        "set": {
+         "quest.lumi.active": true
+        }
+       },
+       {
+        "follower": "lumi"
+       },
+       {
+        "rebuild": true
+       }
+      ]
+     },
+     {
+      "text": "Pas maintenant",
+      "end": true
+     }
+    ]
+   }
+  ]
+ },
+ "voice": "high"
+}

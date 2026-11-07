@@ -1,0 +1,28 @@
+{
+ "kind": "count_tag",
+ "room": "z1_neons",
+ "tag": "neon",
+ "depths": [
+  1,
+  2,
+  3
+ ],
+ "title": "CODE (3 CHIFFRES)",
+ "prompt": [
+  "* Un boîtier à code, vissé au mur. Trois chiffres.",
+  "* Quelqu'un a gratté au-dessus : « COMPTE CE QUI SE RÉPÈTE ». "
+ ],
+ "success": [
+  {
+   "say": [
+    "* Clic. Le néon au-dessus de la porte passe au vert."
+   ]
+  }
+ ],
+ "fail_text": [
+  "* Bzzt. Le boîtier grésille. Mauvais code."
+ ],
+ "solved_text": [
+  "* Le voyant est vert."
+ ]
+}

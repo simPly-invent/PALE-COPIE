@@ -1,0 +1,18 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Oh, un sujet ! Pardon. Un visiteur. »",
+    "p4": "* « Oh, un su... un visiteur. »"
+   },
+   {
+    "text": "* « Le rapport 3-097 a été copié quatre fois. Chaque copie a perdu des lettres différentes. »"
+   },
+   {
+    "text": "* « Si on met les quatre ensemble, on retrouve le mot. C'est la base de notre métier, la comparaison. »"
+   }
+  ]
+ },
+ "portrait": "scientist",
+ "voice": "low"
+}

@@ -1,0 +1,178 @@
+{
+ "id": "z6_monitors",
+ "zone": 6,
+ "name": "Salle de surveillance",
+ "fidelity": 40,
+ "size": [
+  18,
+  12
+ ],
+ "no_mutations": [
+  "loop_door",
+  "door_shift"
+ ],
+ "props": [
+  {
+   "id": "tv1",
+   "sprite": "tv",
+   "pos": [
+    4,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "small",
+    "repeatable"
+   ],
+   "text": [
+    "* Un moniteur montre une salle jaune vide. Puis une chaise rouge."
+   ]
+  },
+  {
+   "id": "tv2",
+   "sprite": "tv",
+   "pos": [
+    7,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Un moniteur montre ta chambre. Le lit est défait."
+   ]
+  },
+  {
+   "id": "tv3",
+   "sprite": "tv",
+   "pos": [
+    10,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Moniteur n°3 : le couloir des archives. 22:24."
+   ]
+  },
+  {
+   "id": "desk",
+   "sprite": "desk",
+   "pos": [
+    7,
+    6
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "pc",
+   "sprite": "computer",
+   "pos": [
+    12,
+    6
+   ],
+   "tags": [
+    "small"
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "malik",
+   "sprite": "npc_kid",
+   "pos": [
+    13,
+    8
+   ],
+   "dialogue": "colleague_malik"
+  },
+  {
+   "id": "ghost",
+   "sprite": "npc_ghost",
+   "pos": [
+    3,
+    9
+   ],
+   "dialogue": "kind_ghost"
+  }
+ ],
+ "chests": [
+  {
+   "id": "z6_tape_t18",
+   "sprite": "chest_box",
+   "pos": [
+    16,
+    10
+   ],
+   "contents": "tape:t18"
+  },
+  {
+   "id": "z6_s_door",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    4
+   ],
+   "contents": "souvenir:s_door",
+   "text": "* Un carton marqué « MAISON - OBJETS PERSONNELS ». "
+  },
+  {
+   "id": "z6_tape_t20",
+   "sprite": "chest_briefcase",
+   "pos": [
+    9,
+    10
+   ],
+   "contents": "tape:t20",
+   "when": {
+    "min_fidelity": 55
+   },
+   "text": "* Sous le bureau, une cassette qu'on ne voyait pas avant."
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    7
+   ],
+   "to": "z6_archives",
+   "to_door": "east",
+   "depth": 4
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    17,
+    7
+   ],
+   "to": "z6_copy",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   7
+  ]
+ },
+ "encounters": {
+  "enemies": [
+   "monitor",
+   "archive"
+  ],
+  "rate": 0.6,
+  "max": 1
+ }
+}

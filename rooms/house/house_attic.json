@@ -1,0 +1,138 @@
+{
+ "id": "house_attic",
+ "zone": 0,
+ "name": "Le grenier",
+ "fidelity": 100,
+ "size": [
+  14,
+  10
+ ],
+ "ambient": "#c8b49a",
+ "floor": "floor_concrete",
+ "props": [
+  {
+   "id": "box1",
+   "sprite": "chest_crate",
+   "pos": [
+    3,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "box2",
+   "sprite": "chest_box",
+   "pos": [
+    10,
+    4
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "window",
+   "sprite": "tv",
+   "pos": [
+    7,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "text": [
+    "* La fenêtre du toit. Il pleut. Tap. Tap-tap."
+   ]
+  },
+  {
+   "id": "sheet_line",
+   "sprite": "stretcher",
+   "pos": [
+    11,
+    7
+   ],
+   "text": [
+    "* Un vieux lit de camp. Un drap est étendu dessus pour sécher.",
+    "* Il bouge un peu. Sûrement le vent."
+   ]
+  }
+ ],
+ "chests": [
+  {
+   "id": "house_camcorder",
+   "sprite": "chest_briefcase",
+   "pos": [
+    6,
+    5
+   ],
+   "contents": "camcorder",
+   "text": "* Une mallette. Dedans, le vieux caméscope de papa."
+  },
+  {
+   "id": "house_rain",
+   "sprite": "chest_box_open",
+   "pos": [
+    2,
+    8
+   ],
+   "contents": "souvenir:s_rain",
+   "text": "* Un carton de vieilles affaires à toi."
+  }
+ ],
+ "doors": [
+  {
+   "id": "ladder",
+   "side": "bottom",
+   "pos": [
+    7,
+    9
+   ],
+   "to": "house_hallway",
+   "to_door": "attic"
+  }
+ ],
+ "spawns": {
+  "default": [
+   7,
+   7
+  ]
+ },
+ "triggers": [
+  {
+   "id": "tutorial_battle",
+   "rect": [
+    1,
+    6,
+    12,
+    2
+   ],
+   "if": "has:camcorder",
+   "actions": [
+    {
+     "say": [
+      "* Le drap s'est décroché. Il flotte vers toi.",
+      "* (Combat ! Dans un combat, tu peux te battre, agir, utiliser un objet, ou épargner.)",
+      "* (Pendant le tour de l'ennemi, déplace le cœur pour éviter les attaques.)"
+     ]
+    },
+    {
+     "battle": "drying_sheet"
+    },
+    {
+     "set": {
+      "tutorial_done": true
+     }
+    },
+    {
+     "say": [
+      "* « {name} ? Tout va bien là-haut ? »",
+      "* « Bon. Au lit, maintenant. Demain c'est ton anniversaire. »",
+      "* (C ou Ctrl : ouvrir le menu du caméscope.)"
+     ],
+     "voice": "mom"
+    }
+   ]
+  }
+ ]
+}

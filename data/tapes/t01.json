@@ -1,0 +1,30 @@
+{
+ "id": "t01",
+ "title": "Équipe 3 — jour 1",
+ "date": "JUL. 02 1997",
+ "time": "AM 09:12",
+ "frames": [
+  {
+   "image": "vhs/hallway",
+   "text": "« Enregistrement Halden. Équipe 3, premier jour. Dr Vasseur. »",
+   "duration": 4,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/hallway",
+   "text": "« Le couloir fait onze mètres. Hier, il en faisait neuf. »",
+   "duration": 4
+  },
+  {
+   "image": "vhs/hallway",
+   "text": "« Marcel, le gardien de nuit, dit qu'il refait sa ronde de 22 h toutes les nuits. Même quand il n'y a plus de nuit. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "(fin de bande)",
+   "duration": 2,
+   "sound": "static"
+  }
+ ]
+}

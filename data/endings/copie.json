@@ -1,0 +1,30 @@
+{
+ "name": "Copie",
+ "date": "JUL. 15 1997",
+ "time": "AM 07:00",
+ "frames": [
+  {
+   "image": "vhs/house",
+   "text": "{name} rentre à la maison.",
+   "duration": 4,
+   "sound": "music:house",
+   "fidelity": 40
+  },
+  {
+   "image": "vhs/bedroom",
+   "text": "Les murs sont jaunes. La moquette est jaune. Il n'y a personne.",
+   "duration": 5
+  },
+  {
+   "image": "vhs/bedroom",
+   "text": "Sur le mur, deux dessins identiques.",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "Tu t'assieds sur le lit. Il ne grince pas. Il grinçait, avant.",
+   "duration": 5,
+   "sound": "silence"
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "id": "house_kitchen",
+ "zone": 0,
+ "name": "La cuisine",
+ "fidelity": 100,
+ "size": [
+  14,
+  11
+ ],
+ "floor": "tile_yellow",
+ "props": [
+  {
+   "id": "table",
+   "sprite": "table",
+   "pos": [
+    6,
+    6
+   ],
+   "text": [
+    "* La nappe à carreaux. Une miette de gâteau d'hier."
+   ]
+  },
+  {
+   "id": "chair1",
+   "sprite": "chair_blue",
+   "pos": [
+    5,
+    6
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "chair2",
+   "sprite": "chair_blue",
+   "pos": [
+    8,
+    6
+   ],
+   "tags": [
+    "small"
+   ],
+   "flip": true
+  },
+  {
+   "id": "fridge",
+   "sprite": "fridge",
+   "pos": [
+    11,
+    3
+   ],
+   "text": [
+    "* Le frigo. Des aimants en forme de fruits.",
+    "* Ton dessin de la semaine dernière est accroché dessus. Le même que dans ta chambre."
+   ]
+  },
+  {
+   "id": "clock",
+   "sprite": "clock",
+   "pos": [
+    3,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* L'horloge de la cuisine. 21 h 40. Il est tard."
+   ]
+  }
+ ],
+ "chests": [
+  {
+   "id": "house_apple",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    8
+   ],
+   "contents": "apple",
+   "text": "* Le carton des courses."
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    6
+   ],
+   "to": "house_living",
+   "to_door": "kitchen"
+  }
+ ],
+ "spawns": {
+  "default": [
+   6,
+   8
+  ]
+ }
+}

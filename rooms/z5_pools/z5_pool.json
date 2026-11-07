@@ -1,0 +1,163 @@
+{
+ "id": "z5_pool",
+ "zone": 5,
+ "name": "Le grand bassin",
+ "fidelity": 38,
+ "size": [
+  18,
+  12
+ ],
+ "layout": [
+  "##################",
+  "##################",
+  "##################",
+  "#................#",
+  "#................#",
+  "#...wwwwwwwwww...#",
+  "#...wwwwwwwwww...#",
+  "#...wwwwwwwwww...#",
+  "#...wwwwwwwwww...#",
+  "#................#",
+  "#................#",
+  "##################"
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "stretch_room",
+  "bigger_inside"
+ ],
+ "props": [
+  {
+   "id": "ladder",
+   "sprite": "pool_ladder",
+   "pos": [
+    4,
+    4
+   ],
+   "solid": false,
+   "tags": [
+    "decor"
+   ]
+  },
+  {
+   "id": "chair",
+   "sprite": "chair_blue",
+   "pos": [
+    16,
+    9
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  }
+ ],
+ "puzzles": [
+  {
+   "type": "reflection",
+   "id": "refl_door",
+   "sprite": "door_white_double",
+   "pos": [
+    9,
+    5
+   ],
+   "text": [
+    "* Dans le reflet de l'eau, la salle est plus nette.",
+    "* Au fond, il y a une porte. Ici, il n'y a qu'un mur.",
+    "* (Si la pièce se souvenait mieux d'elle-même...)"
+   ]
+  },
+  {
+   "type": "reflection",
+   "id": "refl_suit",
+   "sprite": "item_photo",
+   "pos": [
+    12,
+    8
+   ],
+   "text": [
+    "* Dans le reflet, un maillot rayé est posé sur le rebord. Sur le vrai rebord, il n'y a rien."
+   ]
+  }
+ ],
+ "chests": [
+  {
+   "id": "z5_tape_t13",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    10
+   ],
+   "contents": "tape:t13"
+  },
+  {
+   "id": "z5_swimsuit",
+   "sprite": "chest_box_open",
+   "pos": [
+    15,
+    10
+   ],
+   "contents": "swimsuit",
+   "when": {
+    "min_fidelity": 55
+   },
+   "text": "* Sur le rebord : un maillot rayé, mouillé."
+  },
+  {
+   "id": "z5_tape_t15",
+   "sprite": "chest_box",
+   "pos": [
+    16,
+    4
+   ],
+   "contents": "tape:t15",
+   "when": {
+    "min_fidelity": 55
+   },
+   "text": "* Une cassette, posée sur le plongeoir qui n'existait pas."
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    10
+   ],
+   "to": "z5_entrance",
+   "to_door": "east"
+  },
+  {
+   "id": "north",
+   "side": "top",
+   "pos": [
+    9,
+    2
+   ],
+   "to": "z5_dive",
+   "to_door": "west",
+   "sprite": "door_white_double",
+   "when": {
+    "min_fidelity": 55
+   }
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   10
+  ]
+ },
+ "encounters": {
+  "enemies": [
+   "buoy",
+   "tile",
+   "lifeguard"
+  ],
+  "rate": 1.0,
+  "max": 2
+ }
+}

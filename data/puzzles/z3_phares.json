@@ -1,0 +1,21 @@
+{
+ "kind": "sequence",
+ "order": [
+  3,
+  1,
+  5,
+  2
+ ],
+ "needs_light": true,
+ "success": [
+  {
+   "say": [
+    "* Les quatre places s'éclairent. Au fond, une porte grince."
+   ]
+  }
+ ],
+ "fail_text": [
+  "* Toutes les lampes s'éteignent d'un coup.",
+  "* (L'ordre n'était pas le bon. Une cassette en parlait...)"
+ ]
+}

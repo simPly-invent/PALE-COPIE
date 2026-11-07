@@ -1,0 +1,65 @@
+{
+ "name": "Plante Verte en Plastique",
+ "sprite": "plant",
+ "scale": 2.6,
+ "hp": 34,
+ "atk": 4,
+ "def": 3,
+ "exp": 11,
+ "gold": 7,
+ "check": "* PLANTE VERTE EN PLASTIQUE - ATT 4 DÉF 3\n* Elle croit qu'il faut l'arroser. On l'a arrosée pendant six ans.",
+ "flavor": [
+  "* La plante ne pousse pas.",
+  "* Une feuille en plastique tombe. Elle repousse, identique.",
+  "* La plante prend la pose."
+ ],
+ "spare_flavor": "* La plante est contente d'être une plante.",
+ "acts": [
+  {
+   "label": "Arroser",
+   "text": [
+    "* Tu fais semblant d'arroser.",
+    "* Elle est ravie. L'eau coule par terre."
+   ],
+   "mercy": 40
+  },
+  {
+   "label": "Complimenter",
+   "text": [
+    "* « Tu es très verte. »",
+    "* Elle le savait, mais ça fait plaisir."
+   ],
+   "mercy": 30
+  },
+  {
+   "label": "Se souvenir",
+   "remember": true,
+   "prompt": "* Qu'est-ce que c'était, avant ?",
+   "choices": [
+    "Un ficus",
+    "Une plante de salle d'attente de dentiste",
+    "La plante de l'accueil Halden"
+   ],
+   "answer": 2,
+   "name": "la plante de l'accueil",
+   "mercy": 60,
+   "text_right": [
+    "* La plante de l'accueil de Halden. La réceptionniste l'arrosait tous les matins.",
+    "* Elle s'en souvient. Ses feuilles brillent."
+   ],
+   "text_wrong": [
+    "* Ce n'est pas ça. Il a l'air un peu plus perdu."
+   ]
+  }
+ ],
+ "dialogue": [
+  "Arrose-moi.",
+  "Je pousse. (non)",
+  "Photosynthèse ?"
+ ],
+ "patterns": [
+  "drip",
+  "sweep"
+ ],
+ "music": "battle"
+}

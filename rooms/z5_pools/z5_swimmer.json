@@ -1,0 +1,151 @@
+{
+ "id": "z5_swimmer",
+ "zone": 5,
+ "name": "Le bassin immobile",
+ "fidelity": 25,
+ "size": [
+  18,
+  12
+ ],
+ "layout": [
+  "##################",
+  "##################",
+  "##################",
+  "#................#",
+  "#....wwwwwwww....#",
+  "#....wwwwwwww....#",
+  "#....ww....ww....#",
+  "#....ww....ww....#",
+  "#....wwwwwwww....#",
+  "#....wwwwwwww....#",
+  "#................#",
+  "##################"
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "stretch_room",
+  "bigger_inside",
+  "erase"
+ ],
+ "npcs": [
+  {
+   "id": "swimmer",
+   "sprite": "boss_swimmer",
+   "pos": [
+    9,
+    7
+   ],
+   "dialogue": "swimmer_pre",
+   "scale": 0.8,
+   "if": "!swimmer_done"
+  }
+ ],
+ "triggers": [
+  {
+   "id": "boss",
+   "rect": [
+    2,
+    3,
+    2,
+    8
+   ],
+   "if": "!swimmer_done",
+   "once": false,
+   "actions": [
+    {
+     "say": [
+      "* Au milieu de l'eau, un homme fait la planche. Il ne bouge pas.",
+      "* « ...Ne fais pas de vagues. Attends avec moi. »"
+     ]
+    },
+    {
+     "battle": "swimmer",
+     "on_spared": [
+      {
+       "set": {
+        "swimmer_done": true
+       }
+      }
+     ],
+     "on_won": [
+      {
+       "set": {
+        "swimmer_done": true
+       }
+      }
+     ]
+    },
+    {
+     "if": "swimmer_done",
+     "then": [
+      {
+       "rebuild": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "chests": [
+  {
+   "id": "z5_s_song",
+   "sprite": "chest_box",
+   "pos": [
+    16,
+    10
+   ],
+   "contents": "souvenir:s_song",
+   "when": {
+    "if": "swimmer_done"
+   },
+   "text": "* Là où flottait le nageur, une boîte en fer, sèche."
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    15,
+    3
+   ],
+   "sprite": "phone",
+   "when": {
+    "if": "swimmer_done"
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    6
+   ],
+   "to": "z5_dive",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    17,
+    6
+   ],
+   "to": "z6_archives",
+   "to_door": "west",
+   "requires": "swimmer_done",
+   "locked_text": [
+    "* Tu ne peux pas partir comme ça. Il attend."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   1,
+   6
+  ]
+ }
+}

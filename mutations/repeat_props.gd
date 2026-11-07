@@ -12,6 +12,8 @@ func apply(room, rng: RandomNumberGenerator) -> void:
 	var extra_rng = rng.randi_range(0, 1)
 	for src in targets:
 		var n = 1 + int(floor(intensity(room) * 3.0)) + extra_rng
+		if room.source.data.get("mutation_params", {}).get(id, {}).get("per_depth", false):
+			n = room.depth + extra_rng
 		var w: int = room.tiles.width()
 		var step = 2 * TileGrid.TILE
 		var placed = 0

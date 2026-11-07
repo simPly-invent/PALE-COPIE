@@ -1,0 +1,342 @@
+{
+ "id": "z1_halls",
+ "zone": 1,
+ "name": "Couloir jaune",
+ "fidelity": 96,
+ "size": [
+  20,
+  9
+ ],
+ "chain": {
+  "max_depth": 5,
+  "then": "z1_diff",
+  "then_door": "south"
+ },
+ "back": {
+  "room": "z1_arrival",
+  "door": "east"
+ },
+ "props": [
+  {
+   "id": "n1",
+   "sprite": "neon_ceiling",
+   "pos": [
+    3,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n2",
+   "sprite": "neon_ceiling",
+   "pos": [
+    8,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n3",
+   "sprite": "neon_ceiling",
+   "pos": [
+    13,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "n4",
+   "sprite": "neon_ceiling",
+   "pos": [
+    17,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "repeatable",
+    "light",
+    "neon"
+   ],
+   "light": {
+    "flicker": true,
+    "color": "#e8ffd8",
+    "energy": 0.8
+   }
+  },
+  {
+   "id": "chair1",
+   "sprite": "chair_grey",
+   "pos": [
+    6,
+    4
+   ],
+   "tags": [
+    "repeatable",
+    "decor"
+   ]
+  },
+  {
+   "id": "chair2",
+   "sprite": "chair_grey",
+   "pos": [
+    14,
+    6
+   ],
+   "tags": [
+    "repeatable",
+    "decor"
+   ],
+   "flip": true
+  },
+  {
+   "id": "plant",
+   "sprite": "plant",
+   "pos": [
+    11,
+    3
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ],
+   "text": [
+    "* Une plante verte. Elle est en plastique.",
+    "* Elle a l'air contente quand même."
+   ]
+  },
+  {
+   "id": "shelf",
+   "sprite": "bookshelf",
+   "pos": [
+    16,
+    3
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Des classeurs. Sur les tranches : « ÉQUIPE 3 ».",
+    "* Ils sont tous vides."
+   ]
+  },
+  {
+   "id": "trash",
+   "sprite": "trash_can",
+   "pos": [
+    2,
+    7
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  },
+  {
+   "id": "clock",
+   "sprite": "clock",
+   "pos": [
+    10,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Une horloge. L'aiguille des secondes avance, puis recule."
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "pli",
+   "sprite": "mr_pli",
+   "pos": [
+    4,
+    5
+   ],
+   "dialogue": "pli",
+   "when": {
+    "depth": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "jules",
+   "sprite": "npc_worker",
+   "pos": [
+    12,
+    5
+   ],
+   "dialogue": "colleague_jules",
+   "when": {
+    "depth": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "stagiaire",
+   "sprite": "npc_kid",
+   "pos": [
+    8,
+    7
+   ],
+   "dialogue": "stagiaire",
+   "when": {
+    "depth": [
+     2,
+     2
+    ]
+   }
+  }
+ ],
+ "chests": [
+  {
+   "id": "z1_halls_bar",
+   "sprite": "chest_box",
+   "pos": [
+    9,
+    7
+   ],
+   "contents": "cereal_bar"
+  },
+  {
+   "id": "z1_tape_t01",
+   "sprite": "chest_box",
+   "pos": [
+    15,
+    7
+   ],
+   "contents": "tape:t01",
+   "when": {
+    "depth": [
+     1,
+     5
+    ]
+   },
+   "text": "* Un carton d'archives. « ÉQUIPE 3 - BANDES ». "
+  },
+  {
+   "id": "z1_frag1",
+   "sprite": "chest_crate",
+   "pos": [
+    18,
+    7
+   ],
+   "contents": "plan_fragment",
+   "when": {
+    "depth": [
+     3,
+     5
+    ]
+   }
+  },
+  {
+   "id": "z1_s_laundry",
+   "sprite": "chest_locker",
+   "pos": [
+    18,
+    3
+   ],
+   "contents": "souvenir:s_laundry",
+   "when": {
+    "depth": [
+     5,
+     5
+    ]
+   },
+   "text": "* Un casier. Ça sent le linge propre."
+  },
+  {
+   "id": "z1_tape_t02",
+   "sprite": "chest_box",
+   "pos": [
+    5,
+    7
+   ],
+   "contents": "tape:t02",
+   "when": {
+    "depth": [
+     4,
+     5
+    ]
+   }
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    5
+   ],
+   "to": "@prev",
+   "to_door": "east"
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    19,
+    5
+   ],
+   "to": "@next",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   3,
+   5
+  ]
+ },
+ "encounters": {
+  "enemies": [
+   "neon_flicker",
+   "empty_chair",
+   "damp_carpet"
+  ],
+  "rate": 1.0,
+  "max": 2
+ }
+}

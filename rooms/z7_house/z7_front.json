@@ -1,0 +1,171 @@
+{
+ "id": "z7_front",
+ "zone": 7,
+ "name": "Devant la maison",
+ "fidelity": 50,
+ "size": [
+  16,
+  12
+ ],
+ "fidelity_from_souvenirs": true,
+ "floor": "floor_concrete",
+ "no_mutations": [
+  "loop_door",
+  "door_shift",
+  "extra_wall",
+  "stretch_room",
+  "bigger_inside",
+  "erase"
+ ],
+ "props": [
+  {
+   "id": "plaque",
+   "sprite": "icon_note",
+   "pos": [
+    8,
+    8
+   ],
+   "actions": [
+    {
+     "if": "has:s_door",
+     "then": [
+      {
+       "say": [
+        "* Trois portes. Une seule est la tienne.",
+        "* Tu te souviens : bleue, avec une marque de crayon à hauteur d'enfant."
+       ]
+      }
+     ],
+     "else": [
+      {
+       "say": [
+        "* Trois portes. Une seule est la tienne.",
+        "* Tu as du mal à te souvenir de quelle couleur elle était.",
+        "* (Elle était dans le salon, au tout début.)"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bush",
+   "sprite": "plant",
+   "pos": [
+    2,
+    4
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  },
+  {
+   "id": "bush2",
+   "sprite": "plant",
+   "pos": [
+    14,
+    4
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  }
+ ],
+ "phones": [
+  {
+   "id": "phone",
+   "pos": [
+    13,
+    9
+   ],
+   "sprite": "phone"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "livreur",
+   "sprite": "delivery_man",
+   "pos": [
+    4,
+    8
+   ],
+   "dialogue": "livreur",
+   "if": "!quest.livreur.done"
+  }
+ ],
+ "doors": [
+  {
+   "id": "red",
+   "side": "top",
+   "pos": [
+    4,
+    2
+   ],
+   "to": "z7_front",
+   "to_door": "south",
+   "sprite": "door_wood",
+   "tint": "#e07070"
+  },
+  {
+   "id": "green",
+   "side": "top",
+   "pos": [
+    8,
+    2
+   ],
+   "to": "z7_front",
+   "to_door": "south",
+   "sprite": "door_wood",
+   "tint": "#70d080"
+  },
+  {
+   "id": "blue",
+   "side": "top",
+   "pos": [
+    12,
+    2
+   ],
+   "to": "z7_inside",
+   "to_door": "south",
+   "sprite": "door_wood",
+   "tint": "#7a96e8"
+  },
+  {
+   "id": "south",
+   "side": "bottom",
+   "pos": [
+    8,
+    11
+   ],
+   "to": "z6_copy",
+   "to_door": "east"
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   9
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!z7_intro",
+   "then": [
+    {
+     "set": {
+      "z7_intro": true
+     }
+    },
+    {
+     "say": [
+      "* La maison.",
+      "* Ta maison ?",
+      "* Elle a trois portes d'entrée. Elle n'en avait qu'une."
+     ]
+    }
+   ]
+  }
+ ]
+}

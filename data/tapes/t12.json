@@ -1,0 +1,24 @@
+{
+ "id": "t12",
+ "title": "Chambre 0",
+ "date": "AUG. 05 1996",
+ "time": "AM 03:33",
+ "frames": [
+  {
+   "image": "vhs/bedroom",
+   "text": "« La chambre 0 n'a pas de numéro. On y trouve ce que les autres chambres ont oublié. »",
+   "duration": 5,
+   "sound": "static"
+  },
+  {
+   "image": "vhs/bedroom",
+   "text": "« Le lit est fait. Quelqu'un vient de partir. Il est 3 h 33, depuis toujours. »",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
+   "text": "« Le groom dit merci. Il ne savait pas qu'elle existait vraiment. »",
+   "duration": 4
+  }
+ ]
+}
