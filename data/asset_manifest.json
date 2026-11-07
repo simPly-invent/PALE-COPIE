@@ -260,6 +260,36 @@
    "color": "#000000",
    "shape": "rect",
    "description": "Les musiques et bruitages sont synthétisés par code en attendant de vrais fichiers audio."
+  },
+  {
+   "name": "save_floppy",
+   "size": [
+    20,
+    20
+   ],
+   "color": "#3050c0",
+   "shape": "rect",
+   "description": "Petite disquette 3\"1/2 bleue posée sur une table (point de sauvegarde)."
+  },
+  {
+   "name": "washing_machine",
+   "size": [
+    46,
+    58
+   ],
+   "color": "#e8e8f0",
+   "shape": "washer",
+   "description": "Machine à laver blanche à hublot, années 90 (salles de sauvegarde)."
+  },
+  {
+   "name": "sound: assets/sounds/washing_machine.ogg",
+   "size": [
+    1,
+    1
+   ],
+   "color": "#000000",
+   "shape": "rect",
+   "description": "Boucle de machine à laver jouée pendant tout le jeu (forte dans les salles de sauvegarde). Absente : une boucle synthétisée est utilisée. Formats acceptés : .ogg, .wav, .mp3."
   }
  ]
 }

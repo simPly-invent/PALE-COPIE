@@ -9,6 +9,7 @@ static var _cache: Dictionary = {}
 static var _manifest: Dictionary = {}
 static var _manifest_loaded = false
 static var missing_logged: Dictionary = {}
+static var col_override = Color(0, 0, 0, 0)
 
 ## name : "chair_red" (cherché dans assets/sprites/) ou "tiles/carpet_yellow", "portraits/cat", "vhs/static"...
 static func tex(name: String) -> Texture2D:
@@ -68,6 +69,7 @@ static func placeholder(name: String) -> Texture2D:
 	for y in h:
 		for x in w:
 			var inside = true
+			col_override = Color(0, 0, 0, 0)
 			match shape:
 				"circle":
 					var dx = (x + 0.5 - w / 2.0) / (w / 2.0)
@@ -77,6 +79,18 @@ static func placeholder(name: String) -> Texture2D:
 					# triangle/silhouette : plus large en bas
 					var half = (w / 2.0) * (0.35 + 0.65 * float(y) / max(1, h - 1))
 					inside = abs(x + 0.5 - w / 2.0) <= half
+				"washer":
+					# machine à laver : caisse avec un hublot
+					var r = min(w, h) * 0.3
+					var c = Vector2(w / 2.0, h * 0.58)
+					var p = Vector2(x + 0.5, y + 0.5)
+					inside = true
+					if p.distance_to(c) < r and p.distance_to(c) > r - 3:
+						col_override = Color(0.25, 0.25, 0.3)
+					elif p.distance_to(c) <= r - 3:
+						col_override = Color(0.35, 0.5, 0.75)
+					elif y < h * 0.18 and y > h * 0.12:
+						col_override = Color(0.5, 0.5, 0.55)
 				"figure":
 					# silhouette humaine grossière
 					var cx = w / 2.0
@@ -87,7 +101,7 @@ static func placeholder(name: String) -> Texture2D:
 					else:
 						inside = abs(x + 0.5 - cx) <= w * (0.28 if y < h * 0.7 else 0.18)
 			if inside:
-				img.set_pixel(x, y, col)
+				img.set_pixel(x, y, col if col_override.a == 0 else col_override)
 	# contour
 	for y in h:
 		for x in w:

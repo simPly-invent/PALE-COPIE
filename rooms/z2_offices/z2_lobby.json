@@ -223,6 +223,18 @@
    ],
    "to": "z2_offices",
    "to_door": "south"
+  },
+  {
+   "id": "save_room",
+   "side": "top",
+   "pos": [
+    13,
+    2
+   ],
+   "to": "save_z2",
+   "to_door": "out",
+   "sprite": "door_beige",
+   "label": "SAVE"
   }
  ],
  "spawns": {

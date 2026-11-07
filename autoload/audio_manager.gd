@@ -8,6 +8,8 @@ const RATE := 22050.0
 var ambient_player: AudioStreamPlayer
 var ambient_playback: AudioStreamGeneratorPlayback
 var music_player: AudioStreamPlayer
+var washer_player: AudioStreamPlayer
+var washer_target_db = -24.0
 var sfx_pool: Array = []
 var _sfx: Dictionary = {}
 var _music_cache: Dictionary = {}
@@ -39,6 +41,7 @@ func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
 	add_child(music_player)
+	_setup_washer()
 	for i in 10:
 		var p = AudioStreamPlayer.new()
 		p.bus = "SFX"
@@ -78,6 +81,8 @@ func set_fidelity(f: float, zone: Dictionary = {}) -> void:
 
 func on_room(room: Node) -> void:
 	set_fidelity(room.fidelity, room.zone)
+	# la machine à laver tourne pendant tout le jeu : forte dans les salles de sauvegarde, lointaine ailleurs
+	washer_target_db = float(room.source.data.get("washer_db", room.zone.get("washer_db", -24.0)))
 	var m: String = room.source.data.get("music", room.zone.get("music", ""))
 	if m == "" or m == "none":
 		stop_music()
@@ -86,6 +91,8 @@ func on_room(room: Node) -> void:
 
 # ---------------------------------------------------------------- Ambiance continue
 func _process(delta: float) -> void:
+	if washer_player:
+		washer_player.volume_db = move_toward(washer_player.volume_db, washer_target_db, delta * 12.0)
 	hum_gain = move_toward(hum_gain, hum_target, delta * 0.5)
 	drone_gain = move_toward(drone_gain, drone_target, delta * 0.3)
 	if ambient_playback == null:
@@ -105,6 +112,66 @@ func _process(delta: float) -> void:
 		var drone = sin(TAU * 41.2 * _t) * 0.5 + sin(TAU * 41.9 * _t) * 0.4 * lfo + sin(TAU * 61.7 * _t + sin(TAU * 0.11 * _t) * 2.0) * 0.25
 		var s = hum * hum_gain * 0.16 + drone * drone_gain * 0.22
 		ambient_playback.push_frame(Vector2(s, s))
+
+# ---------------------------------------------------------------- Machine à laver
+## Boucle de machine à laver jouée en continu. Un vrai fichier peut la remplacer :
+## assets/sounds/washing_machine.ogg (ou .wav / .mp3), lu en boucle.
+func _setup_washer() -> void:
+	washer_player = AudioStreamPlayer.new()
+	washer_player.bus = "Ambient"
+	washer_player.volume_db = -40.0
+	washer_player.stream = _load_washer_file()
+	if washer_player.stream == null:
+		washer_player.stream = _washer_loop()
+	add_child(washer_player)
+	washer_player.play()
+
+func _load_washer_file() -> AudioStream:
+	for ext in ["ogg", "wav", "mp3"]:
+		var path = "res://assets/sounds/washing_machine." + ext
+		var s: AudioStream = null
+		if ResourceLoader.exists(path):
+			s = load(path)
+		elif FileAccess.file_exists(path):
+			var g = ProjectSettings.globalize_path(path)
+			match ext:
+				"ogg": s = AudioStreamOggVorbis.load_from_file(g)
+				"wav": s = AudioStreamWAV.load_from_file(g)
+				"mp3": s = AudioStreamMP3.load_from_file(g)
+		if s:
+			if s is AudioStreamOggVorbis or s is AudioStreamMP3:
+				s.loop = true
+			elif s is AudioStreamWAV:
+				s.loop_mode = AudioStreamWAV.LOOP_FORWARD
+				s.loop_end = int(s.get_length() * s.mix_rate)
+			return s
+	return null
+
+## Synthèse : ronron du moteur, tambour qui tourne (houle d'eau rythmée), claquements réguliers.
+func _washer_loop() -> AudioStreamWAV:
+	var dur = 8.0
+	var n = int(dur * RATE)
+	var out = PackedFloat32Array()
+	out.resize(n)
+	var rng = RandomNumberGenerator.new()
+	rng.seed = 7
+	var water = 0.0
+	var water2 = 0.0
+	for i in n:
+		var t = i / RATE
+		# le tambour fait exactement 6 tours en 8 s : la boucle est sans couture
+		var rot = t * 0.75
+		var drum = 0.5 + 0.5 * sin(TAU * rot)
+		var motor = sin(TAU * 50.0 * t) * 0.25 + sin(TAU * 100.0 * t) * 0.12 + sin(TAU * 25.0 * t) * 0.18 * drum
+		water = lerpf(water, rng.randf_range(-1, 1), 0.06)
+		water2 = lerpf(water2, water, 0.2)
+		var slosh = water2 * (0.25 + 0.75 * pow(drum, 3.0)) * 0.9
+		var thump = 0.0
+		var ph = fmod(rot, 1.0)
+		if ph < 0.03:
+			thump = sin(TAU * 60.0 * t) * (1.0 - ph / 0.03) * 0.6
+		out[i] = (motor * 0.35 + slosh * 0.55 + thump) * 0.8
+	return _wav(out, true)
 
 # ---------------------------------------------------------------- Effets
 func sfx(name: String, volume_db := 0.0, pitch := 1.0) -> void:

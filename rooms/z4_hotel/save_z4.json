@@ -1,0 +1,131 @@
+{
+ "id": "save_z4",
+ "zone": 4,
+ "name": "Salle de sauvegarde",
+ "fidelity": 78,
+ "size": [
+  10,
+  8
+ ],
+ "no_mutations": [
+  "door_shift",
+  "loop_door",
+  "extra_wall",
+  "stretch_room",
+  "bigger_inside",
+  "erase",
+  "detail_vanish",
+  "false_signs"
+ ],
+ "no_entity": true,
+ "music": "none",
+ "washer_db": -6.0,
+ "ambient": "#f4ecd8",
+ "props": [
+  {
+   "id": "table",
+   "sprite": "table",
+   "pos": [
+    3,
+    4
+   ],
+   "footprint": [
+    52,
+    14
+   ],
+   "text": [
+    "* Une petite table. Elle est toujours là, quelle que soit la copie."
+   ]
+  },
+  {
+   "id": "washer",
+   "sprite": "washing_machine",
+   "pos": [
+    7.5,
+    4
+   ],
+   "text": [
+    "* Une machine à laver. Elle tourne.",
+    "* Elle a toujours tourné. Elle tournera toujours.",
+    "* Le bruit est rassurant. Comme le dimanche, à la maison."
+   ]
+  },
+  {
+   "id": "chair",
+   "sprite": "chair_grey",
+   "pos": [
+    3,
+    6
+   ],
+   "tags": [
+    "decor"
+   ]
+  },
+  {
+   "id": "lamp",
+   "sprite": "hanging_lamp",
+   "pos": [
+    5,
+    3
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "color": "#fff0d0",
+    "energy": 0.8
+   }
+  }
+ ],
+ "phones": [
+  {
+   "id": "station",
+   "sprite": "save_floppy",
+   "pos": [
+    3,
+    3.3
+   ],
+   "ring": false,
+   "solid": false,
+   "z": 2,
+   "dialogue": "save_station"
+  }
+ ],
+ "doors": [
+  {
+   "id": "out",
+   "side": "bottom",
+   "pos": [
+    5,
+    7
+   ],
+   "to": "z4_lobby",
+   "to_door": "save_room"
+  }
+ ],
+ "spawns": {
+  "default": [
+   5,
+   6
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!saveroom_seen",
+   "then": [
+    {
+     "set": {
+      "saveroom_seen": true
+     }
+    },
+    {
+     "say": [
+      "* Une petite pièce calme. Une machine à laver tourne dans un coin.",
+      "* Sur la table, de quoi sauvegarder."
+     ]
+    }
+   ]
+  }
+ ]
+}

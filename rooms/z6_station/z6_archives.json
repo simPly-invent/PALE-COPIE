@@ -251,6 +251,24 @@
    "locked_text": [
     "* « ACCÈS RESTREINT - MOT-CLÉ REQUIS ». "
    ]
+  },
+  {
+   "id": "save_room",
+   "side": "top",
+   "pos": [
+    7,
+    2
+   ],
+   "to": "save_z6",
+   "to_door": "out",
+   "sprite": "door_beige",
+   "label": "SAVE",
+   "when": {
+    "depth": [
+     0,
+     0
+    ]
+   }
   }
  ],
  "spawns": {

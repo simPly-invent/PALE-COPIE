@@ -14,6 +14,8 @@ func setup(d: Dictionary, r: Node) -> void:
 	_ring_t = randf_range(2.0, 6.0)
 
 func _process(delta: float) -> void:
+	if not def.get("ring", true):
+		return
 	_ring_t -= delta
 	if _ring_t <= 0:
 		_ring_t = randf_range(7.0, 14.0)

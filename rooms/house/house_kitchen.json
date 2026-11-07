@@ -94,6 +94,18 @@
    ],
    "to": "house_living",
    "to_door": "kitchen"
+  },
+  {
+   "id": "save_room",
+   "side": "top",
+   "pos": [
+    8,
+    2
+   ],
+   "to": "save_z0",
+   "to_door": "out",
+   "sprite": "door_beige",
+   "label": "SAVE"
   }
  ],
  "spawns": {

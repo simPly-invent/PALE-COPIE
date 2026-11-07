@@ -43,6 +43,8 @@ func start(enemy_id: String, opts: Dictionary = {}) -> Dictionary:
 	layer.add_child(scene)
 	await World.fade(false, 0.15)
 	var result: Dictionary = await scene.finished
+	if OS.get_cmdline_user_args().has("--verbose-test"):
+		print("  [battle] fin : ", result)
 	await World.fade(true, 0.25)
 	scene.queue_free()
 	if World.world_root:

@@ -154,6 +154,18 @@
    ],
    "to": "z3_levels",
    "to_door": "west"
+  },
+  {
+   "id": "save_room",
+   "side": "top",
+   "pos": [
+    6,
+    2
+   ],
+   "to": "save_z3",
+   "to_door": "out",
+   "sprite": "door_beige",
+   "label": "SAVE"
   }
  ],
  "spawns": {

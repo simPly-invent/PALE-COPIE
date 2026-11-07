@@ -1,0 +1,40 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Sur la table, une petite disquette. La machine à laver tourne à côté.",
+    "p4": "* Une disquette. Ou un caméscope. Ça dépend des jours. La machine tourne.",
+    "p6": "* La disquette. La machine. Toujours la machine."
+   },
+   {
+    "text": "* Le ronron du tambour te calme.",
+    "p6": "* Le ronron. C'est le seul bruit qui ne change pas."
+   },
+   {
+    "text": "* Sauvegarder sur la disquette ?",
+    "choices": [
+     {
+      "text": "Oui",
+      "actions": [
+       {
+        "save": true
+       },
+       {
+        "heal": true
+       },
+       {
+        "say": [
+         "* (La partie est sauvegardée. Tu te sens reposé.)"
+        ]
+       }
+      ]
+     },
+     {
+      "text": "Non",
+      "end": true
+     }
+    ]
+   }
+  ]
+ }
+}

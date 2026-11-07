@@ -106,7 +106,8 @@
    "to": "z7_front",
    "to_door": "south",
    "sprite": "door_wood",
-   "tint": "#e07070"
+   "tint": "#e07070",
+   "protect_if": "has:s_door"
   },
   {
    "id": "green",
@@ -118,7 +119,8 @@
    "to": "z7_front",
    "to_door": "south",
    "sprite": "door_wood",
-   "tint": "#70d080"
+   "tint": "#70d080",
+   "protect_if": "has:s_door"
   },
   {
    "id": "blue",
@@ -130,7 +132,8 @@
    "to": "z7_inside",
    "to_door": "south",
    "sprite": "door_wood",
-   "tint": "#7a96e8"
+   "tint": "#7a96e8",
+   "protect_if": "has:s_door"
   },
   {
    "id": "south",
@@ -141,6 +144,18 @@
    ],
    "to": "z6_copy",
    "to_door": "east"
+  },
+  {
+   "id": "save_room",
+   "side": "top",
+   "pos": [
+    6,
+    2
+   ],
+   "to": "save_z7",
+   "to_door": "out",
+   "sprite": "door_beige",
+   "label": "SAVE"
   }
  ],
  "spawns": {

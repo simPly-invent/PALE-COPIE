@@ -13,6 +13,7 @@ var shifted = false
 var original_cell = Vector2i.ZERO
 var enabled = true
 var _cooldown = 0.5
+var _protected: CanvasLayer
 
 func _init() -> void:
 	collision_layer = 0
@@ -35,6 +36,7 @@ func place() -> void:
 		ch.free()
 	sprite = null
 	label = null
+	_protected = null
 	var T: int = TileGrid.TILE
 	var tiles: TileGrid = room.tiles
 	var shape = CollisionShape2D.new()
@@ -58,6 +60,19 @@ func place() -> void:
 				if def.has("tint"):
 					sprite.modulate = Color.from_string(def["tint"], Color.WHITE)
 				add_child(sprite)
+				if def.has("protect_if") and GameState.check(def["protect_if"]):
+					# couleur gardée en mémoire : rendue au-dessus des effets d'écran
+					var layer = CanvasLayer.new()
+					layer.layer = 51
+					layer.follow_viewport_enabled = true
+					var copy = Sprite2D.new()
+					copy.texture = sprite.texture
+					copy.offset = sprite.offset
+					copy.modulate = sprite.modulate
+					copy.position = position
+					layer.add_child(copy)
+					add_child(layer)
+					_protected = layer
 		"bottom":
 			tiles.set_cell(cell.x, cell.y, ".")
 			position = Vector2(cell.x * T + T / 2.0, (cell.y + 1) * T)
@@ -118,6 +133,8 @@ func outward() -> Vector2:
 	return Vector2.UP
 
 func _process(delta: float) -> void:
+	if _protected:
+		_protected.visible = is_visible_in_tree()
 	if _cooldown > 0:
 		_cooldown -= delta
 

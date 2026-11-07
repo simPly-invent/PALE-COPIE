@@ -11,7 +11,7 @@ var floor_tex: Texture2D
 var alt_floor_tex: Texture2D
 var wall_tex: Texture2D
 var top_color = Color(0.04, 0.035, 0.05)
-var water_color = Color(0.25, 0.45, 0.6)
+var water_color = Color(0.1, 0.24, 0.4)
 var tile_colors = {"r": Color(0.75, 0.2, 0.2), "y": Color(0.85, 0.75, 0.25), "g": Color(0.3, 0.65, 0.35), "b": Color(0.25, 0.4, 0.8), "x": Color(0.55, 0.53, 0.47)}
 
 func setup(layout: PackedStringArray) -> void:

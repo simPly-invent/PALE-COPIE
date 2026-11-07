@@ -162,6 +162,18 @@
    "to": "z4_corridor",
    "to_door": "south",
    "sprite": "door_white_double"
+  },
+  {
+   "id": "save_room",
+   "side": "top",
+   "pos": [
+    15,
+    2
+   ],
+   "to": "save_z4",
+   "to_door": "out",
+   "sprite": "door_beige",
+   "label": "SAVE"
   }
  ],
  "spawns": {

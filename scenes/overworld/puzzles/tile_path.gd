@@ -7,6 +7,11 @@ var room: Node
 var order = ["r", "y", "g", "b"]
 var _last = -1
 var _busy = false
+var _overlay_layer: CanvasLayer
+
+func _process(_d: float) -> void:
+	if _overlay_layer:
+		_overlay_layer.visible = is_visible_in_tree()
 
 func setup(d: Dictionary, r: Node) -> void:
 	def = d
@@ -15,6 +20,21 @@ func setup(d: Dictionary, r: Node) -> void:
 	var pd = Puzzles.data(d.get("puzzle", ""))
 	if pd.has("order"):
 		order = pd["order"]
+	# les carreaux qui n'ont pas mué gardent leur vraie couleur : rendus au-dessus des effets d'écran
+	var layer = CanvasLayer.new()
+	layer.layer = 51
+	layer.follow_viewport_enabled = true
+	var drawer = Node2D.new()
+	drawer.draw.connect(func():
+		var t: TileGrid = room.tiles
+		for y in t.height():
+			for x in t.width():
+				var c = t.get_cell(x, y)
+				if t.tile_colors.has(c) and c != "x":
+					drawer.draw_rect(Rect2(x * TileGrid.TILE + 6, y * TileGrid.TILE + 6, TileGrid.TILE - 12, TileGrid.TILE - 12), t.tile_colors[c], false, 6.0))
+	layer.add_child(drawer)
+	add_child(layer)
+	_overlay_layer = layer
 
 func _physics_process(_delta: float) -> void:
 	var p = World.player

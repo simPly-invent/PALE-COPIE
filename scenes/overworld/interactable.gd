@@ -32,6 +32,7 @@ func setup(d: Dictionary, r: Node) -> void:
 		if sprite.texture:
 			sprite.offset = Vector2(0, -sprite.texture.get_height() / 2.0)
 		add_child(sprite)
+	z_index = int(d.get("z", 0))
 	var fp = footprint()
 	var shape = CollisionShape2D.new()
 	var rect = RectangleShape2D.new()
