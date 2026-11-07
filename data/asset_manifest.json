@@ -1,0 +1,4 @@
+{"placeholders": [
+  {"name": "drawing_child", "size": [30, 26], "color": "#f4f0e0", "shape": "rect", "description": "Dessin d'enfant au crayon (la maison, le soleil, maman). Ancre du prologue."},
+  {"name": "floor_arrow", "size": [24, 12], "color": "#e0d080", "shape": "poly", "description": "Flèche peinte au sol (indique une porte décalée)."}
+]}

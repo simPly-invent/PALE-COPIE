@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Mutation" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://mutations/color_drift.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "color_drift"
+palier = 1
+seuil = 90
+description = "Désaturation, teinte qui tire vers le jaune."

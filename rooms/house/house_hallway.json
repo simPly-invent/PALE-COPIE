@@ -1,0 +1,9 @@
+{
+  "id": "house_hallway", "zone": 0, "name": "Le couloir", "fidelity": 100,
+  "size": [18, 9],
+  "props": [{"id": "plant", "sprite": "plant", "pos": [3, 3], "tags": ["small"]}],
+  "doors": [
+    {"id": "bedroom", "side": "top", "pos": [4, 2], "to": "house_bedroom", "to_door": "south"}
+  ],
+  "spawns": {"default": [8, 5]}
+}

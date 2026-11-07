@@ -1,0 +1,13 @@
+{
+  "id": "house_bedroom", "zone": 0, "name": "Ta chambre", "fidelity": 100,
+  "size": [12, 10],
+  "anchor": {"id": "drawing", "sprite": "drawing_child", "pos": [3, 2], "name": "Le dessin de la maison, au crayon", "solid": false,
+    "text": ["* Ton dessin. La maison, le soleil, et maman qui fait coucou.", "* Il est un peu de travers. Il est très bien comme ça."]},
+  "props": [
+    {"id": "bed", "sprite": "bed", "pos": [8, 4], "scale": 1.4, "text": ["* Ton lit.", "* Il a l'air plus profond que d'habitude."]},
+    {"id": "lamp", "sprite": "lamp", "pos": [10, 4], "tags": ["small", "light"], "light": {"color": "#ffd890", "energy": 0.7}},
+    {"id": "drawers", "sprite": "drawers", "pos": [1.5, 4], "tags": ["small"], "text": ["* Tes vêtements. Rangés par maman, en piles parfaites."]}
+  ],
+  "doors": [{"id": "south", "side": "bottom", "pos": [6, 9], "to": "house_hallway", "to_door": "bedroom"}],
+  "spawns": {"default": [6, 6]}
+}

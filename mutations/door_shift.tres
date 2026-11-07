@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Mutation" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://mutations/door_shift.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "door_shift"
+palier = 4
+seuil = 42
+description = "Une porte passe sur le mur d'à côté, flèches au sol."

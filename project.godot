@@ -1,0 +1,56 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="PÂLE COPIE"
+config/description="Un enfant tombe à travers le sol de sa maison. Fan-game privé."
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://autoload/game_state.gd"
+DegradationManager="*res://autoload/degradation_manager.gd"
+AudioManager="*res://autoload/audio_manager.gd"
+FxManager="*res://autoload/fx_manager.gd"
+DialogueManager="*res://autoload/dialogue_manager.gd"
+BattleManager="*res://autoload/battle_manager.gd"
+SaveManager="*res://autoload/save_manager.gd"
+World="*res://autoload/world.gd"
+DebugTools="*res://autoload/debug_tools.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/size/window_width_override=1280
+window/size/window_height_override=960
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[gui]
+
+theme/default_font_antialiasing=0
+theme/default_font_hinting=0
+theme/default_font_subpixel_positioning=0
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
+anti_aliasing/quality/msaa_2d=0
+rendering_device/driver.windows="d3d12"

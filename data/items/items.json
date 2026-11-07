@@ -1,0 +1,5 @@
+{"items": [
+  {"id": "stick_ruler", "name": "Règle en plastique", "type": "weapon", "atk": 0, "desc": "Trente centimètres. Un peu tordue."},
+  {"id": "pyjama", "name": "Pyjama", "type": "armor", "def": 0, "desc": "À rayures. Il sent la lessive."},
+  {"id": "camcorder", "name": "Caméscope", "type": "key", "desc": "Trouvé au grenier. Il enregistre encore."}
+]}

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Mutation" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://mutations/loop_door.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "loop_door"
+palier = 6
+seuil = 15
+description = "Une porte ramène dans la même salle."
