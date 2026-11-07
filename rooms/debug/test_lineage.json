@@ -1,0 +1,22 @@
+{
+  "id": "test_lineage", "zone": 9, "name": "Salle témoin", "fidelity": 100,
+  "size": [16, 12],
+  "floor": "carpet_yellow", "wall": "wall_yellow",
+  "anchor": {"id": "red_chair", "sprite": "chair_red", "pos": [4, 5], "name": "Une chaise rouge"},
+  "props": [
+    {"id": "lamp_a", "sprite": "neon_ceiling", "pos": [7, 2], "on_wall": true, "solid": false, "tags": ["repeatable", "light", "neon"], "light": {"flicker": true}},
+    {"id": "shelf", "sprite": "bookshelf", "pos": [2, 3], "tags": ["small"]},
+    {"id": "plant", "sprite": "plant", "pos": [13, 3], "tags": ["small", "decor"]},
+    {"id": "chair_b", "sprite": "chair_grey", "pos": [10, 6], "tags": ["repeatable", "decor"]},
+    {"id": "trash", "sprite": "trash_can", "pos": [12, 8], "tags": ["small", "decor"]},
+    {"id": "clock", "sprite": "clock", "pos": [10, 2], "on_wall": true, "solid": false, "tags": ["small"]},
+    {"id": "exit_sign", "sprite": "sign_sortie", "pos": [13.5, 2], "on_wall": true, "solid": false, "label": "SORTIE", "tags": ["text"]}
+  ],
+  "chests": [{"id": "test_chest", "sprite": "chest_box", "pos": [3, 9], "contents": "cereal_bar"}],
+  "doors": [
+    {"id": "west", "side": "left", "pos": [0, 7], "to": "@prev", "to_door": "east"},
+    {"id": "east", "side": "right", "pos": [15, 7], "to": "@next", "to_door": "west"}
+  ],
+  "back": {"room": "test_lineage", "door": "east"},
+  "spawns": {"default": [7, 7]}
+}

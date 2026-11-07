@@ -5,7 +5,7 @@ extends Mutation
 func apply(room, _rng: RandomNumberGenerator) -> void:
 	for group in [room.props, room.npcs]:
 		for c in group.get_children():
-			if c.is_in_group("save_phone") or (c is Node and c.get("def") is Dictionary and c.def.get("survives_erase", false)):
+			if c.is_in_group("save_phone") or (c is Prop and c.has_tag("indicator")) or (c is Node and c.get("def") is Dictionary and c.def.get("survives_erase", false)):
 				continue
 			group.remove_child(c)
 			c.free()

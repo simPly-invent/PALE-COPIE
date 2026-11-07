@@ -26,7 +26,7 @@ func setup(d: Dictionary, r: Node) -> void:
 
 func _process(_delta: float) -> void:
 	if overlay_sprite:
-		overlay_sprite.global_position = global_position
+		overlay_sprite.global_transform = get_global_transform()
 		# le joueur passe devant l'ancre : on la masque pendant le recouvrement
 		var p = get_tree().get_first_node_in_group("player") as Node2D
 		var hidden = false

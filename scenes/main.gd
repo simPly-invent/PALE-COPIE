@@ -131,6 +131,8 @@ func _dev_start(args: Dictionary) -> void:
 	if args.has("pos"):
 		var p = str(args["pos"]).split(",")
 		World.player.global_position = Vector2(float(p[0]), float(p[1]))
+	if args.get("nofx", "") == "1":
+		fx_rect.visible = false
 	if args.get("overlay", "") == "1":
 		DebugTools.overlay.visible = true
 	if args.has("battle"):
@@ -146,5 +148,7 @@ func _dev_start(args: Dictionary) -> void:
 		for i in frames:
 			await get_tree().process_frame
 		await RenderingServer.frame_post_draw
+		if World.current_room:
+			print("DEV room ", World.current_room.pixel_size(), " cam ", camera.global_position, " player ", World.player.global_position, " rows ", World.current_room.tiles.height(), " F ", World.current_room.fidelity)
 		get_viewport().get_texture().get_image().save_png(args["screenshot"])
 		get_tree().quit()

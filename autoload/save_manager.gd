@@ -17,7 +17,7 @@ func load_file() -> void:
 		var f = FileAccess.open(PATH, FileAccess.READ)
 		var parsed = JSON.parse_string(f.get_as_text())
 		if parsed is Dictionary:
-			data = parsed
+			data = JsonUtil.normalize(parsed)
 	var meta: Dictionary = data.get("meta", {})
 	for k in meta:
 		GameState.meta[k] = meta[k]
@@ -68,6 +68,7 @@ func load_game() -> void:
 	await apply_snapshot(data["game"])
 
 func apply_snapshot(g: Dictionary) -> void:
+	g = JsonUtil.normalize(g)
 	GameState.from_dict(g)
 	DegradationManager.from_dict(g.get("degradation", {}))
 	var rk: Dictionary = GameState.room_key

@@ -43,3 +43,19 @@ static func make_rng(parts: Array) -> RandomNumberGenerator:
 	var rng = RandomNumberGenerator.new()
 	rng.seed = hash_seed(parts)
 	return rng
+
+## JSON ne distingue pas entier et flottant : on remet en entiers les nombres ronds.
+static func normalize(v: Variant) -> Variant:
+	if v is float and v == floor(v) and abs(v) < 1e15:
+		return int(v)
+	if v is Array:
+		var out: Array = []
+		for x in v:
+			out.append(normalize(x))
+		return out
+	if v is Dictionary:
+		var d := {}
+		for k in v:
+			d[k] = normalize(v[k])
+		return d
+	return v
