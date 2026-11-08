@@ -46,7 +46,7 @@ func goto_room(source_id: String, depth := 0, door_id := "", spawn_id := "", fad
 		return
 	transitioning_out = true
 	GameState.lock("transition")
-	if fade_time > 0 and current_room:
+	if fade_time > 0 and current_room and fade_rect.color.a < 0.99:
 		await fade(true, fade_time)
 	_load_room(source_id, depth, door_id, spawn_id)
 	transitioning_out = false
@@ -122,9 +122,12 @@ func rebuild_current() -> void:
 	if current_room == null:
 		return
 	var pos = player.global_position
-	await fade(true, 0.15)
+	var was_black: bool = fade_rect.color.a > 0.99
+	if not was_black:
+		await fade(true, 0.15)
 	_load_room(current_room.source.id, current_room.depth, "", "", pos)
-	await fade(false, 0.15)
+	if not was_black:
+		await fade(false, 0.15)
 
 ## Utiliser un Souvenir dans la salle actuelle.
 func restore_current(amount := 20) -> void:

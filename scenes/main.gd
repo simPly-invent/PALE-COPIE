@@ -181,6 +181,17 @@ func _dev_start(args: Dictionary) -> void:
 		World.play_tape(args["tape"])
 	if args.has("dialogue"):
 		DialogueManager.play(args["dialogue"])
+	if args.has("choices"):
+		var opts = []
+		for i in int(args["choices"]):
+			opts.append("Choix numéro %d, assez long pour voir" % (i + 1))
+		DialogueManager.choose("* ...", opts)
+	if args.has("nameentry"):
+		var ne = load("res://scenes/ui/name_entry.gd").new()
+		ne.return_mode = true
+		ne.allow_skip = true
+		ne.title_text = "Son prénom."
+		add_overlay(ne)
 	if args.has("menu"):
 		World.open_camcorder()
 	if args.has("screenshot"):

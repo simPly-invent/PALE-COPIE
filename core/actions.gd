@@ -14,9 +14,14 @@ class_name Actions
 extends RefCounted
 
 static func run(list: Array, source: Node = null) -> void:
-	for a in list:
+	for i in list.size():
+		var a = list[i]
 		if not (a is Dictionary):
 			continue
+		# un carton suivi d'un changement de salle reste au noir jusqu'à la nouvelle salle
+		if a.has("card") and i + 1 < list.size() and list[i + 1] is Dictionary and (list[i + 1].has("goto") or list[i + 1].has("start_adventure")):
+			a = a.duplicate()
+			a["keep_black"] = true
 		await run_one(a, source)
 		if World.transitioning_out:
 			# un changement de salle interrompt la suite
@@ -114,7 +119,7 @@ static func run_one(a: Dictionary, source: Node) -> void:
 			GameState.set_flag("named_in_memory", true)
 	if a.has("card"):
 		# cartons plein écran (ellipses, passages du temps) : {"card": ["Un mois."], "hold": 2.5}
-		await Cutscenes.cards(a["card"] if a["card"] is Array else [a["card"]], float(a.get("hold", 2.6)))
+		await Cutscenes.cards(a["card"] if a["card"] is Array else [a["card"]], float(a.get("hold", 2.6)), a.get("keep_black", false))
 	if a.has("skin"):
 		GameState.player_skin = a["skin"]
 	if a.has("player_name"):

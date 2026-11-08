@@ -12,7 +12,7 @@ static func play(id: String, opts: Dictionary = {}) -> void:
 			await World.play_tape(opts.get("tape", ""))
 
 ## Cartons de texte sur fond noir, un par un.
-static func cards(lines: Array, hold := 2.6) -> void:
+static func cards(lines: Array, hold := 2.6, keep_black := false) -> void:
 	GameState.lock("cards")
 	var layer = CanvasLayer.new()
 	layer.layer = 95
@@ -39,9 +39,13 @@ static func cards(lines: Array, hold := 2.6) -> void:
 		t2.tween_property(l, "modulate:a", 0.0, 1.0)
 		await t2.finished
 		l.queue_free()
-	var t3 = bg.create_tween()
-	t3.tween_property(bg, "color:a", 0.0, 0.8)
-	await t3.finished
+	if keep_black:
+		# la salle suivante apparaîtra en fondu : on ne revoit jamais l'ancienne
+		World.fade_rect.color.a = 1.0
+	else:
+		var t3 = bg.create_tween()
+		t3.tween_property(bg, "color:a", 0.0, 0.8)
+		await t3.finished
 	layer.queue_free()
 	GameState.unlock("cards")
 

@@ -31,6 +31,7 @@ func _ready() -> void:
 	await test_dialogue()
 	await test_menu_and_tape()
 	await test_door()
+	await test_name_entry()
 	print("")
 	if failures.is_empty():
 		print("PLAY TEST PASSED")
@@ -212,3 +213,35 @@ func test_door() -> void:
 	Input.parse_input_event(r)
 	await _wait(0.6)
 	check(World.current_room.source.id == "z1_halls" and World.current_room.depth == 1, "marcher dans la porte mène à la copie suivante (#%d)" % World.current_room.depth)
+
+func type_key(key: Key, uni: int) -> void:
+	var e = InputEventKey.new()
+	e.keycode = key
+	e.physical_keycode = key
+	e.unicode = uni
+	e.pressed = true
+	Input.parse_input_event(e)
+	await _wait(0.05)
+	var r = InputEventKey.new()
+	r.keycode = key
+	r.physical_keycode = key
+	r.pressed = false
+	Input.parse_input_event(r)
+	await _wait(0.1)
+
+func test_name_entry() -> void:
+	var ne = load("res://scenes/ui/name_entry.gd").new()
+	ne.return_mode = true
+	ne.allow_skip = true
+	var got = [null]
+	ne.named.connect(func(n): got[0] = n)
+	add_child(ne)
+	await _wait(0.4)
+	await type_key(KEY_L, "l".unicode_at(0))
+	await type_key(KEY_E, "e".unicode_at(0))
+	await type_key(KEY_A, "a".unicode_at(0))
+	await press(KEY_ENTER)      # terminer
+	await _wait(0.2)
+	await press(KEY_ENTER)      # confirmer « Oui »
+	await _wait(0.3)
+	check(got[0] == "Lea", "saisie du prénom au clavier puis Entrée (%s)" % str(got[0]))

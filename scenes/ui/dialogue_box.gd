@@ -45,8 +45,17 @@ func _ready() -> void:
 	frame.add_child(heart)
 	visible = false
 
+const BOX_H := 148.0
+var _top = false
+
 func place_top(top: bool) -> void:
-	frame.position.y = 16 if top else 316
+	_top = top
+	_set_height(BOX_H)
+
+## La boîte grandit pour contenir toutes les lignes (choix nombreux), en restant à l'écran.
+func _set_height(h: float) -> void:
+	frame.size.y = h
+	frame.position.y = 16.0 if _top else 464.0 - h
 
 func show_line(text: String, portrait_name := "", voice := "default", speed := 1.0) -> void:
 	visible = true
@@ -87,11 +96,13 @@ func show_choices(prompt: String, options: Array, portrait_name := "", voice := 
 	_choice_idx = 0
 	var x0: float = text_label.position.x + 34
 	var prompt_lines = ceili(prompt.length() / 40.0)
-	if prompt == "" or options.size() + prompt_lines > 4:
+	var line_h = 31.0
+	if prompt == "" or prompt.strip_edges() == "* ..." or options.size() + prompt_lines > 4:
 		text_label.text = ""
-		choice_box.position = Vector2(x0, 14)
-	else:
-		choice_box.position = Vector2(x0, 14 + prompt_lines * 27)
+		prompt_lines = 0
+	choice_box.position = Vector2(x0, 14 + prompt_lines * 27)
+	var needed: float = 28.0 + prompt_lines * 27 + options.size() * line_h
+	_set_height(maxf(BOX_H, needed))
 	for o in options:
 		choice_box.add_child(UI.label(str(o), 22))
 	choice_box.visible = true
@@ -104,6 +115,7 @@ func show_choices(prompt: String, options: Array, portrait_name := "", voice := 
 	heart.visible = false
 	choice_box.visible = false
 	_choices = []
+	_set_height(BOX_H)
 	return idx
 
 func show_line_no_wait(text: String, portrait_name := "", voice := "default") -> void:

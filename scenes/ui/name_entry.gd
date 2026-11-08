@@ -1,4 +1,6 @@
-## Saisie du nom de l'enfant, comme dans Undertale.
+## Saisie d'un prénom. On peut taper directement au clavier, ou choisir les lettres
+## dans la grille (flèches + Espace). Entrée termine. Retour arrière efface.
+## La confirmation « Oui / Non » est affichée sur ce même écran.
 extends Control
 
 signal named(name: String)
@@ -8,14 +10,19 @@ var return_mode = false     # true : renvoie le nom au lieu de lancer une partie
 var allow_skip = false
 
 const LETTERS := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const MAX_LEN := 12
 var cols = 7
 var idx = 0
 var name_text = ""
 var name_label: Label
+var info: Label
 var cells: Array = []
-var heart: TextureRect
-var options = ["Effacer", "Terminé", "Ne rien dire"]
+var options: Array = []
 var busy = false
+var confirming = false
+var confirm_idx = 1
+var confirm_label: Label
+var _accept_after = 0
 
 func _ready() -> void:
 	size = Vector2(640, 480)
@@ -38,75 +45,134 @@ func _ready() -> void:
 		l.position = Vector2(150 + (i % cols) * 50, 170 + (i / cols) * 44)
 		add_child(l)
 		cells.append(l)
-	if not allow_skip:
-		options = ["Effacer", "Terminé"]
+	options = ["Effacer", "Terminé"]
+	if allow_skip:
+		options.append("Ne rien dire")
 	for j in options.size():
 		var l = UI.label(options[j], 22)
-		l.position = Vector2(110 + j * 170, 380)
+		l.position = Vector2(110 + j * 170, 370)
 		add_child(l)
 		cells.append(l)
+	info = UI.label("Tape au clavier, ou flèches + Espace.  Entrée : terminer.  Retour arrière : effacer.", 12, Color(0.55, 0.55, 0.55))
+	info.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	info.position = Vector2(0, 440)
+	info.size = Vector2(640, 20)
+	add_child(info)
+	confirm_label = UI.label("", 22, Color.WHITE)
+	confirm_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	confirm_label.position = Vector2(0, 400)
+	confirm_label.size = Vector2(640, 30)
+	confirm_label.visible = false
+	add_child(confirm_label)
+	_accept_after = Time.get_ticks_msec() + 250
 	_refresh()
 
 func _refresh() -> void:
-	name_label.text = name_text + "_"
+	name_label.text = name_text + ("_" if name_text.length() < MAX_LEN else "")
 	for i in cells.size():
-		cells[i].add_theme_color_override("font_color", Color.YELLOW if i == idx else Color.WHITE)
+		cells[i].add_theme_color_override("font_color", Color.YELLOW if i == idx and not confirming else Color.WHITE)
+	if confirming:
+		confirm_label.text = "C'est bien « %s » ?     %sNon     %sOui" % [name_text, "> " if confirm_idx == 0 else "  ", "> " if confirm_idx == 1 else "  "]
 
 func _input(event: InputEvent) -> void:
-	if busy or not (event is InputEventKey) or not event.pressed:
+	if busy or not (event is InputEventKey) or not event.pressed or Time.get_ticks_msec() < _accept_after:
+		return
+	get_viewport().set_input_as_handled()
+	if confirming:
+		_confirm_input(event)
 		return
 	var n = LETTERS.length()
+	var k: int = event.keycode
+	# touches directes
+	if k == KEY_ENTER or k == KEY_KP_ENTER:
+		_finish()
+		return
+	if k == KEY_BACKSPACE or k == KEY_DELETE:
+		name_text = name_text.left(name_text.length() - 1)
+		_click()
+		return
+	if k == KEY_ESCAPE:
+		if allow_skip:
+			_emit("")
+		return
+	var ch = String.chr(event.unicode) if event.unicode > 0 else ""
+	if ch != "" and (ch.to_upper() != ch.to_lower() or ch == "-" or ch == "'"):
+		if name_text.length() < MAX_LEN:
+			name_text += ch.to_upper() if name_text.is_empty() else ch.to_lower()
+		_click()
+		return
+	# navigation dans la grille
 	if event.is_action_pressed("move_right"):
 		idx = (idx + 1) % cells.size()
 	elif event.is_action_pressed("move_left"):
 		idx = (idx - 1 + cells.size()) % cells.size()
 	elif event.is_action_pressed("move_down"):
-		idx = n if idx + cols >= n and idx < n else min(cells.size() - 1, idx + cols)
+		idx = n if idx + cols >= n and idx < n else mini(cells.size() - 1, idx + cols)
 	elif event.is_action_pressed("move_up"):
-		idx = max(0, idx - cols) if idx < n else n - 3
+		idx = maxi(0, idx - cols) if idx < n else n - 3
 	elif event.is_action_pressed("cancel"):
 		name_text = name_text.left(name_text.length() - 1)
 	elif event.is_action_pressed("confirm"):
 		if idx < n:
-			if name_text.length() < 8:
-				name_text += LETTERS[idx]
+			if name_text.length() < MAX_LEN:
+				name_text += LETTERS[idx] if name_text.is_empty() else LETTERS[idx].to_lower()
 		elif idx == n:
 			name_text = name_text.left(name_text.length() - 1)
-		elif idx == n + 2:
-			if allow_skip:
-				get_viewport().set_input_as_handled()
-				busy = true
-				named.emit("")
-				queue_free()
+		elif idx == n + 1:
+			_finish()
 			return
-		elif name_text.length() > 0:
-			get_viewport().set_input_as_handled()
-			_confirm()
+		elif idx == n + 2:
+			_emit("")
 			return
 	else:
 		return
+	_click()
+
+func _click() -> void:
 	AudioManager.sfx("select")
-	get_viewport().set_input_as_handled()
 	_refresh()
 
-func _confirm() -> void:
-	busy = true
+func _finish() -> void:
+	if name_text.strip_edges() == "":
+		AudioManager.sfx("wrong")
+		return
 	var d = JsonUtil.load_json("res://data/title.json")
 	var special: Dictionary = d.get("names", {}) if d is Dictionary else {}
-	var reply: String = special.get(name_text, "")
+	var reply: String = special.get(name_text.to_upper(), "")
 	if reply.begins_with("!"):
-		await DialogueManager.say([reply.substr(1)])
-		busy = false
+		info.text = reply.substr(1)
+		AudioManager.sfx("wrong")
 		return
-	var lines: Array = []
 	if reply != "":
-		lines.append(reply)
-	var i: int = await DialogueManager.choose(("%s\n" % reply if reply != "" else "") + "Est-ce bien ton nom ? « %s »" % name_text, ["Non", "Oui"])
-	if i == 1 and return_mode:
-		named.emit(name_text.capitalize())
+		info.text = reply
+	confirming = true
+	confirm_idx = 1
+	confirm_label.visible = true
+	AudioManager.sfx("confirm")
+	_refresh()
+
+func _confirm_input(event: InputEvent) -> void:
+	if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
+		confirm_idx = 1 - confirm_idx
+		_click()
+	elif event.is_action_pressed("cancel") or event.keycode == KEY_ESCAPE:
+		confirming = false
+		confirm_label.visible = false
+		_click()
+	elif event.is_action_pressed("confirm"):
+		if confirm_idx == 1:
+			_emit(name_text.strip_edges())
+		else:
+			confirming = false
+			confirm_label.visible = false
+			_click()
+
+func _emit(value: String) -> void:
+	busy = true
+	AudioManager.sfx("confirm")
+	if return_mode:
+		named.emit(value)
 		queue_free()
-	elif i == 1:
-		await World.fade(true, 1.2)
-		World.main.start_new_game(name_text)
 	else:
-		busy = false
+		await World.fade(true, 1.2)
+		World.main.start_new_game(value if value != "" else "Enfant")
