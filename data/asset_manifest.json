@@ -132,16 +132,6 @@
    "description": "Employé endormi, tête sur le bureau."
   },
   {
-   "name": "mom",
-   "size": [
-    34,
-    70
-   ],
-   "color": "#e08070",
-   "shape": "figure",
-   "description": "Maman (prologue) : pull rouge, cheveux attachés."
-  },
-  {
    "name": "lea",
    "size": [
     28,

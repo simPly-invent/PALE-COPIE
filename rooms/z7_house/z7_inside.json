@@ -86,7 +86,7 @@
  "npcs": [
   {
    "id": "mom_echo",
-   "sprite": "mom",
+   "sprite": "maman",
    "pos": [
     7,
     8
