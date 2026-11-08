@@ -299,7 +299,7 @@
   },
   {
    "id": "s_dad_car",
-   "name": "La R5 rouge",
+   "name": "La voiture rouge",
    "type": "souvenir",
    "desc": "La voiture de papa. Le phare gauche de travers.",
    "memory": "Le siège arrière collant en été. La radio trop forte."
@@ -320,7 +320,7 @@
   },
   {
    "id": "s_holiday",
-   "name": "Biarritz, 1994",
+   "name": "Les vacances à la mer",
    "type": "souvenir",
    "desc": "Une carte postale : la mer, un hôtel blanc.",
    "memory": "Le sable dans les chaussures. La valise rouge. Le bonbon du groom."

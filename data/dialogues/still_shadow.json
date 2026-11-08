@@ -2,7 +2,7 @@
  "nodes": {
   "start": [
    {
-    "text": "* « Tu es resté. »",
+    "text": "* « Tu es restée. »",
     "voice": "deep"
    },
    {
@@ -15,7 +15,7 @@
     "text": "* « Sur l'écran du début, tape ce que tu as fait pour arriver ici. »"
    },
    {
-    "text": "* « Le sol. Tu es passé à travers. Comme un bug. »",
+    "text": "* « Le sol. Tu es passée à travers. Comme un bug. »",
     "set": {
      "secret.password_hint": true
     }

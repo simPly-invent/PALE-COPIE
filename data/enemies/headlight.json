@@ -37,14 +37,14 @@
    "prompt": "* Qu'est-ce que c'était, avant ?",
    "choices": [
     "Le phare d'un camion",
-    "Le phare gauche de la R5 de papa",
+    "Le phare gauche de la voiture de papa",
     "Une lampe de chantier"
    ],
    "answer": 1,
-   "name": "le phare de la R5 de papa",
+   "name": "le phare de la voiture de papa",
    "mercy": 60,
    "text_right": [
-    "* Le phare gauche de la R5 rouge. Celui qui était toujours un peu de travers.",
+    "* Le phare gauche de la voiture rouge de papa. Celui qui était toujours un peu de travers.",
     "* Il s'en souvient. Il clignote, content."
    ],
    "text_wrong": [

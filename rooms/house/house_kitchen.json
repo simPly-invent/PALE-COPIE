@@ -81,6 +81,21 @@
    "text": [
     "* La machine à café de papa. Elle fait un bruit de fusée."
    ]
+  },
+  {
+   "id": "envelope",
+   "sprite": "m_notepad",
+   "pos": [
+    6.3,
+    5.7
+   ],
+   "solid": false,
+   "z": 1,
+   "text": [
+    "* Une enveloppe posée sur la table. L'adresse est écrite de la main de maman :",
+    "* « 14, rue des Tilleuls ».",
+    "* Le tilleul du jardin sent bon en été. Maman le dit tous les ans."
+   ]
   }
  ],
  "chests": [

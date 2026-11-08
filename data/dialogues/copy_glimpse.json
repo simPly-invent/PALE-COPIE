@@ -2,7 +2,7 @@
  "nodes": {
   "start": [
    {
-    "text": "* Un enfant. Il te ressemble. Il est plus net que toi.",
+    "text": "* Une enfant. Elle te ressemble. Elle est plus nette que toi.",
     "voice": "none"
    },
    {
@@ -21,7 +21,7 @@
     }
    },
    {
-    "text": "* (Quand tu relèves les yeux, il n'est plus là.)",
+    "text": "* (Quand tu relèves les yeux, elle n'est plus là.)",
     "voice": "none",
     "actions": [
      {

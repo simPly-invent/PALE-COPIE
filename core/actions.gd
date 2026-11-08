@@ -107,7 +107,7 @@ static func run_one(a: Dictionary, source: Node) -> void:
 		# {"name_entry": {"title": "...", "skip": true}} : le nom choisi devient {name}
 		var cfg: Dictionary = a["name_entry"] if a["name_entry"] is Dictionary else {}
 		var ne = load("res://scenes/ui/name_entry.gd").new()
-		ne.title_text = cfg.get("title", "Nomme l'enfant tombé.")
+		ne.title_text = cfg.get("title", "Nomme l'enfant.")
 		ne.return_mode = true
 		ne.allow_skip = cfg.get("skip", false)
 		GameState.lock("name")

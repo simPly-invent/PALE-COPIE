@@ -6,13 +6,13 @@
  "frames": [
   {
    "image": "vhs/parking",
-   "text": "« Parking de l'Institut, niveau -2. Paul appelle les autres. Sa voix revient en retard. »",
+   "text": "« Parking de l'Institut, niveau -2. Paul, de l'équipe 2, appelle les autres. Sa voix revient en retard. »",
    "duration": 5,
    "sound": "static"
   },
   {
    "image": "vhs/parking",
-   "text": "« Une R5 rouge, place 14. Le phare gauche est de travers. Elle n'est à personne ici. »",
+   "text": "« Une voiture rouge, place 14. Le phare gauche est de travers. Elle n'est à personne ici. »",
    "duration": 5
   },
   {

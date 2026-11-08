@@ -5,7 +5,7 @@
     "text": "* « Tu as rendu leurs noms. Six. Plus, peut-être. »"
    },
    {
-    "text": "* « Alors tu sais déjà. On n'a pas besoin de se battre pour savoir lequel est l'original. »"
+    "text": "* « Alors tu sais déjà. On n'a pas besoin de se battre pour savoir laquelle est la vraie. »"
    },
    {
     "text": "* « Peut-être aucun de nous deux. Peut-être que ça n'a pas d'importance. »"
@@ -28,10 +28,10 @@
     "text": "* « Je suis toi. Tu es moi. »"
    },
    {
-    "text": "* « Un de nous deux est en trop. »"
+    "text": "* « Une de nous deux est en trop. »"
    },
    {
-    "text": "* « Tu veux savoir lequel ? »",
+    "text": "* « Tu veux savoir laquelle ? »",
     "actions": [
      {
       "battle": "copy",

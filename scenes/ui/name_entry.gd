@@ -5,7 +5,7 @@ extends Control
 
 signal named(name: String)
 
-var title_text = "Nomme l'enfant tombé."
+var title_text = "Nomme l'enfant."
 var return_mode = false     # true : renvoie le nom au lieu de lancer une partie
 var allow_skip = false
 var password_mode = false   # texte masqué, Entrée valide directement

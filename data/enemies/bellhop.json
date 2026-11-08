@@ -37,15 +37,15 @@
    "prompt": "* Qu'est-ce que c'était, avant ?",
    "choices": [
     "Un portier d'immeuble",
-    "Le groom de l'hôtel des vacances de 1994",
+    "Le groom de l'hôtel des vacances à la mer",
     "Un facteur"
    ],
    "answer": 1,
-   "name": "le groom de l'hôtel de Biarritz",
+   "name": "le groom de l'hôtel au bord de la mer",
    "mercy": 60,
    "text_right": [
-    "* Le groom de l'hôtel des vacances de 1994, à Biarritz. Il t'avait donné un bonbon.",
-    "* « Biarritz ! Le bonbon ! »"
+    "* Le groom de l'hôtel des vacances à la mer. Il t'avait donné un bonbon.",
+    "* « La mer ! Le bonbon ! »"
    ],
    "text_wrong": [
     "* Ce n'est pas ça. Il a l'air un peu plus perdu."
