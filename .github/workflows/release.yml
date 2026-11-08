@@ -1,0 +1,96 @@
+# Construit PÂLE COPIE pour Windows, macOS et Linux et publie une release GitHub.
+# Déclenchement : pousser un tag de version (ex. : git tag v0.9.0 && git push origin v0.9.0),
+# ou lancer le workflow à la main depuis l'onglet « Actions » (les builds sont alors des artefacts).
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  GODOT_VERSION: "4.7.2"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer Godot et les modèles d'export
+        run: |
+          set -e
+          V="${GODOT_VERSION}"
+          MIRROR="https://downloads.godotengine.org/?version=${V}&flavor=stable"
+          GH="https://github.com/godotengine/godot/releases/download/${V}-stable"
+          curl -fsSL -o godot.zip "${MIRROR}&slug=linux.x86_64.zip&platform=linux.64" \
+            || curl -fsSL -o godot.zip "${GH}/Godot_v${V}-stable_linux.x86_64.zip"
+          curl -fsSL -o templates.tpz "${MIRROR}&slug=export_templates.tpz&platform=templates" \
+            || curl -fsSL -o templates.tpz "${GH}/Godot_v${V}-stable_export_templates.tpz"
+          unzip -q godot.zip
+          mv "Godot_v${V}-stable_linux.x86_64" godot
+          chmod +x godot
+          mkdir -p "$HOME/.local/share/godot/export_templates/${V}.stable"
+          unzip -q templates.tpz
+          mv templates/* "$HOME/.local/share/godot/export_templates/${V}.stable/"
+          ./godot --version
+
+      - name: Importer le projet
+        run: ./godot --headless --import || ./godot --headless --import
+
+      - name: Vérifier les scripts
+        run: |
+          ./godot --headless --quit 2>&1 | tee check.log
+          if grep -E "SCRIPT ERROR|Parse Error" check.log; then exit 1; fi
+
+      - name: Tests de cohérence
+        run: |
+          timeout 300 ./godot --headless res://tests/run_tests.tscn 2>&1 | tee tests.log
+          grep -q "ALL TESTS PASSED" tests.log
+
+      - name: Exporter (Windows, Linux, macOS)
+        run: |
+          set -e
+          mkdir -p build/windows build/linux build/macos dist
+          ./godot --headless --export-release "Windows Desktop" build/windows/PaleCopie.exe
+          ./godot --headless --export-release "Linux" build/linux/PaleCopie.x86_64
+          ./godot --headless --export-release "macOS" build/macos/PaleCopie.zip
+          ls -la build/*
+
+      - name: Vérifier que le build Linux démarre
+        run: |
+          chmod +x build/linux/PaleCopie.x86_64
+          timeout 60 build/linux/PaleCopie.x86_64 --headless --quit-after 600 -- --skip-intro 2>&1 | tee run.log || true
+          if grep -E "SCRIPT ERROR|Salle inconnue|JSON invalide" run.log; then exit 1; fi
+
+      - name: Empaqueter
+        run: |
+          set -e
+          NAME="PaleCopie-${GITHUB_REF_NAME//\//-}"
+          (cd build/windows && zip -qr "../../dist/${NAME}-windows.zip" .)
+          (cd build/linux && zip -qr "../../dist/${NAME}-linux.zip" .)
+          cp build/macos/PaleCopie.zip "dist/${NAME}-macos.zip"
+          ls -la dist
+
+      - name: Publier la release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          body: |
+            Builds de PÂLE COPIE (${{ github.ref_name }}).
+
+            - **Windows** : décompresser, lancer `PaleCopie.exe` (Windows peut afficher « application non reconnue » : *Informations complémentaires* → *Exécuter quand même*).
+            - **macOS** : décompresser, puis clic droit sur l'application → *Ouvrir* la première fois (application non signée par Apple).
+            - **Linux** : décompresser, `chmod +x PaleCopie.x86_64`, puis lancer.
+
+      - name: Garder les builds (lancement manuel)
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: PaleCopie-builds
+          path: dist/*
