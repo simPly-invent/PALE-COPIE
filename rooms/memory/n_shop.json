@@ -7,111 +7,166 @@
   18,
   12
  ],
- "floor": "tile_yellow",
- "wall": "wall_panel",
+ "floor": "m_floor_white_grid",
+ "wall": "m_wall_blue_band",
  "ambient": "#fff8ee",
  "props": [
   {
-   "id": "counter1",
-   "sprite": "desk",
+   "id": "counter",
+   "sprite": "m_reception_desk",
    "pos": [
     5,
     6
    ],
-   "scale": 1.2,
    "text": [
-    "* Le comptoir. Des boîtes de téléphones, des câbles, des coques."
+    "* Le comptoir. Des boîtes de téléphones, des câbles, des coques.",
+    "* L'écran de caisse affiche une journée normale."
    ]
   },
   {
-   "id": "pc",
-   "sprite": "computer",
-   "pos": [
-    5,
-    5.6
-   ],
-   "solid": false,
-   "z": 1,
-   "tags": [
-    "small"
-   ],
-   "text": [
-    "* L'écran de caisse. Une journée normale."
-   ]
-  },
-  {
-   "id": "counter2",
-   "sprite": "desk",
+   "id": "demo_table",
+   "sprite": "m_table",
    "pos": [
     12,
     6
    ],
-   "scale": 1.2
+   "text": [
+    "* La table des téléphones de démonstration."
+   ]
   },
   {
-   "id": "phone1",
-   "sprite": "phone",
+   "id": "demo1",
+   "sprite": "m_smartphone",
    "pos": [
-    11.5,
-    5.6
+    11.4,
+    5.75
    ],
    "solid": false,
    "z": 1,
    "text": [
-    "* Un téléphone de démonstration."
+    "* Un téléphone de démonstration. L'écran montre une famille qui sourit."
    ]
   },
   {
-   "id": "phone2",
-   "sprite": "phone",
+   "id": "demo2",
+   "sprite": "m_smartphone",
    "pos": [
-    12.5,
-    5.6
+    12,
+    5.75
    ],
    "solid": false,
    "z": 1
   },
   {
-   "id": "screen1",
-   "sprite": "tv",
+   "id": "demo3",
+   "sprite": "m_smartphone",
    "pos": [
-    4,
+    12.6,
+    5.75
+   ],
+   "solid": false,
+   "z": 1
+  },
+  {
+   "id": "board",
+   "sprite": "m_cork_board",
+   "pos": [
+    3,
     2
    ],
    "on_wall": true,
    "solid": false,
    "text": [
-    "* Une pub tourne en boucle sur l'écran. Des gens heureux qui s'appellent."
+    "* Le tableau du personnel. Les plannings de la semaine.",
+    "* Ton prénom est écrit au feutre, à côté de « congé paternité : à poser »."
    ]
   },
   {
-   "id": "screen2",
-   "sprite": "tv",
+   "id": "clock",
+   "sprite": "m_clock",
    "pos": [
-    14,
+    6.5,
     2
    ],
    "on_wall": true,
    "solid": false
   },
   {
-   "id": "shelf",
-   "sprite": "bookshelf",
+   "id": "picture",
+   "sprite": "m_picture",
    "pos": [
-    16,
-    4
+    12,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
+  },
+  {
+   "id": "window",
+   "sprite": "m_window",
+   "pos": [
+    15.5,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
+  },
+  {
+   "id": "cooler",
+   "sprite": "m_water_cooler",
+   "pos": [
+    1.5,
+    3
+   ],
+   "text": [
+    "* La fontaine à eau. Glou."
+   ]
+  },
+  {
+   "id": "shelf",
+   "sprite": "m_shelf_books",
+   "pos": [
+    13,
+    3
    ],
    "text": [
     "* Des accessoires bien rangés. C'est toi qui as fait le rayon ce matin."
    ]
   },
   {
+   "id": "vending",
+   "sprite": "m_vending",
+   "pos": [
+    16.5,
+    3
+   ]
+  },
+  {
    "id": "plant",
-   "sprite": "plant",
+   "sprite": "m_plant_tall",
    "pos": [
     1.5,
-    4
+    9
    ]
+  },
+  {
+   "id": "printer",
+   "sprite": "m_printer",
+   "pos": [
+    16.5,
+    8
+   ]
+  },
+  {
+   "id": "rug",
+   "sprite": "m_rug_navy",
+   "pos": [
+    9,
+    10
+   ],
+   "solid": false,
+   "floor": true,
+   "z": -3
   }
  ],
  "npcs": [
@@ -132,6 +187,15 @@
     9
    ],
    "dialogue": "n_customer"
+  },
+  {
+   "id": "customer_woman",
+   "sprite": "customer_woman",
+   "pos": [
+    10,
+    8
+   ],
+   "dialogue": "n_customer_woman"
   }
  ],
  "doors": [

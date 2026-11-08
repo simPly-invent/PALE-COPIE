@@ -242,6 +242,81 @@
    "text": [
     "* Un fax. Il imprime une page blanche toutes les minutes."
    ]
+  },
+  {
+   "id": "coat",
+   "sprite": "a_coatrack",
+   "pos": [
+    1.5,
+    9
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
+  },
+  {
+   "id": "cooler2",
+   "sprite": "a_cooler2",
+   "pos": [
+    18.5,
+    10
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "moldy",
+   "sprite": "a_chair_moldy",
+   "pos": [
+    14,
+    9
+   ],
+   "tags": [
+    "decor"
+   ],
+   "when": {
+    "depth": [
+     2,
+     9
+    ]
+   }
+  },
+  {
+   "id": "file",
+   "sprite": "a_file3",
+   "pos": [
+    6,
+    10
+   ],
+   "tags": [
+    "small"
+   ],
+   "when": {
+    "depth": [
+     1,
+     9
+    ]
+   }
+  },
+  {
+   "id": "box",
+   "sprite": "a_box_open",
+   "pos": [
+    12,
+    10
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ],
+   "when": {
+    "depth": [
+     3,
+     9
+    ]
+   }
   }
  ],
  "puzzles": [

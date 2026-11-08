@@ -7,10 +7,16 @@ const FW := 24          # taille d'une image (pixels d'art), rendue x2 en jeu
 const FH := 30
 
 func _init() -> void:
+	if not OS.get_cmdline_args().has("res://tools/slice_characters.gd"):
+		return
 	var mode := "slice"
 	for a in OS.get_cmdline_user_args():
 		if a == "--probe":
 			mode = "probe"
+	if mode == "probe":
+		for extra in ["res://medecin_client_femme_et_honme.png", "res://Atlas pixel art d’intérieur moderne.png", "res://Planche de sprites pixel art abandonnés.png"]:
+			if FileAccess.file_exists(extra):
+				_print_rows(extra, _components(_load(extra)))
 	var s1 := _load("res://papa_infirmiere_maman.png")
 	var s2 := _load("res://agarderseuelementlafemmeadroite.png")
 	var c1 := _components(s1)

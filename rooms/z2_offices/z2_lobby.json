@@ -117,6 +117,18 @@
    "text": [
     "* Une poubelle. Le mur derrière a l'air... mince."
    ]
+  },
+  {
+   "id": "coat",
+   "sprite": "a_coatrack",
+   "pos": [
+    15,
+    9
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ]
   }
  ],
  "phones": [

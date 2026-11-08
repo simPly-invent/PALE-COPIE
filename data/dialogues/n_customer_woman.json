@@ -1,0 +1,26 @@
+{
+ "start": [
+  {
+   "text": "* « Bonjour mon grand. Mon mari m'a dit de venir ici, il paraît que vous êtes gentils. »",
+   "if": "!call_received"
+  },
+  {
+   "text": "* « Je voudrais un téléphone pour voir mes petits-enfants. Avec la caméra, vous savez. »",
+   "if": "!call_received"
+  },
+  {
+   "text": "* « Ils grandissent si vite. Il ne faut rien rater. »",
+   "if": "!call_received"
+  },
+  {
+   "text": "* La dame pose sa main sur ton bras. Elle ne dit rien.",
+   "if": "call_received"
+  },
+  {
+   "text": "* « Allez. Allez-y. »",
+   "if": "call_received"
+  }
+ ],
+ "portrait": "customer_woman",
+ "voice": "soft"
+}

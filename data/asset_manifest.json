@@ -300,36 +300,6 @@
    "color": "#e8dcc8",
    "shape": "rect",
    "description": "Petit lit à barreaux, monté à la maison."
-  },
-  {
-   "name": "hospital_bed",
-   "size": [
-    60,
-    44
-   ],
-   "color": "#dfe6ee",
-   "shape": "rect",
-   "description": "Lit d'hôpital blanc, draps bleu pâle."
-  },
-  {
-   "name": "doctor",
-   "size": [
-    34,
-    62
-   ],
-   "color": "#e8eef4",
-   "shape": "figure",
-   "description": "Le médecin de l'hôpital (chapitre « Le souvenir »), blouse blanche. Planche 4x4 possible : doctor_walk.png."
-  },
-  {
-   "name": "customer",
-   "size": [
-    32,
-    58
-   ],
-   "color": "#a08870",
-   "shape": "figure",
-   "description": "Le client âgé de la boutique (chapitre « Le souvenir »)."
   }
  ]
 }

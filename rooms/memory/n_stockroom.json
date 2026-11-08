@@ -7,13 +7,13 @@
   12,
   9
  ],
- "floor": "floor_concrete",
- "wall": "wall_grey",
+ "floor": "m_floor_speckle",
+ "wall": "m_wall_grey_band",
  "ambient": "#c8c0b4",
  "props": [
   {
    "id": "box1",
-   "sprite": "chest_box",
+   "sprite": "a_box",
    "pos": [
     2,
     4
@@ -21,39 +21,55 @@
   },
   {
    "id": "box2",
-   "sprite": "chest_crate",
+   "sprite": "a_box_open",
    "pos": [
     3,
     4
    ]
   },
   {
+   "id": "rack1",
+   "sprite": "a_shelf_metal",
+   "pos": [
+    5,
+    3
+   ]
+  },
+  {
+   "id": "rack2",
+   "sprite": "a_shelf_metal2",
+   "pos": [
+    7,
+    3
+   ]
+  },
+  {
+   "id": "cab",
+   "sprite": "m_cabinet",
+   "pos": [
+    10,
+    3
+   ]
+  },
+  {
    "id": "box3",
-   "sprite": "chest_box",
+   "sprite": "a_box",
    "pos": [
     9,
-    4
+    7
    ]
   },
   {
    "id": "box4",
-   "sprite": "chest_box",
+   "sprite": "a_box",
    "pos": [
     10,
-    4
+    7
    ]
   },
   {
-   "id": "shelf",
-   "sprite": "filing_cabinet_tall",
-   "pos": [
-    6,
-    3.6
-   ]
-  },
-  {
-   "id": "box5",
-   "sprite": "chest_crate",
+   "id": "trash",
+   "sprite": "m_trash",
    "pos": [
     2,
     7

@@ -120,6 +120,20 @@
     "* « ATTENTION SOL GLISSANT ».",
     "* Le sol est sec. Depuis longtemps."
    ]
+  },
+  {
+   "id": "cooler",
+   "sprite": "a_cooler",
+   "pos": [
+    2,
+    9
+   ],
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* Une fontaine à eau. Quelqu'un a laissé un gobelet. Il est sec."
+   ]
   }
  ],
  "phones": [

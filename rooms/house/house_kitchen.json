@@ -70,6 +70,17 @@
    "text": [
     "* L'horloge de la cuisine. 21 h 40. Il est tard."
    ]
+  },
+  {
+   "id": "coffee",
+   "sprite": "m_coffee_machine",
+   "pos": [
+    9.5,
+    3
+   ],
+   "text": [
+    "* La machine à café de papa. Elle fait un bruit de fusée."
+   ]
   }
  ],
  "chests": [

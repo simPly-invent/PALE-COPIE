@@ -70,7 +70,7 @@
    "id": 1,
    "name": "Les Salles Jaunes",
    "floor": "carpet_yellow",
-   "wall": "wall_yellow",
+   "wall": "a_wall_yellow",
    "door_sprite": "door_beige",
    "ambient": "#e8f0d0",
    "hum": 1.0,

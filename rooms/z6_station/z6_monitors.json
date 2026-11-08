@@ -82,6 +82,31 @@
    "tags": [
     "small"
    ]
+  },
+  {
+   "id": "wheelchair",
+   "sprite": "a_wheelchair",
+   "pos": [
+    15,
+    4
+   ],
+   "tags": [
+    "decor"
+   ],
+   "text": [
+    "* Un fauteuil roulant. Une étiquette : « ÉQUIPE 3 »."
+   ]
+  },
+  {
+   "id": "stretcher",
+   "sprite": "a_stretcher",
+   "pos": [
+    5,
+    9
+   ],
+   "tags": [
+    "decor"
+   ]
   }
  ],
  "npcs": [

@@ -80,6 +80,52 @@
    "light": {
     "color": "#d8d8ff"
    }
+  },
+  {
+   "id": "rack",
+   "sprite": "a_shelf_metal3",
+   "pos": [
+    8,
+    3
+   ],
+   "tags": [
+    "small"
+   ]
+  },
+  {
+   "id": "bed",
+   "sprite": "a_hospital_bed_dirty",
+   "pos": [
+    15,
+    8
+   ],
+   "tags": [
+    "decor"
+   ],
+   "when": {
+    "depth": [
+     2,
+     9
+    ]
+   }
+  },
+  {
+   "id": "rubble",
+   "sprite": "a_rubble",
+   "pos": [
+    4,
+    10
+   ],
+   "tags": [
+    "decor"
+   ],
+   "solid": false,
+   "when": {
+    "depth": [
+     3,
+     9
+    ]
+   }
   }
  ],
  "puzzles": [

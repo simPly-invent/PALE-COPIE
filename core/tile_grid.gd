@@ -93,11 +93,16 @@ func _draw() -> void:
 						draw_rect(rect, Color(0.5, 0.45, 0.3))
 				"#", "h":
 					if _is_face(x, y):
-						if wall_tex:
+						var b1 = get_cell(x, y + 1)
+						var upper: bool = b1 == "#" or b1 == "h"
+						if wall_tex and wall_tex.get_height() >= TILE * 2:
+							# mur haut de deux cases : la moitié haute puis la moitié basse (plinthe)
+							draw_texture_rect_region(wall_tex, rect, Rect2(0, 0 if upper else wall_tex.get_height() / 2.0, wall_tex.get_width(), wall_tex.get_height() / 2.0))
+						elif wall_tex:
 							draw_texture_rect(wall_tex, rect, false)
+							draw_rect(Rect2(rect.position.x, rect.end.y - 3, TILE, 3), Color(0, 0, 0, 0.45))
 						else:
 							draw_rect(rect, Color(0.6, 0.55, 0.4))
-						draw_rect(Rect2(rect.position.x, rect.end.y - 3, TILE, 3), Color(0, 0, 0, 0.45))
 					else:
 						draw_rect(rect, top_color)
 				"w":

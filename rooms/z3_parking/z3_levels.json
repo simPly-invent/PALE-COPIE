@@ -130,6 +130,46 @@
    "text": [
     "* Une caisse automatique. « TICKET NON VALIDÉ ». "
    ]
+  },
+  {
+   "id": "box",
+   "sprite": "a_box",
+   "pos": [
+    3,
+    7
+   ],
+   "tags": [
+    "decor"
+   ]
+  },
+  {
+   "id": "wet",
+   "sprite": "a_wet_sign",
+   "pos": [
+    18,
+    8
+   ],
+   "tags": [
+    "decor"
+   ]
+  },
+  {
+   "id": "debris",
+   "sprite": "a_debris",
+   "pos": [
+    10,
+    11
+   ],
+   "tags": [
+    "decor"
+   ],
+   "solid": false,
+   "when": {
+    "depth": [
+     2,
+     9
+    ]
+   }
   }
  ],
  "npcs": [

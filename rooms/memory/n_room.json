@@ -7,40 +7,66 @@
   14,
   10
  ],
- "floor": "floor_concrete",
- "wall": "wall_cream",
+ "floor": "m_floor_white_tile",
+ "wall": "m_wall_blue_band",
  "ambient": "#f2f6f8",
  "props": [
   {
    "id": "bed",
-   "sprite": "hospital_bed",
+   "sprite": "a_hospital_bed",
    "pos": [
     9,
     4
    ],
    "text": [
-    "* Le lit d'hôpital. Les draps sont froissés."
+    "* Le lit d'hôpital."
    ]
   },
   {
-   "id": "monitor",
-   "sprite": "computer",
+   "id": "night",
+   "sprite": "m_nightstand",
    "pos": [
-    11.5,
-    3.4
-   ],
-   "solid": false,
-   "text": [
-    "* Un moniteur. Il ne montre rien de ce que tu voudrais voir."
+    11,
+    4
    ]
+  },
+  {
+   "id": "cart",
+   "sprite": "m_cart",
+   "pos": [
+    12.5,
+    4
+   ],
+   "text": [
+    "* Un chariot avec un moniteur. Il ne montre rien de ce que tu voudrais voir."
+   ]
+  },
+  {
+   "id": "window",
+   "sprite": "m_window",
+   "pos": [
+    9,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
   },
   {
    "id": "chair",
-   "sprite": "chair_blue",
+   "sprite": "m_armchair_blue",
    "pos": [
-    6,
+    5,
     5
    ]
+  },
+  {
+   "id": "curtain",
+   "sprite": "m_curtain",
+   "pos": [
+    2,
+    4
+   ],
+   "solid": false
   }
  ],
  "npcs": [

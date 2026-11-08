@@ -7,25 +7,24 @@
   20,
   11
  ],
- "floor": "floor_concrete",
- "wall": "wall_cream",
+ "floor": "m_floor_white_tile",
+ "wall": "m_wall_blue_band",
  "ambient": "#eef4f4",
  "props": [
   {
    "id": "desk",
-   "sprite": "desk",
+   "sprite": "m_reception_desk",
    "pos": [
     4,
     5
    ],
-   "scale": 1.2,
    "text": [
-    "* L'accueil des urgences maternité."
+    "* L'accueil de la maternité."
    ]
   },
   {
    "id": "chair1",
-   "sprite": "chair_blue",
+   "sprite": "m_armchair_blue",
    "pos": [
     9,
     8
@@ -33,36 +32,82 @@
   },
   {
    "id": "chair2",
-   "sprite": "chair_blue",
+   "sprite": "m_armchair_blue",
    "pos": [
-    10,
+    10.5,
     8
    ]
   },
   {
    "id": "chair3",
-   "sprite": "chair_blue",
+   "sprite": "m_armchair_blue",
+   "pos": [
+    12,
+    8
+   ]
+  },
+  {
+   "id": "cooler",
+   "sprite": "m_water_cooler",
+   "pos": [
+    17.5,
+    3
+   ]
+  },
+  {
+   "id": "plant",
+   "sprite": "m_plant_big",
+   "pos": [
+    18.5,
+    4
+   ]
+  },
+  {
+   "id": "aid",
+   "sprite": "m_first_aid",
+   "pos": [
+    7,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
+  },
+  {
+   "id": "clock",
+   "sprite": "m_clock",
    "pos": [
     11,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
+  },
+  {
+   "id": "picture",
+   "sprite": "m_picture",
+   "pos": [
+    2.5,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
+  },
+  {
+   "id": "wheelchair",
+   "sprite": "a_wheelchair",
+   "pos": [
+    17,
     8
    ]
   },
   {
    "id": "ext",
-   "sprite": "extinguisher",
+   "sprite": "a_extinguisher",
    "pos": [
-    16,
+    13,
     3
    ],
    "solid": false
-  },
-  {
-   "id": "plant",
-   "sprite": "plant",
-   "pos": [
-    18,
-    4
-   ]
   }
  ],
  "npcs": [
@@ -99,7 +144,7 @@
    ],
    "to": "n_room",
    "to_door": "door",
-   "sprite": "door_white_double",
+   "sprite": "m_door_window",
    "label": "SALLE 3",
    "requires": "nurse_directed",
    "locked_text": [

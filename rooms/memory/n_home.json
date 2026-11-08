@@ -7,13 +7,13 @@
   14,
   10
  ],
- "floor": "carpet_brown",
- "wall": "wall_cream",
+ "floor": "m_floor_wood",
+ "wall": "m_wall_white",
  "ambient": "#ffe8cc",
  "props": [
   {
    "id": "sofa",
-   "sprite": "sofa_red",
+   "sprite": "m_sofa_blue",
    "pos": [
     4,
     4
@@ -23,10 +23,50 @@
    ]
   },
   {
+   "id": "rug",
+   "sprite": "m_rug_oval",
+   "pos": [
+    5,
+    7
+   ],
+   "solid": false,
+   "floor": true,
+   "z": -3
+  },
+  {
+   "id": "table",
+   "sprite": "m_coffee_table",
+   "pos": [
+    5,
+    6
+   ]
+  },
+  {
+   "id": "mug",
+   "sprite": "m_mug",
+   "pos": [
+    5.2,
+    5.7
+   ],
+   "solid": false,
+   "z": 1
+  },
+  {
+   "id": "tv",
+   "sprite": "m_tv_stand",
+   "pos": [
+    8,
+    4
+   ],
+   "text": [
+    "* La télé est allumée. Personne ne la regarde."
+   ]
+  },
+  {
    "id": "crib",
    "sprite": "crib",
    "pos": [
-    10,
+    10.5,
     4
    ],
    "text": [
@@ -35,21 +75,18 @@
    ]
   },
   {
-   "id": "tv",
-   "sprite": "tv",
+   "id": "shelf",
+   "sprite": "m_bookshelf",
    "pos": [
-    7,
+    12.5,
     4
-   ],
-   "text": [
-    "* La télé est allumée. Personne ne la regarde."
    ]
   },
   {
    "id": "lamp",
-   "sprite": "lamp",
+   "sprite": "m_lamp",
    "pos": [
-    12,
+    2,
     4
    ],
    "tags": [
@@ -58,6 +95,34 @@
    "light": {
     "color": "#ffd890"
    }
+  },
+  {
+   "id": "heart",
+   "sprite": "m_heart_frame",
+   "pos": [
+    4,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
+  },
+  {
+   "id": "window",
+   "sprite": "m_window",
+   "pos": [
+    8,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
+  },
+  {
+   "id": "plant",
+   "sprite": "m_plant_small",
+   "pos": [
+    13,
+    9
+   ]
   }
  ],
  "npcs": [

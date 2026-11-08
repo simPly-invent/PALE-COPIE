@@ -10,7 +10,7 @@
  "props": [
   {
    "id": "sofa",
-   "sprite": "sofa_red",
+   "sprite": "m_sofa_blue",
    "pos": [
     5,
     5
@@ -21,7 +21,7 @@
   },
   {
    "id": "tv",
-   "sprite": "tv",
+   "sprite": "m_tv_stand",
    "pos": [
     9,
     4
@@ -35,7 +35,7 @@
   },
   {
    "id": "table",
-   "sprite": "table",
+   "sprite": "m_coffee_table",
    "pos": [
     11,
     8
@@ -46,7 +46,7 @@
   },
   {
    "id": "lamp",
-   "sprite": "lamp",
+   "sprite": "m_lamp",
    "pos": [
     2,
     4
@@ -61,7 +61,7 @@
   },
   {
    "id": "shelf",
-   "sprite": "bookshelf",
+   "sprite": "m_bookshelf",
    "pos": [
     13,
     4
@@ -72,6 +72,39 @@
    "text": [
     "* Des livres de cuisine, et un album photo.",
     "* Dans l'album, il manque une page."
+   ]
+  },
+  {
+   "id": "rug",
+   "sprite": "m_rug_oval",
+   "pos": [
+    7,
+    7
+   ],
+   "solid": false,
+   "floor": true,
+   "z": -3
+  },
+  {
+   "id": "heart",
+   "sprite": "m_heart_frame",
+   "pos": [
+    4,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "text": [
+    "* Un petit cadre avec un cœur. Il a toujours été là.",
+    "* Tu ne sais pas pourquoi, mais il te rassure."
+   ]
+  },
+  {
+   "id": "plant",
+   "sprite": "m_plant_small",
+   "pos": [
+    14,
+    9
    ]
   }
  ],
@@ -129,5 +162,7 @@
    7,
    7
   ]
- }
+ },
+ "floor": "m_floor_wood",
+ "wall": "m_wall_white"
 }

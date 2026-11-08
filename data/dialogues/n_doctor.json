@@ -36,5 +36,6 @@
    "goto": "after"
   }
  ],
- "voice": "low"
+ "voice": "low",
+ "portrait": "doctor"
 }

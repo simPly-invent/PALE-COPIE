@@ -180,6 +180,59 @@
    "text": [
     "* Une horloge. L'aiguille des secondes avance, puis recule."
    ]
+  },
+  {
+   "id": "cooler",
+   "sprite": "a_cooler",
+   "pos": [
+    1.5,
+    3
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ],
+   "text": [
+    "* Une fontaine à eau. Le bidon est à moitié plein. Depuis longtemps."
+   ]
+  },
+  {
+   "id": "dead_plant",
+   "sprite": "a_plant_dead",
+   "pos": [
+    6,
+    3
+   ],
+   "tags": [
+    "decor"
+   ],
+   "when": {
+    "depth": [
+     3,
+     9
+    ]
+   },
+   "text": [
+    "* Une plante morte. Dans la copie d'avant, elle était encore verte."
+   ]
+  },
+  {
+   "id": "wet",
+   "sprite": "a_wet_sign2",
+   "pos": [
+    15,
+    7
+   ],
+   "tags": [
+    "small",
+    "decor"
+   ],
+   "when": {
+    "depth": [
+     2,
+     9
+    ]
+   }
   }
  ],
  "npcs": [
