@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kmonh76weiat"
-path="res://.godot/imported/principalcharacter_deplacement.png-d7f51dca560604b59738fe383f3cb038.ctex"
+uid="uid://cru6kohr43mij"
+path="res://.godot/imported/heros_ancien_walk.png-0f7fa0ab9b152fe11d919a6b3fe9acda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://principalcharacter_deplacement.png"
-dest_files=["res://.godot/imported/principalcharacter_deplacement.png-d7f51dca560604b59738fe383f3cb038.ctex"]
+source_file="res://assets/sprites/heros_ancien_walk.png"
+dest_files=["res://.godot/imported/heros_ancien_walk.png-0f7fa0ab9b152fe11d919a6b3fe9acda.ctex"]
 
 [params]
 

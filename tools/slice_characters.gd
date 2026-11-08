@@ -1,5 +1,5 @@
-## Outil : découpe les planches de personnages (papa_infirmiere_maman.png,
-## agarderseuelementlafemmeadroite.png) en planches de marche au format du joueur.
+## Outil : découpe les planches de personnages de assets/source/ (papa, infirmière, maman,
+## maman en patiente, manager, bébé) en planches de marche au format du joueur.
 ## Lancer : godot --headless --script res://tools/slice_characters.gd
 extends SceneTree
 
@@ -14,11 +14,11 @@ func _init() -> void:
 		if a == "--probe":
 			mode = "probe"
 	if mode == "probe":
-		for extra in ["res://medecin_client_femme_et_honme.png", "res://Atlas pixel art d’intérieur moderne.png", "res://Planche de sprites pixel art abandonnés.png"]:
+		for extra in ["res://assets/source/perso_medecin_clients_ages.png", "res://assets/source/atlas_interieur_moderne.png", "res://assets/source/atlas_objets_abandonnes.png"]:
 			if FileAccess.file_exists(extra):
 				_print_rows(extra, _components(_load(extra)))
-	var s1 := _load("res://papa_infirmiere_maman.png")
-	var s2 := _load("res://agarderseuelementlafemmeadroite.png")
+	var s1 := _load("res://assets/source/perso_papa_infirmiere_maman.png")
+	var s2 := _load("res://assets/source/perso_maman_patiente.png")
 	var c1 := _components(s1)
 	var c2 := _components(s2)
 	if mode == "probe":
@@ -40,15 +40,15 @@ func _init() -> void:
 	_write_sheet(s2, pf, "maman_patient", true)
 	_write_portrait(s2, r2[3][r2[3].size() - 1], "maman_patient")
 	# planche du manager : 4 lignes (bas, haut, gauche, droite) x 4 images
-	if FileAccess.file_exists("res://managertelephonie.png"):
-		var s3 := _load("res://managertelephonie.png")
+	if FileAccess.file_exists("res://assets/source/perso_manager.png"):
+		var s3 := _load("res://assets/source/perso_manager.png")
 		var r3 := _rows(_components(s3))
 		_write_grid(s3, r3, "manager")
 		# portrait : le haut de la première image de face
 		var f: Rect2i = r3[0][0]
 		_write_portrait(s3, Rect2i(f.position, Vector2i(f.size.x, int(f.size.y * 0.75))), "manager")
 	# planche du bébé emmailloté : 4x4 également
-	var baby_path := "res://Planche de sprites bébé emmailloté pixel art.png"
+	var baby_path := "res://assets/source/perso_bebe.png"
 	if FileAccess.file_exists(baby_path):
 		var s4 := _load(baby_path)
 		_write_grid(s4, _rows(_components(s4)), "baby")

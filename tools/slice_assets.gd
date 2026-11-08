@@ -2,8 +2,8 @@
 ## Lancer : godot --headless --script res://tools/slice_assets.gd
 extends SceneTree
 
-const ATLAS := "res://asset_tuile.png"
-const PLAYER_SHEET := "res://principalcharacter_deplacement.png"
+const ATLAS := "res://assets/source/atlas_decors_ennemis_ui.png"
+const PLAYER_SHEET := "res://assets/source/heros_marche_ancien.png"
 
 # nom -> [x, y, w, h, tolérance_fond]  (coordonnées dans asset_tuile.png, 1536x1024)
 const SPRITES := {
@@ -170,7 +170,7 @@ func _slice_player() -> int:
 					var c := sheet.get_pixel(minx + ax * PX + PX / 2, miny + ay * PX + PX / 2)
 					if c.a > 0.5 and not _is_stray(c):
 						out.set_pixel(ox + ax, oy + ay, Color(c.r, c.g, c.b, 1.0))
-	out.save_png(ProjectSettings.globalize_path("res://assets/sprites/player_walk.png"))
+	out.save_png(ProjectSettings.globalize_path("res://assets/sprites/heros_ancien_walk.png"))
 	return 1
 
 func _is_stray(c: Color) -> bool:

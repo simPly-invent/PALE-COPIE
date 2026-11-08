@@ -1,14 +1,13 @@
-## Outil : découpe les planches d'objets (« Atlas pixel art d'intérieur moderne.png »,
-## « Planche de sprites pixel art abandonnés.png ») et la planche de personnages
-## medecin_client_femme_et_honme.png. Les noms suivent l'ordre des lignes, de gauche à droite.
+## Outil : découpe les planches de assets/source/ : atlas_interieur_moderne.png,
+## atlas_objets_abandonnes.png, perso_medecin_clients_ages.png et perso_heroine.png. Les noms suivent l'ordre des lignes, de gauche à droite.
 ## Lancer : godot --headless --script res://tools/slice_atlases.gd
 extends SceneTree
 
 const CH = preload("res://tools/slice_characters.gd")
 
-const MODERN := "res://Atlas pixel art d’intérieur moderne.png"
-const ABANDON := "res://Planche de sprites pixel art abandonnés.png"
-const PEOPLE := "res://medecin_client_femme_et_honme.png"
+const MODERN := "res://assets/source/atlas_interieur_moderne.png"
+const ABANDON := "res://assets/source/atlas_objets_abandonnes.png"
+const PEOPLE := "res://assets/source/perso_medecin_clients_ages.png"
 
 # "floor:" = tuile de sol 40x40 ; "wall:" = mur 40x80 (deux cases de hauteur) ; "" = ignoré
 const MODERN_ROWS := [
@@ -38,7 +37,7 @@ var ch
 func _init() -> void:
 	ch = CH.new()
 	if OS.get_cmdline_user_args().has("--probe-main"):
-		var im: Image = ch._load("res://main-character.png")
+		var im: Image = ch._load("res://assets/source/perso_heroine.png")
 		for r in ch._rows(ch._components(im)):
 			print(r.size(), " ", r)
 		quit()
@@ -137,11 +136,11 @@ func _grid(img: Image, dirs: Array, name: String) -> void:
 	var head: Rect2i = dirs[0][0]
 	ch._write_portrait(img, Rect2i(head.position, Vector2i(head.size.x, int(head.size.y * 0.7))), name)
 
-## L'héroïne (main-character.png) : 4x4 bas, haut, gauche, droite. Plus petite que les adultes.
+## L'héroïne (perso_heroine.png) : 4x4 bas, haut, gauche, droite. Plus petite que les adultes.
 func _child() -> void:
-	if not FileAccess.file_exists("res://main-character.png"):
+	if not FileAccess.file_exists("res://assets/source/perso_heroine.png"):
 		return
-	var img: Image = ch._load("res://main-character.png")
+	var img: Image = ch._load("res://assets/source/perso_heroine.png")
 	var rows: Array = ch._rows(ch._components(img))
 	var tallest := 0
 	for r in rows:
