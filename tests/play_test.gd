@@ -270,7 +270,7 @@ func test_memory_lock() -> void:
 	r[0] = null
 	run.call()
 	await _wait(0.4)
-	await _type_word("souvenir")
+	await _type_word("naomie")
 	await press(KEY_ENTER)
 	await _wait(0.3)
 	check(r[0] == true and title.memory_unlocked() and title.menu.icons.is_empty(), "bon mot de passe : le cadenas disparaît")
