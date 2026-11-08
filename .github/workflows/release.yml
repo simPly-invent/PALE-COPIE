@@ -99,17 +99,34 @@ jobs:
           name: macos-unsigned
           path: in
 
-      - name: Signer et empaqueter l'application
+      - name: Renommer sans accent, signer et empaqueter l'application
         run: |
           set -e
           NAME="PaleCopie-${GITHUB_REF_NAME//\//-}"
           mkdir -p app dist
           ditto -x -k in/PaleCopie-unsigned.zip app
-          APP="$(find app -maxdepth 1 -name '*.app' | head -n 1)"
-          echo "Application : $APP"
-          chmod +x "$APP"/Contents/MacOS/*
+          SRC="$(find app -maxdepth 1 -name '*.app' | head -n 1)"
+          echo "Application exportée : $SRC"
+          # Le « Â » de « PÂLE COPIE » n'a pas le même encodage Unicode sur Linux et sur macOS :
+          # la signature casse (« sealed resource missing », crash de codesign). On passe en ASCII.
+          APP="app/PaleCopie.app"
+          [ "$SRC" = "$APP" ] || mv "$SRC" "$APP"
+          PLIST="$APP/Contents/Info.plist"
+          OLD_EXE="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' "$PLIST")"
+          echo "Exécutable d'origine : $OLD_EXE"
+          ls -la "$APP/Contents/MacOS" "$APP/Contents/Resources" | head -40
+          mv "$APP/Contents/MacOS/$OLD_EXE" "$APP/Contents/MacOS/PaleCopie"
+          for f in "$APP/Contents/Resources/$OLD_EXE".*; do
+            [ -e "$f" ] && mv "$f" "$APP/Contents/Resources/PaleCopie.${f##*.}"
+          done
+          /usr/libexec/PlistBuddy -c 'Set :CFBundleExecutable PaleCopie' "$PLIST"
+          /usr/libexec/PlistBuddy -c 'Delete :CFBundleDisplayName' "$PLIST" 2>/dev/null || true
+          /usr/libexec/PlistBuddy -c 'Add :CFBundleDisplayName string PÂLE COPIE' "$PLIST"
+          chmod +x "$APP/Contents/MacOS/PaleCopie"
+          rm -rf "$APP/Contents/_CodeSignature"
+          codesign --remove-signature "$APP/Contents/MacOS/PaleCopie" || true
           # signature ad hoc par l'outil d'Apple (sans compte développeur)
-          codesign --force --deep --sign - "$APP"
+          codesign --force --deep --timestamp=none --sign - "$APP"
           codesign --verify --deep --strict --verbose=2 "$APP"
           # ditto conserve la signature (zip la casserait)
           ditto -c -k --sequesterRsrc --keepParent "$APP" "dist/${NAME}-macos.zip"
