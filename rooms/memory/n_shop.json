@@ -117,7 +117,7 @@
  "npcs": [
   {
    "id": "manager",
-   "sprite": "npc_worker",
+   "sprite": "manager",
    "pos": [
     13,
     9
@@ -126,7 +126,7 @@
   },
   {
    "id": "customer",
-   "sprite": "npc_oldman",
+   "sprite": "customer",
    "pos": [
     7,
     9

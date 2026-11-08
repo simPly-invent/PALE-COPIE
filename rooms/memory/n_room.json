@@ -55,7 +55,7 @@
   },
   {
    "id": "doctor",
-   "sprite": "npc_scientist",
+   "sprite": "doctor",
    "pos": [
     4,
     6

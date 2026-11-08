@@ -33,6 +33,19 @@ func _init() -> void:
 	var pf := {"down": [r2[0][4], r2[0][4]], "up": [r2[1][4], r2[1][5]], "side": [r2[2][4], r2[2][5]]}
 	_write_sheet(s2, pf, "maman_patient", true)
 	_write_portrait(s2, r2[3][r2[3].size() - 1], "maman_patient")
+	# planche du manager : 4 lignes (bas, haut, gauche, droite) x 4 images
+	if FileAccess.file_exists("res://managertelephonie.png"):
+		var s3 := _load("res://managertelephonie.png")
+		var r3 := _rows(_components(s3))
+		_write_grid(s3, r3, "manager")
+		# portrait : le haut de la première image de face
+		var f: Rect2i = r3[0][0]
+		_write_portrait(s3, Rect2i(f.position, Vector2i(f.size.x, int(f.size.y * 0.75))), "manager")
+	# planche du bébé emmailloté : 4x4 également
+	var baby_path := "res://Planche de sprites bébé emmailloté pixel art.png"
+	if FileAccess.file_exists(baby_path):
+		var s4 := _load(baby_path)
+		_write_grid(s4, _rows(_components(s4)), "baby")
 	print("slice_characters : terminé")
 	quit()
 
@@ -165,3 +178,16 @@ func _write_portrait(img: Image, rect: Rect2i, name: String) -> void:
 	sq.resize(44, 44, Image.INTERPOLATE_LANCZOS)
 	sq.resize(88, 88, Image.INTERPOLATE_NEAREST)
 	sq.save_png(ProjectSettings.globalize_path("res://assets/portraits/%s.png" % name))
+
+## Planche déjà organisée en 4x4 (bas, haut, gauche, droite).
+func _write_grid(img: Image, rows: Array, name: String) -> void:
+	_scale = float(FH - 1) / maxf(rows[0][0].size.y, rows[1][0].size.y)
+	var sheet := Image.create(FW * 4, FH * 4, false, Image.FORMAT_RGBA8)
+	for row in 4:
+		for col in 4:
+			var f := _frame(img, rows[row][mini(col, rows[row].size() - 1)])
+			sheet.blit_rect(f, Rect2i(0, 0, FW, FH), Vector2i(col * FW, row * FH))
+	sheet.save_png(ProjectSettings.globalize_path("res://assets/sprites/%s_walk.png" % name))
+	var still := _frame(img, rows[0][0])
+	still.resize(FW * 2, FH * 2, Image.INTERPOLATE_NEAREST)
+	still.save_png(ProjectSettings.globalize_path("res://assets/sprites/%s.png" % name))

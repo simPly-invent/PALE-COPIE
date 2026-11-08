@@ -63,7 +63,7 @@
  "npcs": [
   {
    "id": "manager",
-   "sprite": "npc_worker",
+   "sprite": "manager",
    "pos": [
     6,
     7

@@ -47,7 +47,7 @@
   },
   {
    "id": "baby",
-   "sprite": "baby_bundle",
+   "sprite": "baby",
    "pos": [
     5,
     5
@@ -58,7 +58,8 @@
    "footprint": [
     30,
     14
-   ]
+   ],
+   "scale": 0.55
   },
   {
    "id": "nurse",
