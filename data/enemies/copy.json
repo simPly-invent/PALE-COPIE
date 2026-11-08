@@ -1,7 +1,7 @@
 {
  "name": "La Copie",
- "sprite": "boss_copy_b",
- "scale": 1.8,
+ "sprite": "copy_battle",
+ "scale": 1.6,
  "hp": 160,
  "atk": 6,
  "def": 4,

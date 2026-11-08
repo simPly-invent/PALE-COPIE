@@ -109,13 +109,12 @@
   },
   {
    "id": "copy_glimpse",
-   "sprite": "boss_copy_b",
+   "sprite": "copy",
    "pos": [
     13,
     9
    ],
    "dialogue": "copy_glimpse",
-   "scale": 0.85,
    "if": "!quest.names"
   }
  ],

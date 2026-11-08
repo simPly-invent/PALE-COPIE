@@ -34,7 +34,7 @@
  "npcs": [
   {
    "id": "copy",
-   "sprite": "boss_copy_b",
+   "sprite": "copy",
    "pos": [
     8,
     6
