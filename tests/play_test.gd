@@ -275,6 +275,7 @@ func test_memory_lock() -> void:
 	await _wait(0.3)
 	check(r[0] == true and title.memory_unlocked() and title.menu.icons.is_empty(), "bon mot de passe : le cadenas disparaît")
 	GameState.meta.erase("memory_unlocked")
+	SaveManager.write_meta()
 	title.set_process_input(false)
 	title.menu.set_process_input(false)
 	title.queue_free()
