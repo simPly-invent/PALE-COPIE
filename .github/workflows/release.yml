@@ -2,8 +2,9 @@
 # Déclenchement : pousser un tag de version (ex. : git tag v0.9.1 && git push origin v0.9.1),
 # ou lancer le workflow à la main depuis l'onglet « Actions » (les builds sont alors des artefacts).
 #
-# Windows et Linux sont exportés sur Linux. macOS est exporté et signé sur un Mac :
-# une signature faite depuis Linux est vue comme « endommagée » par les Mac récents.
+# Les trois plateformes sont exportées sur Linux (Godot plante sur les machines macOS de GitHub).
+# L'application macOS est ensuite re-signée sur un Mac avec codesign : une signature faite
+# depuis Linux est vue comme « endommagée » par les Mac récents.
 name: Release
 
 on:
@@ -55,12 +56,13 @@ jobs:
           timeout 300 ./godot --headless res://tests/run_tests.tscn 2>&1 | tee tests.log
           grep -q "ALL TESTS PASSED" tests.log
 
-      - name: Exporter Windows et Linux
+      - name: Exporter Windows, Linux et macOS (non signé)
         run: |
           set -e
-          mkdir -p build/windows build/linux dist
+          mkdir -p build/windows build/linux build/macos dist
           ./godot --headless --export-release "Windows Desktop" build/windows/PaleCopie.exe
           ./godot --headless --export-release "Linux" build/linux/PaleCopie.x86_64
+          ./godot --headless --export-release "macOS" build/macos/PaleCopie-unsigned.zip
           ls -la build/*
 
       - name: Vérifier que le build Linux démarre
@@ -82,49 +84,36 @@ jobs:
           name: builds-windows-linux
           path: dist/*
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-unsigned
+          path: build/macos/PaleCopie-unsigned.zip
+
   macos:
+    needs: windows-linux
     runs-on: macos-latest
-    timeout-minutes: 45
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: macos-unsigned
+          path: in
 
-      - name: Installer Godot et les modèles d'export
-        run: |
-          set -e
-          V="${GODOT_VERSION}"
-          MIRROR="https://downloads.godotengine.org/?version=${V}&flavor=stable"
-          GH="https://github.com/godotengine/godot/releases/download/${V}-stable"
-          curl -fsSL -o godot.zip "${MIRROR}&slug=macos.universal.zip&platform=macos.universal" \
-            || curl -fsSL -o godot.zip "${GH}/Godot_v${V}-stable_macos.universal.zip"
-          curl -fsSL -o templates.tpz "${MIRROR}&slug=export_templates.tpz&platform=templates" \
-            || curl -fsSL -o templates.tpz "${GH}/Godot_v${V}-stable_export_templates.tpz"
-          ditto -x -k godot.zip .
-          TPL="$HOME/Library/Application Support/Godot/export_templates/${V}.stable"
-          mkdir -p "$TPL"
-          unzip -q templates.tpz
-          mv templates/* "$TPL/"
-          echo "GODOT=$PWD/Godot.app/Contents/MacOS/Godot" >> "$GITHUB_ENV"
-          ./Godot.app/Contents/MacOS/Godot --version
-
-      - name: Importer le projet
-        run: $GODOT --headless --import || $GODOT --headless --import
-
-      - name: Exporter, signer et empaqueter macOS
+      - name: Signer et empaqueter l'application
         run: |
           set -e
           NAME="PaleCopie-${GITHUB_REF_NAME//\//-}"
-          mkdir -p build/macos dist
-          $GODOT --headless --export-release "macOS" build/macos/export.zip
-          cd build/macos
-          ditto -x -k export.zip .
-          APP="$(find . -maxdepth 1 -name '*.app' | head -n 1)"
+          mkdir -p app dist
+          ditto -x -k in/PaleCopie-unsigned.zip app
+          APP="$(find app -maxdepth 1 -name '*.app' | head -n 1)"
           echo "Application : $APP"
+          chmod +x "$APP"/Contents/MacOS/*
           # signature ad hoc par l'outil d'Apple (sans compte développeur)
           codesign --force --deep --sign - "$APP"
           codesign --verify --deep --strict --verbose=2 "$APP"
           # ditto conserve la signature (zip la casserait)
-          ditto -c -k --sequesterRsrc --keepParent "$APP" "../../dist/${NAME}-macos.zip"
-          ls -la ../../dist
+          ditto -c -k --sequesterRsrc --keepParent "$APP" "dist/${NAME}-macos.zip"
+          ls -la dist
 
       - uses: actions/upload-artifact@v4
         with:
@@ -138,6 +127,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
+          pattern: builds-*
           path: dist
           merge-multiple: true
 
