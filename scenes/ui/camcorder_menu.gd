@@ -4,7 +4,7 @@ extends Control
 
 signal closed
 
-const TABS := ["OBJETS", "STATS", "CARTE", "CASSETTES", "SOUVENIRS", "OPTIONS"]
+const TABS := ["OBJETS", "STATS", "CARTE", "CASSETTES", "SOUVENIRS", "OPTIONS", "QUITTER"]
 var tabs: ListMenu
 var content: Control
 var header: Label
@@ -18,7 +18,7 @@ func _ready() -> void:
 	header = UI.label("● REC  %s   LV %d   PV %d/%d   %d T" % [GameState.player_name, GameState.lv, GameState.hp, GameState.max_hp(), GameState.gold], 16, Color(1, 0.4, 0.4))
 	header.position = Vector2(90, 34)
 	add_child(header)
-	tabs = ListMenu.create(self, Rect2(24, 70, 170, 220), TABS, 18)
+	tabs = ListMenu.create(self, Rect2(24, 70, 170, 250), TABS, 18)
 	content = Control.new()
 	content.position = Vector2(206, 70)
 	content.size = Vector2(410, 390)
@@ -54,6 +54,7 @@ func _preview(i: int) -> void:
 		3: _text_panel(_tapes_text())
 		4: _text_panel(_souvenirs_text())
 		5: _text_panel("Effets réduits, volume, plein écran.")
+		6: _text_panel("Revenir à l'écran-titre, ou quitter le jeu.\n\nPense à sauvegarder avant : un téléphone, ou une disquette dans un refuge.")
 
 func _items_text() -> String:
 	var s = ""
@@ -120,6 +121,15 @@ func _loop() -> void:
 				tabs.set_process_input(false)
 				await o.closed
 				tabs.set_process_input(true)
+			6:
+				tabs.set_process_input(false)
+				var quit: bool = await QuitMenu.ask(self)
+				tabs.set_process_input(true)
+				if quit:
+					GameState.unlock("camcorder")
+					closed.emit()
+					queue_free()
+					return
 		_preview(tabs.idx)
 		tabs._accept_after = Time.get_ticks_msec() + 150
 

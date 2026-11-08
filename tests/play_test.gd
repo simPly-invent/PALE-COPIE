@@ -26,6 +26,10 @@ func _ready() -> void:
 	World.in_game = true
 	World._load_room("z1_arrival", 0, "", "default")
 	await _wait(0.5)
+	if OS.get_cmdline_user_args().has("--only-pause"):
+		await test_pause_to_title()
+		get_tree().quit()
+		return
 	await test_spare()
 	await test_kill()
 	await test_dialogue()
@@ -33,6 +37,7 @@ func _ready() -> void:
 	await test_door()
 	await test_name_entry()
 	await test_memory_lock()
+	await test_pause_to_title()
 	print("")
 	if failures.is_empty():
 		print("PLAY TEST PASSED")
@@ -287,3 +292,32 @@ func add_overlay(node: Node) -> void:
 	add_child(layer)
 	layer.add_child(node)
 	node.tree_exited.connect(layer.queue_free)
+
+var title_shown = false
+
+## Même rôle que Main.show_title dans le jeu.
+func show_title() -> void:
+	World.clear()
+	title_shown = true
+
+func test_pause_to_title() -> void:
+	GameState.key_items.erase("camcorder")
+	World.in_game = true
+	World._load_room("n_shop", 0, "", "default")
+	await _wait(0.3)
+	var done = [false]
+	var run = func():
+		await World.open_camcorder()
+		done[0] = true
+	run.call()
+	await _wait(0.4)
+	check(GameState.is_locked(), "sans caméscope, la touche menu ouvre le menu pause")
+	await press(KEY_DOWN)
+	await press(KEY_DOWN)
+	await press(KEY_ENTER)          # Retour à l'écran-titre
+	await _wait(3.5)                # la question s'écrit lettre par lettre
+	await press(KEY_DOWN)           # « Oui »
+	await press(KEY_ENTER)
+	await _wait(1.8)
+	print("  titre=", title_shown, " fini=", done[0], " verrous=", GameState._locks.keys())
+	check(title_shown and done[0] and not GameState.is_locked(), "retour à l'écran-titre depuis le menu pause, sans rester bloqué")

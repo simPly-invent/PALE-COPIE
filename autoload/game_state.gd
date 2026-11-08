@@ -56,7 +56,7 @@ func _setup_input() -> void:
 	_bind("move_right", [KEY_RIGHT], [KEY_D])
 	_bind("confirm", [KEY_ENTER, KEY_KP_ENTER, KEY_SPACE], [KEY_Z])
 	_bind("cancel", [KEY_SHIFT], [KEY_X])
-	_bind("menu", [KEY_CTRL], [KEY_C])
+	_bind("menu", [KEY_CTRL, KEY_ESCAPE], [KEY_C])
 	_bind("debug_overlay", [KEY_F3], [])
 	_bind("debug_fidelity", [KEY_F4], [])
 	_bind("debug_teleport", [KEY_F5], [])
@@ -81,6 +81,10 @@ func lock(who: String) -> void:
 
 func unlock(who: String) -> void:
 	_locks.erase(who)
+
+## Retour à l'écran-titre : plus aucun dialogue, menu ni combat ne doit garder la main.
+func clear_locks() -> void:
+	_locks.clear()
 
 func is_locked() -> bool:
 	return not _locks.is_empty()

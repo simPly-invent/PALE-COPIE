@@ -84,6 +84,7 @@ func add_overlay(node: Node) -> void:
 	node.tree_exited.connect(layer.queue_free)
 
 func show_title() -> void:
+	GameState.clear_locks()
 	World.clear()
 	AudioManager.stop_music()
 	FxManager.set_fidelity(100, true)

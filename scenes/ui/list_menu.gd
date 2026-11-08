@@ -91,7 +91,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		done.emit(idx)
 		return
-	elif event.is_action_pressed("cancel") and cancellable:
+	elif (event.is_action_pressed("cancel") or event.is_action_pressed("menu")) and cancellable:
 		get_viewport().set_input_as_handled()
 		done.emit(-1)
 		return

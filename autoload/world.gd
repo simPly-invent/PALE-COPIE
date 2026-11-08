@@ -304,7 +304,9 @@ func fade(out: bool, t := 0.3) -> void:
 
 func open_camcorder() -> void:
 	if not GameState.has_item("camcorder"):
-		await DialogueManager.say(["* (Tu n'as rien sur toi pour l'instant.)"])
+		var pause = preload("res://scenes/ui/pause_menu.gd").new()
+		ui_layer.add_child(pause)
+		await pause.closed
 		return
 	var menu = preload("res://scenes/ui/camcorder_menu.gd").new()
 	ui_layer.add_child(menu)
