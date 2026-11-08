@@ -91,6 +91,18 @@ static func placeholder(name: String) -> Texture2D:
 						col_override = Color(0.35, 0.5, 0.75)
 					elif y < h * 0.18 and y > h * 0.12:
 						col_override = Color(0.5, 0.5, 0.55)
+				"lock":
+					# cadenas : anse en haut, corps plein en bas, trou de serrure
+					var cx = w / 2.0
+					var by = h * 0.45
+					if y < by:
+						var r = w * 0.32
+						var dd = Vector2(x + 0.5 - cx, y + 0.5 - by).length()
+						inside = dd <= r and dd >= r - 2.5 and y + 0.5 <= by
+					else:
+						inside = true
+						if abs(x + 0.5 - cx) < 1.5 and y > h * 0.6 and y < h * 0.85:
+							col_override = Color(0.2, 0.15, 0.05)
 				"figure":
 					# silhouette humaine grossière
 					var cx = w / 2.0

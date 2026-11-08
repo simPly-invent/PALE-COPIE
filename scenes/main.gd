@@ -44,7 +44,15 @@ func _ready() -> void:
 	World.attach(self, world_root, camera, ui_layer, fade_rect)
 	_apply_options()
 	var args = _dev_args()
-	if args.has("room"):
+	if args.has("title"):
+		show_title()
+		if args.has("screenshot"):
+			for i in int(args.get("frames", 30)):
+				await get_tree().process_frame
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(args["screenshot"])
+			get_tree().quit()
+	elif args.has("room"):
 		_dev_start(args)
 	elif OS.get_cmdline_user_args().has("--skip-intro"):
 		start_new_game("TEST")

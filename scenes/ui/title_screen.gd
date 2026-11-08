@@ -22,20 +22,21 @@ func _ready() -> void:
 	var boots = int(GameState.meta.get("boots", 1))
 	var sub = UI.label(subs[(boots - 1) % subs.size()], 16, Color(0.7, 0.7, 0.6))
 	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	sub.position = Vector2(0, 245)
+	sub.position = Vector2(0, 232)
 	sub.size = Vector2(640, 24)
 	add_child(sub)
 	var opts: Array = []
 	if SaveManager.has_save():
 		opts.append("Continuer")
-	opts.append_array(["Nouvelle partie", "Options", "Quitter"])
-	menu = ListMenu.create(self, Rect2(200, 290, 240, 24 + opts.size() * 30), opts, 22)
+	opts.append_array(["Nouvelle partie", "Le souvenir", "Options", "Quitter"])
+	menu = ListMenu.create(self, Rect2(180, 262, 280, 24 + opts.size() * 30), opts, 22)
 	menu.cancellable = false
+	_update_lock()
 	if SaveManager.has_save():
 		var s = SaveManager.summary()
 		var info = UI.label("%s   LV %d   %s" % [s["name"], s["lv"], s["room"]], 14, Color(0.6, 0.6, 0.6))
 		info.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		info.position = Vector2(0, 430)
+		info.position = Vector2(0, 438)
 		info.size = Vector2(640, 20)
 		add_child(info)
 	var foot = UI.label(data.get("footer", "© 1997 HALDEN INTERACTIVE"), 12, Color(0.4, 0.4, 0.4))
@@ -57,20 +58,23 @@ func _loop() -> void:
 				World.main.continue_game()
 				return
 			"Nouvelle partie":
-				menu.visible = false
-				var c: int = await DialogueManager.choose("* Par où commencer ?", ["Le souvenir", "L'aventure", "Retour"])
-				if c == 2 or c < 0:
+				busy = true
+				await World.fade(true, 1.0)
+				var ne = preload("res://scenes/ui/name_entry.gd").new()
+				World.main.show_screen(ne)
+				World.fade(false, 0.5)
+				return
+			"Le souvenir":
+				if not memory_unlocked():
+					menu.visible = false
+					var ok: bool = await _ask_memory_password()
 					menu.visible = true
-					menu._accept_after = Time.get_ticks_msec() + 150
-					continue
+					menu._accept_after = Time.get_ticks_msec() + 200
+					if not ok:
+						continue
 				busy = true
 				await World.fade(true, 1.2)
-				if c == 0:
-					World.main.start_memory()
-				else:
-					var ne = preload("res://scenes/ui/name_entry.gd").new()
-					World.main.show_screen(ne)
-					World.fade(false, 0.5)
+				World.main.start_memory()
 				return
 			"Options":
 				menu.visible = false
@@ -83,11 +87,44 @@ func _loop() -> void:
 				get_tree().quit()
 				return
 
+# ---------------------------------------------------------------- « Le souvenir » verrouillé
+## Le souvenir ne s'ouvre qu'avec le bon mot de passe (empreinte SHA-256 dans data/title.json,
+## à changer avec tools/set_memory_password.gd). Une fois ouvert, le cadenas disparaît.
+func memory_unlocked() -> bool:
+	return GameState.meta.get("memory_unlocked", false)
+
+func _update_lock() -> void:
+	menu.icons.clear()
+	if not memory_unlocked():
+		menu.icons[menu.options.find("Le souvenir")] = Assets.tex("icon_lock")
+	menu._build()
+
+func _ask_memory_password() -> bool:
+	var ne = load("res://scenes/ui/name_entry.gd").new()
+	ne.password_mode = true
+	ne.return_mode = true
+	ne.title_text = "Mot de passe."
+	World.main.add_overlay(ne)
+	var typed_pw: String = await ne.named
+	if typed_pw == "":
+		return false
+	var expected: String = data.get("memory_password_sha256", "")
+	if typed_pw.to_upper().sha256_text() == expected:
+		GameState.meta["memory_unlocked"] = true
+		SaveManager.write_meta()
+		AudioManager.sfx("souvenir")
+		_update_lock()
+		return true
+	AudioManager.sfx("wrong")
+	return false
+
 ## Mot de passe secret tapé au clavier sur l'écran-titre.
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not (event is InputEventKey) or not event.pressed or event.echo:
 		return
 	var ch = String.chr(event.unicode).to_upper() if event.unicode > 0 else ""
+	if busy or not menu.visible:
+		return
 	if ch == "" or not ch.is_valid_identifier() and not ch.is_valid_int():
 		return
 	typed = (typed + ch).right(16)

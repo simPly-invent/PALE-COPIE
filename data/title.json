@@ -26,5 +26,6 @@
   "COPIE": "Lequel des deux ?",
   "MAMAN": "!Ce n'est pas ton nom. C'est le sien.",
   "VASSEUR": "!Le docteur n'est pas disponible."
- }
+ },
+ "memory_password_sha256": "ff85bfc7ad1b6e3e96d8b45bc709d390f56b41242948a95857b7bbb7a19a3bc5"
 }

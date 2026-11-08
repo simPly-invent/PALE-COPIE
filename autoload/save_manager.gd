@@ -2,11 +2,20 @@
 ## la graine, les drapeaux et le compteur de parties (section 9.2).
 extends Node
 
-const PATH := "user://save.json"
+const REAL_PATH := "user://save.json"
+const TEST_PATH := "user://test_save.json"
+## Les scènes de test n'écrivent jamais dans la vraie sauvegarde du joueur.
+var PATH := REAL_PATH
 
 var data: Dictionary = {}
 
 func _ready() -> void:
+	for a in OS.get_cmdline_args():
+		if a.begins_with("res://tests/") or a.contains("--screenshot="):
+			PATH = TEST_PATH
+	for a in OS.get_cmdline_user_args():
+		if a.begins_with("--screenshot=") or a.begins_with("--room="):
+			PATH = TEST_PATH
 	load_file()
 	GameState.meta["boots"] = int(GameState.meta.get("boots", 0)) + 1
 	write_meta()

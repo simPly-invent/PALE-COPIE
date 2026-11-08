@@ -12,6 +12,7 @@ var font_size = 22
 var line_h = 30
 var cancellable = true
 var disabled: Array = []
+var icons: Dictionary = {}      # index -> Texture2D affichée à gauche du texte
 var _accept_after = 0
 var on_move: Callable
 
@@ -38,6 +39,14 @@ func _build() -> void:
 	for i in options.size():
 		var l = UI.label(str(options[i]), font_size, Color(0.5, 0.5, 0.5) if disabled.has(i) else Color.WHITE)
 		l.position = Vector2(44, 12 + i * line_h)
+		if icons.has(i):
+			var ic = TextureRect.new()
+			ic.texture = icons[i]
+			ic.size = icons[i].get_size()
+			ic.position = Vector2(42, 12 + i * line_h + (line_h - ic.size.y) / 2.0 - 2)
+			add_child(ic)
+			labels.append(ic)
+			l.position.x = 44 + ic.size.x + 8
 		l.size = Vector2(size.x - 52, line_h)
 		l.clip_text = true
 		add_child(l)

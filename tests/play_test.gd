@@ -32,6 +32,7 @@ func _ready() -> void:
 	await test_menu_and_tape()
 	await test_door()
 	await test_name_entry()
+	await test_memory_lock()
 	print("")
 	if failures.is_empty():
 		print("PLAY TEST PASSED")
@@ -245,3 +246,43 @@ func test_name_entry() -> void:
 	await press(KEY_ENTER)      # confirmer « Oui »
 	await _wait(0.3)
 	check(got[0] == "Lea", "saisie du prénom au clavier puis Entrée (%s)" % str(got[0]))
+
+func _type_word(w: String) -> void:
+	for c in w:
+		await type_key(OS.find_keycode_from_string(c), c.unicode_at(0))
+
+func test_memory_lock() -> void:
+	check(SaveManager.PATH == SaveManager.TEST_PATH, "les tests n'écrivent pas dans la vraie sauvegarde")
+	GameState.meta.erase("memory_unlocked")
+	var title = load("res://scenes/ui/title_screen.gd").new()
+	add_child(title)
+	await _wait(0.3)
+	check(title.menu.icons.size() == 1, "le souvenir est verrouillé (cadenas)")
+	title.menu.visible = false     # comme dans le jeu pendant la saisie
+	var r = [null]
+	var run = func(): r[0] = await title._ask_memory_password()
+	run.call()
+	await _wait(0.4)
+	await _type_word("FAUX")
+	await press(KEY_ENTER)
+	await _wait(0.3)
+	check(r[0] == false and not title.memory_unlocked(), "mauvais mot de passe : reste verrouillé")
+	r[0] = null
+	run.call()
+	await _wait(0.4)
+	await _type_word("souvenir")
+	await press(KEY_ENTER)
+	await _wait(0.3)
+	check(r[0] == true and title.memory_unlocked() and title.menu.icons.is_empty(), "bon mot de passe : le cadenas disparaît")
+	GameState.meta.erase("memory_unlocked")
+	title.set_process_input(false)
+	title.menu.set_process_input(false)
+	title.queue_free()
+
+## Même rôle que Main.add_overlay dans le jeu.
+func add_overlay(node: Node) -> void:
+	var layer = CanvasLayer.new()
+	layer.layer = 92
+	add_child(layer)
+	layer.add_child(node)
+	node.tree_exited.connect(layer.queue_free)

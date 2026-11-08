@@ -8,6 +8,7 @@ signal named(name: String)
 var title_text = "Nomme l'enfant tombé."
 var return_mode = false     # true : renvoie le nom au lieu de lancer une partie
 var allow_skip = false
+var password_mode = false   # texte masqué, Entrée valide directement
 
 const LETTERS := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const MAX_LEN := 12
@@ -68,7 +69,8 @@ func _ready() -> void:
 	_refresh()
 
 func _refresh() -> void:
-	name_label.text = name_text + ("_" if name_text.length() < MAX_LEN else "")
+	var shown = "*".repeat(name_text.length()) if password_mode else name_text
+	name_label.text = shown + ("_" if name_text.length() < MAX_LEN else "")
 	for i in cells.size():
 		cells[i].add_theme_color_override("font_color", Color.YELLOW if i == idx and not confirming else Color.WHITE)
 	if confirming:
@@ -92,7 +94,7 @@ func _input(event: InputEvent) -> void:
 		_click()
 		return
 	if k == KEY_ESCAPE:
-		if allow_skip:
+		if allow_skip or password_mode:
 			_emit("")
 		return
 	var ch = String.chr(event.unicode) if event.unicode > 0 else ""
@@ -135,6 +137,9 @@ func _click() -> void:
 func _finish() -> void:
 	if name_text.strip_edges() == "":
 		AudioManager.sfx("wrong")
+		return
+	if password_mode:
+		_emit(name_text.strip_edges())
 		return
 	var d = JsonUtil.load_json("res://data/title.json")
 	var special: Dictionary = d.get("names", {}) if d is Dictionary else {}

@@ -300,6 +300,16 @@
    "color": "#e8dcc8",
    "shape": "rect",
    "description": "Petit lit à barreaux, monté à la maison."
+  },
+  {
+   "name": "icon_lock",
+   "size": [
+    16,
+    20
+   ],
+   "color": "#d8b048",
+   "shape": "lock",
+   "description": "Petit cadenas doré à gauche de « Le souvenir » sur l'écran-titre."
   }
  ]
 }
