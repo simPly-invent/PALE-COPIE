@@ -1,0 +1,23 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Une infirmière lève les yeux. Elle comprend tout de suite qui tu es."
+   },
+   {
+    "text": "* « Vous êtes le papa ? »"
+   },
+   {
+    "text": "* « Elle est en salle 3, au fond du couloir. Le médecin est avec elle. »"
+   },
+   {
+    "text": "* « Allez-y. »",
+    "set": {
+     "nurse_directed": true
+    }
+   }
+  ]
+ },
+ "portrait": "nurse",
+ "voice": "soft"
+}

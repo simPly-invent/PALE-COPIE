@@ -290,6 +290,36 @@
    "color": "#000000",
    "shape": "rect",
    "description": "Boucle de machine à laver jouée pendant tout le jeu (forte dans les salles de sauvegarde). Absente : une boucle synthétisée est utilisée. Formats acceptés : .ogg, .wav, .mp3."
+  },
+  {
+   "name": "baby_bundle",
+   "size": [
+    22,
+    16
+   ],
+   "color": "#f6eee6",
+   "shape": "circle",
+   "description": "Le bébé, emmailloté dans une couverture blanche, dans le petit lit de l'hôpital."
+  },
+  {
+   "name": "crib",
+   "size": [
+    48,
+    34
+   ],
+   "color": "#e8dcc8",
+   "shape": "rect",
+   "description": "Petit lit à barreaux, monté à la maison."
+  },
+  {
+   "name": "hospital_bed",
+   "size": [
+    60,
+    44
+   ],
+   "color": "#dfe6ee",
+   "shape": "rect",
+   "description": "Lit d'hôpital blanc, draps bleu pâle."
   }
  ]
 }

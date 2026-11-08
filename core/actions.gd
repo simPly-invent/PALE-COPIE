@@ -98,6 +98,30 @@ static func run_one(a: Dictionary, source: Node) -> void:
 		else:
 			AudioManager.sfx("wrong")
 			await run(q.get("wrong", []), source)
+	if a.has("name_entry"):
+		# {"name_entry": {"title": "...", "skip": true}} : le nom choisi devient {name}
+		var cfg: Dictionary = a["name_entry"] if a["name_entry"] is Dictionary else {}
+		var ne = load("res://scenes/ui/name_entry.gd").new()
+		ne.title_text = cfg.get("title", "Nomme l'enfant tombé.")
+		ne.return_mode = true
+		ne.allow_skip = cfg.get("skip", false)
+		GameState.lock("name")
+		World.main.add_overlay(ne)
+		var chosen: String = await ne.named
+		GameState.unlock("name")
+		if chosen != "":
+			GameState.player_name = chosen
+			GameState.set_flag("named_in_memory", true)
+	if a.has("card"):
+		# cartons plein écran (ellipses, passages du temps) : {"card": ["Un mois."], "hold": 2.5}
+		await Cutscenes.cards(a["card"] if a["card"] is Array else [a["card"]], float(a.get("hold", 2.6)))
+	if a.has("skin"):
+		GameState.player_skin = a["skin"]
+	if a.has("player_name"):
+		GameState.player_name = a["player_name"]
+	if a.has("start_adventure"):
+		await World.main.start_adventure()
+		return
 	if a.has("goto"):
 		var g: Dictionary = a["goto"]
 		await World.goto_room(g.get("room", ""), int(g.get("depth", 0)), g.get("door", ""), g.get("spawn", ""))

@@ -86,6 +86,9 @@ func _load_room(source_id: String, depth: int, door_id: String, spawn_id: String
 		follower.reset_trail()
 	GameState.room_key = {"source": source_id, "depth": depth}
 	GameState.still_time = 0.0
+	# une interaction qui change de salle (lit, porte...) ne doit jamais laisser le joueur bloqué
+	GameState.unlock("interact")
+	GameState.unlock("door")
 	if depth > 0 and GameState.has_item("badge"):
 		GameState.badge_decay += 1
 	_update_camera(true)

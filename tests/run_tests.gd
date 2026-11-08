@@ -161,7 +161,7 @@ func test_all_sources() -> void:
 ## Toutes les salles sources sont atteignables depuis la chambre, et la fin aussi.
 func test_reachability() -> void:
 	var seen = {}
-	var q: Array = [["house_bedroom", 0]]
+	var q: Array = [["house_bedroom", 0], ["n_shop", 0]]
 	while not q.is_empty():
 		var cur: Array = q.pop_front()
 		var k = "%s#%d" % [cur[0], cur[1]]
@@ -188,7 +188,8 @@ func test_reachability() -> void:
 	for k in seen:
 		reached[k.split("#")[0]] = true
 	for sid in DegradationManager.sources:
-		if sid.begins_with("test_") or sid == "debug_room":
+		# le chapitre du souvenir s'enchaîne par les dialogues, pas par les portes
+		if sid.begins_with("test_") or sid == "debug_room" or sid.begins_with("n_"):
 			continue
 		check(reached.has(sid), "Parcours : salle %s inatteignable depuis la chambre" % sid)
 	check(reached.has("z7_bedroom"), "Parcours : la fin est inatteignable")

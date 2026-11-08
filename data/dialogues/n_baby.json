@@ -1,0 +1,154 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Ta fille.",
+    "voice": "none"
+   },
+   {
+    "text": "* ...",
+    "voice": "none",
+    "choices": [
+     {
+      "text": "La prendre dans tes bras",
+      "goto": "arms"
+     },
+     {
+      "text": "Lui dire son prénom",
+      "goto": "name"
+     },
+     {
+      "text": "Lui raconter ce qu'elle aurait vu",
+      "goto": "tell"
+     },
+     {
+      "text": "Lui chanter quelque chose",
+      "goto": "song"
+     },
+     {
+      "text": "Lui dire au revoir",
+      "goto": "bye",
+      "if": "baby.arms || baby.name || baby.tell || baby.song"
+     }
+    ]
+   }
+  ],
+  "arms": [
+   {
+    "text": "* Tu la prends dans tes bras.",
+    "voice": "none"
+   },
+   {
+    "text": "* Elle ne pèse presque rien.",
+    "voice": "none"
+   },
+   {
+    "text": "* Tu regardes chaque détail. Tu veux tout retenir.",
+    "voice": "none",
+    "set": {
+     "baby.arms": true
+    },
+    "goto": "start"
+   }
+  ],
+  "name": [
+   {
+    "text": "* Tu te penches tout près.",
+    "voice": "none"
+   },
+   {
+    "text": "* ...",
+    "voice": "none",
+    "actions": [
+     {
+      "name_entry": {
+       "title": "Son prénom.",
+       "skip": true
+      }
+     }
+    ]
+   },
+   {
+    "text": "* « {name}. »",
+    "voice": "none",
+    "if": "named_in_memory"
+   },
+   {
+    "text": "* Ça lui va bien. Ça lui ira toujours.",
+    "voice": "none",
+    "if": "named_in_memory",
+    "set": {
+     "baby.name": true
+    },
+    "goto": "start"
+   },
+   {
+    "text": "* Tu ne dis rien. Elle le sait déjà.",
+    "voice": "none",
+    "set": {
+     "baby.name": true
+    },
+    "goto": "start"
+   }
+  ],
+  "tell": [
+   {
+    "text": "* Tu lui parles tout bas de tout ce que vous auriez fait ensemble.",
+    "voice": "none"
+   },
+   {
+    "text": "* Les dimanches. Les premiers pas. Les jeux vidéo, le soir, quand elle aurait été grande.",
+    "voice": "none"
+   },
+   {
+    "text": "* Tu lui promets de lui raconter quand même. Autrement.",
+    "voice": "none",
+    "set": {
+     "baby.tell": true
+    },
+    "goto": "start"
+   }
+  ],
+  "song": [
+   {
+    "text": "* Tu fredonnes. Trois notes, puis deux.",
+    "voice": "none",
+    "actions": [
+     {
+      "music": "lullaby"
+     }
+    ]
+   },
+   {
+    "text": "* Tu ne connais pas les paroles. Ça n'a pas d'importance.",
+    "voice": "none",
+    "set": {
+     "baby.song": true
+    },
+    "goto": "start"
+   }
+  ],
+  "bye": [
+   {
+    "text": "* Tu lui dis au revoir.",
+    "voice": "none"
+   },
+   {
+    "text": "* Non. Pas au revoir.",
+    "voice": "none"
+   },
+   {
+    "text": "* Tu lui dis : à tout à l'heure.",
+    "voice": "none",
+    "actions": [
+     {
+      "stop_music": true
+     },
+     {
+      "dialogue": "n_end"
+     }
+    ]
+   }
+  ]
+ }
+}

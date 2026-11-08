@@ -7,6 +7,7 @@ signal dialogue_finished(id: String)
 var layer: CanvasLayer
 var box: Control
 var active = false
+var _depth = 0
 var last_choice = -1
 
 func _ready() -> void:
@@ -24,6 +25,9 @@ func load_dialogue(id: String) -> Dictionary:
 	return {"nodes": {"start": ["* ..."]}}
 
 func _begin() -> void:
+	_depth += 1
+	if _depth > 1:
+		return
 	active = true
 	GameState.lock("dialogue")
 	var p = World.player
@@ -34,39 +38,34 @@ func _begin() -> void:
 		box.place_top(false)
 
 func _end() -> void:
+	_depth = max(0, _depth - 1)
+	if _depth > 0:
+		return
 	box.hide_box()
 	active = false
 	GameState.unlock("dialogue")
 
 ## Affiche une liste de répliques simples (texte ou dictionnaires).
 func say(lines: Array, portrait := "", voice := "default") -> void:
-	var was_active = active
-	if not was_active:
-		_begin()
+	_begin()
 	for l in lines:
 		if l is Dictionary:
 			await _run_line(l, {"portrait": portrait, "voice": voice})
 		else:
 			await box.show_line(_txt(str(l)), portrait, voice)
-	if not was_active:
-		_end()
+	_end()
 
 ## Pose une question ; renvoie l'index choisi.
 func choose(prompt: String, options: Array, portrait := "") -> int:
-	var was_active = active
-	if not was_active:
-		_begin()
+	_begin()
 	var idx: int = await box.show_choices(_txt(prompt), options.map(func(o): return _txt(str(o))), portrait)
-	if not was_active:
-		_end()
+	_end()
 	return idx
 
 ## Joue un dialogue complet par son id.
 func play(id: String, _ctx := {}) -> void:
 	var d = load_dialogue(id)
-	var was_active = active
-	if not was_active:
-		_begin()
+	_begin()
 	var defaults = {"portrait": d.get("portrait", ""), "voice": d.get("voice", "default"), "speed": d.get("speed", 1.0)}
 	var node = "start"
 	for s in d.get("start", []):
@@ -83,8 +82,7 @@ func play(id: String, _ctx := {}) -> void:
 			if res != "":
 				node = res
 				break
-	if not was_active:
-		_end()
+	_end()
 	dialogue_finished.emit(id)
 
 ## Exécute une réplique ; renvoie le nœud suivant ("" = continuer, "@end" = fin).

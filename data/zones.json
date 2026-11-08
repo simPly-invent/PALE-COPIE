@@ -1,21 +1,550 @@
 {
-  "zones": [
-    {"id": 0, "name": "La Maison", "floor": "carpet_brown", "wall": "wall_cream", "door_sprite": "door_wood", "ambient": "#ffe8c8", "hum": 0.0, "drone": 0.0, "music": "house", "drop_min": 0, "drop_max": 0, "min_fidelity": 0,
-     "map": {"rooms": {"house_bedroom": [40, 40, 80, 60], "house_hallway": [130, 50, 120, 40], "house_living": [260, 30, 100, 80], "house_kitchen": [260, 120, 80, 60], "house_attic": [130, 0, 60, 30]}, "links": [["house_bedroom", "house_hallway"], ["house_hallway", "house_living"], ["house_living", "house_kitchen"], ["house_hallway", "house_attic"]]}},
-    {"id": 1, "name": "Les Salles Jaunes", "floor": "carpet_yellow", "wall": "wall_yellow", "door_sprite": "door_beige", "ambient": "#e8f0d0", "hum": 1.0, "drone": 0.6, "music": "none", "drop_min": 3, "drop_max": 8, "min_fidelity": 55, "entity_chance": 0.0,
-     "map": {"rooms": {"z1_arrival": [20, 120, 70, 50], "z1_halls": [100, 130, 120, 30], "z1_diff": [230, 110, 70, 70], "z1_maze": [310, 100, 60, 90], "z1_neons": [310, 210, 70, 50], "z1_guardian": [200, 220, 90, 60], "z1_exit": [120, 240, 60, 40]}, "links": [["z1_arrival", "z1_halls"], ["z1_halls", "z1_diff"], ["z1_diff", "z1_maze"], ["z1_maze", "z1_neons"], ["z1_neons", "z1_guardian"], ["z1_guardian", "z1_exit"]]}},
-    {"id": 2, "name": "Les Bureaux Fermés", "floor": "floor_diamond", "wall": "wall_panel", "door_sprite": "door_grey_double", "ambient": "#dce8e0", "hum": 0.9, "drone": 0.7, "music": "none", "drop_min": 4, "drop_max": 8, "min_fidelity": 45, "entity_chance": 0.0,
-     "map": {"rooms": {"z2_lobby": [30, 140, 80, 60], "z2_offices": [120, 120, 140, 50], "z2_archive_hall": [270, 100, 70, 60], "z2_reception": [270, 200, 100, 70], "z2_secret": [30, 60, 40, 30]}, "links": [["z2_lobby", "z2_offices"], ["z2_offices", "z2_archive_hall"], ["z2_archive_hall", "z2_reception"], ["z2_lobby", "z2_secret"]]}},
-    {"id": 3, "name": "Le Parking Souterrain", "floor": "floor_concrete", "wall": "wall_grey", "door_sprite": "door_small_window", "ambient": "#101014", "dark": true, "hum": 0.6, "drone": 1.2, "music": "none", "drop_min": 5, "drop_max": 8, "min_fidelity": 35, "entity_chance": 0.25,
-     "map": {"rooms": {"z3_ramp": [30, 40, 80, 50], "z3_levels": [120, 60, 120, 60], "z3_spots": [250, 60, 100, 70], "z3_chase": [120, 170, 200, 40], "z3_exit": [330, 170, 50, 50]}, "links": [["z3_ramp", "z3_levels"], ["z3_levels", "z3_spots"], ["z3_spots", "z3_chase"], ["z3_chase", "z3_exit"]]}},
-    {"id": 4, "name": "L'Hôtel sans fin", "floor": "carpet_brown", "wall": "wall_cream", "door_sprite": "door_wood", "ambient": "#f0dcc0", "hum": 0.7, "drone": 0.8, "music": "none", "drop_min": 5, "drop_max": 9, "min_fidelity": 25, "entity_chance": 0.25,
-     "map": {"rooms": {"z4_lobby": [30, 160, 90, 60], "z4_corridor": [130, 170, 160, 30], "z4_numbers": [300, 150, 70, 70], "z4_loop": [300, 60, 60, 60], "z4_concierge": [180, 50, 100, 70], "z4_room0": [130, 240, 40, 30]}, "links": [["z4_lobby", "z4_corridor"], ["z4_corridor", "z4_numbers"], ["z4_numbers", "z4_loop"], ["z4_loop", "z4_concierge"], ["z4_corridor", "z4_room0"]]}},
-    {"id": 5, "name": "Les Piscines", "floor": "tile_green", "wall": "tile_dark_green", "door_sprite": "door_white_double", "ambient": "#d8f0f0", "hum": 0.8, "drone": 1.0, "music": "none", "drop_min": 5, "drop_max": 9, "min_fidelity": 20, "entity_chance": 0.25,
-     "map": {"rooms": {"z5_entrance": [30, 140, 80, 50], "z5_pool": [130, 100, 120, 90], "z5_dive": [270, 100, 90, 90], "z5_swimmer": [180, 220, 120, 60]}, "links": [["z5_entrance", "z5_pool"], ["z5_pool", "z5_dive"], ["z5_dive", "z5_swimmer"]]}},
-    {"id": 6, "name": "La Station Halden", "floor": "tile_purple", "wall": "wall_grey", "door_sprite": "door_red_window", "ambient": "#d0d0e8", "hum": 1.0, "drone": 1.3, "music": "none", "drop_min": 6, "drop_max": 10, "min_fidelity": 5, "entity_chance": 0.3,
-     "map": {"rooms": {"z6_archives": [30, 120, 90, 70], "z6_monitors": [140, 100, 110, 80], "z6_copy": [270, 110, 100, 80]}, "links": [["z6_archives", "z6_monitors"], ["z6_monitors", "z6_copy"]]}},
-    {"id": 7, "name": "La Maison, copie finale", "floor": "carpet_brown", "wall": "wall_cream", "door_sprite": "door_wood", "ambient": "#f0e4c8", "hum": 0.5, "drone": 0.5, "music": "house", "drop_min": 0, "drop_max": 0, "min_fidelity": 0, "entity_chance": 0.0,
-     "map": {"rooms": {"z7_front": [60, 140, 120, 60], "z7_inside": [190, 120, 100, 80], "z7_bedroom": [300, 130, 60, 50]}, "links": [["z7_front", "z7_inside"], ["z7_inside", "z7_bedroom"]]}},
-    {"id": 9, "name": "???", "floor": "floor_concrete", "wall": "wall_grey", "door_sprite": "door_grey_double", "ambient": "#ffffff", "hum": 0.3, "drone": 0.0, "music": "none", "drop_min": 3, "drop_max": 8, "min_fidelity": 0}
-  ]
+ "zones": [
+  {
+   "id": 0,
+   "name": "La Maison",
+   "floor": "carpet_brown",
+   "wall": "wall_cream",
+   "door_sprite": "door_wood",
+   "ambient": "#ffe8c8",
+   "hum": 0.0,
+   "drone": 0.0,
+   "music": "house",
+   "drop_min": 0,
+   "drop_max": 0,
+   "min_fidelity": 0,
+   "map": {
+    "rooms": {
+     "house_bedroom": [
+      40,
+      40,
+      80,
+      60
+     ],
+     "house_hallway": [
+      130,
+      50,
+      120,
+      40
+     ],
+     "house_living": [
+      260,
+      30,
+      100,
+      80
+     ],
+     "house_kitchen": [
+      260,
+      120,
+      80,
+      60
+     ],
+     "house_attic": [
+      130,
+      0,
+      60,
+      30
+     ]
+    },
+    "links": [
+     [
+      "house_bedroom",
+      "house_hallway"
+     ],
+     [
+      "house_hallway",
+      "house_living"
+     ],
+     [
+      "house_living",
+      "house_kitchen"
+     ],
+     [
+      "house_hallway",
+      "house_attic"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 1,
+   "name": "Les Salles Jaunes",
+   "floor": "carpet_yellow",
+   "wall": "wall_yellow",
+   "door_sprite": "door_beige",
+   "ambient": "#e8f0d0",
+   "hum": 1.0,
+   "drone": 0.6,
+   "music": "none",
+   "drop_min": 3,
+   "drop_max": 8,
+   "min_fidelity": 55,
+   "entity_chance": 0.0,
+   "map": {
+    "rooms": {
+     "z1_arrival": [
+      20,
+      120,
+      70,
+      50
+     ],
+     "z1_halls": [
+      100,
+      130,
+      120,
+      30
+     ],
+     "z1_diff": [
+      230,
+      110,
+      70,
+      70
+     ],
+     "z1_maze": [
+      310,
+      100,
+      60,
+      90
+     ],
+     "z1_neons": [
+      310,
+      210,
+      70,
+      50
+     ],
+     "z1_guardian": [
+      200,
+      220,
+      90,
+      60
+     ],
+     "z1_exit": [
+      120,
+      240,
+      60,
+      40
+     ]
+    },
+    "links": [
+     [
+      "z1_arrival",
+      "z1_halls"
+     ],
+     [
+      "z1_halls",
+      "z1_diff"
+     ],
+     [
+      "z1_diff",
+      "z1_maze"
+     ],
+     [
+      "z1_maze",
+      "z1_neons"
+     ],
+     [
+      "z1_neons",
+      "z1_guardian"
+     ],
+     [
+      "z1_guardian",
+      "z1_exit"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 2,
+   "name": "Les Bureaux Fermés",
+   "floor": "floor_diamond",
+   "wall": "wall_panel",
+   "door_sprite": "door_grey_double",
+   "ambient": "#dce8e0",
+   "hum": 0.9,
+   "drone": 0.7,
+   "music": "none",
+   "drop_min": 4,
+   "drop_max": 8,
+   "min_fidelity": 45,
+   "entity_chance": 0.0,
+   "map": {
+    "rooms": {
+     "z2_lobby": [
+      30,
+      140,
+      80,
+      60
+     ],
+     "z2_offices": [
+      120,
+      120,
+      140,
+      50
+     ],
+     "z2_archive_hall": [
+      270,
+      100,
+      70,
+      60
+     ],
+     "z2_reception": [
+      270,
+      200,
+      100,
+      70
+     ],
+     "z2_secret": [
+      30,
+      60,
+      40,
+      30
+     ]
+    },
+    "links": [
+     [
+      "z2_lobby",
+      "z2_offices"
+     ],
+     [
+      "z2_offices",
+      "z2_archive_hall"
+     ],
+     [
+      "z2_archive_hall",
+      "z2_reception"
+     ],
+     [
+      "z2_lobby",
+      "z2_secret"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 3,
+   "name": "Le Parking Souterrain",
+   "floor": "floor_concrete",
+   "wall": "wall_grey",
+   "door_sprite": "door_small_window",
+   "ambient": "#101014",
+   "dark": true,
+   "hum": 0.6,
+   "drone": 1.2,
+   "music": "none",
+   "drop_min": 5,
+   "drop_max": 8,
+   "min_fidelity": 35,
+   "entity_chance": 0.25,
+   "map": {
+    "rooms": {
+     "z3_ramp": [
+      30,
+      40,
+      80,
+      50
+     ],
+     "z3_levels": [
+      120,
+      60,
+      120,
+      60
+     ],
+     "z3_spots": [
+      250,
+      60,
+      100,
+      70
+     ],
+     "z3_chase": [
+      120,
+      170,
+      200,
+      40
+     ],
+     "z3_exit": [
+      330,
+      170,
+      50,
+      50
+     ]
+    },
+    "links": [
+     [
+      "z3_ramp",
+      "z3_levels"
+     ],
+     [
+      "z3_levels",
+      "z3_spots"
+     ],
+     [
+      "z3_spots",
+      "z3_chase"
+     ],
+     [
+      "z3_chase",
+      "z3_exit"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 4,
+   "name": "L'Hôtel sans fin",
+   "floor": "carpet_brown",
+   "wall": "wall_cream",
+   "door_sprite": "door_wood",
+   "ambient": "#f0dcc0",
+   "hum": 0.7,
+   "drone": 0.8,
+   "music": "none",
+   "drop_min": 5,
+   "drop_max": 9,
+   "min_fidelity": 25,
+   "entity_chance": 0.25,
+   "map": {
+    "rooms": {
+     "z4_lobby": [
+      30,
+      160,
+      90,
+      60
+     ],
+     "z4_corridor": [
+      130,
+      170,
+      160,
+      30
+     ],
+     "z4_numbers": [
+      300,
+      150,
+      70,
+      70
+     ],
+     "z4_loop": [
+      300,
+      60,
+      60,
+      60
+     ],
+     "z4_concierge": [
+      180,
+      50,
+      100,
+      70
+     ],
+     "z4_room0": [
+      130,
+      240,
+      40,
+      30
+     ]
+    },
+    "links": [
+     [
+      "z4_lobby",
+      "z4_corridor"
+     ],
+     [
+      "z4_corridor",
+      "z4_numbers"
+     ],
+     [
+      "z4_numbers",
+      "z4_loop"
+     ],
+     [
+      "z4_loop",
+      "z4_concierge"
+     ],
+     [
+      "z4_corridor",
+      "z4_room0"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 5,
+   "name": "Les Piscines",
+   "floor": "tile_green",
+   "wall": "tile_dark_green",
+   "door_sprite": "door_white_double",
+   "ambient": "#d8f0f0",
+   "hum": 0.8,
+   "drone": 1.0,
+   "music": "none",
+   "drop_min": 5,
+   "drop_max": 9,
+   "min_fidelity": 20,
+   "entity_chance": 0.25,
+   "map": {
+    "rooms": {
+     "z5_entrance": [
+      30,
+      140,
+      80,
+      50
+     ],
+     "z5_pool": [
+      130,
+      100,
+      120,
+      90
+     ],
+     "z5_dive": [
+      270,
+      100,
+      90,
+      90
+     ],
+     "z5_swimmer": [
+      180,
+      220,
+      120,
+      60
+     ]
+    },
+    "links": [
+     [
+      "z5_entrance",
+      "z5_pool"
+     ],
+     [
+      "z5_pool",
+      "z5_dive"
+     ],
+     [
+      "z5_dive",
+      "z5_swimmer"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 6,
+   "name": "La Station Halden",
+   "floor": "tile_purple",
+   "wall": "wall_grey",
+   "door_sprite": "door_red_window",
+   "ambient": "#d0d0e8",
+   "hum": 1.0,
+   "drone": 1.3,
+   "music": "none",
+   "drop_min": 6,
+   "drop_max": 10,
+   "min_fidelity": 5,
+   "entity_chance": 0.3,
+   "map": {
+    "rooms": {
+     "z6_archives": [
+      30,
+      120,
+      90,
+      70
+     ],
+     "z6_monitors": [
+      140,
+      100,
+      110,
+      80
+     ],
+     "z6_copy": [
+      270,
+      110,
+      100,
+      80
+     ]
+    },
+    "links": [
+     [
+      "z6_archives",
+      "z6_monitors"
+     ],
+     [
+      "z6_monitors",
+      "z6_copy"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 7,
+   "name": "La Maison, copie finale",
+   "floor": "carpet_brown",
+   "wall": "wall_cream",
+   "door_sprite": "door_wood",
+   "ambient": "#f0e4c8",
+   "hum": 0.5,
+   "drone": 0.5,
+   "music": "house",
+   "drop_min": 0,
+   "drop_max": 0,
+   "min_fidelity": 0,
+   "entity_chance": 0.0,
+   "map": {
+    "rooms": {
+     "z7_front": [
+      60,
+      140,
+      120,
+      60
+     ],
+     "z7_inside": [
+      190,
+      120,
+      100,
+      80
+     ],
+     "z7_bedroom": [
+      300,
+      130,
+      60,
+      50
+     ]
+    },
+    "links": [
+     [
+      "z7_front",
+      "z7_inside"
+     ],
+     [
+      "z7_inside",
+      "z7_bedroom"
+     ]
+    ]
+   }
+  },
+  {
+   "id": 9,
+   "name": "???",
+   "floor": "floor_concrete",
+   "wall": "wall_grey",
+   "door_sprite": "door_grey_double",
+   "ambient": "#ffffff",
+   "hum": 0.3,
+   "drone": 0.0,
+   "music": "none",
+   "drop_min": 3,
+   "drop_max": 8,
+   "min_fidelity": 0
+  },
+  {
+   "id": 10,
+   "name": "Avant",
+   "floor": "tile_yellow",
+   "wall": "wall_cream",
+   "door_sprite": "door_small_window",
+   "ambient": "#fff4e6",
+   "hum": 0.15,
+   "drone": 0.0,
+   "music": "none",
+   "drop_min": 0,
+   "drop_max": 0,
+   "min_fidelity": 100,
+   "washer_db": -40.0,
+   "entity_chance": 0.0
+  }
+ ]
 }

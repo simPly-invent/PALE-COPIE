@@ -1,0 +1,23 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Ça va, aujourd'hui ? Calme. »",
+    "if": "!call_received"
+   },
+   {
+    "text": "* « Elle va bien, ta copine ? C'est pour quand, déjà ? »",
+    "if": "!call_received"
+   },
+   {
+    "text": "* Ton manager est occupé avec un client.",
+    "if": "call_received"
+   },
+   {
+    "text": "* Tu n'arrives pas à lui parler. Pas ici. Pas devant tout le monde.",
+    "if": "call_received"
+   }
+  ]
+ },
+ "voice": "default"
+}

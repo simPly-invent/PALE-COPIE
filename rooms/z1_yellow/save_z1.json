@@ -1,21 +1,28 @@
 {
  "id": "save_z1",
  "zone": 1,
- "name": "Salle de sauvegarde",
+ "name": "Le refuge",
  "fidelity": 100,
  "size": [
   10,
   8
  ],
  "no_mutations": [
-  "door_shift",
-  "loop_door",
-  "extra_wall",
-  "stretch_room",
-  "bigger_inside",
-  "erase",
+  "color_drift",
+  "contrast_flatten",
+  "detail_generic",
   "detail_vanish",
-  "false_signs"
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "text_corrupt",
+  "false_signs",
+  "loop_door",
+  "bigger_inside",
+  "chest_relock",
+  "erase"
  ],
  "no_entity": true,
  "music": "none",
@@ -45,9 +52,9 @@
     4
    ],
    "text": [
-    "* Une machine à laver. Elle tourne.",
-    "* Elle a toujours tourné. Elle tournera toujours.",
-    "* Le bruit est rassurant. Comme le dimanche, à la maison."
+    "* La machine à laver tourne.",
+    "* Le même bruit qu'avant. Le même qu'avant tout le reste.",
+    "* Tant qu'elle tourne, tu es en sécurité."
    ]
   },
   {
@@ -122,10 +129,15 @@
     {
      "say": [
       "* Une petite pièce calme. Une machine à laver tourne dans un coin.",
-      "* Sur la table, de quoi sauvegarder."
+      "* Ici, les couleurs sont nettes. Ici, rien ne change.",
+      "* Ici, rien ne s'oublie."
      ]
     }
    ]
   }
+ ],
+ "drop": [
+  0,
+  0
  ]
 }

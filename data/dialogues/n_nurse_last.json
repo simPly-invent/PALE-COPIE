@@ -1,0 +1,25 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Vous avez trente minutes avec elle. »"
+   },
+   {
+    "text": "* « C'est exceptionnel. Prenez tout votre temps. »"
+   },
+   {
+    "text": "* « Je reviens tout à l'heure. Personne ne vous dérangera. »",
+    "set": {
+     "nurse_left": true
+    },
+    "actions": [
+     {
+      "rebuild": true
+     }
+    ]
+   }
+  ]
+ },
+ "portrait": "nurse",
+ "voice": "soft"
+}

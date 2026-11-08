@@ -1,0 +1,17 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Elle est belle. »"
+   },
+   {
+    "text": "* « Elle est vraiment belle. »"
+   },
+   {
+    "text": "* « Va la voir. Prends-la. »"
+   }
+  ]
+ },
+ "portrait": "maman_patient",
+ "voice": "mom"
+}

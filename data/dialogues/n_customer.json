@@ -1,0 +1,23 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Bonjour jeune homme. Je voudrais un téléphone simple. Avec des grosses touches. »",
+    "if": "!call_received"
+   },
+   {
+    "text": "* « Pour appeler ma fille. Elle habite loin. »",
+    "if": "!call_received"
+   },
+   {
+    "text": "* Le client te regarde. Il voit bien que quelque chose ne va pas.",
+    "if": "call_received"
+   },
+   {
+    "text": "* « Allez-y, mon garçon. Je reviendrai. »",
+    "if": "call_received"
+   }
+  ]
+ },
+ "voice": "low"
+}

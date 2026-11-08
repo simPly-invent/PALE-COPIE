@@ -1,0 +1,40 @@
+{
+ "start": [
+  {
+   "goto": "after",
+   "if": "has:camcorder"
+  }
+ ],
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Hé, ma puce. »"
+   },
+   {
+    "text": "* « Tu cherches le caméscope ? Il est au grenier. Je l'ai rangé dans la mallette. »"
+   },
+   {
+    "text": "* « Demain, je te filme du matin au soir. Tu seras l'enfant la plus filmée du monde. »"
+   },
+   {
+    "text": "* « Allez, file. Et après, au lit. »",
+    "set": {
+     "met.papa": true
+    }
+   }
+  ],
+  "after": [
+   {
+    "text": "* « Tu l'as trouvé ! »"
+   },
+   {
+    "text": "* « Fais attention, il est vieux. Il a filmé ta maman avant toi. »"
+   },
+   {
+    "text": "* « Bonne nuit, {name}. On est juste à côté. »"
+   }
+  ]
+ },
+ "portrait": "papa",
+ "voice": "low"
+}

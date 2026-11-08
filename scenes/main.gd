@@ -67,6 +67,14 @@ func clear_screen() -> void:
 		screen.queue_free()
 	screen = null
 
+## Écran par-dessus le jeu (au-dessus des dialogues pour la saisie du nom).
+func add_overlay(node: Node) -> void:
+	var layer = CanvasLayer.new()
+	layer.layer = 92
+	add_child(layer)
+	layer.add_child(node)
+	node.tree_exited.connect(layer.queue_free)
+
 func show_title() -> void:
 	World.clear()
 	AudioManager.stop_music()
@@ -84,6 +92,36 @@ func start_new_game(name: String) -> void:
 	World._load_room("house_bedroom", 0, "", "default")
 	World._on_room_entered()
 	await World.fade(false, 1.0)
+
+## « Le souvenir » : chapitre d'avant, joué par papa. Il se termine par start_adventure().
+func start_memory() -> void:
+	clear_screen()
+	GameState.new_game("")
+	GameState.player_skin = "papa_walk"
+	DegradationManager.bonuses.clear()
+	DegradationManager.visited.clear()
+	DegradationManager.invalidate()
+	SaveManager.write_meta()
+	World.in_game = true
+	World._load_room("n_shop", 0, "", "default")
+	World._on_room_entered()
+	await World.fade(false, 1.5)
+
+## L'aventure : le prologue de la maison.
+func start_adventure() -> void:
+	GameState.player_skin = "player_walk"
+	await World.fade(true, 1.0)
+	if GameState.player_name == "":
+		var ne = load("res://scenes/ui/name_entry.gd").new()
+		ne.return_mode = true
+		add_overlay(ne)
+		await World.fade(false, 0.4)
+		var chosen: String = await ne.named
+		GameState.player_name = chosen if chosen != "" else "Enfant"
+		await World.fade(true, 0.6)
+	World._load_room("house_bedroom", 0, "", "default")
+	World._on_room_entered()
+	await World.fade(false, 1.5)
 
 func continue_game() -> void:
 	clear_screen()
@@ -120,6 +158,8 @@ func _dev_start(args: Dictionary) -> void:
 	GameState.new_game("TEST")
 	if args.has("seed"):
 		GameState.game_seed = int(args["seed"])
+	if args.has("skin"):
+		GameState.player_skin = args["skin"]
 	for it in str(args.get("give", "")).split(",", false):
 		GameState.give(it)
 	var depth = int(args.get("depth", 0))

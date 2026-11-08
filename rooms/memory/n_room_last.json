@@ -1,0 +1,137 @@
+{
+ "id": "n_room_last",
+ "zone": 10,
+ "name": "Trente minutes",
+ "fidelity": 100,
+ "size": [
+  14,
+  10
+ ],
+ "floor": "floor_concrete",
+ "wall": "wall_cream",
+ "ambient": "#e8ecf4",
+ "props": [
+  {
+   "id": "bed",
+   "sprite": "hospital_bed",
+   "pos": [
+    9,
+    4
+   ]
+  },
+  {
+   "id": "lamp",
+   "sprite": "lamp",
+   "pos": [
+    2,
+    4
+   ],
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "color": "#fff0d8",
+    "energy": 0.7
+   }
+  }
+ ],
+ "npcs": [
+  {
+   "id": "maman",
+   "sprite": "maman_patient",
+   "pos": [
+    8,
+    5
+   ],
+   "dialogue": "n_maman_last"
+  },
+  {
+   "id": "baby",
+   "sprite": "baby_bundle",
+   "pos": [
+    5,
+    5
+   ],
+   "dialogue": "n_baby",
+   "still": true,
+   "no_turn": true,
+   "footprint": [
+    30,
+    14
+   ]
+  },
+  {
+   "id": "nurse",
+   "sprite": "nurse",
+   "pos": [
+    3,
+    7
+   ],
+   "dialogue": "n_nurse_last",
+   "if": "!nurse_left"
+  }
+ ],
+ "doors": [
+  {
+   "id": "door",
+   "side": "bottom",
+   "pos": [
+    7,
+    9
+   ],
+   "to": "n_room_last",
+   "requires": "false",
+   "locked_text": [
+    "* Tu ne veux pas partir. Pas maintenant."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   7,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!last_seen",
+   "then": [
+    {
+     "set": {
+      "last_seen": true
+     }
+    },
+    {
+     "stop_music": true
+    },
+    {
+     "say": [
+      "* Elle est née.",
+      "* Elle est toute petite. Elle a l'air de dormir."
+     ]
+    },
+    {
+     "dialogue": "n_nurse_last"
+    }
+   ]
+  }
+ ],
+ "no_mutations": [
+  "color_drift",
+  "contrast_flatten",
+  "detail_generic",
+  "detail_vanish",
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "text_corrupt",
+  "false_signs",
+  "loop_door",
+  "bigger_inside",
+  "chest_relock",
+  "erase"
+ ],
+ "no_entity": true
+}

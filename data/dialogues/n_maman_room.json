@@ -1,0 +1,81 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Tu es venu. »"
+   },
+   {
+    "text": "* « Ils ne la sentent plus. »"
+   },
+   {
+    "text": "* « Elle bougeait tellement, avant. »"
+   },
+   {
+    "text": "* « Parle au médecin. Moi, je n'y arrive pas. »",
+    "set": {
+     "talked_maman": true
+    }
+   }
+  ],
+  "after": [
+   {
+    "text": "* « Peut-être qu'elle se fait discrète. »"
+   },
+   {
+    "text": "* « Elle a toujours été discrète. Elle se cache, c'est tout. »"
+   },
+   {
+    "text": "* ...",
+    "voice": "none",
+    "choices": [
+     {
+      "text": "Lui prendre la main",
+      "goto": "hand"
+     },
+     {
+      "text": "Vouloir y croire",
+      "goto": "hand"
+     }
+    ]
+   }
+  ],
+  "hand": [
+   {
+    "text": "* Tu lui prends la main.",
+    "voice": "none"
+   },
+   {
+    "text": "* Tu veux y croire aussi. De toutes tes forces.",
+    "voice": "none"
+   },
+   {
+    "text": "* Ça s'appelle l'espoir. Ça fait presque aussi mal que le reste.",
+    "voice": "none",
+    "set": {
+     "hope": true
+    },
+    "actions": [
+     {
+      "card": [
+       "Un mois."
+      ]
+     },
+     {
+      "goto": {
+       "room": "n_home",
+       "spawn": "default"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "talked_doctor",
+   "goto": "after"
+  }
+ ],
+ "portrait": "maman_patient",
+ "voice": "mom"
+}

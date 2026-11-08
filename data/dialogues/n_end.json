@@ -1,0 +1,32 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* La porte s'ouvre doucement. L'infirmière est revenue.",
+    "voice": "none"
+   },
+   {
+    "text": "* « C'est l'heure. »",
+    "portrait": "nurse",
+    "voice": "soft"
+   },
+   {
+    "text": "* « Je suis désolée. Prenez soin l'un de l'autre. »",
+    "portrait": "nurse",
+    "voice": "soft",
+    "actions": [
+     {
+      "card": [
+       "Elle n'a pas eu le temps de vivre son aventure.",
+       "Alors voici celle qu'elle aurait pu vivre."
+      ],
+      "hold": 3.2
+     },
+     {
+      "start_adventure": true
+     }
+    ]
+   }
+  ]
+ }
+}

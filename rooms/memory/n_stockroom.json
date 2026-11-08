@@ -1,0 +1,157 @@
+{
+ "id": "n_stockroom",
+ "zone": 10,
+ "name": "La réserve",
+ "fidelity": 100,
+ "size": [
+  12,
+  9
+ ],
+ "floor": "floor_concrete",
+ "wall": "wall_grey",
+ "ambient": "#c8c0b4",
+ "props": [
+  {
+   "id": "box1",
+   "sprite": "chest_box",
+   "pos": [
+    2,
+    4
+   ]
+  },
+  {
+   "id": "box2",
+   "sprite": "chest_crate",
+   "pos": [
+    3,
+    4
+   ]
+  },
+  {
+   "id": "box3",
+   "sprite": "chest_box",
+   "pos": [
+    9,
+    4
+   ]
+  },
+  {
+   "id": "box4",
+   "sprite": "chest_box",
+   "pos": [
+    10,
+    4
+   ]
+  },
+  {
+   "id": "shelf",
+   "sprite": "filing_cabinet_tall",
+   "pos": [
+    6,
+    3.6
+   ]
+  },
+  {
+   "id": "box5",
+   "sprite": "chest_crate",
+   "pos": [
+    2,
+    7
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "manager",
+   "sprite": "npc_worker",
+   "pos": [
+    6,
+    7
+   ],
+   "dialogue": "n_manager",
+   "if": "manager_in && !manager_ok"
+  }
+ ],
+ "doors": [
+  {
+   "id": "door",
+   "side": "bottom",
+   "pos": [
+    6,
+    8
+   ],
+   "to": "n_shop",
+   "to_door": "stock",
+   "requires": "manager_ok",
+   "locked_text": [
+    "* Tu n'arrives pas à ressortir. Pas tout de suite."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   6,
+   6
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!stock_cried",
+   "then": [
+    {
+     "set": {
+      "stock_cried": true
+     }
+    },
+    {
+     "say": [
+      "* Tu fermes la porte de la réserve derrière toi.",
+      "* Tu t'assieds entre les cartons.",
+      "* Tu pleures.",
+      "* Tu ne peux pas t'arrêter."
+     ]
+    },
+    {
+     "shake": 0.6
+    },
+    {
+     "wait": 2.5
+    },
+    {
+     "say": [
+      "* La porte s'ouvre doucement."
+     ]
+    },
+    {
+     "set": {
+      "manager_in": true
+     }
+    },
+    {
+     "rebuild": true
+    },
+    {
+     "dialogue": "n_manager"
+    }
+   ]
+  }
+ ],
+ "no_mutations": [
+  "color_drift",
+  "contrast_flatten",
+  "detail_generic",
+  "detail_vanish",
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "text_corrupt",
+  "false_signs",
+  "loop_door",
+  "bigger_inside",
+  "chest_relock",
+  "erase"
+ ],
+ "no_entity": true
+}

@@ -1,0 +1,55 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Hé... »",
+    "voice": "default"
+   },
+   {
+    "text": "* « Qu'est-ce qui se passe ? »"
+   },
+   {
+    "text": "* ...",
+    "voice": "none",
+    "choices": [
+     {
+      "text": "Lui raconter",
+      "goto": "tell"
+     }
+    ]
+   }
+  ],
+  "tell": [
+   {
+    "text": "* Tu lui racontes. L'hôpital. Le cœur qu'on n'entend plus.",
+    "voice": "none"
+   },
+   {
+    "text": "* Les mots sortent mal. Il comprend quand même.",
+    "voice": "none"
+   },
+   {
+    "text": "* « Vas-y. Tout de suite. »"
+   },
+   {
+    "text": "* « Ne t'occupe de rien ici. File. »"
+   },
+   {
+    "text": "* « Et appelle-moi quand tu peux. Ou pas. Prends le temps qu'il faut. »",
+    "set": {
+     "manager_ok": true
+    },
+    "actions": [
+     {
+      "goto": {
+       "room": "n_road",
+       "spawn": "default"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "portrait": "",
+ "voice": "default"
+}

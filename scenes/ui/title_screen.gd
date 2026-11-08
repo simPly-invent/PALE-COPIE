@@ -57,9 +57,20 @@ func _loop() -> void:
 				World.main.continue_game()
 				return
 			"Nouvelle partie":
+				menu.visible = false
+				var c: int = await DialogueManager.choose("* Par où commencer ?", ["Le souvenir", "L'aventure", "Retour"])
+				if c == 2 or c < 0:
+					menu.visible = true
+					menu._accept_after = Time.get_ticks_msec() + 150
+					continue
 				busy = true
-				var ne = preload("res://scenes/ui/name_entry.gd").new()
-				World.main.show_screen(ne)
+				await World.fade(true, 1.2)
+				if c == 0:
+					World.main.start_memory()
+				else:
+					var ne = preload("res://scenes/ui/name_entry.gd").new()
+					World.main.show_screen(ne)
+					World.fade(false, 0.5)
 				return
 			"Options":
 				menu.visible = false

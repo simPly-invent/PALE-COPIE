@@ -1,0 +1,150 @@
+{
+ "id": "n_road",
+ "zone": 10,
+ "name": "Le trajet",
+ "fidelity": 100,
+ "size": [
+  26,
+  8
+ ],
+ "floor": "floor_concrete",
+ "wall": "wall_grey",
+ "ambient": "#b8bcc8",
+ "props": [
+  {
+   "id": "lamp1",
+   "sprite": "lamp",
+   "pos": [
+    5,
+    3
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ]
+  },
+  {
+   "id": "lamp2",
+   "sprite": "lamp",
+   "pos": [
+    13,
+    3
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ]
+  },
+  {
+   "id": "lamp3",
+   "sprite": "lamp",
+   "pos": [
+    21,
+    3
+   ],
+   "solid": false,
+   "tags": [
+    "light"
+   ]
+  }
+ ],
+ "triggers": [
+  {
+   "id": "t1",
+   "rect": [
+    5,
+    3,
+    1,
+    4
+   ],
+   "actions": [
+    {
+     "say": [
+      "* Tu ne te souviens pas du trajet."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "rect": [
+    11,
+    3,
+    1,
+    4
+   ],
+   "actions": [
+    {
+     "say": [
+      "* Juste le bruit de ton cœur. Trop fort."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "rect": [
+    17,
+    3,
+    1,
+    4
+   ],
+   "actions": [
+    {
+     "say": [
+      "* Et le sien, que personne n'entend plus."
+     ]
+    }
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    5
+   ],
+   "to": "n_road",
+   "requires": "false",
+   "locked_text": [
+    "* Tu ne fais pas demi-tour."
+   ]
+  },
+  {
+   "id": "east",
+   "side": "right",
+   "pos": [
+    25,
+    5
+   ],
+   "to": "n_hospital",
+   "to_door": "west"
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   5
+  ]
+ },
+ "no_mutations": [
+  "color_drift",
+  "contrast_flatten",
+  "detail_generic",
+  "detail_vanish",
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "text_corrupt",
+  "false_signs",
+  "loop_door",
+  "bigger_inside",
+  "chest_relock",
+  "erase"
+ ],
+ "no_entity": true
+}

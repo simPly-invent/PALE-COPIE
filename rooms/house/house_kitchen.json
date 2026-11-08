@@ -113,5 +113,16 @@
    6,
    8
   ]
- }
+ },
+ "npcs": [
+  {
+   "id": "papa",
+   "sprite": "papa",
+   "pos": [
+    9,
+    8
+   ],
+   "dialogue": "papa_house"
+  }
+ ]
 }

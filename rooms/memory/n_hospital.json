@@ -1,0 +1,134 @@
+{
+ "id": "n_hospital",
+ "zone": 10,
+ "name": "L'hôpital",
+ "fidelity": 100,
+ "size": [
+  20,
+  11
+ ],
+ "floor": "floor_concrete",
+ "wall": "wall_cream",
+ "ambient": "#eef4f4",
+ "props": [
+  {
+   "id": "desk",
+   "sprite": "desk",
+   "pos": [
+    4,
+    5
+   ],
+   "scale": 1.2,
+   "text": [
+    "* L'accueil des urgences maternité."
+   ]
+  },
+  {
+   "id": "chair1",
+   "sprite": "chair_blue",
+   "pos": [
+    9,
+    8
+   ]
+  },
+  {
+   "id": "chair2",
+   "sprite": "chair_blue",
+   "pos": [
+    10,
+    8
+   ]
+  },
+  {
+   "id": "chair3",
+   "sprite": "chair_blue",
+   "pos": [
+    11,
+    8
+   ]
+  },
+  {
+   "id": "ext",
+   "sprite": "extinguisher",
+   "pos": [
+    16,
+    3
+   ],
+   "solid": false
+  },
+  {
+   "id": "plant",
+   "sprite": "plant",
+   "pos": [
+    18,
+    4
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "nurse",
+   "sprite": "nurse",
+   "pos": [
+    5,
+    6
+   ],
+   "dialogue": "n_nurse_desk"
+  }
+ ],
+ "doors": [
+  {
+   "id": "west",
+   "side": "left",
+   "pos": [
+    0,
+    6
+   ],
+   "to": "n_hospital",
+   "requires": "false",
+   "locked_text": [
+    "* Tu ne peux pas repartir."
+   ]
+  },
+  {
+   "id": "room",
+   "side": "top",
+   "pos": [
+    15,
+    2
+   ],
+   "to": "n_room",
+   "to_door": "door",
+   "sprite": "door_white_double",
+   "label": "SALLE 3",
+   "requires": "nurse_directed",
+   "locked_text": [
+    "* Tu ne sais pas où elle est. Il faut demander."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   2,
+   6
+  ]
+ },
+ "no_mutations": [
+  "color_drift",
+  "contrast_flatten",
+  "detail_generic",
+  "detail_vanish",
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "text_corrupt",
+  "false_signs",
+  "loop_door",
+  "bigger_inside",
+  "chest_relock",
+  "erase"
+ ],
+ "no_entity": true
+}

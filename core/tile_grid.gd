@@ -43,6 +43,9 @@ func set_cell(x: int, y: int, c: String) -> void:
 
 ## Un mur est une « face » visible s'il y a du sol juste en dessous, ou deux cases en dessous.
 func _is_face(x: int, y: int) -> bool:
+	# les murs de côté ne sont jamais des « faces » : une ouverture latérale reste un simple passage
+	if x == 0 or x == width() - 1:
+		return false
 	var b1 = get_cell(x, y + 1)
 	if b1 != "#" and b1 != "h" and b1 != " ":
 		return true

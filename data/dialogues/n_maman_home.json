@@ -1,0 +1,52 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Je lui parle encore, tu sais. »"
+   },
+   {
+    "text": "* « Je lui dis qu'elle peut rester cachée encore un peu. »"
+   },
+   {
+    "text": "* « Et puis je me dis que demain, il faudra y aller. »"
+   },
+   {
+    "text": "* « Tu restes avec moi ? »",
+    "choices": [
+     {
+      "text": "Oui",
+      "goto": "yes"
+     }
+    ]
+   }
+  ],
+  "yes": [
+   {
+    "text": "* Elle pose sa tête sur ton épaule.",
+    "voice": "none"
+   },
+   {
+    "text": "* Le lendemain, vous êtes allés à l'hôpital.",
+    "voice": "none",
+    "set": {
+     "home_talked": true
+    },
+    "actions": [
+     {
+      "card": [
+       "Le jour est venu."
+      ]
+     },
+     {
+      "goto": {
+       "room": "n_room_last",
+       "spawn": "default"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "portrait": "maman",
+ "voice": "mom"
+}

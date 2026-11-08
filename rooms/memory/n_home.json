@@ -1,0 +1,114 @@
+{
+ "id": "n_home",
+ "zone": 10,
+ "name": "Chez vous",
+ "fidelity": 100,
+ "size": [
+  14,
+  10
+ ],
+ "floor": "carpet_brown",
+ "wall": "wall_cream",
+ "ambient": "#ffe8cc",
+ "props": [
+  {
+   "id": "sofa",
+   "sprite": "sofa_red",
+   "pos": [
+    4,
+    4
+   ],
+   "text": [
+    "* Le canapé. Vous y avez passé beaucoup de soirées, ce mois-là. Sans rien dire."
+   ]
+  },
+  {
+   "id": "crib",
+   "sprite": "crib",
+   "pos": [
+    10,
+    4
+   ],
+   "text": [
+    "* Le petit lit. Monté depuis deux mois.",
+    "* Tu l'avais monté de travers la première fois. Elle avait ri."
+   ]
+  },
+  {
+   "id": "tv",
+   "sprite": "tv",
+   "pos": [
+    7,
+    4
+   ],
+   "text": [
+    "* La télé est allumée. Personne ne la regarde."
+   ]
+  },
+  {
+   "id": "lamp",
+   "sprite": "lamp",
+   "pos": [
+    12,
+    4
+   ],
+   "tags": [
+    "light"
+   ],
+   "light": {
+    "color": "#ffd890"
+   }
+  }
+ ],
+ "npcs": [
+  {
+   "id": "maman",
+   "sprite": "maman",
+   "pos": [
+    6,
+    7
+   ],
+   "dialogue": "n_maman_home"
+  }
+ ],
+ "doors": [
+  {
+   "id": "door",
+   "side": "bottom",
+   "pos": [
+    7,
+    9
+   ],
+   "to": "n_room_last",
+   "to_door": "door",
+   "requires": "home_talked",
+   "locked_text": [
+    "* Pas encore."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   7
+  ]
+ },
+ "no_mutations": [
+  "color_drift",
+  "contrast_flatten",
+  "detail_generic",
+  "detail_vanish",
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "text_corrupt",
+  "false_signs",
+  "loop_door",
+  "bigger_inside",
+  "chest_relock",
+  "erase"
+ ],
+ "no_entity": true
+}

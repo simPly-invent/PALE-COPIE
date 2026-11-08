@@ -1,0 +1,51 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* Ton téléphone vibre dans ta poche.",
+    "voice": "none"
+   },
+   {
+    "text": "* C'est elle.",
+    "voice": "none"
+   },
+   {
+    "text": "* « ... Allô ? »",
+    "portrait": "maman",
+    "voice": "mom"
+   },
+   {
+    "text": "* « Je suis à l'hôpital. »",
+    "portrait": "maman",
+    "voice": "mom"
+   },
+   {
+    "text": "* « Le médecin n'entend plus son cœur. »",
+    "portrait": "maman",
+    "voice": "mom"
+   },
+   {
+    "text": "* « Il ne la sent plus bouger. »",
+    "portrait": "maman",
+    "voice": "mom"
+   },
+   {
+    "text": "* « Viens. S'il te plaît. »",
+    "portrait": "maman",
+    "voice": "mom"
+   },
+   {
+    "text": "* ...",
+    "voice": "none"
+   },
+   {
+    "text": "* Tu raccroches. Tu ne sais plus où tu es.",
+    "voice": "none"
+   },
+   {
+    "text": "* (Il faut que tu te caches. Juste une minute.)",
+    "voice": "none"
+   }
+  ]
+ }
+}

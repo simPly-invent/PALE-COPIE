@@ -1,0 +1,40 @@
+{
+ "nodes": {
+  "start": [
+   {
+    "text": "* « Monsieur. »"
+   },
+   {
+    "text": "* « Je suis désolé. »"
+   },
+   {
+    "text": "* « Le cœur du bébé ne bat plus. »"
+   },
+   {
+    "text": "* « Il va falloir la faire naître. Nous allons vous accompagner, tous les deux. »"
+   },
+   {
+    "text": "* « Prenez le temps qu'il vous faut. Je reste à côté. »",
+    "set": {
+     "talked_doctor": true
+    }
+   },
+   {
+    "text": "* (Elle te regarde. Retourne près d'elle.)",
+    "voice": "none"
+   }
+  ],
+  "after": [
+   {
+    "text": "* « Je suis à côté, si vous avez besoin. »"
+   }
+  ]
+ },
+ "start": [
+  {
+   "if": "talked_doctor",
+   "goto": "after"
+  }
+ ],
+ "voice": "low"
+}

@@ -1,6 +1,12 @@
 ## Saisie du nom de l'enfant, comme dans Undertale.
 extends Control
 
+signal named(name: String)
+
+var title_text = "Nomme l'enfant tombé."
+var return_mode = false     # true : renvoie le nom au lieu de lancer une partie
+var allow_skip = false
+
 const LETTERS := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var cols = 7
 var idx = 0
@@ -8,7 +14,7 @@ var name_text = ""
 var name_label: Label
 var cells: Array = []
 var heart: TextureRect
-var options = ["Effacer", "Terminé"]
+var options = ["Effacer", "Terminé", "Ne rien dire"]
 var busy = false
 
 func _ready() -> void:
@@ -17,7 +23,7 @@ func _ready() -> void:
 	bg.color = Color.BLACK
 	bg.size = size
 	add_child(bg)
-	var t = UI.label("Nomme l'enfant tombé.", 24)
+	var t = UI.label(title_text, 24)
 	t.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	t.position = Vector2(0, 40)
 	t.size = Vector2(640, 30)
@@ -32,9 +38,11 @@ func _ready() -> void:
 		l.position = Vector2(150 + (i % cols) * 50, 170 + (i / cols) * 44)
 		add_child(l)
 		cells.append(l)
+	if not allow_skip:
+		options = ["Effacer", "Terminé"]
 	for j in options.size():
 		var l = UI.label(options[j], 22)
-		l.position = Vector2(170 + j * 180, 380)
+		l.position = Vector2(110 + j * 170, 380)
 		add_child(l)
 		cells.append(l)
 	_refresh()
@@ -64,6 +72,13 @@ func _input(event: InputEvent) -> void:
 				name_text += LETTERS[idx]
 		elif idx == n:
 			name_text = name_text.left(name_text.length() - 1)
+		elif idx == n + 2:
+			if allow_skip:
+				get_viewport().set_input_as_handled()
+				busy = true
+				named.emit("")
+				queue_free()
+			return
 		elif name_text.length() > 0:
 			get_viewport().set_input_as_handled()
 			_confirm()
@@ -87,7 +102,10 @@ func _confirm() -> void:
 	if reply != "":
 		lines.append(reply)
 	var i: int = await DialogueManager.choose(("%s\n" % reply if reply != "" else "") + "Est-ce bien ton nom ? « %s »" % name_text, ["Non", "Oui"])
-	if i == 1:
+	if i == 1 and return_mode:
+		named.emit(name_text.capitalize())
+		queue_free()
+	elif i == 1:
 		await World.fade(true, 1.2)
 		World.main.start_new_game(name_text)
 	else:

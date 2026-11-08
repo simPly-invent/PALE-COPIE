@@ -33,7 +33,7 @@ func _ready() -> void:
 	anim = AnimatedSprite2D.new()
 	anim.sprite_frames = _build_frames()
 	anim.scale = Vector2(2, 2)
-	anim.offset = Vector2(0, -FRAME_H / 2.0)
+	anim.offset = Vector2(0, -Assets.tex(GameState.player_skin).get_height() / 8.0)
 	anim.animation = "down"
 	add_child(anim)
 	reach = Area2D.new()
@@ -56,10 +56,27 @@ func _ready() -> void:
 	add_child(flashlight)
 	_update_reach()
 
+var skin = ""
+
+## Change l'apparence du personnage joué (planche 4x4 : bas, haut, gauche, droite).
+func set_skin(name_: String) -> void:
+	if name_ == skin:
+		return
+	skin = name_
+	var cur = anim.animation
+	anim.sprite_frames = _build_frames()
+	anim.animation = cur
+	var fh = Assets.tex(skin).get_height() / 4.0
+	anim.offset = Vector2(0, -fh / 2.0)
+
 func _build_frames() -> SpriteFrames:
 	var sf = SpriteFrames.new()
 	sf.remove_animation("default")
-	var tex = Assets.tex("player_walk")
+	if skin == "":
+		skin = GameState.player_skin
+	var tex = Assets.tex(skin)
+	var fw = tex.get_width() / 4.0
+	var fh = tex.get_height() / 4.0
 	for dir in ROWS:
 		sf.add_animation(dir)
 		sf.set_animation_speed(dir, 6.0)
@@ -67,7 +84,7 @@ func _build_frames() -> SpriteFrames:
 		for i in 4:
 			var at = AtlasTexture.new()
 			at.atlas = tex
-			at.region = Rect2(i * FRAME_W, ROWS[dir] * FRAME_H, FRAME_W, FRAME_H)
+			at.region = Rect2(i * fw, ROWS[dir] * fh, fw, fh)
 			sf.add_frame(dir, at)
 	return sf
 
@@ -87,6 +104,8 @@ func _update_reach() -> void:
 	reach_shape.position = off
 
 func _physics_process(delta: float) -> void:
+	if skin != GameState.player_skin:
+		set_skin(GameState.player_skin)
 	if GameState.is_locked():
 		moving = false
 		anim.stop()

@@ -11,6 +11,40 @@ static func play(id: String, opts: Dictionary = {}) -> void:
 		"tape_sequence":
 			await World.play_tape(opts.get("tape", ""))
 
+## Cartons de texte sur fond noir, un par un.
+static func cards(lines: Array, hold := 2.6) -> void:
+	GameState.lock("cards")
+	var layer = CanvasLayer.new()
+	layer.layer = 95
+	World.get_tree().root.add_child(layer)
+	var bg = ColorRect.new()
+	bg.color = Color(0, 0, 0, 0)
+	bg.size = Vector2(640, 480)
+	layer.add_child(bg)
+	var tw = bg.create_tween()
+	tw.tween_property(bg, "color:a", 1.0, 0.8)
+	await tw.finished
+	for line in lines:
+		var l = UI.label(TextFx.process(str(line), 100, 0), 24, Color(0.92, 0.9, 0.85))
+		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.position = Vector2(40, 140)
+		l.size = Vector2(560, 200)
+		l.modulate.a = 0.0
+		layer.add_child(l)
+		var t2 = l.create_tween()
+		t2.tween_property(l, "modulate:a", 1.0, 1.0)
+		t2.tween_interval(hold)
+		t2.tween_property(l, "modulate:a", 0.0, 1.0)
+		await t2.finished
+		l.queue_free()
+	var t3 = bg.create_tween()
+	t3.tween_property(bg, "color:a", 0.0, 0.8)
+	await t3.finished
+	layer.queue_free()
+	GameState.unlock("cards")
+
 ## Le sol cède sous le lit.
 static func _fall(opts: Dictionary) -> void:
 	GameState.lock("cutscene")

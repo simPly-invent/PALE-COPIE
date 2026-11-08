@@ -1,0 +1,231 @@
+{
+ "id": "n_shop",
+ "zone": 10,
+ "name": "La boutique",
+ "fidelity": 100,
+ "size": [
+  18,
+  12
+ ],
+ "floor": "tile_yellow",
+ "wall": "wall_panel",
+ "ambient": "#fff8ee",
+ "props": [
+  {
+   "id": "counter1",
+   "sprite": "desk",
+   "pos": [
+    5,
+    6
+   ],
+   "scale": 1.2,
+   "text": [
+    "* Le comptoir. Des boîtes de téléphones, des câbles, des coques."
+   ]
+  },
+  {
+   "id": "pc",
+   "sprite": "computer",
+   "pos": [
+    5,
+    5.6
+   ],
+   "solid": false,
+   "z": 1,
+   "tags": [
+    "small"
+   ],
+   "text": [
+    "* L'écran de caisse. Une journée normale."
+   ]
+  },
+  {
+   "id": "counter2",
+   "sprite": "desk",
+   "pos": [
+    12,
+    6
+   ],
+   "scale": 1.2
+  },
+  {
+   "id": "phone1",
+   "sprite": "phone",
+   "pos": [
+    11.5,
+    5.6
+   ],
+   "solid": false,
+   "z": 1,
+   "text": [
+    "* Un téléphone de démonstration."
+   ]
+  },
+  {
+   "id": "phone2",
+   "sprite": "phone",
+   "pos": [
+    12.5,
+    5.6
+   ],
+   "solid": false,
+   "z": 1
+  },
+  {
+   "id": "screen1",
+   "sprite": "tv",
+   "pos": [
+    4,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "text": [
+    "* Une pub tourne en boucle sur l'écran. Des gens heureux qui s'appellent."
+   ]
+  },
+  {
+   "id": "screen2",
+   "sprite": "tv",
+   "pos": [
+    14,
+    2
+   ],
+   "on_wall": true,
+   "solid": false
+  },
+  {
+   "id": "shelf",
+   "sprite": "bookshelf",
+   "pos": [
+    16,
+    4
+   ],
+   "text": [
+    "* Des accessoires bien rangés. C'est toi qui as fait le rayon ce matin."
+   ]
+  },
+  {
+   "id": "plant",
+   "sprite": "plant",
+   "pos": [
+    1.5,
+    4
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "manager",
+   "sprite": "npc_worker",
+   "pos": [
+    13,
+    9
+   ],
+   "dialogue": "n_manager_shop"
+  },
+  {
+   "id": "customer",
+   "sprite": "npc_oldman",
+   "pos": [
+    7,
+    9
+   ],
+   "dialogue": "n_customer"
+  }
+ ],
+ "doors": [
+  {
+   "id": "stock",
+   "side": "top",
+   "pos": [
+    9,
+    2
+   ],
+   "to": "n_stockroom",
+   "to_door": "door",
+   "sprite": "door_small_window",
+   "label": "RÉSERVE",
+   "requires": "call_received",
+   "locked_text": [
+    "* La réserve. Il n'y a rien à faire là-bas pour l'instant."
+   ]
+  },
+  {
+   "id": "street",
+   "side": "bottom",
+   "pos": [
+    9,
+    11
+   ],
+   "to": "n_shop",
+   "requires": "false",
+   "locked_text": [
+    "* La porte du magasin.",
+    "* Tes jambes ne t'y emmènent pas. Pas encore."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   8,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!memory_started",
+   "then": [
+    {
+     "set": {
+      "memory_started": true
+     }
+    },
+    {
+     "card": [
+      "Tu as vingt et un ans.",
+      "Dans quelques semaines, tu seras papa."
+     ]
+    },
+    {
+     "say": [
+      "* Une journée normale à la boutique.",
+      "* (Flèches ou ZQSD pour marcher. Z ou Entrée pour parler.)"
+     ]
+    },
+    {
+     "wait": 9.0
+    },
+    {
+     "sfx": "phone_ring"
+    },
+    {
+     "dialogue": "n_call"
+    },
+    {
+     "set": {
+      "call_received": true
+     }
+    }
+   ]
+  }
+ ],
+ "no_mutations": [
+  "color_drift",
+  "contrast_flatten",
+  "detail_generic",
+  "detail_vanish",
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "text_corrupt",
+  "false_signs",
+  "loop_door",
+  "bigger_inside",
+  "chest_relock",
+  "erase"
+ ],
+ "no_entity": true
+}

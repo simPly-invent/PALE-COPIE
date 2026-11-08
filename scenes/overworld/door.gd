@@ -84,13 +84,13 @@ func place() -> void:
 			position = Vector2(cell.x * T, (cell.y + 1) * T)
 			rect.size = Vector2(12, 36)
 			shape.position = Vector2(6, -20)
-			_add_dark(Rect2(0, -40, 16, 40))
+			_add_dark(Rect2(0, -40, 6, 40))
 		"right":
 			tiles.set_cell(cell.x, cell.y, ".")
 			position = Vector2((cell.x + 1) * T, (cell.y + 1) * T)
 			rect.size = Vector2(12, 36)
 			shape.position = Vector2(-6, -20)
-			_add_dark(Rect2(-16, -40, 16, 40))
+			_add_dark(Rect2(-6, -40, 6, 40))
 	shape.shape = rect
 	add_child(shape)
 	if def.has("label_seq"):

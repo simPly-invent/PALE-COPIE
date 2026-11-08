@@ -1,0 +1,125 @@
+{
+ "id": "n_room",
+ "zone": 10,
+ "name": "Salle 3",
+ "fidelity": 100,
+ "size": [
+  14,
+  10
+ ],
+ "floor": "floor_concrete",
+ "wall": "wall_cream",
+ "ambient": "#f2f6f8",
+ "props": [
+  {
+   "id": "bed",
+   "sprite": "hospital_bed",
+   "pos": [
+    9,
+    4
+   ],
+   "text": [
+    "* Le lit d'hôpital. Les draps sont froissés."
+   ]
+  },
+  {
+   "id": "monitor",
+   "sprite": "computer",
+   "pos": [
+    11.5,
+    3.4
+   ],
+   "solid": false,
+   "text": [
+    "* Un moniteur. Il ne montre rien de ce que tu voudrais voir."
+   ]
+  },
+  {
+   "id": "chair",
+   "sprite": "chair_blue",
+   "pos": [
+    6,
+    5
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "maman",
+   "sprite": "maman_patient",
+   "pos": [
+    8,
+    5
+   ],
+   "dialogue": "n_maman_room"
+  },
+  {
+   "id": "doctor",
+   "sprite": "npc_scientist",
+   "pos": [
+    4,
+    6
+   ],
+   "dialogue": "n_doctor"
+  }
+ ],
+ "doors": [
+  {
+   "id": "door",
+   "side": "bottom",
+   "pos": [
+    7,
+    9
+   ],
+   "to": "n_home",
+   "to_door": "door",
+   "requires": "talked_doctor",
+   "locked_text": [
+    "* Tu ne vas pas la laisser seule."
+   ]
+  }
+ ],
+ "spawns": {
+  "default": [
+   7,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!room_seen",
+   "then": [
+    {
+     "set": {
+      "room_seen": true
+     }
+    },
+    {
+     "say": [
+      "* Elle est là.",
+      "* Elle te regarde. Elle ne pleure pas encore.",
+      "* Tu as l'impression que si personne ne parle, rien ne sera vrai."
+     ]
+    }
+   ]
+  }
+ ],
+ "no_mutations": [
+  "color_drift",
+  "contrast_flatten",
+  "detail_generic",
+  "detail_vanish",
+  "repeat_props",
+  "grid_align",
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "text_corrupt",
+  "false_signs",
+  "loop_door",
+  "bigger_inside",
+  "chest_relock",
+  "erase"
+ ],
+ "no_entity": true
+}
