@@ -1,0 +1,71 @@
+{
+ "start": [
+  {
+   "goto": "again",
+   "if": "hospital_copy_seen"
+  }
+ ],
+ "nodes": {
+  "start": [
+   {
+    "text": "* Un moniteur, plus petit que les autres. Il ne devrait pas être branché."
+   },
+   {
+    "text": "* Il montre une chambre d'hôpital. Une lampe allumée. Personne."
+   },
+   {
+    "text": "* Ça n'a rien à faire dans la Station.",
+    "choices": [
+     {
+      "text": "Regarder de plus près",
+      "goto": "closer"
+     },
+     {
+      "text": "Détourner les yeux",
+      "end": true
+     }
+    ]
+   }
+  ],
+  "again": [
+   {
+    "text": "* La chambre est toujours là, sur l'écran. La lampe est toujours allumée.",
+    "choices": [
+     {
+      "text": "Regarder de plus près",
+      "goto": "closer"
+     },
+     {
+      "text": "Détourner les yeux",
+      "end": true
+     }
+    ]
+   }
+  ],
+  "closer": [
+   {
+    "text": "* Tu t'approches. L'image grésille.",
+    "voice": "none"
+   },
+   {
+    "text": "* L'écran est chaud. Plus chaud qu'un écran.",
+    "voice": "none",
+    "actions": [
+     {
+      "sfx": "static"
+     },
+     {
+      "shake": 0.5
+     },
+     {
+      "goto": {
+       "room": "z6_hospital_copy",
+       "spawn": "default"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "voice": "none"
+}

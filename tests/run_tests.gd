@@ -189,16 +189,23 @@ func test_reachability() -> void:
 		reached[k.split("#")[0]] = true
 	for sid in DegradationManager.sources:
 		# le chapitre du souvenir s'enchaîne par les dialogues, pas par les portes
-		if sid.begins_with("test_") or sid == "debug_room" or sid.begins_with("n_"):
+		if sid.begins_with("test_") or sid == "debug_room":
 			continue
 		check(reached.has(sid), "Parcours : salle %s inatteignable depuis la chambre" % sid)
 	check(reached.has("z7_bedroom"), "Parcours : la fin est inatteignable")
 	print("Parcours : %d salles sources atteintes, %d copies" % [reached.size(), seen.size()])
 
+var _seen_dialogues = {}
+
 func _collect_gotos(v: Variant, out: Array) -> void:
 	if v is Dictionary:
 		if v.has("goto") and v["goto"] is Dictionary and v["goto"].has("room"):
 			out.append([v["goto"]["room"], int(v["goto"].get("depth", 0))])
+		if v.has("dialogue") and v["dialogue"] is String:
+			var dd = JsonUtil.load_json("res://data/dialogues/%s.json" % v["dialogue"])
+			if dd is Dictionary and not _seen_dialogues.has(v["dialogue"]):
+				_seen_dialogues[v["dialogue"]] = true
+				_collect_gotos(dd, out)
 		if v.has("cutscene") and v.has("to"):
 			out.append([v["to"]["room"], int(v["to"].get("depth", 0))])
 		for k in v:

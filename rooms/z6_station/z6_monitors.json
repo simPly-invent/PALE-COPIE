@@ -107,6 +107,17 @@
    "tags": [
     "decor"
    ]
+  },
+  {
+   "id": "tv4",
+   "sprite": "tv",
+   "pos": [
+    14,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "dialogue": "monitor_hospital"
   }
  ],
  "npcs": [
@@ -184,6 +195,16 @@
    ],
    "to": "z6_copy",
    "to_door": "west"
+  },
+  {
+   "id": "hospital_screen",
+   "side": "top",
+   "pos": [
+    14,
+    2
+   ],
+   "to": "",
+   "sprite": "none"
   }
  ],
  "spawns": {

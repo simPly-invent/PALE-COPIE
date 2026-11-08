@@ -352,6 +352,12 @@
    "type": "souvenir",
    "desc": "Quelqu'un t'appelle pour le dîner.",
    "memory": "« {name} ! À table ! » C'est ta voix à toi qu'on appelait."
+  },
+  {
+   "id": "hospital_bracelet",
+   "name": "Petit bracelet",
+   "type": "key",
+   "desc": "Un bracelet d'hôpital, minuscule. Le prénom écrit dessus est le tien : {name}."
   }
  ]
 }

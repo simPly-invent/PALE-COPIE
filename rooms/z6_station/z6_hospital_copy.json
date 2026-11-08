@@ -1,0 +1,227 @@
+{
+ "id": "z6_hospital_copy",
+ "zone": 6,
+ "name": "Chambre 3 (copie)",
+ "fidelity": 26,
+ "size": [
+  14,
+  10
+ ],
+ "floor": "m_floor_white_tile",
+ "wall": "m_wall_blue_band",
+ "music": "lullaby",
+ "no_entity": true,
+ "washer_db": -40.0,
+ "no_mutations": [
+  "stretch_room",
+  "door_shift",
+  "extra_wall",
+  "loop_door",
+  "bigger_inside",
+  "erase",
+  "false_signs",
+  "grid_align",
+  "repeat_props",
+  "chest_relock"
+ ],
+ "anchor": {
+  "id": "lamp_anchor",
+  "sprite": "m_lamp",
+  "pos": [
+   3.5,
+   4
+  ],
+  "name": "La lampe de chevet",
+  "text": [
+   "* Une lampe de chevet. Elle est restée allumée.",
+   "* Tout le reste a pâli. Pas elle."
+  ]
+ },
+ "props": [
+  {
+   "id": "bed",
+   "sprite": "a_hospital_bed_dirty",
+   "pos": [
+    9,
+    4
+   ],
+   "text": [
+    "* Un lit d'hôpital. Les draps sont encore froissés.",
+    "* Il est tiède."
+   ]
+  },
+  {
+   "id": "night",
+   "sprite": "m_nightstand",
+   "pos": [
+    11,
+    4
+   ]
+  },
+  {
+   "id": "flowers",
+   "sprite": "m_flowers",
+   "pos": [
+    11,
+    3.55
+   ],
+   "solid": false,
+   "z": 1,
+   "modulate": "#c8c4b0",
+   "tags": [
+    "keep"
+   ],
+   "text": [
+    "* Des fleurs. Elles ne fanent pas.",
+    "* Elles ne poussent pas non plus."
+   ]
+  },
+  {
+   "id": "chair1",
+   "sprite": "m_armchair_blue",
+   "pos": [
+    5,
+    6
+   ],
+   "text": [
+    "* Deux fauteuils, côte à côte.",
+    "* Quelqu'un s'est assis ici très longtemps."
+   ]
+  },
+  {
+   "id": "chair2",
+   "sprite": "m_armchair_blue",
+   "pos": [
+    6.4,
+    6
+   ],
+   "text": [
+    "* Le fauteuil est encore enfoncé, comme si on venait de se lever."
+   ]
+  },
+  {
+   "id": "curtain",
+   "sprite": "m_curtain",
+   "pos": [
+    2,
+    4
+   ],
+   "solid": false
+  },
+  {
+   "id": "window",
+   "sprite": "m_window",
+   "pos": [
+    9,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "text": [
+    "* Dehors, il fait nuit. Il a toujours fait nuit, ici."
+   ]
+  },
+  {
+   "id": "clock",
+   "sprite": "m_clock",
+   "pos": [
+    6,
+    2
+   ],
+   "on_wall": true,
+   "solid": false,
+   "text": [
+    "* L'horloge n'indique pas une heure.",
+    "* Elle indique trente minutes. Juste trente minutes."
+   ]
+  },
+  {
+   "id": "empty",
+   "sprite": "floor_arrow",
+   "pos": [
+    7.5,
+    5
+   ],
+   "solid": false,
+   "floor": true,
+   "z": -3,
+   "modulate": "#00000000",
+   "text": [
+    "* Ici, il y avait quelque chose de tout petit.",
+    "* Il n'y a plus rien. La place est restée chaude."
+   ]
+  }
+ ],
+ "chests": [
+  {
+   "id": "z6_bracelet",
+   "sprite": "m_lanyard",
+   "pos": [
+    11.6,
+    3.7
+   ],
+   "contents": "hospital_bracelet",
+   "solid": false,
+   "z": 2,
+   "text": "* Sur la table de nuit, quelque chose de minuscule."
+  }
+ ],
+ "doors": [
+  {
+   "id": "door",
+   "side": "bottom",
+   "pos": [
+    7,
+    9
+   ],
+   "to": "z6_monitors",
+   "to_door": "hospital_screen"
+  }
+ ],
+ "spawns": {
+  "default": [
+   7,
+   7
+  ]
+ },
+ "on_enter": [
+  {
+   "if": "!hospital_copy_seen",
+   "then": [
+    {
+     "set": {
+      "hospital_copy_seen": true
+     }
+    },
+    {
+     "say": [
+      "* ...",
+      "* Tu ne connais pas cette pièce.",
+      "* Tu la reconnais quand même."
+     ]
+    }
+   ]
+  },
+  {
+   "wait": 30.0
+  },
+  {
+   "if": "!hospital_voices",
+   "then": [
+    {
+     "set": {
+      "hospital_voices": true
+     }
+    },
+    {
+     "say": [
+      "* Derrière la porte, deux voix. Très bas.",
+      "* « On t'aime. »",
+      "* « On t'aime. »",
+      "* Quand tu ouvres la porte, il n'y a personne dans le couloir."
+     ]
+    }
+   ]
+  }
+ ]
+}
