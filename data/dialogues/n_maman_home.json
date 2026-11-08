@@ -5,6 +5,9 @@
     "text": "* « Je lui parle encore, tu sais. »"
    },
    {
+    "text": "* « Je lui dis qu'on l'aime. Je le lui dis tous les soirs, au cas où elle écouterait. »"
+   },
+   {
     "text": "* « Je lui dis qu'elle peut rester cachée encore un peu. »"
    },
    {
@@ -23,6 +26,10 @@
   "yes": [
    {
     "text": "* Elle pose sa tête sur ton épaule.",
+    "voice": "none"
+   },
+   {
+    "text": "* Tu poses ta main sur son ventre. Vous restez comme ça longtemps, tous les trois.",
     "voice": "none"
    },
    {

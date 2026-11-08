@@ -109,7 +109,7 @@ func start_memory() -> void:
 
 ## L'aventure : le prologue de la maison.
 func start_adventure() -> void:
-	GameState.player_skin = "player_walk"
+	GameState.player_skin = "child_walk"
 	await World.fade(true, 1.0)
 	if GameState.player_name == "":
 		var ne = load("res://scenes/ui/name_entry.gd").new()

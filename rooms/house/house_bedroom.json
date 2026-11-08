@@ -112,6 +112,22 @@
     "* Ta caisse à jouets. Une petite voiture rouge dépasse.",
     "* La R5 de papa, en modèle réduit."
    ]
+  },
+  {
+   "id": "love_note",
+   "sprite": "icon_note",
+   "pos": [
+    2,
+    4.6
+   ],
+   "solid": false,
+   "z": 2,
+   "text": [
+    "* Un mot posé sur la commode, de l'écriture de papa et maman :",
+    "* « Pour notre petit cœur. On t'aime gros comme la maison. »",
+    "* « Et la maison est très grande. »",
+    "* En dessous, deux cœurs dessinés. Un un peu maladroit. Un parfait."
+   ]
   }
  ],
  "doors": [

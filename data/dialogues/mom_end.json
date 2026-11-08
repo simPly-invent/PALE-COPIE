@@ -2,15 +2,23 @@
  "nodes": {
   "start": [
    {
-    "text": "* « Tu es rentré. »",
+    "text": "* « Tu es rentrée. »",
     "voice": "mom"
+   },
+   {
+    "text": "* « On t'a attendue. On t'attendra toujours, aussi longtemps qu'il faudra. »",
+    "voice": "mom"
+   },
+   {
+    "text": "* (Papa est là aussi. Il ne dit rien. Il te serre si fort que tes pieds décollent du sol.)",
+    "voice": "none"
    },
    {
     "text": "* « Je suis juste à côté. »",
     "voice": "mom"
    },
    {
-    "text": "* (Quand tu cligne des yeux, elle n'est plus là. Mais tu sais qu'elle est à côté.)",
+    "text": "* (Quand tu clignes des yeux, ils ne sont plus là. Mais tu sais qu'ils sont à côté. Ils l'ont toujours été.)",
     "voice": "none"
    }
   ]

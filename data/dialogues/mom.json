@@ -2,13 +2,19 @@
  "nodes": {
   "first": [
    {
-    "text": "* « Ah, te voilà ! Le caméscope est au grenier, dans une mallette. »"
+    "text": "* « Ah, te voilà, mon trésor ! »"
    },
    {
-    "text": "* « L'échelle est au bout du couloir. »"
+    "text": "* « Le caméscope est au grenier, dans une mallette. L'échelle est au bout du couloir. »"
    },
    {
-    "text": "* « Et ne marche pas sur la septième marche, elle réveille toute la maison. »",
+    "text": "* « Et ne marche pas sur la septième marche, elle réveille toute la maison. »"
+   },
+   {
+    "text": "* « ... Viens là. » (Elle te serre contre elle. Elle sent la lessive.)"
+   },
+   {
+    "text": "* « Je t'aime, tu sais. Je te le dis tout le temps. Mais encore une fois, ça ne fait pas de mal. »",
     "set": {
      "met.mom": true
     }
@@ -16,12 +22,18 @@
   ],
   "again": [
    {
-    "text": "* « Le grenier, mon cœur. Au bout du couloir. »"
+    "text": "* « Le grenier, mon cœur. Et reviens vite me faire un câlin. »"
    }
   ],
   "after": [
    {
     "text": "* « Tu l'as trouvé ? Bravo. »"
+   },
+   {
+    "text": "* « Tu sais, avant que tu sois là, on t'attendait déjà. Ton papa et moi, on te parlait tous les soirs. »"
+   },
+   {
+    "text": "* « On t'a aimée avant même de te connaître. Et maintenant qu'on te connaît, c'est encore pire. »"
    },
    {
     "text": "* « Allez, au lit. Demain c'est ton anniversaire. »"

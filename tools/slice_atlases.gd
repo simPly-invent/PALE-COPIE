@@ -37,10 +37,17 @@ var ch
 
 func _init() -> void:
 	ch = CH.new()
+	if OS.get_cmdline_user_args().has("--probe-main"):
+		var im: Image = ch._load("res://main-character.png")
+		for r in ch._rows(ch._components(im)):
+			print(r.size(), " ", r)
+		quit()
+		return
 	var n := 0
 	n += _atlas(MODERN, MODERN_ROWS, 40.0)
 	n += _atlas(ABANDON, ABANDON_ROWS, 40.0)
 	_people()
+	_child()
 	print("slice_atlases : %d images" % n)
 	quit()
 
@@ -129,3 +136,23 @@ func _grid(img: Image, dirs: Array, name: String) -> void:
 	still.save_png(ProjectSettings.globalize_path("res://assets/sprites/%s.png" % name))
 	var head: Rect2i = dirs[0][0]
 	ch._write_portrait(img, Rect2i(head.position, Vector2i(head.size.x, int(head.size.y * 0.7))), name)
+
+## L'héroïne (main-character.png) : 4x4 bas, haut, gauche, droite. Plus petite que les adultes.
+func _child() -> void:
+	if not FileAccess.file_exists("res://main-character.png"):
+		return
+	var img: Image = ch._load("res://main-character.png")
+	var rows: Array = ch._rows(ch._components(img))
+	var tallest := 0
+	for r in rows:
+		for f in r:
+			tallest = maxi(tallest, f.size.y)
+	ch._scale = 25.0 / tallest
+	var sheet := Image.create(ch.FW * 4, ch.FH * 4, false, Image.FORMAT_RGBA8)
+	for row in 4:
+		for col in 4:
+			var f: Image = ch._frame(img, rows[row][col])
+			sheet.blit_rect(f, Rect2i(0, 0, ch.FW, ch.FH), Vector2i(col * ch.FW, row * ch.FH))
+	sheet.save_png(ProjectSettings.globalize_path("res://assets/sprites/child_walk.png"))
+	var head: Rect2i = rows[0][0]
+	ch._write_portrait(img, Rect2i(head.position, Vector2i(head.size.x, int(head.size.y * 0.8))), "child")

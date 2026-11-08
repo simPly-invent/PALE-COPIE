@@ -31,7 +31,7 @@ var position = Vector2.ZERO
 var playtime = 0.0
 var still_time = 0.0             # temps immobile (secrets)
 var badge_decay = 0
-var player_skin = "player_walk"   # planche du personnage joué (papa dans le souvenir, l'enfant ensuite)
+var player_skin = "child_walk"   # planche du personnage joué (papa dans le souvenir, l'enfant ensuite)
 var battery = 100.0
 var meta: Dictionary = {"boots": 0, "games_started": 0, "options": {"reduced_fx": false, "music_volume": 0.8, "fullscreen": false}}
 
@@ -98,7 +98,7 @@ func new_game(name: String) -> void:
 	badge_decay = 0; battery = 100.0; playtime = 0.0
 	room_key = {"source": "house_bedroom", "depth": 0}
 	position = Vector2.ZERO
-	player_skin = "player_walk"
+	player_skin = "child_walk"
 	meta["games_started"] = int(meta.get("games_started", 0)) + 1
 	if meta.get("prologue_wrong", false):
 		flags["prologue_wrong"] = true
@@ -339,6 +339,6 @@ func from_dict(d: Dictionary) -> void:
 	playtime = float(d.get("playtime", 0.0))
 	badge_decay = int(d.get("badge_decay", 0))
 	battery = float(d.get("battery", 100.0))
-	player_skin = d.get("player_skin", "player_walk")
+	player_skin = d.get("player_skin", "child_walk")
 	stats_changed.emit()
 	inventory_changed.emit()

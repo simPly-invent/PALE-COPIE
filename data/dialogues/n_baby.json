@@ -18,6 +18,10 @@
       "goto": "name"
      },
      {
+      "text": "Lui dire que vous l'aimez",
+      "goto": "love"
+     },
+     {
       "text": "Lui raconter ce qu'elle aurait vu",
       "goto": "tell"
      },
@@ -28,7 +32,7 @@
      {
       "text": "Lui dire au revoir",
       "goto": "bye",
-      "if": "baby.arms || baby.name || baby.tell || baby.song"
+      "if": "baby.arms || baby.name || baby.tell || baby.song || baby.love"
      }
     ]
    }
@@ -44,6 +48,10 @@
    },
    {
     "text": "* Tu regardes chaque détail. Tu veux tout retenir.",
+    "voice": "none"
+   },
+   {
+    "text": "* Tu lui dis que tu l'aimes. Tu le lui dis plusieurs fois, pour qu'il y en ait assez pour toute une vie.",
     "voice": "none",
     "set": {
      "baby.arms": true
@@ -101,6 +109,10 @@
     "voice": "none"
    },
    {
+    "text": "* Tu lui dis que sa maman et toi, vous l'aimerez toujours. Ça, rien ne pourra le changer.",
+    "voice": "none"
+   },
+   {
     "text": "* Tu lui promets de lui raconter quand même. Autrement.",
     "voice": "none",
     "set": {
@@ -148,6 +160,28 @@
       "dialogue": "n_end"
      }
     ]
+   }
+  ],
+  "love": [
+   {
+    "text": "* Tu prends la main de sa maman. Vous vous penchez tous les deux au-dessus d'elle.",
+    "voice": "none"
+   },
+   {
+    "text": "* « On t'aime. »",
+    "voice": "none"
+   },
+   {
+    "text": "* Vous le dites ensemble. Puis chacun à son tour. Puis encore ensemble.",
+    "voice": "none"
+   },
+   {
+    "text": "* Il n'y a pas de mots plus vrais que ceux-là. Il n'y en aura jamais.",
+    "voice": "none",
+    "set": {
+     "baby.love": true
+    },
+    "goto": "start"
    }
   ]
  }

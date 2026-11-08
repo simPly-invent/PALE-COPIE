@@ -2,6 +2,14 @@
  "nodes": {
   "start": [
    {
+    "text": "* Avant que la porte s'ouvre, vous l'embrassez tous les deux sur le front.",
+    "voice": "none"
+   },
+   {
+    "text": "* « On sera toujours juste à côté. »",
+    "voice": "none"
+   },
+   {
     "text": "* La porte s'ouvre doucement. L'infirmière est revenue.",
     "voice": "none"
    },

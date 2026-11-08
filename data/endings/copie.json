@@ -22,6 +22,11 @@
   },
   {
    "image": "vhs/static",
+   "text": "Quelque part, deux personnes pensent à toi. Elles n'oublient pas.",
+   "duration": 5
+  },
+  {
+   "image": "vhs/static",
    "text": "Tu t'assieds sur le lit. Il ne grince pas. Il grinçait, avant.",
    "duration": 5,
    "sound": "silence"

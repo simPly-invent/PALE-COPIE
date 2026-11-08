@@ -17,10 +17,13 @@
     "text": "* « Demain, je te filme du matin au soir. Tu seras l'enfant la plus filmée du monde. »"
    },
    {
-    "text": "* « Allez, file. Et après, au lit. »",
+    "text": "* « Tu sais que t'es la plus belle chose qui me soit arrivée ? Oui, oui. Même avant le caméscope. »",
     "set": {
      "met.papa": true
     }
+   },
+   {
+    "text": "* « Allez, file. Et après, au lit. »"
    }
   ],
   "after": [
@@ -29,6 +32,9 @@
    },
    {
     "text": "* « Fais attention, il est vieux. Il a filmé ta maman avant toi. »"
+   },
+   {
+    "text": "* « Ta maman et moi, on t'aime plus que tout. Plus que tout ce qui existe. Même les trucs qui n'existent pas. »"
    },
    {
     "text": "* « Bonne nuit, {name}. On est juste à côté. »"
